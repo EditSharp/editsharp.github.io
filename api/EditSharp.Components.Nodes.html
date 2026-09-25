@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace EditSharp.Components.Nodes | EditSharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace EditSharp.Components.Nodes | EditSharp ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EditSharp">
+            EditSharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EditSharp.Components.Nodes">
+
+  <h1 id="EditSharp_Components_Nodes" data-uid="EditSharp.Components.Nodes" class="text-break">Namespace EditSharp.Components.Nodes</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="namespaces">
+Namespaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.html">EditSharp.Components.Nodes.Effects</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Math.html">EditSharp.Components.Nodes.Math</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Sources.html">EditSharp.Components.Nodes.Sources</a></dt>
+      <dd></dd>
+    </dl>
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.AudioOutputNode.html">AudioOutputNode</a></dt>
+      <dd><p>Feeds the audio mixer. Mandatory, not removable — the one fixed anchor left in an Audio-domain graph.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.CompositeNode.html">CompositeNode</a></dt>
+      <dd><p>A graph folded into one node — what a user gets by assembling a
+graph and saving it as a node of their own. It has the same domain
+as the graph inside it, one output (whatever feeds the inner
+graph's OutputNode), and as inputs exactly the inner input ports
+it chose to expose. Its editable properties are the inner ones it
+chose to expose, each under its own name (see IInspectable).</p>
+<p>Nothing evaluates a composite as such: Graph.Flattened replaces
+every composite with the nodes inside it before an evaluator sees
+the graph, so the effect and audio pipelines never know it was
+there. The inner nodes are the same objects, so their content,
+keyframes and in-points are found and shifted like any other's
+(see Graph.AllNodes).</p>
+<p>Not yet persisted — that arrives with the project file format.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Connection.html">Connection</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.ExposedPort.html">ExposedPort</a></dt>
+      <dd><p>An inner node's input port, shown on the composite under <code>Name</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.ExposedProperty.html">ExposedProperty</a></dt>
+      <dd><p>An inner node's editable property, shown on the composite under <code>Name</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Graph.html">Graph</a></dt>
+      <dd><p>A directed graph of nodes — see the schema doc's &quot;Effects:
+Node-Based Compositing Graph&quot; section for the full design. The same
+primitives here power both the Image/Mask domain (VideoClip) and the
+Audio domain (AudioClip); NodeDomain is what keeps the two from
+ever being wired together, EXCEPT for domain-universal nodes (see
+InferDomain below), which is exactly how the &quot;base node type for
+math functions that are universally applicable&quot; the user asked for
+is implemented: ValueConstantNode/MathNode (see
+EditSharp.Components.Nodes.Math) declare only PortType.Value ports,
+which InferDomain treats as belonging to NEITHER domain specifically,
+and therefore addable to either.</p>
+<p>FUNDAMENTAL REWRITE (&quot;clips are graphs&quot;): there is no longer a
+second fixed anchor alongside OutputNode. The old ImageSourceNode/
+AudioSourceNode were each a single, mandatory, non-removable &quot;the
+clip's content enters here&quot; anchor — every clip's graph had EXACTLY
+one. That model assumed a clip was &quot;media with a graph of effects
+bolted on&quot;. The corrected model is that a clip IS its graph, and a
+graph can have as many InputNodes as an author wants (a minimum of
+one for the graph to produce anything, enforced the same way it
+always effectively was — OutputNode must have SOME path reaching it
+at render time). See InputNode's own remarks.</p>
+<p>Encapsulation principle applies: Nodes/Connections are read-only
+externally, all mutation goes through AddNode/RemoveNode/Connect/
+Disconnect — which is what makes &quot;no dangling references, no cycles,
+no type mismatches&quot; an actual invariant rather than a convention a
+caller could violate by touching a public list directly.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.ImageOutputNode.html">ImageOutputNode</a></dt>
+      <dd><p>Feeds the renderer. Mandatory, not removable — the one fixed anchor left in an Image-domain graph.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.InputNode.html">InputNode</a></dt>
+      <dd><p>FUNDAMENTAL REWRITE: a node that ORIGINATES a clip's content, rather
+than receiving it from upstream — see the schema doc's &quot;clips are
+graphs&quot; model. This replaces the old fixed, mandatory
+ImageSourceNode/AudioSourceNode anchors entirely. An InputNode is
+just an ordinary node: fully addable, removable, and rewireable like
+any other. A graph needs at least one InputNode actually reaching
+OutputNode to render anything, but that's not tracked as a separate
+structural invariant here — it falls out naturally from the exact
+same &quot;Output has no incoming connection&quot; check every evaluator
+already performs (see ImageGraphEvaluator/AudioGraphEvaluator),
+the same way it always has for a disconnected Output. This is also
+what makes a MULTI-input graph (two media sources merged via
+MergeNode/AudioMixNode, say) nothing special: it's just a graph
+with more than one InputNode, no different in kind from one with a
+single InputNode.</p>
+<p>Concrete video-domain InputNodes: VideoSourceNode, TextInputNode,
+ColorGeneratorInputNode, NoiseInputNode, TimelineVideoInputNode (see
+EditSharp.Components.Nodes.Sources). Concrete audio-domain
+InputNodes: AudioSourceNode, ToneGeneratorInputNode,
+TimelineAudioInputNode (see EditSharp.Components.Nodes.Sources).
+These are what replaced the old VideoClip.Source-is-the-whole-clip /
+TextClip / GeneratorClip / NoiseClip / TimelineVideoClip /
+TimelineAudioClip Clip subtypes — the ONLY remaining concrete Clip
+subtypes are VideoClip and AudioClip, and what used to distinguish
+those Clip subtypes from each other is now just which InputNode(s)
+happen to be wired into an otherwise perfectly ordinary Graph.</p>
+<p>Also see Graph's own convenience InputNodes property, for reading
+every InputNode currently in a graph without having to filter
+Nodes by hand.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.NodePort.html">NodePort</a></dt>
+      <dd><p>A fixed port declared by a concrete Node type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.OutputNode.html">OutputNode</a></dt>
+      <dd><p>Common base for the one fixed, mandatory, non-removable anchor every
+graph has — ImageOutputNode for an Image-domain graph, AudioOutputNode
+for an Audio-domain graph (see Graph.OutputNode). Carries no members
+of its own beyond what Node already provides; it exists purely so
+Graph.OutputNode can be typed as &quot;the output anchor&quot; rather than the
+generic base Node type.</p>
+</dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.ITrimmableInput.html">ITrimmableInput</a></dt>
+      <dd><p>A node whose own in-point should shift in lockstep with every OTHER
+trimmable input when the owning Clip's head is trimmed/extended —
+see Clip.OnHeadInPointShift/MaxHeadExtend, and the schema doc's
+multi-input-trim rule (&quot;shift them all together, clamped by whichever
+one has the least room left&quot;).</p>
+<p>Implemented by VideoSourceNode/AudioSourceNode (wrapping
+Source.Start) and TimelineVideoInputNode/TimelineAudioInputNode
+(wrapping TimelineReference.Start). Generator/procedural/text input
+nodes (ColorGeneratorInputNode, NoiseInputNode, TextInputNode,
+ToneGeneratorInputNode) do NOT implement this — they have no
+&quot;in-point&quot; concept, matching the old TextClip/GeneratorClip/
+NoiseClip's inherited no-op/unbounded Clip defaults from before this
+rewrite.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.NodeDomain.html">NodeDomain</a></dt>
+      <dd><p>Which domain a graph's ports may use — see Graph.AddNode.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.PortDirection.html">PortDirection</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.PortType.html">PortType</a></dt>
+      <dd></dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

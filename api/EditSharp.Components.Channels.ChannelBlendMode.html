@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Enum ChannelBlendMode | EditSharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Enum ChannelBlendMode | EditSharp ">
+      
+      <meta name="description" content="Replaces the old ffmpeg-era BlendMode enum (deleted). Rather than exposing SKBlendMode directly on Channel.BlendMode, this mirrors every native Skia blend mode 1:1 by name AND reserves four extra slots for the old enum&#39;s arithmetic modes that have no SKBlendMode equivalent at all (Average, Negation, Divide, Subtract — Photoshop/ GIMP-era formulas, not Porter-Duff/CSS compositing operators). Why a wrapper again, after item 7 deliberately deleted the old wrapper in favour of raw SKBlendMode: those four modes need SOMEWHERE to live if they&#39;re ever implemented via a custom SKRuntimeEffect (SkSL) shader, and SKBlendMode is a sealed native enum — there&#39;s no way to add a value to it. A superset wrapper gives them a stable, permanent slot in the public API now, so wiring in a real implementation later is additive (ChannelCompositor&#39;s mapping gains a case) rather than another breaking enum swap on Channel. The four reserved slots THROW today (see ChannelCompositor&#39;s mapping) rather than silently doing nothing or falling back to SrcOver — a clip configured with one of these gets a clear error, not a silently-wrong render.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Channels_ChannelBlendMode.md&amp;value=---%0Auid%3A%20EditSharp.Components.Channels.ChannelBlendMode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EditSharp">
+            EditSharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EditSharp.Components.Channels.ChannelBlendMode">
+
+
+
+
+  <h1 id="EditSharp_Components_Channels_ChannelBlendMode" data-uid="EditSharp.Components.Channels.ChannelBlendMode" class="text-break">
+Enum ChannelBlendMode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/ChannelBlendMode.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a>.<a class="xref" href="EditSharp.Components.Channels.html">Channels</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Replaces the old ffmpeg-era <code>BlendMode</code> enum (deleted). Rather than
+exposing <code>SKBlendMode</code> directly on <code>Channel.BlendMode</code>, this mirrors
+every native Skia blend mode 1:1 by name AND reserves four extra
+slots for the old enum's arithmetic modes that have no SKBlendMode
+equivalent at all (Average, Negation, Divide, Subtract — Photoshop/
+GIMP-era formulas, not Porter-Duff/CSS compositing operators).</p>
+<p>Why a wrapper again, after item 7 deliberately deleted the old
+wrapper in favour of raw SKBlendMode: those four modes need
+SOMEWHERE to live if they're ever implemented via a custom
+SKRuntimeEffect (SkSL) shader, and <code>SKBlendMode</code> is a sealed native
+enum — there's no way to add a value to it. A superset wrapper gives
+them a stable, permanent slot in the public API now, so wiring in a
+real implementation later is additive (ChannelCompositor's mapping
+gains a case) rather than another breaking enum swap on Channel.</p>
+<p>The four reserved slots THROW today (see ChannelCompositor's
+mapping) rather than silently doing nothing or falling back to
+SrcOver — a clip configured with one of these gets a clear error,
+not a silently-wrong render.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum ChannelBlendMode</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h2 id="fields">Fields
+</h2>
+  <dl class="parameters">
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Average"><code>Average = 29</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Clear"><code>Clear = 0</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Color"><code>Color = 27</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_ColorBurn"><code>ColorBurn = 19</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_ColorDodge"><code>ColorDodge = 18</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Darken"><code>Darken = 16</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Difference"><code>Difference = 22</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Divide"><code>Divide = 31</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Dst"><code>Dst = 2</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_DstATop"><code>DstATop = 10</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_DstIn"><code>DstIn = 6</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_DstOut"><code>DstOut = 8</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_DstOver"><code>DstOver = 4</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Exclusion"><code>Exclusion = 23</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_HardLight"><code>HardLight = 20</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Hue"><code>Hue = 25</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Lighten"><code>Lighten = 17</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Luminosity"><code>Luminosity = 28</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Modulate"><code>Modulate = 13</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Multiply"><code>Multiply = 24</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Negation"><code>Negation = 30</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Overlay"><code>Overlay = 15</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Plus"><code>Plus = 12</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Saturation"><code>Saturation = 26</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Screen"><code>Screen = 14</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_SoftLight"><code>SoftLight = 21</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Src"><code>Src = 1</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_SrcATop"><code>SrcATop = 9</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_SrcIn"><code>SrcIn = 5</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_SrcOut"><code>SrcOut = 7</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_SrcOver"><code>SrcOver = 3</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Subtract"><code>Subtract = 32</code></dt>
+  
+  <dd></dd>
+    <dt id="EditSharp_Components_Channels_ChannelBlendMode_Xor"><code>Xor = 11</code></dt>
+  
+  <dd></dd>
+  </dl>
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/ChannelBlendMode.cs/#L25" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface ITrimmableInput | EditSharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface ITrimmableInput | EditSharp ">
+      
+      <meta name="description" content="A node whose own in-point should shift in lockstep with every OTHER trimmable input when the owning Clip&#39;s head is trimmed/extended — see Clip.OnHeadInPointShift/MaxHeadExtend, and the schema doc&#39;s multi-input-trim rule (&amp;quot;shift them all together, clamped by whichever one has the least room left&amp;quot;). Implemented by VideoSourceNode/AudioSourceNode (wrapping Source.Start) and TimelineVideoInputNode/TimelineAudioInputNode (wrapping TimelineReference.Start). Generator/procedural/text input nodes (ColorGeneratorInputNode, NoiseInputNode, TextInputNode, ToneGeneratorInputNode) do NOT implement this — they have no &amp;quot;in-point&amp;quot; concept, matching the old TextClip/GeneratorClip/ NoiseClip&#39;s inherited no-op/unbounded Clip defaults from before this rewrite.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Nodes_ITrimmableInput.md&amp;value=---%0Auid%3A%20EditSharp.Components.Nodes.ITrimmableInput%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EditSharp">
+            EditSharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EditSharp.Components.Nodes.ITrimmableInput">
+
+
+
+  <h1 id="EditSharp_Components_Nodes_ITrimmableInput" data-uid="EditSharp.Components.Nodes.ITrimmableInput" class="text-break">
+Interface ITrimmableInput  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/ITrimmableInput.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a>.<a class="xref" href="EditSharp.Components.Nodes.html">Nodes</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A node whose own in-point should shift in lockstep with every OTHER
+trimmable input when the owning Clip's head is trimmed/extended —
+see Clip.OnHeadInPointShift/MaxHeadExtend, and the schema doc's
+multi-input-trim rule (&quot;shift them all together, clamped by whichever
+one has the least room left&quot;).</p>
+<p>Implemented by VideoSourceNode/AudioSourceNode (wrapping
+Source.Start) and TimelineVideoInputNode/TimelineAudioInputNode
+(wrapping TimelineReference.Start). Generator/procedural/text input
+nodes (ColorGeneratorInputNode, NoiseInputNode, TextInputNode,
+ToneGeneratorInputNode) do NOT implement this — they have no
+&quot;in-point&quot; concept, matching the old TextClip/GeneratorClip/
+NoiseClip's inherited no-op/unbounded Clip defaults from before this
+rewrite.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ITrimmableInput</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="EditSharp_Components_Nodes_ITrimmableInput_ContentLength_" data-uid="EditSharp.Components.Nodes.ITrimmableInput.ContentLength*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_ITrimmableInput_ContentLength" data-uid="EditSharp.Components.Nodes.ITrimmableInput.ContentLength">
+  ContentLength
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/ITrimmableInput.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much content follows the in-point when there's a known hard end; null when unbounded, looping, or not known yet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TimeSpan? ContentLength { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_ITrimmableInput_InPoint_" data-uid="EditSharp.Components.Nodes.ITrimmableInput.InPoint*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_ITrimmableInput_InPoint" data-uid="EditSharp.Components.Nodes.ITrimmableInput.InPoint">
+  InPoint
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/ITrimmableInput.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The node's own in-point. Setting this is what OnHeadInPointShift actually does, per node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TimeSpan InPoint { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_ITrimmableInput_MaxHeadroom_" data-uid="EditSharp.Components.Nodes.ITrimmableInput.MaxHeadroom*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_ITrimmableInput_MaxHeadroom" data-uid="EditSharp.Components.Nodes.ITrimmableInput.MaxHeadroom">
+  MaxHeadroom
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/ITrimmableInput.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How far InPoint could move EARLIER (an extend) — TimeSpan.MaxValue if unconstrained.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TimeSpan MaxHeadroom { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/ITrimmableInput.cs/#L21" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

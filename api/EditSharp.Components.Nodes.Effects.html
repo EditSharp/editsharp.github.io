@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace EditSharp.Components.Nodes.Effects | EditSharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace EditSharp.Components.Nodes.Effects | EditSharp ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EditSharp">
+            EditSharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EditSharp.Components.Nodes.Effects">
+
+  <h1 id="EditSharp_Components_Nodes_Effects" data-uid="EditSharp.Components.Nodes.Effects" class="text-break">Namespace EditSharp.Components.Nodes.Effects</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.AudioMixNode.html">AudioMixNode</a></dt>
+      <dd><p>The audio-domain equivalent of MergeNode — enables parallel
+processing (e.g. parallel compression: split the signal, compress
+one branch heavily, mix it back under the dry signal), and the
+canonical way to combine TWO InputNodes in one audio graph now that
+a graph can have more than one.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.BlurNode.html">BlurNode</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.CompressorNode.html">CompressorNode</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.DropShadowNode.html">DropShadowNode</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.EQBand.html">EQBand</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.EQNode.html">EQNode</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.GainNode.html">GainNode</a></dt>
+      <dd><p>Auto-created and wired in by default (see Graph.CreateAudioGraph)
+— this is what replaces the old flat AudioClip.Volume field. A
+normal, removable node beyond that default: an artist can delete it,
+add several gain stages at different points in a chain, or route
+around it entirely.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.ImageToMaskNode.html">ImageToMaskNode</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.MaskCombineNode.html">MaskCombineNode</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.MergeNode.html">MergeNode</a></dt>
+      <dd><p>Branch/recombine — the canonical node-graph pattern (split into two
+branches, effect each differently, recombine) that justifies a graph
+over a flat stack in the first place. Also the canonical way to
+combine TWO InputNodes in one graph now that a graph can have more
+than one (e.g. two VideoSourceNodes composited together).</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.RoundedCornersNode.html">RoundedCornersNode</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.ShapeMaskNode.html">ShapeMaskNode</a></dt>
+      <dd><p>Geometry is normalized 0-1 — a fraction of whatever image this mask
+ends up merged against — rather than absolute pixels. See the schema
+doc's &quot;Masks are canvas-agnostic&quot; note for why this sidesteps the
+pre-/post-TransformNode coordinate-space question entirely.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.TintNode.html">TintNode</a></dt>
+      <dd><p>Color tint, doubling as transparency via alpha. Auto-created and
+wired in by default (see Graph.CreateVideoGraph) alongside
+TransformNode — this is what replaced the old flat
+VisualClip.Modulate property entirely, fully consistent with how
+GainNode already replaced the old flat AudioClip.Volume: a normal,
+removable, reorderable node beyond the default, not a fixed clip
+property any more.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.TransformNode.html">TransformNode</a></dt>
+      <dd><p>Wraps a clip's transform. Auto-created and wired in by default when
+a VideoClip's graph is first constructed, but is otherwise a normal,
+removable, rewireable node — this is what replaces the old
+EffectStage.PreTransform/PostTransform enum entirely (see the schema
+doc): &quot;stage&quot; is purely a function of a node's position relative to
+TransformNode in the graph, not a fixed property of an effect type.</p>
+<p>REWRITE: this node now carries its OWN ClipTransform data (Position/
+Scale/Rotation/Pitch/Yaw), rather than being a data-less marker
+whose data lived on the owning VisualClip — there is no more
+VisualClip to hold it now that VideoClip is the only concrete
+visual Clip type and a clip IS its graph. A graph is free to have
+more than one TransformNode (e.g. one per branch before a MergeNode)
+now that Transform data travels with the node instead of the clip.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.MaskChannelSource.html">MaskChannelSource</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.MaskCombineMode.html">MaskCombineMode</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Effects.ShapeType.html">ShapeType</a></dt>
+      <dd></dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

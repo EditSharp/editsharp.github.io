@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PropertyDescriptor | EditSharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PropertyDescriptor | EditSharp ">
+      
+      <meta name="description" content="Everything an editor needs to know to show and change one property on one object: what to call it, what control to use, what it accepts, whether it can be keyframed, when it applies, and how to read and write it. Resolved once per type from the EditableAttribute and the property&#39;s own type (see Inspect), so a new node or clip property becomes editable by carrying the attribute and nothing else. Writes go through the property&#39;s own setter, so they are recorded for undo like any other write. List edits are recorded here, since a list&#39;s own Add/Remove are not. A descriptor can be redirected (Through) so that a composite node can present an inner node&#39;s property as its own, under its own name: the descriptor reads and writes the inner node while the inspector only ever hands it the composite.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Editing_PropertyDescriptor.md&amp;value=---%0Auid%3A%20EditSharp.Editing.PropertyDescriptor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EditSharp">
+            EditSharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EditSharp.Editing.PropertyDescriptor">
+
+
+
+  <h1 id="EditSharp_Editing_PropertyDescriptor" data-uid="EditSharp.Editing.PropertyDescriptor" class="text-break">
+Class PropertyDescriptor  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Editing.html">Editing</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Everything an editor needs to know to show and change one property
+on one object: what to call it, what control to use, what it
+accepts, whether it can be keyframed, when it applies, and how to
+read and write it. Resolved once per type from the EditableAttribute
+and the property's own type (see Inspect), so a new node or clip
+property becomes editable by carrying the attribute and nothing
+else.</p>
+<p>Writes go through the property's own setter, so they are recorded
+for undo like any other write. List edits are recorded here, since
+a list's own Add/Remove are not.</p>
+<p>A descriptor can be redirected (Through) so that a composite node
+can present an inner node's property as its own, under its own
+name: the descriptor reads and writes the inner node while the
+inspector only ever hands it the composite.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class PropertyDescriptor</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">PropertyDescriptor</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_Conditions_" data-uid="EditSharp.Editing.PropertyDescriptor.Conditions*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_Conditions" data-uid="EditSharp.Editing.PropertyDescriptor.Conditions">
+  Conditions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;VisibleWhenAttribute&gt; Conditions { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="EditSharp.Editing.VisibleWhenAttribute.html">VisibleWhenAttribute</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_DisplayName_" data-uid="EditSharp.Editing.PropertyDescriptor.DisplayName*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_DisplayName" data-uid="EditSharp.Editing.PropertyDescriptor.DisplayName">
+  DisplayName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DisplayName { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_Editor_" data-uid="EditSharp.Editing.PropertyDescriptor.Editor*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_Editor" data-uid="EditSharp.Editing.PropertyDescriptor.Editor">
+  Editor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PropertyEditor Editor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Editing.PropertyEditor.html">PropertyEditor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_Frame_" data-uid="EditSharp.Editing.PropertyDescriptor.Frame*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_Frame" data-uid="EditSharp.Editing.PropertyDescriptor.Frame">
+  Frame
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FrameMeasure Frame { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Editing.FrameMeasure.html">FrameMeasure</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_Group_" data-uid="EditSharp.Editing.PropertyDescriptor.Group*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_Group" data-uid="EditSharp.Editing.PropertyDescriptor.Group">
+  Group
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Group { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_IsAnimatable_" data-uid="EditSharp.Editing.PropertyDescriptor.IsAnimatable*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_IsAnimatable" data-uid="EditSharp.Editing.PropertyDescriptor.IsAnimatable">
+  IsAnimatable
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True for an Animatable&lt;T&gt; — the value can carry keyframes. See GetAnimatable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsAnimatable { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_IsCollection_" data-uid="EditSharp.Editing.PropertyDescriptor.IsCollection*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_IsCollection" data-uid="EditSharp.Editing.PropertyDescriptor.IsCollection">
+  IsCollection
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True for a List&lt;T&gt;. ItemType/ItemEditor say what the items are; see GetList/AddItem/RemoveItem.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsCollection { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_IsNullable_" data-uid="EditSharp.Editing.PropertyDescriptor.IsNullable*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_IsNullable" data-uid="EditSharp.Editing.PropertyDescriptor.IsNullable">
+  IsNullable
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsNullable { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_IsReadOnly_" data-uid="EditSharp.Editing.PropertyDescriptor.IsReadOnly*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_IsReadOnly" data-uid="EditSharp.Editing.PropertyDescriptor.IsReadOnly">
+  IsReadOnly
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_ItemEditor_" data-uid="EditSharp.Editing.PropertyDescriptor.ItemEditor*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_ItemEditor" data-uid="EditSharp.Editing.PropertyDescriptor.ItemEditor">
+  ItemEditor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PropertyEditor ItemEditor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Editing.PropertyEditor.html">PropertyEditor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_ItemIsAnimatable_" data-uid="EditSharp.Editing.PropertyDescriptor.ItemIsAnimatable*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_ItemIsAnimatable" data-uid="EditSharp.Editing.PropertyDescriptor.ItemIsAnimatable">
+  ItemIsAnimatable
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ItemIsAnimatable { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_ItemType_" data-uid="EditSharp.Editing.PropertyDescriptor.ItemType*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_ItemType" data-uid="EditSharp.Editing.PropertyDescriptor.ItemType">
+  ItemType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type? ItemType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_ItemValueType_" data-uid="EditSharp.Editing.PropertyDescriptor.ItemValueType*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_ItemValueType" data-uid="EditSharp.Editing.PropertyDescriptor.ItemValueType">
+  ItemValueType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type? ItemValueType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_Max_" data-uid="EditSharp.Editing.PropertyDescriptor.Max*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_Max" data-uid="EditSharp.Editing.PropertyDescriptor.Max">
+  Max
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? Max { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_Min_" data-uid="EditSharp.Editing.PropertyDescriptor.Min*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_Min" data-uid="EditSharp.Editing.PropertyDescriptor.Min">
+  Min
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? Min { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_Name_" data-uid="EditSharp.Editing.PropertyDescriptor.Name*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_Name" data-uid="EditSharp.Editing.PropertyDescriptor.Name">
+  Name
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_Order_" data-uid="EditSharp.Editing.PropertyDescriptor.Order*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_Order" data-uid="EditSharp.Editing.PropertyDescriptor.Order">
+  Order
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Order { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_PropertyType_" data-uid="EditSharp.Editing.PropertyDescriptor.PropertyType*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_PropertyType" data-uid="EditSharp.Editing.PropertyDescriptor.PropertyType">
+  PropertyType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The declared property type, before any unwrapping.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type PropertyType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_Step_" data-uid="EditSharp.Editing.PropertyDescriptor.Step*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_Step" data-uid="EditSharp.Editing.PropertyDescriptor.Step">
+  Step
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double? Step { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_Tooltip_" data-uid="EditSharp.Editing.PropertyDescriptor.Tooltip*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_Tooltip" data-uid="EditSharp.Editing.PropertyDescriptor.Tooltip">
+  Tooltip
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Tooltip { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_Unit_" data-uid="EditSharp.Editing.PropertyDescriptor.Unit*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_Unit" data-uid="EditSharp.Editing.PropertyDescriptor.Unit">
+  Unit
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Unit { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_ValueType_" data-uid="EditSharp.Editing.PropertyDescriptor.ValueType*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_ValueType" data-uid="EditSharp.Editing.PropertyDescriptor.ValueType">
+  ValueType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The type an editor works with: Animatable&lt;T&gt; and T? both read as T.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type ValueType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_AddItem_" data-uid="EditSharp.Editing.PropertyDescriptor.AddItem*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_AddItem_System_Object_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.AddItem(System.Object,System.Object)">
+  AddItem(object, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L264"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddItem(object target, object item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>item</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_CreateItem_" data-uid="EditSharp.Editing.PropertyDescriptor.CreateItem*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_CreateItem" data-uid="EditSharp.Editing.PropertyDescriptor.CreateItem">
+  CreateItem()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A fresh item of the list's item type, ready to add.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object CreateItem()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_GetAnimatable_" data-uid="EditSharp.Editing.PropertyDescriptor.GetAnimatable*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_GetAnimatable_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.GetAnimatable(System.Object)">
+  GetAnimatable(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Animatable behind an animatable property, for keyframe editors. Null for anything else.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAnimatable? GetAnimatable(object target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.IAnimatable.html">IAnimatable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_GetList_" data-uid="EditSharp.Editing.PropertyDescriptor.GetList*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_GetList_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.GetList(System.Object)">
+  GetList(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L247"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IList? GetList(object target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ilist">IList</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_GetValue_" data-uid="EditSharp.Editing.PropertyDescriptor.GetValue*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_GetValue_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.GetValue(System.Object)">
+  GetValue(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The value an editor shows: an Animatable's static value, otherwise the property itself.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object? GetValue(object target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_InsertItem_" data-uid="EditSharp.Editing.PropertyDescriptor.InsertItem*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_InsertItem_System_Object_System_Int32_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.InsertItem(System.Object,System.Int32,System.Object)">
+  InsertItem(object, int, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L266"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void InsertItem(object target, int index, object item)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>item</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_IsDefault_" data-uid="EditSharp.Editing.PropertyDescriptor.IsDefault*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_IsDefault_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.IsDefault(System.Object)">
+  IsDefault(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when the property holds its default on this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDefault(object target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_IsVisible_" data-uid="EditSharp.Editing.PropertyDescriptor.IsVisible*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_IsVisible_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.IsVisible(System.Object)">
+  IsVisible(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L222"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether the property applies right now, per its VisibleWhen conditions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsVisible(object target)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_RemoveItem_" data-uid="EditSharp.Editing.PropertyDescriptor.RemoveItem*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_RemoveItem_System_Object_System_Int32_" data-uid="EditSharp.Editing.PropertyDescriptor.RemoveItem(System.Object,System.Int32)">
+  RemoveItem(object, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L277"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveItem(object target, int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_SetValue_" data-uid="EditSharp.Editing.PropertyDescriptor.SetValue*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_SetValue_System_Object_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.SetValue(System.Object,System.Object)">
+  SetValue(object, object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes the value, coercing numbers and enums from whatever an editor hands over. Recorded for undo by the setter it goes through.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetValue(object target, object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_Through_" data-uid="EditSharp.Editing.PropertyDescriptor.Through*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_Through_System_Func_System_Object_System_Object__System_String_System_String_" data-uid="EditSharp.Editing.PropertyDescriptor.Through(System.Func{System.Object,System.Object},System.String,System.String)">
+  Through(Func&lt;object, object&gt;, string?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The same property, reached on another object: <code>resolve</code> turns the target an editor holds into the object that actually carries the property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PropertyDescriptor Through(Func&lt;object, object&gt; resolve, string? alias = null, string? group = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>resolve</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>alias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>group</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Editing.PropertyDescriptor.html">PropertyDescriptor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Editing_PropertyDescriptor_TryGetDefault_" data-uid="EditSharp.Editing.PropertyDescriptor.TryGetDefault*"></a>
+
+  <h3 id="EditSharp_Editing_PropertyDescriptor_TryGetDefault_System_Object_System_Object__" data-uid="EditSharp.Editing.PropertyDescriptor.TryGetDefault(System.Object,System.Object@)">
+  TryGetDefault(object, out object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The value a reset returns this property to on this object, if
+there is one: the attribute's Default, else the value the same
+property has on a freshly constructed object of the holder's
+type. False when neither exists - an abstract holder with no
+attribute default, say.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryGetDefault(object target, out object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L36" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

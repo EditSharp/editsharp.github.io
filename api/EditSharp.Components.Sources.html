@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace EditSharp.Components.Sources | EditSharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace EditSharp.Components.Sources | EditSharp ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EditSharp">
+            EditSharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EditSharp.Components.Sources">
+
+  <h1 id="EditSharp_Components_Sources" data-uid="EditSharp.Components.Sources" class="text-break">Namespace EditSharp.Components.Sources</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="namespaces">
+Namespaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Sources.Audio.html">EditSharp.Components.Sources.Audio</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Sources.Video.html">EditSharp.Components.Sources.Video</a></dt>
+      <dd></dd>
+    </dl>
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Sources.Source.html">Source</a></dt>
+      <dd><p>Something that can PROVIDE a clip's raw content (a media file, a
+rendered scene, an instrument) independently of how that content is
+later composited or mixed. Compositing never knows what kind of source
+it is reading from; it only prepares a source, opens readers on it and
+reacts to the SourceUnavailableReason a failing read reports.</p>
+<p>Every source is plain data: its [Editable] properties are exactly what
+SourceSerializer saves, and Duplicate is a round-trip through that same
+serializer, so a new property is copied precisely when it is saved.
+Nothing prepared or opened (probe results, decoders) is ever stored on
+the source itself; several Playbacks may read one source at once.</p>
+<p>ADDING A KIND: derive from VideoSource or AudioSource, mark the class
+[SourceKind(&quot;stable-id&quot;)] (the id is what saved files contain, so never
+change it), implement PrepareAsync and GetNaturalLengthAsync, and add
+anything identifying its content to AddFingerprint. See
+BlenderSceneVideoSource/VSTInstrumentSource for the bare shape.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Sources.SourceKindAttribute.html">SourceKindAttribute</a></dt>
+      <dd><p>Registers a concrete Source for serialization under a stable id. The id
+is written into saved data as &quot;$kind&quot;, so it must never change once
+shipped; rename the class freely, never the id. DisplayName is what
+editors show; Listed false keeps a kind out of pickers (examples,
+unfinished kinds) while it still loads.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Sources.SourceKindInfo.html">SourceKindInfo</a></dt>
+      <dd><p>A kind a source can be switched to: its saved id, its name in pickers, its class.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Sources.SourceKinds.html">SourceKinds</a></dt>
+      <dd><p>The source kinds pickers offer, and switching a source from one kind to another.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Sources.SourceSerializer.html">SourceSerializer</a></dt>
+      <dd><p>Saves and loads sources as JSON. Every abstract Source type (Source,
+VideoSource, AudioSource, ...) is polymorphic, discriminated by &quot;$kind&quot;
+with the id from each concrete kind's [SourceKind]; no central list to
+edit when a kind is added. Property names are camelCase and TimeSpans
+are &quot;c&quot;-format strings (JsonSerializerDefaults.Web). Enums are names,
+keyframed values carry their whole track, colours are &quot;#AARRGGBB&quot;, and
+a nested Timeline is saved as its Id (see Deserialize).</p>
+<p>Consumers embedding sources in their own JSON use Options directly (or
+chain its TypeInfoResolver into theirs); Serialize/Deserialize are the
+standalone shortcut. Loading always runs with history suppressed, so a
+deserialized source arrives with no undo entries of its own.</p>
+<p>Only kinds in this assembly are discovered for now (source kinds are
+internal to EditSharp); registering external assemblies belongs with
+opening the source contract up.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Sources.SourceUnavailableException.html">SourceUnavailableException</a></dt>
+      <dd><p>The one way a source reports that it cannot provide content. Sources
+never substitute placeholders themselves; they throw this and let the
+caller decide by Reason.</p>
+</dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Sources.IFileBackedSource.html">IFileBackedSource</a></dt>
+      <dd><p>A source whose content lives in one file on disk. File-level services
+(proxies, grouping clips that share a file) work
+against this rather than any concrete kind, so a new file-backed kind
+gets them by implementing it.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Sources.SourceMode.html">SourceMode</a></dt>
+      <dd><p>Whether proxy-capable sources read their proxy or their original.
+Kinds with no notion of a proxy (a still image, a 3D scene) ignore
+this and always render from source. Random access (scrubbing, reverse)
+always needs a proxy regardless of mode; decoding an original at an
+arbitrary position per frame isn't viable.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Sources.SourceUnavailableReason.html">SourceUnavailableReason</a></dt>
+      <dd><p>Why a source could not provide content right now; compositing picks what to show from this.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

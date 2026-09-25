@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ProxyCache | EditSharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ProxyCache | EditSharp ">
+      
+      <meta name="description" content="The one proxy per original media file; shared by scrubbing, playback and paused editing alike. An entry remembers its original (by content hash, so a renamed, moved or duplicated file finds the same proxy), its format, and how far it has been built. NOTHING BUILDS AUTOMATICALLY. A consumer calls BuildAsync (typically on import) and watches StatusChanged; everything that reads media only ever looks proxies up. Builds queue behind EditSharpConfig.MaxConcurrentProxyBuilds; concurrent requests for the same file share one build, which is cancelled only once every caller has cancelled. PARTIAL PROXIES ARE FIRST-CLASS: a proxy is readable from its start up to AvailableUpTo while it builds, stays readable if the build is interrupted (ProxyState.Partial), and the next BuildAsync resumes from there. Building a different format than the one on disk replaces it: the old proxy keeps serving reads until the new one completes, then is deleted. ON DISK (EditSharpConfig.ProxyDirectory/&amp;lt;hash[..2]&amp;gt;/), one stem per format (&amp;lt;hash&amp;gt;.delta7, .rgba, .dnxhr, .prores) so a replacement never collides with the proxy it replaces: &amp;lt;stem&amp;gt;.esrp                 an .esrp proxy (progress lives in its index) &amp;lt;stem&amp;gt;.mov.json             a MOV proxy&#39;s sidecar (segments/progress) &amp;lt;stem&amp;gt;.seg&amp;lt;n&amp;gt;.mov, &amp;lt;stem&amp;gt;.mov   its segments while building, its final file once complete">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Caching_Proxy_ProxyCache.md&amp;value=---%0Auid%3A%20EditSharp.Caching.Proxy.ProxyCache%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EditSharp">
+            EditSharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EditSharp.Caching.Proxy.ProxyCache">
+
+
+
+  <h1 id="EditSharp_Caching_Proxy_ProxyCache" data-uid="EditSharp.Caching.Proxy.ProxyCache" class="text-break">
+Class ProxyCache  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyCache.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<span class="xref">Caching</span>.<a class="xref" href="EditSharp.Caching.Proxy.html">Proxy</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The one proxy per original media file; shared by scrubbing, playback
+and paused editing alike. An entry remembers its original (by content
+hash, so a renamed, moved or duplicated file finds the same proxy), its
+format, and how far it has been built.</p>
+<p>NOTHING BUILDS AUTOMATICALLY. A consumer calls BuildAsync (typically
+on import) and watches StatusChanged; everything that reads media only
+ever looks proxies up. Builds queue behind
+EditSharpConfig.MaxConcurrentProxyBuilds; concurrent requests for the
+same file share one build, which is cancelled only once every caller
+has cancelled.</p>
+<p>PARTIAL PROXIES ARE FIRST-CLASS: a proxy is readable from its start up
+to AvailableUpTo while it builds, stays readable if the build is
+interrupted (ProxyState.Partial), and the next BuildAsync resumes from
+there. Building a different format than the one on disk replaces it:
+the old proxy keeps serving reads until the new one completes, then is
+deleted.</p>
+<p>ON DISK (EditSharpConfig.ProxyDirectory/&lt;hash[..2]&gt;/), one stem per
+format (&lt;hash&gt;.delta7, .rgba, .dnxhr, .prores) so a replacement never
+collides with the proxy it replaces:
+&lt;stem&gt;.esrp                 an .esrp proxy (progress lives in its index)
+&lt;stem&gt;.mov.json             a MOV proxy's sidecar (segments/progress)
+&lt;stem&gt;.seg&lt;n&gt;.mov, &lt;stem&gt;.mov   its segments while building, its final file once complete</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ProxyCache</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ProxyCache</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="EditSharp_Caching_Proxy_ProxyCache_BuildAsync_" data-uid="EditSharp.Caching.Proxy.ProxyCache.BuildAsync*"></a>
+
+  <h3 id="EditSharp_Caching_Proxy_ProxyCache_BuildAsync_System_String_System_Nullable_EditSharp_Caching_Proxy_ProxyFormat__System_IProgress_System_Double__EditSharp_Video_HardwareAccelerator_System_Threading_CancellationToken_" data-uid="EditSharp.Caching.Proxy.ProxyCache.BuildAsync(System.String,System.Nullable{EditSharp.Caching.Proxy.ProxyFormat},System.IProgress{System.Double},EditSharp.Video.HardwareAccelerator,System.Threading.CancellationToken)">
+  BuildAsync(string, ProxyFormat?, IProgress&lt;double&gt;?, HardwareAccelerator, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyCache.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Builds <code>sourcePath</code>'s proxy in <code>format</code> (EditSharpConfig.ProxyFormat
+when null), resuming a partial one of the same format, and returns
+once it's complete. Returns at once if a complete proxy in that
+format already exists. Cancelling only detaches this caller; the
+build itself stops when no caller is left waiting on it, and what it
+wrote stays usable and resumable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;ProxyEntry&gt; BuildAsync(string sourcePath, ProxyFormat? format = null, IProgress&lt;double&gt;? progress = null, HardwareAccelerator hwAccel = HardwareAccelerator.GPU, CancellationToken ct = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourcePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>format</code> <a class="xref" href="EditSharp.Caching.Proxy.ProxyFormat.html">ProxyFormat</a>?</dt>
+    <dd></dd>
+    <dt><code>progress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iprogress-1">IProgress</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>hwAccel</code> <a class="xref" href="EditSharp.Video.HardwareAccelerator.html">HardwareAccelerator</a></dt>
+    <dd></dd>
+    <dt><code>ct</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="EditSharp.Caching.Proxy.ProxyEntry.html">ProxyEntry</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Caching_Proxy_ProxyCache_GetStatusAsync_" data-uid="EditSharp.Caching.Proxy.ProxyCache.GetStatusAsync*"></a>
+
+  <h3 id="EditSharp_Caching_Proxy_ProxyCache_GetStatusAsync_System_String_System_Threading_CancellationToken_" data-uid="EditSharp.Caching.Proxy.ProxyCache.GetStatusAsync(System.String,System.Threading.CancellationToken)">
+  GetStatusAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyCache.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Where <code>sourcePath</code>'s proxy stands, looking at running builds first and then the disk.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;ProxyStatus&gt; GetStatusAsync(string sourcePath, CancellationToken ct = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourcePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>ct</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="EditSharp.Caching.Proxy.ProxyStatus.html">ProxyStatus</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Caching_Proxy_ProxyCache_IsBuilding_" data-uid="EditSharp.Caching.Proxy.ProxyCache.IsBuilding*"></a>
+
+  <h3 id="EditSharp_Caching_Proxy_ProxyCache_IsBuilding_System_String_" data-uid="EditSharp.Caching.Proxy.ProxyCache.IsBuilding(System.String)">
+  IsBuilding(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyCache.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Synchronous, memory-only: whether a build for <code>sourcePath</code> is queued
+or running in this process right now.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsBuilding(string sourcePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourcePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Caching_Proxy_ProxyCache_TryGetAsync_" data-uid="EditSharp.Caching.Proxy.ProxyCache.TryGetAsync*"></a>
+
+  <h3 id="EditSharp_Caching_Proxy_ProxyCache_TryGetAsync_System_String_System_Threading_CancellationToken_" data-uid="EditSharp.Caching.Proxy.ProxyCache.TryGetAsync(System.String,System.Threading.CancellationToken)">
+  TryGetAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyCache.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p><code>sourcePath</code>'s proxy (complete or partial) if one is on disk, loading
+what's needed to find it. After this, TryGetEntry answers
+synchronously for the same unchanged file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;ProxyEntry?&gt; TryGetAsync(string sourcePath, CancellationToken ct = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourcePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>ct</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="EditSharp.Caching.Proxy.ProxyEntry.html">ProxyEntry</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Caching_Proxy_ProxyCache_TryGetEntry_" data-uid="EditSharp.Caching.Proxy.ProxyCache.TryGetEntry*"></a>
+
+  <h3 id="EditSharp_Caching_Proxy_ProxyCache_TryGetEntry_System_String_EditSharp_Caching_Proxy_ProxyEntry__" data-uid="EditSharp.Caching.Proxy.ProxyCache.TryGetEntry(System.String,EditSharp.Caching.Proxy.ProxyEntry@)">
+  TryGetEntry(string, out ProxyEntry)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyCache.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Synchronous, memory-only lookup for per-frame callers: the proxy for
+<code>sourcePath</code> if this process already knows it (via TryGetAsync, a
+status query, or a build). Never hashes and never reads the cache
+from disk; a miss only means &quot;not known yet&quot;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryGetEntry(string sourcePath, out ProxyEntry entry)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourcePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>entry</code> <a class="xref" href="EditSharp.Caching.Proxy.ProxyEntry.html">ProxyEntry</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="EditSharp_Caching_Proxy_ProxyCache_StatusChanged" data-uid="EditSharp.Caching.Proxy.ProxyCache.StatusChanged">
+  StatusChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyCache.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised whenever a file's proxy status changes; queued, started,
+progressed (at most ~4 times a second per file), finished, failed or
+cancelled. Raised on a background thread.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static event EventHandler&lt;ProxyStatusChangedEventArgs&gt;? StatusChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="EditSharp.Caching.Proxy.ProxyStatusChangedEventArgs.html">ProxyStatusChangedEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyCache.cs/#L39" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

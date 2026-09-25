@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Timeline | EditSharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Timeline | EditSharp ">
+      
+      <meta name="description" content="A sequence of Channels. Also the seat of nested-timeline bookkeeping (cycle prevention, UsedBy tracking) — see the remarks on ValidateNoCycle/RegisterEmbeddedTimelines/NotifyClipDetached below. REWRITE (&amp;quot;clips are graphs&amp;quot;): the old dedicated AddTimelineClip/RippleAddTimelineClip/AddTimelineClipCore methods are GONE. Embedding a nested Timeline used to require a special add path because it was a distinct Clip subtype (TimelineVideoClip/ TimelineAudioClip) that only Timeline knew how to construct correctly (cycle-checked, UsedBy-registered). Now that embedding a nested Timeline is just wiring a TimelineVideoInputNode/ TimelineAudioInputNode into an ordinary VideoClip&#39;s/AudioClip&#39;s graph (built via VideoClip.CreateTimelineEmbed/AudioClip.CreateTimelineEmbed), there&#39;s nothing left for a separate Timeline-level add method to do — build the clip, then place it with the SAME Channel.AddClip/ RippleAddClip every other clip uses. Channel.AddClipCore calls back into ValidateNoCycle/RegisterEmbeddedTimelines itself (see Channel.cs), generalized to scan the clip&#39;s graph for however many embed nodes it actually has (zero, one, or several) rather than assuming exactly one. REWRITE (&amp;quot;channels split by kind&amp;quot;): VideoChannels and AudioChannels used to live together in one mixed _channels list, ordered however they were added. They&#39;re now two entirely separate lists. The reason is LinkGroup.MoveChannel/RippleMoveChannel (see LinkGroup.cs): asking a linked group to &amp;quot;move up/down a channel&amp;quot; only has an unambiguous meaning per member if each member&#39;s own channel index is counted among channels of its OWN kind — a video clip and its linked audio clip can never share a channel, so there&#39;s no single mixed index that means the same thing for both of them at once. With two separate lists, &amp;quot;move this video clip&#39;s channel index by delta&amp;quot; and &amp;quot;move this audio clip&#39;s channel index by the SAME delta&amp;quot; are just two independent, symmetric lookups — see ResolveChannelDelta below, which also creates whichever new channels (of the matching kind) a delta past the current top requires. VideoChannels keeps its own bottom-to-top compositing order exactly as before; AudioChannels&#39; order still carries no acoustic meaning (see AudioMixer).">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Timeline.md&amp;value=---%0Auid%3A%20EditSharp.Components.Timeline%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EditSharp">
+            EditSharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EditSharp.Components.Timeline">
+
+
+
+  <h1 id="EditSharp_Components_Timeline" data-uid="EditSharp.Components.Timeline" class="text-break">
+Class Timeline  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Timeline.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A sequence of Channels. Also the seat of nested-timeline bookkeeping
+(cycle prevention, UsedBy tracking) — see the remarks on
+ValidateNoCycle/RegisterEmbeddedTimelines/NotifyClipDetached below.</p>
+<p>REWRITE (&quot;clips are graphs&quot;): the old dedicated
+AddTimelineClip/RippleAddTimelineClip/AddTimelineClipCore methods are
+GONE. Embedding a nested Timeline used to require a special add path
+because it was a distinct Clip subtype (TimelineVideoClip/
+TimelineAudioClip) that only Timeline knew how to construct
+correctly (cycle-checked, UsedBy-registered). Now that embedding a
+nested Timeline is just wiring a TimelineVideoInputNode/
+TimelineAudioInputNode into an ordinary VideoClip's/AudioClip's
+graph (built via VideoClip.CreateTimelineEmbed/AudioClip.CreateTimelineEmbed),
+there's nothing left for a separate Timeline-level add method to do
+— build the clip, then place it with the SAME Channel.AddClip/
+RippleAddClip every other clip uses. Channel.AddClipCore calls back
+into ValidateNoCycle/RegisterEmbeddedTimelines itself (see Channel.cs),
+generalized to scan the clip's graph for however many embed nodes it
+actually has (zero, one, or several) rather than assuming exactly one.</p>
+<p>REWRITE (&quot;channels split by kind&quot;): VideoChannels and AudioChannels
+used to live together in one mixed <code>_channels</code> list, ordered however
+they were added. They're now two entirely separate lists. The reason
+is LinkGroup.MoveChannel/RippleMoveChannel (see LinkGroup.cs): asking
+a linked group to &quot;move up/down a channel&quot; only has an unambiguous
+meaning per member if each member's own channel index is counted
+among channels of its OWN kind — a video clip and its linked audio
+clip can never share a channel, so there's no single mixed index that
+means the same thing for both of them at once. With two separate
+lists, &quot;move this video clip's channel index by <code>delta</code>&quot; and &quot;move
+this audio clip's channel index by the SAME <code>delta</code>&quot; are just two
+independent, symmetric lookups — see ResolveChannelDelta below, which
+also creates whichever new channels (of the matching kind) a delta
+past the current top requires. VideoChannels keeps its own
+bottom-to-top compositing order exactly as before; AudioChannels'
+order still carries no acoustic meaning (see AudioMixer).</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Timeline</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Timeline</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="EditSharp_Components_Timeline_AudioChannels_" data-uid="EditSharp.Components.Timeline.AudioChannels*"></a>
+
+  <h3 id="EditSharp_Components_Timeline_AudioChannels" data-uid="EditSharp.Components.Timeline.AudioChannels">
+  AudioChannels
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Timeline.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Every AudioChannel on this timeline. Order has no acoustic
+meaning (see AudioMixer's own remarks) — it only affects how
+channels are listed in a UI.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;AudioChannel&gt; AudioChannels { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="EditSharp.Components.Channels.AudioChannel.html">AudioChannel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Timeline_Channels_" data-uid="EditSharp.Components.Timeline.Channels*"></a>
+
+  <h3 id="EditSharp_Components_Timeline_Channels" data-uid="EditSharp.Components.Timeline.Channels">
+  Channels
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Timeline.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Every channel on this timeline, video channels first (in their
+own compositing order) then audio channels — a convenience view
+for code that genuinely doesn't care about the split (&quot;is there
+at least one channel at all,&quot; walking every clip on the
+timeline, and so on). Allocates a freshly merged list on every
+access, so a caller in a hot per-frame path should prefer
+VideoChannels/AudioChannels directly instead — see
+FrameStateResolver/AudioMixer, which do exactly that.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Channel&gt; Channels { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="EditSharp.Components.Channels.Channel.html">Channel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Timeline_Duration_" data-uid="EditSharp.Components.Timeline.Duration*"></a>
+
+  <h3 id="EditSharp_Components_Timeline_Duration" data-uid="EditSharp.Components.Timeline.Duration">
+  Duration
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Timeline.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan Duration { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Timeline_Id_" data-uid="EditSharp.Components.Timeline.Id*"></a>
+
+  <h3 id="EditSharp_Components_Timeline_Id" data-uid="EditSharp.Components.Timeline.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Timeline.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stable identity, saved with the timeline; nested-timeline sources refer to it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Guid Id { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Timeline_UsedBy_" data-uid="EditSharp.Components.Timeline.UsedBy*"></a>
+
+  <h3 id="EditSharp_Components_Timeline_UsedBy" data-uid="EditSharp.Components.Timeline.UsedBy">
+  UsedBy
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Timeline.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Timeline&gt; UsedBy { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="EditSharp.Components.Timeline.html">Timeline</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Timeline_VideoChannels_" data-uid="EditSharp.Components.Timeline.VideoChannels*"></a>
+
+  <h3 id="EditSharp_Components_Timeline_VideoChannels" data-uid="EditSharp.Components.Timeline.VideoChannels">
+  VideoChannels
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Timeline.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Every VideoChannel on this timeline, in compositing order —
+index 0 is the bottom layer, each one after it draws on top,
+exactly as before this split.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;VideoChannel&gt; VideoChannels { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="EditSharp.Components.Channels.VideoChannel.html">VideoChannel</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="EditSharp_Components_Timeline_AddChannel_" data-uid="EditSharp.Components.Timeline.AddChannel*"></a>
+
+  <h3 id="EditSharp_Components_Timeline_AddChannel_EditSharp_Components_Channels_AudioChannel_" data-uid="EditSharp.Components.Timeline.AddChannel(EditSharp.Components.Channels.AudioChannel)">
+  AddChannel(AudioChannel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Timeline.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AudioChannel AddChannel(AudioChannel channel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>channel</code> <a class="xref" href="EditSharp.Components.Channels.AudioChannel.html">AudioChannel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Channels.AudioChannel.html">AudioChannel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Timeline_AddChannel_" data-uid="EditSharp.Components.Timeline.AddChannel*"></a>
+
+  <h3 id="EditSharp_Components_Timeline_AddChannel_EditSharp_Components_Channels_Channel_" data-uid="EditSharp.Components.Timeline.AddChannel(EditSharp.Components.Channels.Channel)">
+  AddChannel(Channel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Timeline.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runtime-typed fallback for a caller holding only a <code>Channel</code>
+reference (its concrete type isn't known until this runs) —
+dispatches to whichever typed overload above actually matches.
+Prefer AddChannel(VideoChannel)/AddChannel(AudioChannel) when the
+concrete type is known at the call site; they need no such
+dispatch and hand back the concrete type directly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Channel AddChannel(Channel channel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>channel</code> <a class="xref" href="EditSharp.Components.Channels.Channel.html">Channel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Channels.Channel.html">Channel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Timeline_AddChannel_" data-uid="EditSharp.Components.Timeline.AddChannel*"></a>
+
+  <h3 id="EditSharp_Components_Timeline_AddChannel_EditSharp_Components_Channels_VideoChannel_" data-uid="EditSharp.Components.Timeline.AddChannel(EditSharp.Components.Channels.VideoChannel)">
+  AddChannel(VideoChannel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Timeline.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VideoChannel AddChannel(VideoChannel channel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>channel</code> <a class="xref" href="EditSharp.Components.Channels.VideoChannel.html">VideoChannel</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Channels.VideoChannel.html">VideoChannel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Timeline_GetLinkGroup_" data-uid="EditSharp.Components.Timeline.GetLinkGroup*"></a>
+
+  <h3 id="EditSharp_Components_Timeline_GetLinkGroup_System_Nullable_System_Guid__" data-uid="EditSharp.Components.Timeline.GetLinkGroup(System.Nullable{System.Guid})">
+  GetLinkGroup(Guid?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Timeline.cs/#L266"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LinkGroup? GetLinkGroup(Guid? id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.LinkGroup.html">LinkGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Timeline_Link_" data-uid="EditSharp.Components.Timeline.Link*"></a>
+
+  <h3 id="EditSharp_Components_Timeline_Link_System_Collections_Generic_IEnumerable_EditSharp_Components_Clips_Clip__" data-uid="EditSharp.Components.Timeline.Link(System.Collections.Generic.IEnumerable{EditSharp.Components.Clips.Clip})">
+  Link(IEnumerable&lt;Clip&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Timeline.cs/#L285"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds every clip in <code>clips</code> to one link group (an existing one,
+if any of them already belongs to one; otherwise a fresh Id).</p>
+<p>BUG FOUND IN THE FIELD (fixed here): a clip being linked here may
+already belong to a DIFFERENT group than the one this call
+settles on — e.g. linking [B, C] where B is already grouped with
+A (group G1) and C is already grouped with D (group G2) resolves
+to G1, silently &quot;poaching&quot; C out of G2 and leaving D behind as an
+orphaned singleton group (LinkGroupId set, but the sole member).
+Every other group-membership change in this file (LinkGroup.Split,
+Timeline.NotifyClipDetached) auto-dissolves a group once it's
+down to one member; this method used to be the one place that
+didn't. Fixed by recording each clip's PRE-reassignment group,
+then dissolving any of those old groups left with exactly one
+member once the reassignment is done.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LinkGroup Link(IEnumerable&lt;Clip&gt; clips)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>clips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.LinkGroup.html">LinkGroup</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Timeline_RemoveChannel_" data-uid="EditSharp.Components.Timeline.RemoveChannel*"></a>
+
+  <h3 id="EditSharp_Components_Timeline_RemoveChannel_EditSharp_Components_Channels_Channel_" data-uid="EditSharp.Components.Timeline.RemoveChannel(EditSharp.Components.Channels.Channel)">
+  RemoveChannel(Channel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Timeline.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveChannel(Channel channel)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>channel</code> <a class="xref" href="EditSharp.Components.Channels.Channel.html">Channel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Timeline_RippleRemoveRange_" data-uid="EditSharp.Components.Timeline.RippleRemoveRange*"></a>
+
+  <h3 id="EditSharp_Components_Timeline_RippleRemoveRange_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.Timeline.RippleRemoveRange(System.TimeSpan,System.TimeSpan)">
+  RippleRemoveRange(TimeSpan, TimeSpan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Timeline.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The same range taken out of every channel, each gap closed — the
+whole timeline gets shorter by the range, so nothing on one
+channel drifts against another. A ripple delete that keeps the
+tracks in sync, at the cost of whatever else sat in that range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RippleRemoveRange(TimeSpan start, TimeSpan end)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+    <dt><code>end</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Timeline.cs/#L51" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

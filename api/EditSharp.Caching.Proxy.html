@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace EditSharp.Caching.Proxy | EditSharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace EditSharp.Caching.Proxy | EditSharp ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EditSharp">
+            EditSharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EditSharp.Caching.Proxy">
+
+  <h1 id="EditSharp_Caching_Proxy" data-uid="EditSharp.Caching.Proxy" class="text-break">Namespace EditSharp.Caching.Proxy</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Caching.Proxy.ProxyCache.html">ProxyCache</a></dt>
+      <dd><p>The one proxy per original media file; shared by scrubbing, playback
+and paused editing alike. An entry remembers its original (by content
+hash, so a renamed, moved or duplicated file finds the same proxy), its
+format, and how far it has been built.</p>
+<p>NOTHING BUILDS AUTOMATICALLY. A consumer calls BuildAsync (typically
+on import) and watches StatusChanged; everything that reads media only
+ever looks proxies up. Builds queue behind
+EditSharpConfig.MaxConcurrentProxyBuilds; concurrent requests for the
+same file share one build, which is cancelled only once every caller
+has cancelled.</p>
+<p>PARTIAL PROXIES ARE FIRST-CLASS: a proxy is readable from its start up
+to AvailableUpTo while it builds, stays readable if the build is
+interrupted (ProxyState.Partial), and the next BuildAsync resumes from
+there. Building a different format than the one on disk replaces it:
+the old proxy keeps serving reads until the new one completes, then is
+deleted.</p>
+<p>ON DISK (EditSharpConfig.ProxyDirectory/&lt;hash[..2]&gt;/), one stem per
+format (&lt;hash&gt;.delta7, .rgba, .dnxhr, .prores) so a replacement never
+collides with the proxy it replaces:
+&lt;stem&gt;.esrp                 an .esrp proxy (progress lives in its index)
+&lt;stem&gt;.mov.json             a MOV proxy's sidecar (segments/progress)
+&lt;stem&gt;.seg&lt;n&gt;.mov, &lt;stem&gt;.mov   its segments while building, its final file once complete</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Caching.Proxy.ProxyEntry.html">ProxyEntry</a></dt>
+      <dd><p>One original's proxy on disk. Path is the .esrp file, or for a MOV
+proxy its sidecar (which lists the segments or the final file).
+Width/Height/FrameRate are the proxy's own.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Caching.Proxy.ProxyStatusChangedEventArgs.html">ProxyStatusChangedEventArgs</a></dt>
+      <dd></dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Caching.Proxy.ProxyStatus.html">ProxyStatus</a></dt>
+      <dd><p>Where a file's proxy stands. AvailableUpTo is how much of the original,
+from its start, can be read from the proxy right now; Progress is the
+same as a fraction of the whole.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Caching.Proxy.EsrpCompressionScheme.html">EsrpCompressionScheme</a></dt>
+      <dd><p>Which lossless transform every stored frame's bytes went through; a
+file-wide choice recorded in the header. Applies to an IndexedDelta7
+file's control-byte planes, never to its shared palette. See EsrpZstd.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Caching.Proxy.EsrpPixelFormat.html">EsrpPixelFormat</a></dt>
+      <dd><p>How a stored frame's pixels are laid out; file-wide, recorded in the header.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Caching.Proxy.ProxyFormat.html">ProxyFormat</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Caching.Proxy.ProxyState.html">ProxyState</a></dt>
+      <dd></dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

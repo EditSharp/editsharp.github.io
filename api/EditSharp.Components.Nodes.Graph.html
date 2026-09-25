@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Graph | EditSharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Graph | EditSharp ">
+      
+      <meta name="description" content="A directed graph of nodes — see the schema doc&#39;s &amp;quot;Effects: Node-Based Compositing Graph&amp;quot; section for the full design. The same primitives here power both the Image/Mask domain (VideoClip) and the Audio domain (AudioClip); NodeDomain is what keeps the two from ever being wired together, EXCEPT for domain-universal nodes (see InferDomain below), which is exactly how the &amp;quot;base node type for math functions that are universally applicable&amp;quot; the user asked for is implemented: ValueConstantNode/MathNode (see EditSharp.Components.Nodes.Math) declare only PortType.Value ports, which InferDomain treats as belonging to NEITHER domain specifically, and therefore addable to either. FUNDAMENTAL REWRITE (&amp;quot;clips are graphs&amp;quot;): there is no longer a second fixed anchor alongside OutputNode. The old ImageSourceNode/ AudioSourceNode were each a single, mandatory, non-removable &amp;quot;the clip&#39;s content enters here&amp;quot; anchor — every clip&#39;s graph had EXACTLY one. That model assumed a clip was &amp;quot;media with a graph of effects bolted on&amp;quot;. The corrected model is that a clip IS its graph, and a graph can have as many InputNodes as an author wants (a minimum of one for the graph to produce anything, enforced the same way it always effectively was — OutputNode must have SOME path reaching it at render time). See InputNode&#39;s own remarks. Encapsulation principle applies: Nodes/Connections are read-only externally, all mutation goes through AddNode/RemoveNode/Connect/ Disconnect — which is what makes &amp;quot;no dangling references, no cycles, no type mismatches&amp;quot; an actual invariant rather than a convention a caller could violate by touching a public list directly.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Nodes_Graph.md&amp;value=---%0Auid%3A%20EditSharp.Components.Nodes.Graph%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EditSharp">
+            EditSharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EditSharp.Components.Nodes.Graph">
+
+
+
+  <h1 id="EditSharp_Components_Nodes_Graph" data-uid="EditSharp.Components.Nodes.Graph" class="text-break">
+Class Graph  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a>.<a class="xref" href="EditSharp.Components.Nodes.html">Nodes</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A directed graph of nodes — see the schema doc's &quot;Effects:
+Node-Based Compositing Graph&quot; section for the full design. The same
+primitives here power both the Image/Mask domain (VideoClip) and the
+Audio domain (AudioClip); NodeDomain is what keeps the two from
+ever being wired together, EXCEPT for domain-universal nodes (see
+InferDomain below), which is exactly how the &quot;base node type for
+math functions that are universally applicable&quot; the user asked for
+is implemented: ValueConstantNode/MathNode (see
+EditSharp.Components.Nodes.Math) declare only PortType.Value ports,
+which InferDomain treats as belonging to NEITHER domain specifically,
+and therefore addable to either.</p>
+<p>FUNDAMENTAL REWRITE (&quot;clips are graphs&quot;): there is no longer a
+second fixed anchor alongside OutputNode. The old ImageSourceNode/
+AudioSourceNode were each a single, mandatory, non-removable &quot;the
+clip's content enters here&quot; anchor — every clip's graph had EXACTLY
+one. That model assumed a clip was &quot;media with a graph of effects
+bolted on&quot;. The corrected model is that a clip IS its graph, and a
+graph can have as many InputNodes as an author wants (a minimum of
+one for the graph to produce anything, enforced the same way it
+always effectively was — OutputNode must have SOME path reaching it
+at render time). See InputNode's own remarks.</p>
+<p>Encapsulation principle applies: Nodes/Connections are read-only
+externally, all mutation goes through AddNode/RemoveNode/Connect/
+Disconnect — which is what makes &quot;no dangling references, no cycles,
+no type mismatches&quot; an actual invariant rather than a convention a
+caller could violate by touching a public list directly.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Graph</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Graph</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="EditSharp_Components_Nodes_Graph_AllNodes_" data-uid="EditSharp.Components.Nodes.Graph.AllNodes*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_AllNodes" data-uid="EditSharp.Components.Nodes.Graph.AllNodes">
+  AllNodes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Every node, reaching inside composites — for anything that has
+to find all the sources, trimmable inputs or embeds a clip
+really contains. Inner OutputNodes are left out; they are
+plumbing, not content. Just Nodes when nothing is composite.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Node&gt; AllNodes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_Animatables_" data-uid="EditSharp.Components.Nodes.Graph.Animatables*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_Animatables" data-uid="EditSharp.Components.Nodes.Graph.Animatables">
+  Animatables
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Every keyframe track on every node — see Node.Animatables.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IAnimatable&gt; Animatables { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="EditSharp.Components.IAnimatable.html">IAnimatable</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_Connections_" data-uid="EditSharp.Components.Nodes.Graph.Connections*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_Connections" data-uid="EditSharp.Components.Nodes.Graph.Connections">
+  Connections
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Connection&gt; Connections { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="EditSharp.Components.Nodes.Connection.html">Connection</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_Domain_" data-uid="EditSharp.Components.Nodes.Graph.Domain*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_Domain" data-uid="EditSharp.Components.Nodes.Graph.Domain">
+  Domain
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NodeDomain Domain { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Nodes.NodeDomain.html">NodeDomain</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_Flattened_" data-uid="EditSharp.Components.Nodes.Graph.Flattened*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_Flattened" data-uid="EditSharp.Components.Nodes.Graph.Flattened">
+  Flattened
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The graph as an evaluator should see it: every CompositeNode
+replaced by the nodes inside it, its connections rewired to the
+inner ports they were really aimed at. The inner nodes are the
+same objects, so content keyed by their ids still matches. This
+graph itself when there is nothing to flatten, so the ordinary
+case costs nothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Graph Flattened { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Nodes.Graph.html">Graph</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_InputNodes_" data-uid="EditSharp.Components.Nodes.Graph.InputNodes*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_InputNodes" data-uid="EditSharp.Components.Nodes.Graph.InputNodes">
+  InputNodes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L218"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Convenience access to every InputNode currently in this graph,
+without the caller having to filter Nodes by hand — see
+InputNode's own remarks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;InputNode&gt; InputNodes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="EditSharp.Components.Nodes.InputNode.html">InputNode</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_Nodes_" data-uid="EditSharp.Components.Nodes.Graph.Nodes*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_Nodes" data-uid="EditSharp.Components.Nodes.Graph.Nodes">
+  Nodes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Node&gt; Nodes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_OutputNode_" data-uid="EditSharp.Components.Nodes.Graph.OutputNode*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_OutputNode" data-uid="EditSharp.Components.Nodes.Graph.OutputNode">
+  OutputNode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OutputNode OutputNode { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Nodes.OutputNode.html">OutputNode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="EditSharp_Components_Nodes_Graph_AddNode_" data-uid="EditSharp.Components.Nodes.Graph.AddNode*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_AddNode_EditSharp_Components_Nodes_Node_" data-uid="EditSharp.Components.Nodes.Graph.AddNode(EditSharp.Components.Nodes.Node)">
+  AddNode(Node)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L368"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rejects a node whose port domain doesn't match this graph's own (universal nodes always pass).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Node AddNode(Node node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_Connect_" data-uid="EditSharp.Components.Nodes.Graph.Connect*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_Connect_System_Guid_System_String_System_Guid_System_String_" data-uid="EditSharp.Components.Nodes.Graph.Connect(System.Guid,System.String,System.Guid,System.String)">
+  Connect(Guid, string, Guid, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L414"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Validates port types match, no cycle results, and the target
+input port doesn't already have an incoming connection (every
+input port — OutputNode included — accepts at most one; an
+interactive graph editor disconnects before reconnecting rather
+than this silently accumulating extra edges into one input).
+Zero connections into a mandatory input is a valid, if
+incomplete, intermediate state — see the schema doc's own
+remarks on why this isn't rejected at edit time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Connection Connect(Guid fromNode, string fromPort, Guid toNode, string toPort)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fromNode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd></dd>
+    <dt><code>fromPort</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>toNode</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd></dd>
+    <dt><code>toPort</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Nodes.Connection.html">Connection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_CreateAudioGraph_" data-uid="EditSharp.Components.Nodes.Graph.CreateAudioGraph*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_CreateAudioGraph_EditSharp_Components_Nodes_InputNode_" data-uid="EditSharp.Components.Nodes.Graph.CreateAudioGraph(EditSharp.Components.Nodes.InputNode)">
+  CreateAudioGraph(InputNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L274"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A &quot;normal/default&quot; audio clip: a single InputNode you supply
+(a AudioSourceNode wrapping a Source, in the common case —
+see AudioClip's own static factories), wired through GainNode —
+what replaced the old flat AudioClip.Volume field, unchanged
+from before this rewrite.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Graph CreateAudioGraph(InputNode input)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>input</code> <a class="xref" href="EditSharp.Components.Nodes.InputNode.html">InputNode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Nodes.Graph.html">Graph</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_CreateEmptyAudioGraph_" data-uid="EditSharp.Components.Nodes.Graph.CreateEmptyAudioGraph*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_CreateEmptyAudioGraph" data-uid="EditSharp.Components.Nodes.Graph.CreateEmptyAudioGraph">
+  CreateEmptyAudioGraph()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L297"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Graph CreateEmptyAudioGraph()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Nodes.Graph.html">Graph</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_CreateEmptyVideoGraph_" data-uid="EditSharp.Components.Nodes.Graph.CreateEmptyVideoGraph*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_CreateEmptyVideoGraph" data-uid="EditSharp.Components.Nodes.Graph.CreateEmptyVideoGraph">
+  CreateEmptyVideoGraph()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L296"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>An empty graph with no InputNode at all yet — for building a
+fully custom multi-input graph from scratch (see
+VideoClip.CreateCustom/AudioClip.CreateCustom). Not renderable
+until at least one node reaches OutputNode — same as any other
+disconnected-Output state, not a special case.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Graph CreateEmptyVideoGraph()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Nodes.Graph.html">Graph</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_CreateVideoGraph_" data-uid="EditSharp.Components.Nodes.Graph.CreateVideoGraph*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_CreateVideoGraph_EditSharp_Components_Nodes_InputNode_" data-uid="EditSharp.Components.Nodes.Graph.CreateVideoGraph(EditSharp.Components.Nodes.InputNode)">
+  CreateVideoGraph(InputNode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L249"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A &quot;normal/default&quot; video clip: a single InputNode you supply
+(a VideoSourceNode wrapping a Source, in the common case, but
+any InputNode works — see VideoClip's own static factories),
+wired through the two nodes every visual clip gets by default:
+TintNode (what replaced the old flat Modulate/tint-and-opacity
+property) and TransformNode (what replaced the old flat
+ClipTransform property — its data now lives ON the node itself,
+not on the owning clip). Both are ordinary, removable,
+reorderable nodes beyond this default, exactly like GainNode
+always has been on the audio side.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Graph CreateVideoGraph(InputNode input)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>input</code> <a class="xref" href="EditSharp.Components.Nodes.InputNode.html">InputNode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Nodes.Graph.html">Graph</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_Disconnect_" data-uid="EditSharp.Components.Nodes.Graph.Disconnect*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_Disconnect_EditSharp_Components_Nodes_Connection_" data-uid="EditSharp.Components.Nodes.Graph.Disconnect(EditSharp.Components.Nodes.Connection)">
+  Disconnect(Connection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L442"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Disconnect(Connection connection)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>connection</code> <a class="xref" href="EditSharp.Components.Nodes.Connection.html">Connection</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_Duplicate_" data-uid="EditSharp.Components.Nodes.Graph.Duplicate*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_Duplicate" data-uid="EditSharp.Components.Nodes.Graph.Duplicate">
+  Duplicate()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L300"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deep copy — a fresh graph with fresh node Ids, connections remapped to match.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Graph Duplicate()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Nodes.Graph.html">Graph</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_RemoveNode_" data-uid="EditSharp.Components.Nodes.Graph.RemoveNode*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_RemoveNode_EditSharp_Components_Nodes_Node_" data-uid="EditSharp.Components.Nodes.Graph.RemoveNode(EditSharp.Components.Nodes.Node)">
+  RemoveNode(Node)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L390"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Rejects OutputNode — the one fixed anchor; everything else
+(including every InputNode, TintNode/TransformNode/GainNode,
+which are defaults, not anchors) is fully removable. Also
+removes every Connection that referenced this node, both
+incoming and outgoing, so the graph never carries a Connection
+pointing at a Guid that no longer resolves to anything in
+Nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveNode(Node node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L82" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

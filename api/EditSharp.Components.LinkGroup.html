@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class LinkGroup | EditSharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LinkGroup | EditSharp ">
+      
+      <meta name="description" content="A real object owning coordination logic, not just a shared Guid — see the schema doc. Carries no state beyond Id and which Timeline to derive membership from; Members is always a live scan (matches the doc: &amp;quot;IReadOnlyList&amp;lt;Clip&amp;gt; Members; // derived from Clip.LinkGroupId == Id&amp;quot;), so Timeline.GetLinkGroup handing back a fresh instance on every call is correct, not wasteful. Membership is flat — a Clip belongs to at most one LinkGroup (a single nullable LinkGroupId, not a collection); merge-on-link is how two groups combine instead of nesting.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_LinkGroup.md&amp;value=---%0Auid%3A%20EditSharp.Components.LinkGroup%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EditSharp">
+            EditSharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EditSharp.Components.LinkGroup">
+
+
+
+  <h1 id="EditSharp_Components_LinkGroup" data-uid="EditSharp.Components.LinkGroup" class="text-break">
+Class LinkGroup  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A real object owning coordination logic, not just a shared Guid — see
+the schema doc. Carries no state beyond Id and which Timeline to
+derive membership from; Members is always a live scan (matches the
+doc: &quot;IReadOnlyList&lt;Clip&gt; Members; // derived from
+Clip.LinkGroupId == Id&quot;), so Timeline.GetLinkGroup handing back a
+fresh instance on every call is correct, not wasteful.</p>
+<p>Membership is flat — a Clip belongs to at most one LinkGroup (a
+single nullable LinkGroupId, not a collection); merge-on-link is how
+two groups combine instead of nesting.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class LinkGroup : ITimelineEditable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">LinkGroup</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="EditSharp.Components.ITimelineEditable.html">ITimelineEditable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="EditSharp_Components_LinkGroup_Id_" data-uid="EditSharp.Components.LinkGroup.Id*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_Id" data-uid="EditSharp.Components.LinkGroup.Id">
+  Id
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Guid Id { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_LinkGroup_Members_" data-uid="EditSharp.Components.LinkGroup.Members*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_Members" data-uid="EditSharp.Components.LinkGroup.Members">
+  Members
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;Clip&gt; Members { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="EditSharp_Components_LinkGroup_CreateTimelineAudioVideoPair_" data-uid="EditSharp.Components.LinkGroup.CreateTimelineAudioVideoPair*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_CreateTimelineAudioVideoPair_EditSharp_Components_Timeline_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.LinkGroup.CreateTimelineAudioVideoPair(EditSharp.Components.Timeline,System.TimeSpan,System.TimeSpan)">
+  CreateTimelineAudioVideoPair(Timeline, TimeSpan, TimeSpan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L256"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A linked video + audio pair of clips, both embedding <code>timeline</code>. Returns them unattached; placing them is up to the caller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static (VideoClip Video, AudioClip Audio) CreateTimelineAudioVideoPair(Timeline timeline, TimeSpan start, TimeSpan duration)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>timeline</code> <a class="xref" href="EditSharp.Components.Timeline.html">Timeline</a></dt>
+    <dd></dd>
+    <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+    <dt><code>duration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="EditSharp.Components.Clips.VideoClip.html">VideoClip</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-editsharp.components.clips.videoclip,editsharp.components.clips.audioclip-.video">Video</a>, <a class="xref" href="EditSharp.Components.Clips.AudioClip.html">AudioClip</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-editsharp.components.clips.videoclip,editsharp.components.clips.audioclip-.audio">Audio</a>)</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_LinkGroup_Delete_" data-uid="EditSharp.Components.LinkGroup.Delete*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_Delete" data-uid="EditSharp.Components.LinkGroup.Delete">
+  Delete()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Delete()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_LinkGroup_ExtendEnd_" data-uid="EditSharp.Components.LinkGroup.ExtendEnd*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_ExtendEnd_System_TimeSpan_" data-uid="EditSharp.Components.LinkGroup.ExtendEnd(System.TimeSpan)">
+  ExtendEnd(TimeSpan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Grows from the tail (Overwrite default) — can newly overlap a neighbor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ExtendEnd(TimeSpan amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_LinkGroup_ExtendStart_" data-uid="EditSharp.Components.LinkGroup.ExtendStart*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_ExtendStart_System_TimeSpan_" data-uid="EditSharp.Components.LinkGroup.ExtendStart(System.TimeSpan)">
+  ExtendStart(TimeSpan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Grows from the head (Overwrite default) — can newly overlap a neighbor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ExtendStart(TimeSpan amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_LinkGroup_Move_" data-uid="EditSharp.Components.LinkGroup.Move*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_Move_System_TimeSpan_EditSharp_Components_Channels_Channel_" data-uid="EditSharp.Components.LinkGroup.Move(System.TimeSpan,EditSharp.Components.Channels.Channel)">
+  Move(TimeSpan, Channel?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Overwrite semantics at the destination — see Placement Integrity
+in the schema doc. targetChannel defaults to the clip's current
+channel; a different, type-compatible channel is a cross-channel
+move.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Move(TimeSpan newStart, Channel? targetChannel = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newStart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+    <dt><code>targetChannel</code> <a class="xref" href="EditSharp.Components.Channels.Channel.html">Channel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_LinkGroup_MoveChannel_" data-uid="EditSharp.Components.LinkGroup.MoveChannel*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_MoveChannel_System_Int32_" data-uid="EditSharp.Components.LinkGroup.MoveChannel(System.Int32)">
+  MoveChannel(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveChannel(int delta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>delta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_LinkGroup_RippleExtendEnd_" data-uid="EditSharp.Components.LinkGroup.RippleExtendEnd*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_RippleExtendEnd_System_TimeSpan_" data-uid="EditSharp.Components.LinkGroup.RippleExtendEnd(System.TimeSpan)">
+  RippleExtendEnd(TimeSpan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RippleExtendEnd(TimeSpan amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_LinkGroup_RippleExtendStart_" data-uid="EditSharp.Components.LinkGroup.RippleExtendStart*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_RippleExtendStart_System_TimeSpan_" data-uid="EditSharp.Components.LinkGroup.RippleExtendStart(System.TimeSpan)">
+  RippleExtendStart(TimeSpan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RippleExtendStart(TimeSpan amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_LinkGroup_RippleMove_" data-uid="EditSharp.Components.LinkGroup.RippleMove*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_RippleMove_System_TimeSpan_EditSharp_Components_Channels_Channel_" data-uid="EditSharp.Components.LinkGroup.RippleMove(System.TimeSpan,EditSharp.Components.Channels.Channel)">
+  RippleMove(TimeSpan, Channel?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Same as Move, but destination-side neighbors shift later instead of being overwritten.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RippleMove(TimeSpan newStart, Channel? targetChannel = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>newStart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+    <dt><code>targetChannel</code> <a class="xref" href="EditSharp.Components.Channels.Channel.html">Channel</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_LinkGroup_RippleMoveChannel_" data-uid="EditSharp.Components.LinkGroup.RippleMoveChannel*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_RippleMoveChannel_System_Int32_" data-uid="EditSharp.Components.LinkGroup.RippleMoveChannel(System.Int32)">
+  RippleMoveChannel(int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RippleMoveChannel(int delta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>delta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_LinkGroup_Split_" data-uid="EditSharp.Components.LinkGroup.Split*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_Split_System_TimeSpan_" data-uid="EditSharp.Components.LinkGroup.Split(System.TimeSpan)">
+  Split(TimeSpan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Cuts at a point in time. On a Clip, splits just that clip (both
+halves keep the same LinkGroupId). On a LinkGroup, splits every
+member spanning the point and resolves into two groups — see the
+schema doc's Split section for the full DaVinci-Resolve-matching
+behavior.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Split(TimeSpan at)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>at</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_LinkGroup_TrimEnd_" data-uid="EditSharp.Components.LinkGroup.TrimEnd*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_TrimEnd_System_TimeSpan_" data-uid="EditSharp.Components.LinkGroup.TrimEnd(System.TimeSpan)">
+  TrimEnd(TimeSpan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shrinks from the tail — never creates overlap, so there is no Ripple variant.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void TrimEnd(TimeSpan amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_LinkGroup_TrimStart_" data-uid="EditSharp.Components.LinkGroup.TrimStart*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_TrimStart_System_TimeSpan_" data-uid="EditSharp.Components.LinkGroup.TrimStart(System.TimeSpan)">
+  TrimStart(TimeSpan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shrinks from the head — never creates overlap, so there is no Ripple variant.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void TrimStart(TimeSpan amount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L22" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

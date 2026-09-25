@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace EditSharp.Editing | EditSharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace EditSharp.Editing | EditSharp ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EditSharp">
+            EditSharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EditSharp.Editing">
+
+  <h1 id="EditSharp_Editing" data-uid="EditSharp.Editing" class="text-break">Namespace EditSharp.Editing</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Editing.ClipFingerprint.html">ClipFingerprint</a></dt>
+      <dd><p>A number that changes when, and only when, a clip would render
+differently: its speed, the shape of its graph, and every value in it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Editing.EditableAttribute.html">EditableAttribute</a></dt>
+      <dd><p>Marks a property as something an inspector or graph editor shows
+and edits, and says how. Opt-in: a property without this stays out
+of every inspector, however public it is. Everything here is a
+hint layered over what the property's type already says — see
+PropertyDescriptor for what the two resolve to together.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Editing.Inspect.html">Inspect</a></dt>
+      <dd><p>Where editors ask what a thing has to edit. Of(Type) reflects the
+EditableAttributes once and caches the descriptors; Of(object)
+lets an IInspectable answer for itself instead.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Editing.PropertyDescriptor.html">PropertyDescriptor</a></dt>
+      <dd><p>Everything an editor needs to know to show and change one property
+on one object: what to call it, what control to use, what it
+accepts, whether it can be keyframed, when it applies, and how to
+read and write it. Resolved once per type from the EditableAttribute
+and the property's own type (see Inspect), so a new node or clip
+property becomes editable by carrying the attribute and nothing
+else.</p>
+<p>Writes go through the property's own setter, so they are recorded
+for undo like any other write. List edits are recorded here, since
+a list's own Add/Remove are not.</p>
+<p>A descriptor can be redirected (Through) so that a composite node
+can present an inner node's property as its own, under its own
+name: the descriptor reads and writes the inner node while the
+inspector only ever hands it the composite.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Editing.VisibleWhenAttribute.html">VisibleWhenAttribute</a></dt>
+      <dd><p>Hides the property unless a sibling property on the same object
+currently holds one of the given values — a polygon's points are
+only worth showing while the shape is a polygon. Several of these
+on one property must all hold.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Editing.Choice.html">Choice</a></dt>
+      <dd><p>One value a property may take, and what a picker shows for it.</p>
+</dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Editing.IChoiceProvider.html">IChoiceProvider</a></dt>
+      <dd><p>An object that offers the values one of its properties may take, shown as a dropdown.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Editing.IInspectable.html">IInspectable</a></dt>
+      <dd><p>An object that describes its own editable properties instead of
+leaving it to its type — a composite node, whose properties are
+whichever inner ones it chose to expose.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Editing.FrameMeasure.html">FrameMeasure</a></dt>
+      <dd><p>How a value measures against the frame, so an editor can show it in
+pixels of the render resolution. Stored values stay frame-relative,
+which keeps a project independent of its canvas size.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Editing.PropertyEditor.html">PropertyEditor</a></dt>
+      <dd><p>What kind of control edits a property. Auto lets the type decide —
+see Inspect.Infer — and the rest override it where the type alone
+cannot tell (a float that is an angle, a string that is a path).</p>
+</dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
