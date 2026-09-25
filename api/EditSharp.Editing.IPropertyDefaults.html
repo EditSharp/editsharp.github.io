@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Namespace EditSharp.Editing | EditSharp </title>
+      <title>Interface IPropertyDefaults | EditSharp </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Namespace EditSharp.Editing | EditSharp ">
+      <meta name="title" content="Interface IPropertyDefaults | EditSharp ">
       
-      
+      <meta name="description" content="An object whose reset defaults depend on its own state, such as a length read from a file.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Editing_IPropertyDefaults.md&amp;value=---%0Auid%3A%20EditSharp.Editing.IPropertyDefaults%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,85 +84,93 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="EditSharp.Editing">
+        <article data-uid="EditSharp.Editing.IPropertyDefaults">
 
-  <h1 id="EditSharp_Editing" data-uid="EditSharp.Editing" class="text-break">Namespace EditSharp.Editing</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
 
-    <h3 id="classes">
-Classes
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Editing.ClipFingerprint.html">ClipFingerprint</a></dt>
-      <dd><p>A number that changes when, and only when, a clip would render differently.</p>
+
+  <h1 id="EditSharp_Editing_IPropertyDefaults" data-uid="EditSharp.Editing.IPropertyDefaults" class="text-break">
+Interface IPropertyDefaults  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/IPropertyDefaults.cs/#L5"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Editing.html">Editing</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>An object whose reset defaults depend on its own state, such as a length read from a file.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IPropertyDefaults</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="EditSharp_Editing_IPropertyDefaults_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p><a class="xref" href="EditSharp.Editing.PropertyDescriptor.html#EditSharp_Editing_PropertyDescriptor_TryGetDefault_System_Object_System_Object__">TryGetDefault(object, out object?)</a> asks this before the attribute's Default or the prototype.</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="EditSharp_Editing_IPropertyDefaults_TryGetDefault_" data-uid="EditSharp.Editing.IPropertyDefaults.TryGetDefault*"></a>
+
+  <h3 id="EditSharp_Editing_IPropertyDefaults_TryGetDefault_System_String_System_Object__" data-uid="EditSharp.Editing.IPropertyDefaults.TryGetDefault(System.String,System.Object@)">
+  TryGetDefault(string, out object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/IPropertyDefaults.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The value a reset returns <code class="paramref">propertyName</code> to on this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool TryGetDefault(string propertyName, out object? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>propertyName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The property's name.</p>
 </dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Editing.EditableAttribute.html">EditableAttribute</a></dt>
-      <dd><p>Marks a property as one that inspectors and graph editors show and edit.</p>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The default, when this object supplies one.</p>
 </dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Editing.Inspect.html">Inspect</a></dt>
-      <dd><p>Finds what an object or type has to edit.</p>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>False to fall back to the attribute's Default or the prototype.</p>
 </dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Editing.PropertyDescriptor.html">PropertyDescriptor</a></dt>
-      <dd><p>Everything an editor needs to show and change one editable property: its label, control, limits, and how to read and write it.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Editing.VisibleWhenAttribute.html">VisibleWhenAttribute</a></dt>
-      <dd><p>Hides a property unless a sibling property currently holds one of the given values.</p>
-</dd>
-    </dl>
-    <h3 id="structs">
-Structs
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Editing.Choice.html">Choice</a></dt>
-      <dd><p>One value a property may take, and the label a picker shows for it.</p>
-</dd>
-    </dl>
-    <h3 id="interfaces">
-Interfaces
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Editing.IChoiceProvider.html">IChoiceProvider</a></dt>
-      <dd><p>An object that offers the values one of its properties may take, shown as a dropdown.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Editing.IInspectable.html">IInspectable</a></dt>
-      <dd><p>An object that lists its own editable properties instead of leaving it to its type.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Editing.IPropertyDefaults.html">IPropertyDefaults</a></dt>
-      <dd><p>An object whose reset defaults depend on its own state, such as a length read from a file.</p>
-</dd>
-    </dl>
-    <h3 id="enums">
-Enums
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Editing.FrameMeasure.html">FrameMeasure</a></dt>
-      <dd><p>How a value measures against the frame, so an editor can show it in pixels of the render resolution.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Editing.PropertyEditor.html">PropertyEditor</a></dt>
-      <dd><p>Which control an editor uses for a property.</p>
-</dd>
-    </dl>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
 </article>
 
         <div class="contribution d-print-none">
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Editing/IPropertyDefaults.cs/#L5" class="edit-link">Edit this page</a>
         </div>
 
 

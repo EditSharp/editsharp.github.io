@@ -870,7 +870,7 @@ property as its own.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_AddItem_System_Object_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.AddItem(System.Object,System.Object)">
   AddItem(object, object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L300"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L304"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds an item to the end of the list. Recorded for undo.</p>
@@ -912,7 +912,7 @@ property as its own.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_CreateItem" data-uid="EditSharp.Editing.PropertyDescriptor.CreateItem">
   CreateItem()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L282"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L286"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A new item of the list's item type, ready to add.</p>
@@ -990,7 +990,7 @@ property as its own.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_GetList_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.GetList(System.Object)">
   GetList(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L277"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L281"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The list behind a list property.</p>
@@ -1068,7 +1068,7 @@ property as its own.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_InsertItem_System_Object_System_Int32_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.InsertItem(System.Object,System.Int32,System.Object)">
   InsertItem(object, int, object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L307"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L311"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Inserts an item into the list. Recorded for undo.</p>
@@ -1113,7 +1113,7 @@ property as its own.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_IsDefault_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.IsDefault(System.Object)">
   IsDefault(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L222"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L226"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Whether the property holds its default on <code class="paramref">target</code>.</p>
@@ -1152,7 +1152,7 @@ property as its own.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_IsVisible_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.IsVisible(System.Object)">
   IsVisible(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L251"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L255"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Whether the property applies right now, per its <a class="xref" href="EditSharp.Editing.PropertyDescriptor.html#EditSharp_Editing_PropertyDescriptor_Conditions">Conditions</a>.</p>
@@ -1191,7 +1191,7 @@ property as its own.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_RemoveItem_System_Object_System_Int32_" data-uid="EditSharp.Editing.PropertyDescriptor.RemoveItem(System.Object,System.Int32)">
   RemoveItem(object, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L322"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L326"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes an item from the list. Recorded for undo.</p>
@@ -1355,7 +1355,7 @@ property as its own.</p>
 
 
   <h4 class="section" id="EditSharp_Editing_PropertyDescriptor_TryGetDefault_System_Object_System_Object___remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>The attribute's Default when it has one, otherwise the value the property has on a newly constructed object of the same type.</p>
+  <div class="markdown level1 remarks"><p>The holder's own <a class="xref" href="EditSharp.Editing.IPropertyDefaults.html">IPropertyDefaults</a> answer first, then the attribute's Default, otherwise the value the property has on a newly constructed object of the same type.</p>
 </div>
 
 

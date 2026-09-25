@@ -6146,6 +6146,22 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.Sources.Audio.MediaAudioSource.Path
   nameWithType: MediaAudioSource.Path
+- uid: EditSharp.Components.Sources.Audio.MediaAudioSource.TryGetDefault(System.String,System.Object@)
+  name: TryGetDefault(string, out object?)
+  href: api/EditSharp.Components.Sources.Audio.MediaAudioSource.html#EditSharp_Components_Sources_Audio_MediaAudioSource_TryGetDefault_System_String_System_Object__
+  commentId: M:EditSharp.Components.Sources.Audio.MediaAudioSource.TryGetDefault(System.String,System.Object@)
+  name.vb: TryGetDefault(String, Object)
+  fullName: EditSharp.Components.Sources.Audio.MediaAudioSource.TryGetDefault(string, out object?)
+  fullName.vb: EditSharp.Components.Sources.Audio.MediaAudioSource.TryGetDefault(String, Object)
+  nameWithType: MediaAudioSource.TryGetDefault(string, out object?)
+  nameWithType.vb: MediaAudioSource.TryGetDefault(String, Object)
+- uid: EditSharp.Components.Sources.Audio.MediaAudioSource.TryGetDefault*
+  name: TryGetDefault
+  href: api/EditSharp.Components.Sources.Audio.MediaAudioSource.html#EditSharp_Components_Sources_Audio_MediaAudioSource_TryGetDefault_
+  commentId: Overload:EditSharp.Components.Sources.Audio.MediaAudioSource.TryGetDefault
+  isSpec: "True"
+  fullName: EditSharp.Components.Sources.Audio.MediaAudioSource.TryGetDefault
+  nameWithType: MediaAudioSource.TryGetDefault
 - uid: EditSharp.Components.Sources.Audio.MediaAudioSource.TryGetNaturalLength(System.Nullable{System.TimeSpan}@)
   name: TryGetNaturalLength(out TimeSpan?)
   href: api/EditSharp.Components.Sources.Audio.MediaAudioSource.html#EditSharp_Components_Sources_Audio_MediaAudioSource_TryGetNaturalLength_System_Nullable_System_TimeSpan___
@@ -6990,6 +7006,22 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.Sources.Video.MediaVideoSource.Path
   nameWithType: MediaVideoSource.Path
+- uid: EditSharp.Components.Sources.Video.MediaVideoSource.TryGetDefault(System.String,System.Object@)
+  name: TryGetDefault(string, out object?)
+  href: api/EditSharp.Components.Sources.Video.MediaVideoSource.html#EditSharp_Components_Sources_Video_MediaVideoSource_TryGetDefault_System_String_System_Object__
+  commentId: M:EditSharp.Components.Sources.Video.MediaVideoSource.TryGetDefault(System.String,System.Object@)
+  name.vb: TryGetDefault(String, Object)
+  fullName: EditSharp.Components.Sources.Video.MediaVideoSource.TryGetDefault(string, out object?)
+  fullName.vb: EditSharp.Components.Sources.Video.MediaVideoSource.TryGetDefault(String, Object)
+  nameWithType: MediaVideoSource.TryGetDefault(string, out object?)
+  nameWithType.vb: MediaVideoSource.TryGetDefault(String, Object)
+- uid: EditSharp.Components.Sources.Video.MediaVideoSource.TryGetDefault*
+  name: TryGetDefault
+  href: api/EditSharp.Components.Sources.Video.MediaVideoSource.html#EditSharp_Components_Sources_Video_MediaVideoSource_TryGetDefault_
+  commentId: Overload:EditSharp.Components.Sources.Video.MediaVideoSource.TryGetDefault
+  isSpec: "True"
+  fullName: EditSharp.Components.Sources.Video.MediaVideoSource.TryGetDefault
+  nameWithType: MediaVideoSource.TryGetDefault
 - uid: EditSharp.Components.Sources.Video.MediaVideoSource.TryGetNaturalLength(System.Nullable{System.TimeSpan}@)
   name: TryGetNaturalLength(out TimeSpan?)
   href: api/EditSharp.Components.Sources.Video.MediaVideoSource.html#EditSharp_Components_Sources_Video_MediaVideoSource_TryGetNaturalLength_System_Nullable_System_TimeSpan___
@@ -8331,6 +8363,28 @@ references:
   isSpec: "True"
   fullName: EditSharp.Editing.IInspectable.Properties
   nameWithType: IInspectable.Properties
+- uid: EditSharp.Editing.IPropertyDefaults
+  name: IPropertyDefaults
+  href: api/EditSharp.Editing.IPropertyDefaults.html
+  commentId: T:EditSharp.Editing.IPropertyDefaults
+  fullName: EditSharp.Editing.IPropertyDefaults
+  nameWithType: IPropertyDefaults
+- uid: EditSharp.Editing.IPropertyDefaults.TryGetDefault(System.String,System.Object@)
+  name: TryGetDefault(string, out object?)
+  href: api/EditSharp.Editing.IPropertyDefaults.html#EditSharp_Editing_IPropertyDefaults_TryGetDefault_System_String_System_Object__
+  commentId: M:EditSharp.Editing.IPropertyDefaults.TryGetDefault(System.String,System.Object@)
+  name.vb: TryGetDefault(String, Object)
+  fullName: EditSharp.Editing.IPropertyDefaults.TryGetDefault(string, out object?)
+  fullName.vb: EditSharp.Editing.IPropertyDefaults.TryGetDefault(String, Object)
+  nameWithType: IPropertyDefaults.TryGetDefault(string, out object?)
+  nameWithType.vb: IPropertyDefaults.TryGetDefault(String, Object)
+- uid: EditSharp.Editing.IPropertyDefaults.TryGetDefault*
+  name: TryGetDefault
+  href: api/EditSharp.Editing.IPropertyDefaults.html#EditSharp_Editing_IPropertyDefaults_TryGetDefault_
+  commentId: Overload:EditSharp.Editing.IPropertyDefaults.TryGetDefault
+  isSpec: "True"
+  fullName: EditSharp.Editing.IPropertyDefaults.TryGetDefault
+  nameWithType: IPropertyDefaults.TryGetDefault
 - uid: EditSharp.Editing.Inspect
   name: Inspect
   href: api/EditSharp.Editing.Inspect.html
