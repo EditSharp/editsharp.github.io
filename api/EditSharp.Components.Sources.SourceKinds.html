@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Sources_SourceKinds" data-uid="EditSharp.Components.Sources.SourceKinds" class="text-break">
-Class SourceKinds  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKinds.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class SourceKinds  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKinds.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -157,10 +157,10 @@ Class SourceKinds  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="EditSharp_Components_Sources_SourceKinds_For_System_Type_" data-uid="EditSharp.Components.Sources.SourceKinds.For(System.Type)">
   For(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKinds.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKinds.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The listed kinds that can stand in for <code>baseType</code> (VideoSource or AudioSource).</p>
+  <div class="markdown level1 summary"><p>The listed kinds that can stand in for a source type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -171,13 +171,15 @@ Class SourceKinds  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>baseType</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd></dd>
+    <dd><p>The type the source must be, such as <a class="xref" href="EditSharp.Components.Sources.Video.VideoSource.html">VideoSource</a> or <a class="xref" href="EditSharp.Components.Sources.Audio.AudioSource.html">AudioSource</a>.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="EditSharp.Components.Sources.SourceKindInfo.html">SourceKindInfo</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>File-backed kinds first, then the rest by name.</p>
+</dd>
   </dl>
 
 
@@ -194,10 +196,10 @@ Class SourceKinds  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="EditSharp_Components_Sources_SourceKinds_Of_EditSharp_Components_Sources_Source_" data-uid="EditSharp.Components.Sources.SourceKinds.Of(EditSharp.Components.Sources.Source)">
   Of(Source)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKinds.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKinds.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The kind <code>source</code> is, listed or not; null for a class without a [SourceKind].</p>
+  <div class="markdown level1 summary"><p>The kind a source is, listed or not.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -208,13 +210,15 @@ Class SourceKinds  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>source</code> <a class="xref" href="EditSharp.Components.Sources.Source.html">Source</a></dt>
-    <dd></dd>
+    <dd><p>The source.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Sources.SourceKindInfo.html">SourceKindInfo</a></dt>
-    <dd></dd>
+    <dd><p>Its kind; null for a class without a [SourceKind].</p>
+</dd>
   </dl>
 
 
@@ -231,11 +235,10 @@ Class SourceKinds  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="EditSharp_Components_Sources_SourceKinds_Switch_EditSharp_Components_Sources_Source_EditSharp_Components_Sources_SourceKindInfo_" data-uid="EditSharp.Components.Sources.SourceKinds.Switch(EditSharp.Components.Sources.Source,EditSharp.Components.Sources.SourceKindInfo)">
   Switch(Source, SourceKindInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKinds.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKinds.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>A new source of <code>kind</code> with its defaults, keeping <code>from</code>'s
-Start, Duration and Loop. Assigning it is the caller's edit.</p>
+  <div class="markdown level1 summary"><p>A new source of another kind, with that kind's defaults and the old source's <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Start">Start</a>, <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Duration">Duration</a> and <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Loop">Loop</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -246,15 +249,18 @@ Start, Duration and Loop. Assigning it is the caller's edit.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>from</code> <a class="xref" href="EditSharp.Components.Sources.Source.html">Source</a></dt>
-    <dd></dd>
+    <dd><p>The source being replaced.</p>
+</dd>
     <dt><code>kind</code> <a class="xref" href="EditSharp.Components.Sources.SourceKindInfo.html">SourceKindInfo</a></dt>
-    <dd></dd>
+    <dd><p>The kind to switch to.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Sources.Source.html">Source</a></dt>
-    <dd></dd>
+    <dd><p>The new source.</p>
+</dd>
   </dl>
 
 
@@ -263,6 +269,9 @@ Start, Duration and Loop. Assigning it is the caller's edit.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_SourceKinds_Switch_EditSharp_Components_Sources_Source_EditSharp_Components_Sources_SourceKindInfo__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Nothing is recorded in history; assigning the new source is the caller's edit.</p>
+</div>
 
 
 
@@ -271,7 +280,7 @@ Start, Duration and Loop. Assigning it is the caller's edit.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKinds.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKinds.cs/#L16" class="edit-link">Edit this page</a>
         </div>
 
 

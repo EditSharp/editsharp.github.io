@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ProxyEntry | EditSharp ">
       
-      <meta name="description" content="One original&#39;s proxy on disk. Path is the .esrp file, or for a MOV proxy its sidecar (which lists the segments or the final file). Width/Height/FrameRate are the proxy&#39;s own.">
+      <meta name="description" content="One original&#39;s proxy on disk.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Caching_Proxy_ProxyEntry" data-uid="EditSharp.Caching.Proxy.ProxyEntry" class="text-break">
-Class ProxyEntry  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L64"><i class="bi bi-code-slash"></i></a>
+Class ProxyEntry  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,9 +97,7 @@ Class ProxyEntry  <a class="header-action link-secondary" title="View source" hr
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>One original's proxy on disk. Path is the .esrp file, or for a MOV
-proxy its sidecar (which lists the segments or the final file).
-Width/Height/FrameRate are the proxy's own.</p>
+  <div class="markdown summary"><p>One original's proxy on disk.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -162,12 +160,10 @@ Width/Height/FrameRate are the proxy's own.</p>
 
   <h3 id="EditSharp_Caching_Proxy_ProxyEntry__ctor_System_String_EditSharp_Caching_Proxy_ProxyFormat_System_String_System_Int32_System_Int32_System_Double_" data-uid="EditSharp.Caching.Proxy.ProxyEntry.#ctor(System.String,EditSharp.Caching.Proxy.ProxyFormat,System.String,System.Int32,System.Int32,System.Double)">
   ProxyEntry(string, ProxyFormat, string, int, int, double)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>One original's proxy on disk. Path is the .esrp file, or for a MOV
-proxy its sidecar (which lists the segments or the final file).
-Width/Height/FrameRate are the proxy's own.</p>
+  <div class="markdown level1 summary"><p>One original's proxy on disk.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -178,17 +174,23 @@ Width/Height/FrameRate are the proxy's own.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>SourceHash</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The hash identifying the original file's content.</p>
+</dd>
     <dt><code>Format</code> <a class="xref" href="EditSharp.Caching.Proxy.ProxyFormat.html">ProxyFormat</a></dt>
-    <dd></dd>
+    <dd><p>How the proxy is stored.</p>
+</dd>
     <dt><code>Path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The .esrp file, or for a MOV proxy its sidecar listing the segments or the final file.</p>
+</dd>
     <dt><code>Width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>The proxy's width in pixels.</p>
+</dd>
     <dt><code>Height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>The proxy's height in pixels.</p>
+</dd>
     <dt><code>FrameRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd></dd>
+    <dd><p>The proxy's frames per second.</p>
+</dd>
   </dl>
 
 
@@ -210,10 +212,11 @@ Width/Height/FrameRate are the proxy's own.</p>
 
   <h3 id="EditSharp_Caching_Proxy_ProxyEntry_Format" data-uid="EditSharp.Caching.Proxy.ProxyEntry.Format">
   Format
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How the proxy is stored.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -241,10 +244,11 @@ Width/Height/FrameRate are the proxy's own.</p>
 
   <h3 id="EditSharp_Caching_Proxy_ProxyEntry_FrameRate" data-uid="EditSharp.Caching.Proxy.ProxyEntry.FrameRate">
   FrameRate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The proxy's frames per second.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -272,10 +276,11 @@ Width/Height/FrameRate are the proxy's own.</p>
 
   <h3 id="EditSharp_Caching_Proxy_ProxyEntry_Height" data-uid="EditSharp.Caching.Proxy.ProxyEntry.Height">
   Height
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The proxy's height in pixels.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -303,10 +308,11 @@ Width/Height/FrameRate are the proxy's own.</p>
 
   <h3 id="EditSharp_Caching_Proxy_ProxyEntry_IsEsrp" data-uid="EditSharp.Caching.Proxy.ProxyEntry.IsEsrp">
   IsEsrp
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L82"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the proxy is an .esrp file.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -334,10 +340,11 @@ Width/Height/FrameRate are the proxy's own.</p>
 
   <h3 id="EditSharp_Caching_Proxy_ProxyEntry_Path" data-uid="EditSharp.Caching.Proxy.ProxyEntry.Path">
   Path
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The .esrp file, or for a MOV proxy its sidecar listing the segments or the final file.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -365,10 +372,11 @@ Width/Height/FrameRate are the proxy's own.</p>
 
   <h3 id="EditSharp_Caching_Proxy_ProxyEntry_SourceHash" data-uid="EditSharp.Caching.Proxy.ProxyEntry.SourceHash">
   SourceHash
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The hash identifying the original file's content.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -396,10 +404,11 @@ Width/Height/FrameRate are the proxy's own.</p>
 
   <h3 id="EditSharp_Caching_Proxy_ProxyEntry_Width" data-uid="EditSharp.Caching.Proxy.ProxyEntry.Width">
   Width
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The proxy's width in pixels.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -427,7 +436,7 @@ Width/Height/FrameRate are the proxy's own.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L64" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L79" class="edit-link">Edit this page</a>
         </div>
 
 

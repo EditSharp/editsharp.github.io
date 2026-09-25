@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class VideoSourceNode | EditSharp ">
       
-      <meta name="description" content="Feeds a VideoSource&#39;s frames into the graph; a media file, a still image, or any other video kind; the node neither knows nor cares which. Replaces the old VideoClip.Source property directly.">
+      <meta name="description" content="Feeds a &#39;s frames into the graph, whatever kind of source it is.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Nodes_Sources_VideoSourceNode" data-uid="EditSharp.Components.Nodes.Sources.VideoSourceNode" class="text-break">
-Class VideoSourceNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L15"><i class="bi bi-code-slash"></i></a>
+Class VideoSourceNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,9 +97,7 @@ Class VideoSourceNode  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Feeds a VideoSource's frames into the graph; a media file, a still
-image, or any other video kind; the node neither knows nor cares
-which. Replaces the old VideoClip.Source property directly.</p>
+  <div class="markdown summary"><p>Feeds a <a class="xref" href="EditSharp.Components.Sources.Video.VideoSource.html">VideoSource</a>'s frames into the graph, whatever kind of source it is.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -160,6 +158,9 @@ which. Replaces the old VideoClip.Source property directly.</p>
 
 
 
+  <h2 id="EditSharp_Components_Nodes_Sources_VideoSourceNode_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Output: Image.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -170,15 +171,10 @@ which. Replaces the old VideoClip.Source property directly.</p>
 
   <h3 id="EditSharp_Components_Nodes_Sources_VideoSourceNode_Animatables" data-uid="EditSharp.Components.Nodes.Sources.VideoSourceNode.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Every keyframeable property this node owns, so a clip can reach
-all of its tracks at once — a head trim/extend shifts every
-keyframe in the graph (see Clip.OnHeadInPointShift). Empty by
-default; a node with Animatable properties overrides it and lists
-each one. An animated property left out here simply stops
-following the content when the clip's head moves.</p>
+  <div class="markdown level1 summary"><p>Every keyframeable value the node owns.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -199,6 +195,9 @@ following the content when the clip's head moves.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Sources_VideoSourceNode_Animatables_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Trimming a clip's head shifts every keyframe these hold, so the animation stays with the content. A node with Animatable properties lists every one of them here.</p>
+</div>
 
 
 
@@ -207,10 +206,10 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Sources_VideoSourceNode_ContentLength" data-uid="EditSharp.Components.Nodes.Sources.VideoSourceNode.ContentLength">
   ContentLength
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L49"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How much content follows the in-point when there's a known hard end; null when unbounded, looping, or not known yet.</p>
+  <div class="markdown level1 summary"><p>The source's usable length; null when it loops, has no end, or isn't known yet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -239,10 +238,10 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Sources_VideoSourceNode_InPoint" data-uid="EditSharp.Components.Nodes.Sources.VideoSourceNode.InPoint">
   InPoint
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The node's own in-point. Setting this is what OnHeadInPointShift actually does, per node.</p>
+  <div class="markdown level1 summary"><p>The source's <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Start">Start</a>, zero when unset.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -271,10 +270,10 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Sources_VideoSourceNode_MaxHeadroom" data-uid="EditSharp.Components.Nodes.Sources.VideoSourceNode.MaxHeadroom">
   MaxHeadroom
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How far InPoint could move EARLIER (an extend) — TimeSpan.MaxValue if unconstrained.</p>
+  <div class="markdown level1 summary"><p>How far the in-point can move earlier: back to the start of the source.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -303,10 +302,11 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Sources_VideoSourceNode_Ports" data-uid="EditSharp.Components.Nodes.Sources.VideoSourceNode.Ports">
   Ports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The node's ports, fixed by its type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -334,10 +334,11 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Sources_VideoSourceNode_Source" data-uid="EditSharp.Components.Nodes.Sources.VideoSourceNode.Source">
   Source
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Where the frames come from.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -358,6 +359,9 @@ public required VideoSource Source { get; set; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Sources_VideoSourceNode_Source_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Setting it trims the clip if the new source ends sooner.</p>
+</div>
 
 
 
@@ -370,13 +374,10 @@ public required VideoSource Source { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Sources_VideoSourceNode_Duplicate" data-uid="EditSharp.Components.Nodes.Sources.VideoSourceNode.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy with a FRESH Id — a duplicated clip's graph must not
-share node identity with the original, or a Connection recorded
-against one graph could be mistaken for referencing a node in
-the other.</p>
+  <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Id</a>, so connections in the two graphs can't be confused.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -388,7 +389,8 @@ the other.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -397,6 +399,9 @@ the other.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Sources_VideoSourceNode_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo.</p>
+</div>
 
 
 
@@ -405,7 +410,7 @@ the other.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L15" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/VideoSourceNode.cs/#L12" class="edit-link">Edit this page</a>
         </div>
 
 

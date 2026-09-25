@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Source | EditSharp ">
       
-      <meta name="description" content="Something that can PROVIDE a clip&#39;s raw content (a media file, a rendered scene, an instrument) independently of how that content is later composited or mixed. Compositing never knows what kind of source it is reading from; it only prepares a source, opens readers on it and reacts to the SourceUnavailableReason a failing read reports. Every source is plain data: its [Editable] properties are exactly what SourceSerializer saves, and Duplicate is a round-trip through that same serializer, so a new property is copied precisely when it is saved. Nothing prepared or opened (probe results, decoders) is ever stored on the source itself; several Playbacks may read one source at once. ADDING A KIND: derive from VideoSource or AudioSource, mark the class [SourceKind(&amp;quot;stable-id&amp;quot;)] (the id is what saved files contain, so never change it), implement PrepareAsync and GetNaturalLengthAsync, and add anything identifying its content to AddFingerprint. See BlenderSceneVideoSource/VSTInstrumentSource for the bare shape.">
+      <meta name="description" content="Where a clip&#39;s raw content comes from: a media file, a generator, another timeline.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Sources_Source" data-uid="EditSharp.Components.Sources.Source" class="text-break">
-Class Source  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L29"><i class="bi bi-code-slash"></i></a>
+Class Source  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,21 +97,7 @@ Class Source  <a class="header-action link-secondary" title="View source" href="
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Something that can PROVIDE a clip's raw content (a media file, a
-rendered scene, an instrument) independently of how that content is
-later composited or mixed. Compositing never knows what kind of source
-it is reading from; it only prepares a source, opens readers on it and
-reacts to the SourceUnavailableReason a failing read reports.</p>
-<p>Every source is plain data: its [Editable] properties are exactly what
-SourceSerializer saves, and Duplicate is a round-trip through that same
-serializer, so a new property is copied precisely when it is saved.
-Nothing prepared or opened (probe results, decoders) is ever stored on
-the source itself; several Playbacks may read one source at once.</p>
-<p>ADDING A KIND: derive from VideoSource or AudioSource, mark the class
-[SourceKind(&quot;stable-id&quot;)] (the id is what saved files contain, so never
-change it), implement PrepareAsync and GetNaturalLengthAsync, and add
-anything identifying its content to AddFingerprint. See
-BlenderSceneVideoSource/VSTInstrumentSource for the bare shape.</p>
+  <div class="markdown summary"><p>Where a clip's raw content comes from: a media file, a generator, another timeline.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -168,6 +154,25 @@ BlenderSceneVideoSource/VSTInstrumentSource for the bare shape.</p>
 
 
 
+  <h2 id="EditSharp_Components_Sources_Source_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Compositing and mixing never know what kind of source they're reading. They
+prepare it, open readers on it, and react to the <a class="xref" href="EditSharp.Components.Sources.SourceUnavailableReason.html">SourceUnavailableReason</a>
+a failed read reports.</p>
+<p>
+A source is plain data. Its [Editable] properties are exactly what
+<a class="xref" href="EditSharp.Components.Sources.SourceSerializer.html">SourceSerializer</a> saves, and <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Duplicate">Duplicate()</a> round-trips
+through the serializer, so a new property is copied exactly when it's saved.
+Nothing prepared or opened (probe results, decoders) is kept on the source,
+so several Playbacks can read one source at once.
+</p>
+<p>
+To add a kind, derive from <a class="xref" href="EditSharp.Components.Sources.Video.VideoSource.html">VideoSource</a> or <a class="xref" href="EditSharp.Components.Sources.Audio.AudioSource.html">AudioSource</a>,
+mark the class [SourceKind("stable-id")], implement PrepareAsync and
+<a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_GetNaturalLengthAsync_System_Threading_CancellationToken_">GetNaturalLengthAsync(CancellationToken)</a>, and add whatever identifies its content
+to AddFingerprint. The id is written into saved files, so it must never change.
+BlenderSceneVideoSource and VSTInstrumentSource show the bare shape.
+</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -178,12 +183,10 @@ BlenderSceneVideoSource/VSTInstrumentSource for the bare shape.</p>
 
   <h3 id="EditSharp_Components_Sources_Source_Animatables" data-uid="EditSharp.Components.Sources.Source.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>This source's keyframed values. The node holding the source reports
-them as its own, so keyframe editing, fingerprints and head-trim
-keyframe shifting reach them.</p>
+  <div class="markdown level1 summary"><p>This source's keyframeable values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -205,6 +208,9 @@ public virtual IEnumerable&lt;IAnimatable&gt; Animatables { get; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_Source_Animatables_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The node holding the source reports them as its own, so keyframe editing, thumbnails and head trims reach them.</p>
+</div>
 
 
 
@@ -213,10 +219,11 @@ public virtual IEnumerable&lt;IAnimatable&gt; Animatables { get; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Source_Duration" data-uid="EditSharp.Components.Sources.Source.Duration">
   Duration
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How much of the source to use from <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Start">Start</a>; null uses everything there is.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -245,10 +252,11 @@ public TimeSpan? Duration { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Source_Loop" data-uid="EditSharp.Components.Sources.Source.Loop">
   Loop
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the trimmed window repeats instead of ending.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -277,10 +285,11 @@ public bool Loop { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Source_Start" data-uid="EditSharp.Components.Sources.Source.Start">
   Start
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How far into the source's own material to start; null starts at the beginning.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -313,11 +322,10 @@ public TimeSpan? Start { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Source_Duplicate" data-uid="EditSharp.Components.Sources.Source.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L97"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy, through SourceSerializer; see class remarks. History is
-suppressed: a fresh copy has no past to undo.</p>
+  <div class="markdown level1 summary"><p>A deep copy, made by saving and loading this source.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -329,7 +337,8 @@ suppressed: a fresh copy has no past to undo.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Sources.Source.html">Source</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -338,6 +347,9 @@ suppressed: a fresh copy has no past to undo.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_Source_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo. A nested timeline is shared, not copied.</p>
+</div>
 
 
 
@@ -349,9 +361,7 @@ suppressed: a fresh copy has no past to undo.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How long the source's own material is, ignoring Start/Duration.
-Null means unbounded; a still image or a generator has no inherent
-end, so only Duration (or the clip) limits it.</p>
+  <div class="markdown level1 summary"><p>How long the source's own material is, ignoring <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Start">Start</a> and <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Duration">Duration</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -362,13 +372,15 @@ end, so only Duration (or the clip) limits it.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>ct</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
+    <dd><p>Cancels finding the length.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?&gt;</dt>
-    <dd></dd>
+    <dd><p>The length, or null when the material has no end of its own (a still image, a generator).</p>
+</dd>
   </dl>
 
 
@@ -378,6 +390,12 @@ end, so only Duration (or the clip) limits it.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Sources.SourceUnavailableException.html">SourceUnavailableException</a></dt>
+    <dd><p>The material can't be read.</p>
+</dd>
+  </dl>
 
 
 
@@ -388,9 +406,7 @@ end, so only Duration (or the clip) limits it.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L64"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How much material the source offers from Start: Duration, clamped
-to what really follows Start. Null when unbounded (no Duration and no
-natural length); zero when Start is at or past the end.</p>
+  <div class="markdown level1 summary"><p>How much material the source offers from <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Start">Start</a>: <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Duration">Duration</a>, cut short by the end of the material.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -401,13 +417,15 @@ natural length); zero when Start is at or past the end.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>ct</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
+    <dd><p>Cancels finding the length.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?&gt;</dt>
-    <dd></dd>
+    <dd><p>The length; null when there's neither a Duration nor a natural length, zero when Start is at or past the end.</p>
+</dd>
   </dl>
 
 
@@ -417,6 +435,15 @@ natural length); zero when Start is at or past the end.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Sources.SourceUnavailableException.html">SourceUnavailableException</a></dt>
+    <dd><p>The material can't be read.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p><a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Start">Start</a> is negative.</p>
+</dd>
+  </dl>
 
 
 
@@ -424,12 +451,10 @@ natural length); zero when Start is at or past the end.</p>
 
   <h3 id="EditSharp_Components_Sources_Source_ResolveWindow_System_Nullable_System_TimeSpan__" data-uid="EditSharp.Components.Sources.Source.ResolveWindow(System.Nullable{System.TimeSpan})">
   ResolveWindow(TimeSpan?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L120"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The window of source-local time this source actually offers: it
-begins at Start and runs for Duration, clamped to whatever material
-really follows Start. A null Length is unbounded.</p>
+  <div class="markdown level1 summary"><p>The window of the source's own time this source offers: from <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Start">Start</a>, for <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Duration">Duration</a>, cut short by the end of the material.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -440,13 +465,15 @@ really follows Start. A null Length is unbounded.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>naturalLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
-    <dd></dd>
+    <dd><p>The material's length; null if it has no end.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.timespan,system.nullable-system.timespan--.start">Start</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>? <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.timespan,system.nullable-system.timespan--.length">Length</a>)</dt>
-    <dd></dd>
+    <dd><p>Where the window starts, and its length; a null length has no end, a negative one starts past the end.</p>
+</dd>
   </dl>
 
 
@@ -456,6 +483,12 @@ really follows Start. A null Length is unbounded.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p><a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Start">Start</a> is negative.</p>
+</dd>
+  </dl>
 
 
 
@@ -463,13 +496,10 @@ really follows Start. A null Length is unbounded.</p>
 
   <h3 id="EditSharp_Components_Sources_Source_ToSourceTime_System_TimeSpan_System_Nullable_System_TimeSpan__" data-uid="EditSharp.Components.Sources.Source.ToSourceTime(System.TimeSpan,System.Nullable{System.TimeSpan})">
   ToSourceTime(TimeSpan, TimeSpan?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L148"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The standard content-time to source-time mapping, for kinds that
-want it: adds Start, wraps around the trimmed window when Loop is
-set, and otherwise reports EndOfSource once content time runs past
-it. Exotic kinds are free to ignore this and map time themselves.</p>
+  <div class="markdown level1 summary"><p>Maps content time to the source's own time: adds <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Start">Start</a>, and wraps around the window when <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Loop">Loop</a> is set.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -480,15 +510,18 @@ it. Exotic kinds are free to ignore this and map time themselves.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>contentTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Time since the in-point, at 1x.</p>
+</dd>
     <dt><code>naturalLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
-    <dd></dd>
+    <dd><p>The material's length; null if it has no end.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>The time in the source's own material.</p>
+</dd>
   </dl>
 
 
@@ -497,7 +530,22 @@ it. Exotic kinds are free to ignore this and map time themselves.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_Source_ToSourceTime_System_TimeSpan_System_Nullable_System_TimeSpan___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Kinds that map time their own way don't have to use this.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">contentTime</code> is negative.</p>
+</dd>
+    <dt><a class="xref" href="EditSharp.Components.Sources.SourceUnavailableException.html">SourceUnavailableException</a></dt>
+    <dd><p><a class="xref" href="EditSharp.Components.Sources.SourceUnavailableReason.html#EditSharp_Components_Sources_SourceUnavailableReason_EndOfSource">EndOfSource</a>: the time is past the end of the window and Loop is off, or Start is at or past the end of the material.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p><a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Start">Start</a> is negative.</p>
+</dd>
+  </dl>
 
 
 
@@ -505,11 +553,10 @@ it. Exotic kinds are free to ignore this and map time themselves.</p>
 
   <h3 id="EditSharp_Components_Sources_Source_TryGetNaturalLength_System_Nullable_System_TimeSpan___" data-uid="EditSharp.Components.Sources.Source.TryGetNaturalLength(System.Nullable{System.TimeSpan}@)">
   TryGetNaturalLength(out TimeSpan?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L73"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>GetNaturalLengthAsync's answer when it's known right away; false
-while it still has to be found (a file not probed yet).</p>
+  <div class="markdown level1 summary"><p><a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_GetNaturalLengthAsync_System_Threading_CancellationToken_">GetNaturalLengthAsync(CancellationToken)</a>'s answer, if it's known right away.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -520,13 +567,15 @@ while it still has to be found (a file not probed yet).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
-    <dd></dd>
+    <dd><p>The natural length when known; otherwise null.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>False while the length still has to be found, such as for a file not probed yet.</p>
+</dd>
   </dl>
 
 
@@ -543,10 +592,10 @@ while it still has to be found (a file not probed yet).</p>
 
   <h3 id="EditSharp_Components_Sources_Source_TryGetUsableLength_System_Nullable_System_TimeSpan___" data-uid="EditSharp.Components.Sources.Source.TryGetUsableLength(System.Nullable{System.TimeSpan}@)">
   TryGetUsableLength(out TimeSpan?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L84"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>GetUsableLengthAsync's answer when it's known right away; see TryGetNaturalLength.</p>
+  <div class="markdown level1 summary"><p><a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_GetUsableLengthAsync_System_Threading_CancellationToken_">GetUsableLengthAsync(CancellationToken)</a>'s answer, if it's known right away.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -557,13 +606,15 @@ while it still has to be found (a file not probed yet).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
-    <dd></dd>
+    <dd><p>The usable length when known; otherwise null.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>False while the natural length still has to be found.</p>
+</dd>
   </dl>
 
 
@@ -573,6 +624,12 @@ while it still has to be found (a file not probed yet).</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p><a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Start">Start</a> is negative.</p>
+</dd>
+  </dl>
 
 
 
@@ -580,7 +637,7 @@ while it still has to be found (a file not probed yet).</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L29" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Source.cs/#L30" class="edit-link">Edit this page</a>
         </div>
 
 

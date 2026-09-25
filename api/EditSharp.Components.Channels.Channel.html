@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Channel | EditSharp ">
       
-      <meta name="description" content="A single row of clips. Enforces the one invariant that matters here: clips on a channel never overlap, except exactly two joined by a Transition may overlap for that transition&#39;s Duration. REWRITE note (&amp;quot;clips are graphs&amp;quot;): the old TimelineVideoClip/ TimelineAudioClip Clip subtypes are gone — an embedded nested Timeline is now just a TimelineVideoInputNode/TimelineAudioInputNode somewhere inside an ordinary VideoClip&#39;s/AudioClip&#39;s graph (see Clip.cs&#39;s own remarks). That means the cycle-check and Timeline.UsedBy bookkeeping that used to live in Timeline.AddTimelineClipCore (a SEPARATE add path from ordinary Channel.AddClip, reserved specifically for the old dedicated clip types) has moved here, into AddClipCore — the ONE place any clip newly enters a channel via the public Add path — generalized to scan whatever embed nodes a clip&#39;s graph happens to contain, of which there can now be any number (zero, one, or several, in a graph with multiple InputNodes). See Timeline.ValidateNoCycle/RegisterEmbeddedTimelines/NotifyClipDetached.">
+      <meta name="description" content="One row of clips on a timeline.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Channels_Channel" data-uid="EditSharp.Components.Channels.Channel" class="text-break">
-Class Channel  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L30"><i class="bi bi-code-slash"></i></a>
+Class Channel  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,22 +97,7 @@ Class Channel  <a class="header-action link-secondary" title="View source" href=
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A single row of clips. Enforces the one invariant that matters here:
-clips on a channel never overlap, except exactly two joined by a
-Transition may overlap for that transition's Duration.</p>
-<p>REWRITE note (&quot;clips are graphs&quot;): the old TimelineVideoClip/
-TimelineAudioClip Clip subtypes are gone — an embedded nested
-Timeline is now just a TimelineVideoInputNode/TimelineAudioInputNode
-somewhere inside an ordinary VideoClip's/AudioClip's graph (see
-Clip.cs's own remarks). That means the cycle-check and Timeline.UsedBy
-bookkeeping that used to live in Timeline.AddTimelineClipCore (a
-SEPARATE add path from ordinary Channel.AddClip, reserved
-specifically for the old dedicated clip types) has moved here, into
-AddClipCore — the ONE place any clip newly enters a channel via the
-public Add path — generalized to scan whatever embed nodes a clip's
-graph happens to contain, of which there can now be any number
-(zero, one, or several, in a graph with multiple InputNodes). See
-Timeline.ValidateNoCycle/RegisterEmbeddedTimelines/NotifyClipDetached.</p>
+  <div class="markdown summary"><p>One row of clips on a timeline.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -169,6 +154,9 @@ Timeline.ValidateNoCycle/RegisterEmbeddedTimelines/NotifyClipDetached.</p>
 
 
 
+  <h2 id="EditSharp_Components_Channels_Channel_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Clips on a channel never overlap, except two joined by a transition, which overlap for its duration. Adding or moving a clip onto occupied time overwrites what's there (trimming, splitting or removing it); the ripple variants push later clips along instead.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -179,10 +167,11 @@ Timeline.ValidateNoCycle/RegisterEmbeddedTimelines/NotifyClipDetached.</p>
 
   <h3 id="EditSharp_Components_Channels_Channel_Clips" data-uid="EditSharp.Components.Channels.Channel.Clips">
   Clips
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The clips on the channel, in order of start.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -210,10 +199,11 @@ Timeline.ValidateNoCycle/RegisterEmbeddedTimelines/NotifyClipDetached.</p>
 
   <h3 id="EditSharp_Components_Channels_Channel_End" data-uid="EditSharp.Components.Channels.Channel.End">
   End
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Where the channel's last clip ends; zero when it has none.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -241,10 +231,10 @@ Timeline.ValidateNoCycle/RegisterEmbeddedTimelines/NotifyClipDetached.</p>
 
   <h3 id="EditSharp_Components_Channels_Channel_Id" data-uid="EditSharp.Components.Channels.Channel.Id">
   Id
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Runtime identity (not saved), e.g. for tapping a channel's audio.</p>
+  <div class="markdown level1 summary"><p>Identifies the channel while the program runs, such as for tapping its audio; it isn't saved.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -273,13 +263,10 @@ Timeline.ValidateNoCycle/RegisterEmbeddedTimelines/NotifyClipDetached.</p>
 
   <h3 id="EditSharp_Components_Channels_Channel_Index" data-uid="EditSharp.Components.Channels.Channel.Index">
   Index
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>This channel's position among channels of its own kind — 0 is
-the bottom layer, matching VideoChannels'/AudioChannels' own
-index order (see Timeline's remarks on the video/audio split).
--1 if this channel isn't currently placed on any Timeline.</p>
+  <div class="markdown level1 summary"><p>The channel's position among the timeline's channels of its kind, from 0 at the bottom; -1 when it isn't on a timeline.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -308,10 +295,11 @@ index order (see Timeline's remarks on the video/audio split).
 
   <h3 id="EditSharp_Components_Channels_Channel_Name" data-uid="EditSharp.Components.Channels.Channel.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The channel's name, as editors show it.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -340,10 +328,11 @@ public string Name { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Channels_Channel_Timeline" data-uid="EditSharp.Components.Channels.Channel.Timeline">
   Timeline
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The timeline the channel is on; null when it isn't on one.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -371,10 +360,11 @@ public string Name { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Channels_Channel_Transitions" data-uid="EditSharp.Components.Channels.Channel.Transitions">
   Transitions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The transitions between clips on the channel.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -406,10 +396,11 @@ public string Name { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Channels_Channel_AddClip_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Channels.Channel.AddClip(EditSharp.Components.Clips.Clip)">
   AddClip(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Places a clip at its <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Start">Start</a>, overwriting whatever is there.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -419,13 +410,15 @@ public string Name { get; set; }</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>clip</code> <a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
-    <dd></dd>
+    <dd><p>The clip; it mustn't be on a channel already.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
-    <dd></dd>
+    <dd><p><code class="paramref">clip</code>.</p>
+</dd>
   </dl>
 
 
@@ -435,53 +428,51 @@ public string Name { get; set; }</code></pre>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The clip is the wrong kind for this channel.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The clip embeds a timeline that contains this one.</p>
+</dd>
+  </dl>
 
 
 
   <a id="EditSharp_Components_Channels_Channel_AddTransition_" data-uid="EditSharp.Components.Channels.Channel.AddTransition*"></a>
 
-  <h3 id="EditSharp_Components_Channels_Channel_AddTransition_EditSharp_Components_Transitions_Transition_" data-uid="EditSharp.Components.Channels.Channel.AddTransition(EditSharp.Components.Transitions.Transition)">
-  AddTransition(Transition)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L338"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Channels_Channel_AddTransition_EditSharp_Components_Clips_Clip_EditSharp_Components_Clips_Clip_EditSharp_Components_Transitions_Transition_" data-uid="EditSharp.Components.Channels.Channel.AddTransition(EditSharp.Components.Clips.Clip,EditSharp.Components.Clips.Clip,EditSharp.Components.Transitions.Transition)">
+  AddTransition(Clip, Clip, Transition)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L281"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>FOUND IN THE FIELD, FIXED: this used to call the ordinary
-<code>to.ExtendStart(achievableHalf)</code> / <code>from.ExtendEnd(achievableHalf)</code>
-— both of which resolve conflicts via the normal Overwrite path,
-with NO exclusion. Since <code>to.Start == from.End</code> by construction
-(that's what &quot;adjacent&quot; means here), each extend's own Overwrite
-call found the OTHER transition partner sitting exactly in the
-region it was trying to claim, and trimmed it right back —
-extending <code>to</code>'s head trimmed <code>from</code>'s tail back to where it
-started, then extending <code>from</code>'s tail pushed <code>to</code>'s head back
-out to where IT started. Net effect: both clips ended up
-completely unchanged, <code>transition.Duration</code> was set to a value
-that no longer matched <code>to.Start == from.End</code> at all, and the
-very next trim/extend on either clip would silently delete this
-&quot;transition&quot; via ReconcileTransitionsFor's own consistency
-check — no crossfade region was ever actually created.</p>
-<p>Fix: call ExtendHead/ExtendTail directly (bypassing Clip's own
-ExtendStart/ExtendEnd wrappers) with each other passed as
-<code>exclude</code>, since a transition's whole point is to make exactly
-these two clips overlap — every OTHER neighbor on the channel
-still gets the normal overwrite treatment.</p>
+  <div class="markdown level1 summary"><p>Joins two adjacent clips with a transition.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Transition AddTransition(Transition transition)</code></pre>
+    <pre><code class="lang-csharp hljs">public Transition AddTransition(Clip from, Clip to, Transition transition)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
+    <dt><code>from</code> <a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
+    <dd><p>The clip the transition leaves.</p>
+</dd>
+    <dt><code>to</code> <a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
+    <dd><p>The clip it arrives at, starting where <code class="paramref">from</code> ends.</p>
+</dd>
     <dt><code>transition</code> <a class="xref" href="EditSharp.Components.Transitions.Transition.html">Transition</a></dt>
-    <dd></dd>
+    <dd><p>The transition, with its duration set.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Transitions.Transition.html">Transition</a></dt>
-    <dd></dd>
+    <dd><p><code class="paramref">transition</code>.</p>
+</dd>
   </dl>
 
 
@@ -490,7 +481,16 @@ still gets the normal overwrite treatment.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Channels_Channel_AddTransition_EditSharp_Components_Clips_Clip_EditSharp_Components_Clips_Clip_EditSharp_Components_Transitions_Transition__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Each clip grows into the other by half the transition's <a class="xref" href="EditSharp.Components.Transitions.Transition.html#EditSharp_Components_Transitions_Transition_Duration">Duration</a>, as far as its sources have material; the duration is then set to what was achieved, which can be shorter, or zero.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>Either clip isn't on this channel, or they aren't adjacent.</p>
+</dd>
+  </dl>
 
 
 
@@ -498,10 +498,11 @@ still gets the normal overwrite treatment.</p>
 
   <h3 id="EditSharp_Components_Channels_Channel_IsValidClipType_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Channels.Channel.IsValidClipType(EditSharp.Components.Clips.Clip)">
   IsValidClipType(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether a clip is the kind this channel holds.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -511,13 +512,15 @@ still gets the normal overwrite treatment.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>clip</code> <a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
-    <dd></dd>
+    <dd><p>The clip.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True when it can go on this channel.</p>
+</dd>
   </dl>
 
 
@@ -534,10 +537,10 @@ still gets the normal overwrite treatment.</p>
 
   <h3 id="EditSharp_Components_Channels_Channel_MoveDown" data-uid="EditSharp.Components.Channels.Channel.MoveDown">
   MoveDown()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Swaps this channel with the one directly below it. No-op at the bottom.</p>
+  <div class="markdown level1 summary"><p>Swaps the channel with the one below it; does nothing at the bottom or off a timeline.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -561,14 +564,10 @@ still gets the normal overwrite treatment.</p>
 
   <h3 id="EditSharp_Components_Channels_Channel_MoveUp" data-uid="EditSharp.Components.Channels.Channel.MoveUp">
   MoveUp()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Swaps this channel with the one directly above it (higher index
-— for VideoChannels that's the next layer drawn on top;
-AudioChannels' order carries no acoustic meaning, only UI
-listing order — see AudioMixer). No-op if this channel is
-already the topmost of its kind, or isn't placed on a Timeline.</p>
+  <div class="markdown level1 summary"><p>Swaps the channel with the one above it; does nothing at the top or off a timeline.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -584,6 +583,9 @@ already the topmost of its kind, or isn't placed on a Timeline.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Channels_Channel_MoveUp_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A video channel above another draws over it. Audio channels' order only affects how they're listed.</p>
+</div>
 
 
 
@@ -592,13 +594,10 @@ already the topmost of its kind, or isn't placed on a Timeline.</p>
 
   <h3 id="EditSharp_Components_Channels_Channel_RemoveRange_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.Channels.Channel.RemoveRange(System.TimeSpan,System.TimeSpan)">
   RemoveRange(TimeSpan, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L282"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L242"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Takes everything inside [start, end) off this channel: a clip
-wholly inside goes, one spanning an edge is trimmed to the edge,
-one spanning both is split around the range. Overwrite
-semantics with nothing placed in the hole.</p>
+  <div class="markdown level1 summary"><p>Clears a range of the channel, leaving a gap.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -609,9 +608,11 @@ semantics with nothing placed in the hole.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Where the range starts.</p>
+</dd>
     <dt><code>end</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Where it ends; an empty or reversed range does nothing.</p>
+</dd>
   </dl>
 
 
@@ -621,6 +622,9 @@ semantics with nothing placed in the hole.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Channels_Channel_RemoveRange_System_TimeSpan_System_TimeSpan__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A clip wholly inside goes, one across an edge is trimmed to it, and one across both is split around the range.</p>
+</div>
 
 
 
@@ -629,10 +633,11 @@ semantics with nothing placed in the hole.</p>
 
   <h3 id="EditSharp_Components_Channels_Channel_RemoveTransition_EditSharp_Components_Transitions_Transition_" data-uid="EditSharp.Components.Channels.Channel.RemoveTransition(EditSharp.Components.Transitions.Transition)">
   RemoveTransition(Transition)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L367"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L313"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Removes a transition; the clips keep the lengths it gave them.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -642,7 +647,8 @@ semantics with nothing placed in the hole.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>transition</code> <a class="xref" href="EditSharp.Components.Transitions.Transition.html">Transition</a></dt>
-    <dd></dd>
+    <dd><p>The transition.</p>
+</dd>
   </dl>
 
 
@@ -660,10 +666,11 @@ semantics with nothing placed in the hole.</p>
 
   <h3 id="EditSharp_Components_Channels_Channel_RippleAddClip_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Channels.Channel.RippleAddClip(EditSharp.Components.Clips.Clip)">
   RippleAddClip(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L74"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Places a clip at its <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Start">Start</a>, moving every clip from there on later by its length.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -673,13 +680,15 @@ semantics with nothing placed in the hole.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>clip</code> <a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
-    <dd></dd>
+    <dd><p>The clip; it mustn't be on a channel already.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
-    <dd></dd>
+    <dd><p><code class="paramref">clip</code>.</p>
+</dd>
   </dl>
 
 
@@ -689,6 +698,15 @@ semantics with nothing placed in the hole.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The clip is the wrong kind for this channel.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The clip embeds a timeline that contains this one.</p>
+</dd>
+  </dl>
 
 
 
@@ -696,10 +714,10 @@ semantics with nothing placed in the hole.</p>
 
   <h3 id="EditSharp_Components_Channels_Channel_RippleRemoveRange_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.Channels.Channel.RippleRemoveRange(System.TimeSpan,System.TimeSpan)">
   RippleRemoveRange(TimeSpan, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L296"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L257"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>RemoveRange, then closes the gap: everything that started at or after <code>end</code> moves earlier by the range's length.</p>
+  <div class="markdown level1 summary"><p>Clears a range of the channel and closes the gap: everything after it moves earlier by its length.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -710,9 +728,11 @@ semantics with nothing placed in the hole.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Where the range starts.</p>
+</dd>
     <dt><code>end</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Where it ends; an empty or reversed range does nothing.</p>
+</dd>
   </dl>
 
 
@@ -730,7 +750,7 @@ semantics with nothing placed in the hole.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L30" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L13" class="edit-link">Edit this page</a>
         </div>
 
 

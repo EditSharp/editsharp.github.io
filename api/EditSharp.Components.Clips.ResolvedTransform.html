@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Struct ResolvedTransform | EditSharp ">
       
-      <meta name="description" content="A resolved, plain-value snapshot of a ClipTransform at one instant — no tracks, just concrete numbers. This is what render code actually consumes; it replaces the old Clip.TransformAt(time)&#39;s role, now composed from each field&#39;s own independently-timed Animatable&amp;lt;T&amp;gt; track instead of interpolating between two flat ClipTransform blobs.">
+      <meta name="description" content="A &#39;s values at one moment.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Clips_ResolvedTransform" data-uid="EditSharp.Components.Clips.ResolvedTransform" class="text-break">
-Struct ResolvedTransform  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L17"><i class="bi bi-code-slash"></i></a>
+Struct ResolvedTransform  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,11 +97,7 @@ Struct ResolvedTransform  <a class="header-action link-secondary" title="View so
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A resolved, plain-value snapshot of a ClipTransform at one instant —
-no tracks, just concrete numbers. This is what render code actually
-consumes; it replaces the old Clip.TransformAt(time)'s role, now
-composed from each field's own independently-timed Animatable&lt;T&gt;
-track instead of interpolating between two flat ClipTransform blobs.</p>
+  <div class="markdown summary"><p>A <a class="xref" href="EditSharp.Components.Clips.ClipTransform.html">ClipTransform</a>'s values at one moment.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -157,14 +153,10 @@ track instead of interpolating between two flat ClipTransform blobs.</p>
 
   <h3 id="EditSharp_Components_Clips_ResolvedTransform__ctor_System_Numerics_Vector2_System_Numerics_Vector2_System_Single_System_Single_System_Single_" data-uid="EditSharp.Components.Clips.ResolvedTransform.#ctor(System.Numerics.Vector2,System.Numerics.Vector2,System.Single,System.Single,System.Single)">
   ResolvedTransform(Vector2, Vector2, float, float, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>A resolved, plain-value snapshot of a ClipTransform at one instant —
-no tracks, just concrete numbers. This is what render code actually
-consumes; it replaces the old Clip.TransformAt(time)'s role, now
-composed from each field's own independently-timed Animatable&lt;T&gt;
-track instead of interpolating between two flat ClipTransform blobs.</p>
+  <div class="markdown level1 summary"><p>A <a class="xref" href="EditSharp.Components.Clips.ClipTransform.html">ClipTransform</a>'s values at one moment.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -175,15 +167,20 @@ track instead of interpolating between two flat ClipTransform blobs.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>Position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
-    <dd></dd>
+    <dd><p>Where the content's centre is, in half-frames from the frame's centre, y up.</p>
+</dd>
     <dt><code>Scale</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
-    <dd></dd>
+    <dd><p>The content's size as a multiple of its fit inside the frame, per axis.</p>
+</dd>
     <dt><code>Rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><p>The turn in the frame's plane, in degrees clockwise.</p>
+</dd>
     <dt><code>Pitch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><p>The tilt about the horizontal axis, in degrees.</p>
+</dd>
     <dt><code>Yaw</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><p>The turn about the vertical axis, in degrees.</p>
+</dd>
   </dl>
 
 
@@ -205,10 +202,11 @@ track instead of interpolating between two flat ClipTransform blobs.</p>
 
   <h3 id="EditSharp_Components_Clips_ResolvedTransform_Pitch" data-uid="EditSharp.Components.Clips.ResolvedTransform.Pitch">
   Pitch
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The tilt about the horizontal axis, in degrees.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -236,10 +234,11 @@ track instead of interpolating between two flat ClipTransform blobs.</p>
 
   <h3 id="EditSharp_Components_Clips_ResolvedTransform_Position" data-uid="EditSharp.Components.Clips.ResolvedTransform.Position">
   Position
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Where the content's centre is, in half-frames from the frame's centre, y up.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -267,10 +266,11 @@ track instead of interpolating between two flat ClipTransform blobs.</p>
 
   <h3 id="EditSharp_Components_Clips_ResolvedTransform_Rotation" data-uid="EditSharp.Components.Clips.ResolvedTransform.Rotation">
   Rotation
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The turn in the frame's plane, in degrees clockwise.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -298,10 +298,11 @@ track instead of interpolating between two flat ClipTransform blobs.</p>
 
   <h3 id="EditSharp_Components_Clips_ResolvedTransform_Scale" data-uid="EditSharp.Components.Clips.ResolvedTransform.Scale">
   Scale
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The content's size as a multiple of its fit inside the frame, per axis.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -329,10 +330,11 @@ track instead of interpolating between two flat ClipTransform blobs.</p>
 
   <h3 id="EditSharp_Components_Clips_ResolvedTransform_Yaw" data-uid="EditSharp.Components.Clips.ResolvedTransform.Yaw">
   Yaw
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The turn about the vertical axis, in degrees.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -360,7 +362,7 @@ track instead of interpolating between two flat ClipTransform blobs.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L17" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L16" class="edit-link">Edit this page</a>
         </div>
 
 

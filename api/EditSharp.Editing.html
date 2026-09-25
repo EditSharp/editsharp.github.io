@@ -96,50 +96,27 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Editing.ClipFingerprint.html">ClipFingerprint</a></dt>
-      <dd><p>A number that changes when, and only when, a clip would render
-differently: its speed, the shape of its graph, and every value in it.</p>
+      <dd><p>A number that changes when, and only when, a clip would render differently.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Editing.EditableAttribute.html">EditableAttribute</a></dt>
-      <dd><p>Marks a property as something an inspector or graph editor shows
-and edits, and says how. Opt-in: a property without this stays out
-of every inspector, however public it is. Everything here is a
-hint layered over what the property's type already says — see
-PropertyDescriptor for what the two resolve to together.</p>
+      <dd><p>Marks a property as one that inspectors and graph editors show and edit.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Editing.Inspect.html">Inspect</a></dt>
-      <dd><p>Where editors ask what a thing has to edit. Of(Type) reflects the
-EditableAttributes once and caches the descriptors; Of(object)
-lets an IInspectable answer for itself instead.</p>
+      <dd><p>Finds what an object or type has to edit.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Editing.PropertyDescriptor.html">PropertyDescriptor</a></dt>
-      <dd><p>Everything an editor needs to know to show and change one property
-on one object: what to call it, what control to use, what it
-accepts, whether it can be keyframed, when it applies, and how to
-read and write it. Resolved once per type from the EditableAttribute
-and the property's own type (see Inspect), so a new node or clip
-property becomes editable by carrying the attribute and nothing
-else.</p>
-<p>Writes go through the property's own setter, so they are recorded
-for undo like any other write. List edits are recorded here, since
-a list's own Add/Remove are not.</p>
-<p>A descriptor can be redirected (Through) so that a composite node
-can present an inner node's property as its own, under its own
-name: the descriptor reads and writes the inner node while the
-inspector only ever hands it the composite.</p>
+      <dd><p>Everything an editor needs to show and change one editable property: its label, control, limits, and how to read and write it.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Editing.VisibleWhenAttribute.html">VisibleWhenAttribute</a></dt>
-      <dd><p>Hides the property unless a sibling property on the same object
-currently holds one of the given values — a polygon's points are
-only worth showing while the shape is a polygon. Several of these
-on one property must all hold.</p>
+      <dd><p>Hides a property unless a sibling property currently holds one of the given values.</p>
 </dd>
     </dl>
     <h3 id="structs">
@@ -147,7 +124,7 @@ Structs
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Editing.Choice.html">Choice</a></dt>
-      <dd><p>One value a property may take, and what a picker shows for it.</p>
+      <dd><p>One value a property may take, and the label a picker shows for it.</p>
 </dd>
     </dl>
     <h3 id="interfaces">
@@ -160,9 +137,7 @@ Interfaces
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Editing.IInspectable.html">IInspectable</a></dt>
-      <dd><p>An object that describes its own editable properties instead of
-leaving it to its type — a composite node, whose properties are
-whichever inner ones it chose to expose.</p>
+      <dd><p>An object that lists its own editable properties instead of leaving it to its type.</p>
 </dd>
     </dl>
     <h3 id="enums">
@@ -170,16 +145,12 @@ Enums
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Editing.FrameMeasure.html">FrameMeasure</a></dt>
-      <dd><p>How a value measures against the frame, so an editor can show it in
-pixels of the render resolution. Stored values stay frame-relative,
-which keeps a project independent of its canvas size.</p>
+      <dd><p>How a value measures against the frame, so an editor can show it in pixels of the render resolution.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Editing.PropertyEditor.html">PropertyEditor</a></dt>
-      <dd><p>What kind of control edits a property. Auto lets the type decide —
-see Inspect.Infer — and the rest override it where the type alone
-cannot tell (a float that is an angle, a string that is a path).</p>
+      <dd><p>Which control an editor uses for a property.</p>
 </dd>
     </dl>
 

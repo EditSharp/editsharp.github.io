@@ -96,29 +96,22 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Transitions.FadeToColorTransition.html">FadeToColorTransition</a></dt>
-      <dd><p>Fades OUT to Color, then fades IN from Color.</p>
+      <dd><p>Fades out to a colour over the first half, then in from it over the second.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Transitions.FadeTransition.html">FadeTransition</a></dt>
-      <dd><p>Direct crossfade between the two clips — no intermediate colour.</p>
+      <dd><p>A crossfade: the outgoing clip fades out as the incoming one fades in.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Transitions.SlideTransition.html">SlideTransition</a></dt>
-      <dd><p>Both clips translate together across the canvas at Angle degrees.</p>
+      <dd><p>The incoming clip pushes the outgoing one out of the frame.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Transitions.Transition.html">Transition</a></dt>
-      <dd><p>One channel-level transition between two adjacent clips. Abstract —
-the CLASS is the type, no separate TransitionType enum, matching
-Effect/EffectNode's own &quot;the class is the type&quot; convention elsewhere
-in this schema.</p>
-<p>NEW in this rewrite: carries its own From/To directly (previously a
-Channel held a separate (Clip, Transition) tuple list) — see the
-schema doc's Channel section. This is what lets Channel.Transitions
-simply be a List&lt;Transition&gt;.</p>
+      <dd><p>A change from one clip to the next on a channel, over the time the two overlap.</p>
 </dd>
     </dl>
 

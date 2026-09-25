@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class AudioSampleEventArgs | EditSharp ">
       
-      <meta name="description" content="One chunk (~100ms) of mixed timeline audio, raw s16le interleaved PCM at SampleRate/ChannelCount. Buffer OWNERSHIP: same contract as VideoFrameEventArgs — Buffer is reused by PlaybackAudioEngine on the very next chunk, so a subscriber that needs the samples past the handler returning (queuing onto an audio device buffer on another thread, etc.) MUST copy out of Buffer[..Length] synchronously.">
+      <meta name="description" content="One block of mixed playback audio: interleaved 16-bit little-endian PCM.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Playback_AudioSampleEventArgs" data-uid="EditSharp.Playback.AudioSampleEventArgs" class="text-break">
-Class AudioSampleEventArgs  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L15"><i class="bi bi-code-slash"></i></a>
+Class AudioSampleEventArgs  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,13 +97,7 @@ Class AudioSampleEventArgs  <a class="header-action link-secondary" title="View 
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>One chunk (~100ms) of mixed timeline audio, raw s16le interleaved
-PCM at SampleRate/ChannelCount.</p>
-<p>Buffer OWNERSHIP: same contract as VideoFrameEventArgs — Buffer is
-reused by PlaybackAudioEngine on the very next chunk, so a subscriber
-that needs the samples past the handler returning (queuing onto an
-audio device buffer on another thread, etc.) MUST copy out of
-Buffer[..Length] synchronously.</p>
+  <div class="markdown summary"><p>One block of mixed playback audio: interleaved 16-bit little-endian PCM.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -154,6 +148,9 @@ Buffer[..Length] synchronously.</p>
 
 
 
+  <h2 id="EditSharp_Playback_AudioSampleEventArgs_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p><a class="xref" href="EditSharp.Playback.AudioSampleEventArgs.html#EditSharp_Playback_AudioSampleEventArgs_Buffer">Buffer</a> is reused for the next block, so copy <code>Buffer[..Length]</code> before the handler returns to keep the samples.</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -164,10 +161,11 @@ Buffer[..Length] synchronously.</p>
 
   <h3 id="EditSharp_Playback_AudioSampleEventArgs__ctor_System_Byte___System_Int32_System_Int32_System_Int32_System_TimeSpan_" data-uid="EditSharp.Playback.AudioSampleEventArgs.#ctor(System.Byte[],System.Int32,System.Int32,System.Int32,System.TimeSpan)">
   AudioSampleEventArgs(byte[], int, int, int, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Wraps one block of samples.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -177,15 +175,20 @@ Buffer[..Length] synchronously.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
-    <dd></dd>
+    <dd><p>The samples.</p>
+</dd>
     <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>How many bytes of <code class="paramref">buffer</code> hold samples.</p>
+</dd>
     <dt><code>sampleRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>Frames per second.</p>
+</dd>
     <dt><code>channelCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>Samples per frame.</p>
+</dd>
     <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>The timeline time of the first frame.</p>
+</dd>
   </dl>
 
 
@@ -207,10 +210,11 @@ Buffer[..Length] synchronously.</p>
 
   <h3 id="EditSharp_Playback_AudioSampleEventArgs_Buffer" data-uid="EditSharp.Playback.AudioSampleEventArgs.Buffer">
   Buffer
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The samples; valid only during the handler.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -238,10 +242,11 @@ Buffer[..Length] synchronously.</p>
 
   <h3 id="EditSharp_Playback_AudioSampleEventArgs_ChannelCount" data-uid="EditSharp.Playback.AudioSampleEventArgs.ChannelCount">
   ChannelCount
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Samples per frame.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -269,10 +274,11 @@ Buffer[..Length] synchronously.</p>
 
   <h3 id="EditSharp_Playback_AudioSampleEventArgs_Length" data-uid="EditSharp.Playback.AudioSampleEventArgs.Length">
   Length
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How many bytes of <a class="xref" href="EditSharp.Playback.AudioSampleEventArgs.html#EditSharp_Playback_AudioSampleEventArgs_Buffer">Buffer</a> hold samples.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -300,10 +306,11 @@ Buffer[..Length] synchronously.</p>
 
   <h3 id="EditSharp_Playback_AudioSampleEventArgs_Position" data-uid="EditSharp.Playback.AudioSampleEventArgs.Position">
   Position
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The timeline time of the block's first frame.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -331,10 +338,11 @@ Buffer[..Length] synchronously.</p>
 
   <h3 id="EditSharp_Playback_AudioSampleEventArgs_SampleRate" data-uid="EditSharp.Playback.AudioSampleEventArgs.SampleRate">
   SampleRate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Frames per second.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -362,7 +370,7 @@ Buffer[..Length] synchronously.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L15" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Playback/AudioSampleEventArgs.cs/#L7" class="edit-link">Edit this page</a>
         </div>
 
 

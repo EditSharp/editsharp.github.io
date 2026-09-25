@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class KeyframeHandle&lt;T&gt; | EditSharp ">
       
-      <meta name="description" content="One end of a keyframe&#39;s bezier handle: a 2D offset from the keyframe itself (time offset + value offset), not a single scalar &amp;quot;how much speed to remove&amp;quot; the way the old EaseInStrength/EaseOutStrength were. See the migration note on Keyframe.cs&#39;s old shape. CONVENTION: TimeOffset is always stored as a non-negative magnitude — &amp;quot;how far this handle reaches toward the OTHER keyframe of the segment,&amp;quot; regardless of whether it&#39;s an in-handle or an out-handle. An out-handle is applied by ADDING TimeOffset to its own keyframe&#39;s Start; an in-handle is applied by SUBTRACTING TimeOffset from its own keyframe&#39;s Start. This is what makes &amp;quot;clamp so it can never cross the neighboring keyframe&amp;quot; a single one-directional clamp (TimeOffset can never exceed the gap to the neighbor) instead of needing a sign check at every call site.">
+      <meta name="description" content="A Bezier handle: where the curve&#39;s control point sits relative to its keyframe.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_KeyframeHandle_1" data-uid="EditSharp.Components.KeyframeHandle`1" class="text-break">
-Class KeyframeHandle&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L24"><i class="bi bi-code-slash"></i></a>
+Class KeyframeHandle&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,19 +97,7 @@ Class KeyframeHandle&lt;T&gt;  <a class="header-action link-secondary" title="Vi
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>One end of a keyframe's bezier handle: a 2D offset from the keyframe
-itself (time offset + value offset), not a single scalar &quot;how much
-speed to remove&quot; the way the old EaseInStrength/EaseOutStrength were.
-See the migration note on Keyframe.cs's old shape.</p>
-<p>CONVENTION: TimeOffset is always stored as a non-negative magnitude —
-&quot;how far this handle reaches toward the OTHER keyframe of the
-segment,&quot; regardless of whether it's an in-handle or an out-handle.
-An out-handle is applied by ADDING TimeOffset to its own keyframe's
-Start; an in-handle is applied by SUBTRACTING TimeOffset from its own
-keyframe's Start. This is what makes &quot;clamp so it can never cross the
-neighboring keyframe&quot; a single one-directional clamp (TimeOffset can
-never exceed the gap to the neighbor) instead of needing a sign check
-at every call site.</p>
+  <div class="markdown summary"><p>A Bezier handle: where the curve's control point sits relative to its keyframe.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -122,7 +110,8 @@ at every call site.</p>
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>T</code></dt>
-    <dd></dd>
+    <dd><p>The type of value.</p>
+</dd>
   </dl>
 
   <dl class="typelist inheritance">
@@ -171,10 +160,11 @@ at every call site.</p>
 
   <h3 id="EditSharp_Components_KeyframeHandle_1_TimeOffset" data-uid="EditSharp.Components.KeyframeHandle`1.TimeOffset">
   TimeOffset
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How far the handle reaches toward the neighbouring keyframe on its side; never negative, and never past that keyframe.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -202,10 +192,11 @@ at every call site.</p>
 
   <h3 id="EditSharp_Components_KeyframeHandle_1_ValueOffset" data-uid="EditSharp.Components.KeyframeHandle`1.ValueOffset">
   ValueOffset
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The control point's value, as an offset added to the keyframe's value.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -233,7 +224,7 @@ at every call site.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L24" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L10" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class GainNode | EditSharp ">
       
-      <meta name="description" content="Auto-created and wired in by default (see Graph.CreateAudioGraph) — this is what replaces the old flat AudioClip.Volume field. A normal, removable node beyond that default: an artist can delete it, add several gain stages at different points in a chain, or route around it entirely.">
+      <meta name="description" content="Changes the volume.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Nodes_Effects_GainNode" data-uid="EditSharp.Components.Nodes.Effects.GainNode" class="text-break">
-Class GainNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L18"><i class="bi bi-code-slash"></i></a>
+Class GainNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,11 +97,7 @@ Class GainNode  <a class="header-action link-secondary" title="View source" href
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Auto-created and wired in by default (see Graph.CreateAudioGraph)
-— this is what replaces the old flat AudioClip.Volume field. A
-normal, removable node beyond that default: an artist can delete it,
-add several gain stages at different points in a chain, or route
-around it entirely.</p>
+  <div class="markdown summary"><p>Changes the volume.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -155,6 +151,9 @@ around it entirely.</p>
 
 
 
+  <h2 id="EditSharp_Components_Nodes_Effects_GainNode_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Input: Audio, plus an optional Value input, Modulation, that multiplies <a class="xref" href="EditSharp.Components.Nodes.Effects.GainNode.html#EditSharp_Components_Nodes_Effects_GainNode_Gain">Gain</a>. Output: Audio. A new audio clip's graph has one.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -165,15 +164,10 @@ around it entirely.</p>
 
   <h3 id="EditSharp_Components_Nodes_Effects_GainNode_Animatables" data-uid="EditSharp.Components.Nodes.Effects.GainNode.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Every keyframeable property this node owns, so a clip can reach
-all of its tracks at once — a head trim/extend shifts every
-keyframe in the graph (see Clip.OnHeadInPointShift). Empty by
-default; a node with Animatable properties overrides it and lists
-each one. An animated property left out here simply stops
-following the content when the clip's head moves.</p>
+  <div class="markdown level1 summary"><p>Every keyframeable value the node owns.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -194,6 +188,9 @@ following the content when the clip's head moves.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Effects_GainNode_Animatables_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Trimming a clip's head shifts every keyframe these hold, so the animation stays with the content. A node with Animatable properties lists every one of them here.</p>
+</div>
 
 
 
@@ -202,10 +199,11 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Effects_GainNode_Gain" data-uid="EditSharp.Components.Nodes.Effects.GainNode.Gain">
   Gain
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The volume as a multiplier: 0 is silent, 1 unchanged, 2 twice as loud.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -234,10 +232,11 @@ public Animatable&lt;float&gt; Gain { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_GainNode_Ports" data-uid="EditSharp.Components.Nodes.Effects.GainNode.Ports">
   Ports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The node's ports, fixed by its type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -269,13 +268,10 @@ public Animatable&lt;float&gt; Gain { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_GainNode_Duplicate" data-uid="EditSharp.Components.Nodes.Effects.GainNode.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy with a FRESH Id — a duplicated clip's graph must not
-share node identity with the original, or a Connection recorded
-against one graph could be mistaken for referencing a node in
-the other.</p>
+  <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Id</a>, so connections in the two graphs can't be confused.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -287,7 +283,8 @@ the other.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -296,6 +293,9 @@ the other.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Effects_GainNode_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo.</p>
+</div>
 
 
 
@@ -304,7 +304,7 @@ the other.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L18" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L13" class="edit-link">Edit this page</a>
         </div>
 
 

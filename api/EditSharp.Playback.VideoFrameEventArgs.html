@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class VideoFrameEventArgs | EditSharp ">
       
-      <meta name="description" content="One rendered output frame, raw RGBA8888 (OutputFormat), straight alpha, no row padding — the exact same byte layout Renderer&#39;s accumulator writes. Buffer OWNERSHIP: Buffer is rented from ArrayPool&amp;lt;byte&amp;gt;.Shared and is only valid for the duration of the VideoFrame event handler. It is returned to the pool immediately after the handler returns, so a subscriber that needs the pixels past that point (uploading to a GPU texture on another thread, queuing for display, etc.) MUST copy out of Buffer[..Length] synchronously, before returning from the handler.">
+      <meta name="description" content="One rendered frame: RGBA8888 with straight alpha and no row padding.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Playback_VideoFrameEventArgs" data-uid="EditSharp.Playback.VideoFrameEventArgs" class="text-break">
-Class VideoFrameEventArgs  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L18"><i class="bi bi-code-slash"></i></a>
+Class VideoFrameEventArgs  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,16 +97,7 @@ Class VideoFrameEventArgs  <a class="header-action link-secondary" title="View s
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>One rendered output frame, raw RGBA8888 (OutputFormat), straight
-alpha, no row padding — the exact same byte layout Renderer's
-accumulator writes.</p>
-<p>Buffer OWNERSHIP: Buffer is rented from ArrayPool&lt;byte&gt;.Shared
-and is only valid for the duration of the VideoFrame event handler.
-It is returned to the pool immediately after the handler returns, so
-a subscriber that needs the pixels past that point (uploading to a
-GPU texture on another thread, queuing for display, etc.) MUST copy
-out of Buffer[..Length] synchronously, before returning from the
-handler.</p>
+  <div class="markdown summary"><p>One rendered frame: RGBA8888 with straight alpha and no row padding.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -157,6 +148,9 @@ handler.</p>
 
 
 
+  <h2 id="EditSharp_Playback_VideoFrameEventArgs_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p><a class="xref" href="EditSharp.Playback.VideoFrameEventArgs.html#EditSharp_Playback_VideoFrameEventArgs_Buffer">Buffer</a> is rented from <code>ArrayPool&lt;byte&gt;.Shared</code> and returned when the handler returns, so copy <code>Buffer[..Length]</code> before then to keep the pixels.</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -167,10 +161,11 @@ handler.</p>
 
   <h3 id="EditSharp_Playback_VideoFrameEventArgs__ctor_System_Byte___System_Int32_System_Int32_System_Int32_System_TimeSpan_" data-uid="EditSharp.Playback.VideoFrameEventArgs.#ctor(System.Byte[],System.Int32,System.Int32,System.Int32,System.TimeSpan)">
   VideoFrameEventArgs(byte[], int, int, int, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Wraps one frame.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -180,15 +175,20 @@ handler.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>buffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
-    <dd></dd>
+    <dd><p>The pixels.</p>
+</dd>
     <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>How many bytes of <code class="paramref">buffer</code> hold pixels.</p>
+</dd>
     <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>The width in pixels.</p>
+</dd>
     <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>The height in pixels.</p>
+</dd>
     <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>The frame's timeline time.</p>
+</dd>
   </dl>
 
 
@@ -210,10 +210,11 @@ handler.</p>
 
   <h3 id="EditSharp_Playback_VideoFrameEventArgs_Buffer" data-uid="EditSharp.Playback.VideoFrameEventArgs.Buffer">
   Buffer
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The pixels; valid only during the handler.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -241,10 +242,11 @@ handler.</p>
 
   <h3 id="EditSharp_Playback_VideoFrameEventArgs_Height" data-uid="EditSharp.Playback.VideoFrameEventArgs.Height">
   Height
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The frame's height in pixels.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -272,10 +274,11 @@ handler.</p>
 
   <h3 id="EditSharp_Playback_VideoFrameEventArgs_Length" data-uid="EditSharp.Playback.VideoFrameEventArgs.Length">
   Length
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How many bytes of <a class="xref" href="EditSharp.Playback.VideoFrameEventArgs.html#EditSharp_Playback_VideoFrameEventArgs_Buffer">Buffer</a> hold pixels.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -303,10 +306,11 @@ handler.</p>
 
   <h3 id="EditSharp_Playback_VideoFrameEventArgs_Position" data-uid="EditSharp.Playback.VideoFrameEventArgs.Position">
   Position
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The frame's timeline time.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -334,10 +338,11 @@ handler.</p>
 
   <h3 id="EditSharp_Playback_VideoFrameEventArgs_Width" data-uid="EditSharp.Playback.VideoFrameEventArgs.Width">
   Width
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The frame's width in pixels.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -365,7 +370,7 @@ handler.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L18" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Playback/VideoFrameEventArgs.cs/#L7" class="edit-link">Edit this page</a>
         </div>
 
 

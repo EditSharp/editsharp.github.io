@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Enum SourceMode | EditSharp ">
       
-      <meta name="description" content="Whether proxy-capable sources read their proxy or their original. Kinds with no notion of a proxy (a still image, a 3D scene) ignore this and always render from source. Random access (scrubbing, reverse) always needs a proxy regardless of mode; decoding an original at an arbitrary position per frame isn&#39;t viable.">
+      <meta name="description" content="Whether sources that have proxies read the proxy or the original.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -90,7 +90,7 @@
 
 
   <h1 id="EditSharp_Components_Sources_SourceMode" data-uid="EditSharp.Components.Sources.SourceMode" class="text-break">
-Enum SourceMode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceMode.cs/#L10"><i class="bi bi-code-slash"></i></a>
+Enum SourceMode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceMode.cs/#L5"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,11 +98,7 @@ Enum SourceMode  <a class="header-action link-secondary" title="View source" hre
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Whether proxy-capable sources read their proxy or their original.
-Kinds with no notion of a proxy (a still image, a 3D scene) ignore
-this and always render from source. Random access (scrubbing, reverse)
-always needs a proxy regardless of mode; decoding an original at an
-arbitrary position per frame isn't viable.</p>
+  <div class="markdown summary"><p>Whether sources that have proxies read the proxy or the original.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -136,11 +132,14 @@ arbitrary position per frame isn't viable.</p>
   </dl>
 
 
+  <h2 id="EditSharp_Components_Sources_SourceMode_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Kinds with no proxy (a still image, a generator) ignore this. Random access (scrubbing, reverse) always reads the proxy whatever the mode, since decoding an original at an arbitrary position every frame is too slow.</p>
+</div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceMode.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceMode.cs/#L5" class="edit-link">Edit this page</a>
         </div>
 
 

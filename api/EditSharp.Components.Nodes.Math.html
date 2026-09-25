@@ -96,33 +96,12 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Nodes.Math.MathNode.html">MathNode</a></dt>
-      <dd><p>The &quot;base node type for math functions that are universally
-applicable&quot; — combines two Value inputs with a plain arithmetic
-operation. Domain-universal for the same reason ValueConstantNode
-is (only Value ports), so the SAME MathNode class places into either
-an Image-domain or an Audio-domain graph.</p>
-<p>On its own this only produces a number — it has no effect on any
-signal until it's wired into one of the small set of nodes that
-expose an optional Value modulation input (GainNode's &quot;Modulation&quot;,
-AudioMixNode's &quot;MixAModulation&quot;/&quot;MixBModulation&quot;, MergeNode's
-&quot;MixModulation&quot; — see each node's own remarks). Wire a
-ValueConstantNode (or a whole MathNode chain) into one of those, and
-it multiplies against that node's own keyframed value every time
-it's evaluated, rather than replacing it outright — so the node's
-own curve and a procedurally-computed modulation compose, instead of
-one silently overriding the other.</p>
+      <dd><p>Combines two numbers.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Nodes.Math.ValueConstantNode.html">ValueConstantNode</a></dt>
-      <dd><p>Wraps one keyframeable float as a Value-port output — the simplest
-way to originate a number for a MathNode (or for one of the optional
-Value modulation inputs a few signal nodes now expose — see
-GainNode/AudioMixNode/MergeNode's own remarks) to consume.</p>
-<p>Declares ONLY a Value port, so Graph.AddNode treats it as
-domain-universal (see Graph.InferDomain) — the exact same
-ValueConstantNode class works unmodified inside a VideoClip's
-Image-domain graph or an AudioClip's Audio-domain graph.</p>
+      <dd><p>A keyframeable number, for a <a class="xref" href="EditSharp.Components.Nodes.Math.MathNode.html">MathNode</a> or a modulation input.</p>
 </dd>
     </dl>
     <h3 id="enums">
@@ -130,7 +109,8 @@ Enums
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Nodes.Math.MathOperation.html">MathOperation</a></dt>
-      <dd></dd>
+      <dd><p>What a <a class="xref" href="EditSharp.Components.Nodes.Math.MathNode.html">MathNode</a> does with its two inputs.</p>
+</dd>
     </dl>
 
 

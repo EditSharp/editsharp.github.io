@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SourceKindAttribute | EditSharp ">
       
-      <meta name="description" content="Registers a concrete Source for serialization under a stable id. The id is written into saved data as &amp;quot;$kind&amp;quot;, so it must never change once shipped; rename the class freely, never the id. DisplayName is what editors show; Listed false keeps a kind out of pickers (examples, unfinished kinds) while it still loads.">
+      <meta name="description" content="Registers a concrete  for saving and loading under a stable id.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Sources_SourceKindAttribute" data-uid="EditSharp.Components.Sources.SourceKindAttribute" class="text-break">
-Class SourceKindAttribute  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKindAttribute.cs/#L12"><i class="bi bi-code-slash"></i></a>
+Class SourceKindAttribute  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKindAttribute.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,11 +97,7 @@ Class SourceKindAttribute  <a class="header-action link-secondary" title="View s
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Registers a concrete Source for serialization under a stable id. The id
-is written into saved data as &quot;$kind&quot;, so it must never change once
-shipped; rename the class freely, never the id. DisplayName is what
-editors show; Listed false keeps a kind out of pickers (examples,
-unfinished kinds) while it still loads.</p>
+  <div class="markdown summary"><p>Registers a concrete <a class="xref" href="EditSharp.Components.Sources.Source.html">Source</a> for saving and loading under a stable id.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -265,14 +261,10 @@ public sealed class SourceKindAttribute : Attribute</code></pre>
 
   <h3 id="EditSharp_Components_Sources_SourceKindAttribute__ctor_System_String_" data-uid="EditSharp.Components.Sources.SourceKindAttribute.#ctor(System.String)">
   SourceKindAttribute(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKindAttribute.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKindAttribute.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Registers a concrete Source for serialization under a stable id. The id
-is written into saved data as &quot;$kind&quot;, so it must never change once
-shipped; rename the class freely, never the id. DisplayName is what
-editors show; Listed false keeps a kind out of pickers (examples,
-unfinished kinds) while it still loads.</p>
+  <div class="markdown level1 summary"><p>Registers a concrete <a class="xref" href="EditSharp.Components.Sources.Source.html">Source</a> for saving and loading under a stable id.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -283,7 +275,8 @@ unfinished kinds) while it still loads.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The id saved files contain; see <a class="xref" href="EditSharp.Components.Sources.SourceKindAttribute.html#EditSharp_Components_Sources_SourceKindAttribute_Id">Id</a>.</p>
+</dd>
   </dl>
 
 
@@ -305,10 +298,11 @@ unfinished kinds) while it still loads.</p>
 
   <h3 id="EditSharp_Components_Sources_SourceKindAttribute_DisplayName" data-uid="EditSharp.Components.Sources.SourceKindAttribute.DisplayName">
   DisplayName
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKindAttribute.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKindAttribute.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The kind's name in editors; null uses the class name.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -336,10 +330,11 @@ unfinished kinds) while it still loads.</p>
 
   <h3 id="EditSharp_Components_Sources_SourceKindAttribute_Id" data-uid="EditSharp.Components.Sources.SourceKindAttribute.Id">
   Id
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKindAttribute.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKindAttribute.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The id written into saved data as &quot;$kind&quot;.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -359,6 +354,9 @@ unfinished kinds) while it still loads.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_SourceKindAttribute_Id_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Saved files depend on it, so it must never change once shipped. The class can be renamed freely.</p>
+</div>
 
 
 
@@ -367,10 +365,11 @@ unfinished kinds) while it still loads.</p>
 
   <h3 id="EditSharp_Components_Sources_SourceKindAttribute_Listed" data-uid="EditSharp.Components.Sources.SourceKindAttribute.Listed">
   Listed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKindAttribute.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKindAttribute.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether pickers offer the kind. An unlisted kind still loads.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -398,7 +397,7 @@ unfinished kinds) while it still loads.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKindAttribute.cs/#L12" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceKindAttribute.cs/#L7" class="edit-link">Edit this page</a>
         </div>
 
 

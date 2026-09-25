@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class EditableAttribute | EditSharp ">
       
-      <meta name="description" content="Marks a property as something an inspector or graph editor shows and edits, and says how. Opt-in: a property without this stays out of every inspector, however public it is. Everything here is a hint layered over what the property&#39;s type already says — see PropertyDescriptor for what the two resolve to together.">
+      <meta name="description" content="Marks a property as one that inspectors and graph editors show and edit.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Editing_EditableAttribute" data-uid="EditSharp.Editing.EditableAttribute" class="text-break">
-Class EditableAttribute  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L58"><i class="bi bi-code-slash"></i></a>
+Class EditableAttribute  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,11 +97,7 @@ Class EditableAttribute  <a class="header-action link-secondary" title="View sou
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Marks a property as something an inspector or graph editor shows
-and edits, and says how. Opt-in: a property without this stays out
-of every inspector, however public it is. Everything here is a
-hint layered over what the property's type already says — see
-PropertyDescriptor for what the two resolve to together.</p>
+  <div class="markdown summary"><p>Marks a property as one that inspectors and graph editors show and edit.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -255,6 +251,11 @@ public sealed class EditableAttribute : Attribute</code></pre>
 
 
 
+  <h2 id="EditSharp_Editing_EditableAttribute_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Opt-in: a property without it never appears in an inspector. Everything
+here refines what the property's type already implies;
+<a class="xref" href="EditSharp.Editing.PropertyDescriptor.html">PropertyDescriptor</a> holds what the two resolve to.</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -265,10 +266,11 @@ public sealed class EditableAttribute : Attribute</code></pre>
 
   <h3 id="EditSharp_Editing_EditableAttribute__ctor_System_String_" data-uid="EditSharp.Editing.EditableAttribute.#ctor(System.String)">
   EditableAttribute(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L127"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Marks the property as editable.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -278,7 +280,8 @@ public sealed class EditableAttribute : Attribute</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>displayName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The label editors show; null derives one from the property name.</p>
+</dd>
   </dl>
 
 
@@ -300,13 +303,10 @@ public sealed class EditableAttribute : Attribute</code></pre>
 
   <h3 id="EditSharp_Editing_EditableAttribute_Default" data-uid="EditSharp.Editing.EditableAttribute.Default">
   Default
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L94"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L123"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The value a reset returns the property to. Attributes only take
-constants, so this covers numbers, strings, bools and enums; a
-property without one falls back to the value a freshly
-constructed object has - see PropertyDescriptor.GetDefault.</p>
+  <div class="markdown level1 summary"><p>The value a reset returns the property to.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -327,6 +327,9 @@ constructed object has - see PropertyDescriptor.GetDefault.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Editing_EditableAttribute_Default_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Attributes only take constants, so this covers numbers, strings, bools and enums. Without one, a reset uses the value a newly constructed object has.</p>
+</div>
 
 
 
@@ -335,10 +338,10 @@ constructed object has - see PropertyDescriptor.GetDefault.</p>
 
   <h3 id="EditSharp_Editing_EditableAttribute_DisplayName" data-uid="EditSharp.Editing.EditableAttribute.DisplayName">
   DisplayName
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L89"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The label shown. Null derives one from the property name.</p>
+  <div class="markdown level1 summary"><p>The label editors show; null derives one from the property name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -367,10 +370,11 @@ constructed object has - see PropertyDescriptor.GetDefault.</p>
 
   <h3 id="EditSharp_Editing_EditableAttribute_Editor" data-uid="EditSharp.Editing.EditableAttribute.Editor">
   Editor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L116"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The control to use instead of the one the type implies.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -398,10 +402,10 @@ constructed object has - see PropertyDescriptor.GetDefault.</p>
 
   <h3 id="EditSharp_Editing_EditableAttribute_Frame" data-uid="EditSharp.Editing.EditableAttribute.Frame">
   Frame
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How the value measures against the frame; see FrameMeasure. Applies to a list's items too.</p>
+  <div class="markdown level1 summary"><p>How the value measures against the frame, for editors that can show it in pixels. Applies to a list's items too.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -430,10 +434,10 @@ constructed object has - see PropertyDescriptor.GetDefault.</p>
 
   <h3 id="EditSharp_Editing_EditableAttribute_Group" data-uid="EditSharp.Editing.EditableAttribute.Group">
   Group
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L92"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Properties sharing a group are shown together under it.</p>
+  <div class="markdown level1 summary"><p>Properties with the same group are shown together under that heading.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -462,10 +466,11 @@ constructed object has - see PropertyDescriptor.GetDefault.</p>
 
   <h3 id="EditSharp_Editing_EditableAttribute_Max" data-uid="EditSharp.Editing.EditableAttribute.Max">
   Max
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The highest value a numeric editor allows, in the property's own units; NaN for no limit.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -493,10 +498,10 @@ constructed object has - see PropertyDescriptor.GetDefault.</p>
 
   <h3 id="EditSharp_Editing_EditableAttribute_Min" data-uid="EditSharp.Editing.EditableAttribute.Min">
   Min
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L98"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Range and step for numeric editors, in the property's own units. NaN leaves it unbounded.</p>
+  <div class="markdown level1 summary"><p>The lowest value a numeric editor allows, in the property's own units; NaN for no limit.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -525,10 +530,10 @@ constructed object has - see PropertyDescriptor.GetDefault.</p>
 
   <h3 id="EditSharp_Editing_EditableAttribute_Order" data-uid="EditSharp.Editing.EditableAttribute.Order">
   Order
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L95"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Lower comes first. Equal orders keep declaration order.</p>
+  <div class="markdown level1 summary"><p>Where the property is listed: lower first, ties in declaration order.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -557,10 +562,10 @@ constructed object has - see PropertyDescriptor.GetDefault.</p>
 
   <h3 id="EditSharp_Editing_EditableAttribute_ReadOnly" data-uid="EditSharp.Editing.EditableAttribute.ReadOnly">
   ReadOnly
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L119"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Shown but not editable.</p>
+  <div class="markdown level1 summary"><p>Whether the property is shown without being editable.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -589,10 +594,11 @@ constructed object has - see PropertyDescriptor.GetDefault.</p>
 
   <h3 id="EditSharp_Editing_EditableAttribute_Step" data-uid="EditSharp.Editing.EditableAttribute.Step">
   Step
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L104"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How far one drag step or arrow press moves a numeric editor, in the property's own units; NaN for the editor's default.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -620,10 +626,11 @@ constructed object has - see PropertyDescriptor.GetDefault.</p>
 
   <h3 id="EditSharp_Editing_EditableAttribute_Tooltip" data-uid="EditSharp.Editing.EditableAttribute.Tooltip">
   Tooltip
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L113"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Text shown when hovering the property.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -651,10 +658,10 @@ constructed object has - see PropertyDescriptor.GetDefault.</p>
 
   <h3 id="EditSharp_Editing_EditableAttribute_Unit" data-uid="EditSharp.Editing.EditableAttribute.Unit">
   Unit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L107"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Shown after the value — &quot;dB&quot;, &quot;Hz&quot;, &quot;ms&quot;.</p>
+  <div class="markdown level1 summary"><p>Text shown after the value, such as &quot;dB&quot; or &quot;Hz&quot;.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -683,7 +690,7 @@ constructed object has - see PropertyDescriptor.GetDefault.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L58" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L85" class="edit-link">Edit this page</a>
         </div>
 
 

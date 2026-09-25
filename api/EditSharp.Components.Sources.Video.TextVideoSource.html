@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class TextVideoSource | EditSharp ">
       
-      <meta name="description" content="A block of white text at a fixed size, centred in a frame-sized image, so a transform places it and editing the words never resizes them.">
+      <meta name="description" content="A block of white text on a transparent, frame-sized image.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Sources_Video_TextVideoSource" data-uid="EditSharp.Components.Sources.Video.TextVideoSource" class="text-break">
-Class TextVideoSource  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L82"><i class="bi bi-code-slash"></i></a>
+Class TextVideoSource  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L128"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,8 +97,7 @@ Class TextVideoSource  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A block of white text at a fixed size, centred in a frame-sized image, so
-a transform places it and editing the words never resizes them.</p>
+  <div class="markdown summary"><p>A block of white text on a transparent, frame-sized image.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -187,6 +186,9 @@ public class TextVideoSource : VideoSource, IChoiceProvider</code></pre>
 
 
 
+  <h2 id="EditSharp_Components_Sources_Video_TextVideoSource_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The text is sized against the frame, not fitted to its box, so editing the words never resizes them; a transform places it.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -197,10 +199,11 @@ public class TextVideoSource : VideoSource, IChoiceProvider</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_TextVideoSource_Box" data-uid="EditSharp.Components.Sources.Video.TextVideoSource.Box">
   Box
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L168"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The size of the area the text is laid out in, centred in the frame: X as a fraction of the frame's width, Y of its height.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -229,10 +232,11 @@ public Vector2 Box { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_TextVideoSource_Content" data-uid="EditSharp.Components.Sources.Video.TextVideoSource.Content">
   Content
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L133"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The text; line breaks start new paragraphs.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -261,10 +265,11 @@ public string Content { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_TextVideoSource_Font" data-uid="EditSharp.Components.Sources.Video.TextVideoSource.Font">
   Font
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L139"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The name of an installed font family; one that isn't installed draws with the default font.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -285,6 +290,9 @@ public string Font { get; set; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_Video_TextVideoSource_Font_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Changing it moves <a class="xref" href="EditSharp.Components.Sources.Video.TextVideoSource.html#EditSharp_Components_Sources_Video_TextVideoSource_Weight">Weight</a> to the nearest weight the new font has.</p>
+</div>
 
 
 
@@ -293,10 +301,11 @@ public string Font { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_TextVideoSource_HorizontalAlignment" data-uid="EditSharp.Components.Sources.Video.TextVideoSource.HorizontalAlignment">
   HorizontalAlignment
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L178"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How lines line up across the box.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -325,10 +334,11 @@ public HorizontalTextAlignment HorizontalAlignment { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_TextVideoSource_Italic" data-uid="EditSharp.Components.Sources.Video.TextVideoSource.Italic">
   Italic
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L158"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether to use the font's italic; a font with none is slanted instead.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -357,10 +367,11 @@ public bool Italic { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_TextVideoSource_Size" data-uid="EditSharp.Components.Sources.Video.TextVideoSource.Size">
   Size
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L163"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The font's em size, as a fraction of the frame's width.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -389,10 +400,11 @@ public float Size { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_TextVideoSource_VerticalAlignment" data-uid="EditSharp.Components.Sources.Video.TextVideoSource.VerticalAlignment">
   VerticalAlignment
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L183"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Where the text sits in the box, top to bottom.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -421,10 +433,11 @@ public VerticalTextAlignment VerticalAlignment { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_TextVideoSource_Weight" data-uid="EditSharp.Components.Sources.Video.TextVideoSource.Weight">
   Weight
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L153"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How heavy the letters are, from 100 (thin) to 900 (black); 400 is regular.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -453,10 +466,11 @@ public int Weight { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_TextVideoSource_Wrap" data-uid="EditSharp.Components.Sources.Video.TextVideoSource.Wrap">
   Wrap
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L173"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Where lines break when they reach the box's width.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -489,10 +503,10 @@ public TextWrap Wrap { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_TextVideoSource_ChoicesFor_System_String_" data-uid="EditSharp.Components.Sources.Video.TextVideoSource.ChoicesFor(System.String)">
   ChoicesFor(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L190"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Null when the property is free to take any value.</p>
+  <div class="markdown level1 summary"><p>The choices for <a class="xref" href="EditSharp.Components.Sources.Video.TextVideoSource.html#EditSharp_Components_Sources_Video_TextVideoSource_Font">Font</a> (the installed families) and <a class="xref" href="EditSharp.Components.Sources.Video.TextVideoSource.html#EditSharp_Components_Sources_Video_TextVideoSource_Weight">Weight</a> (the weights the font has).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -503,13 +517,15 @@ public TextWrap Wrap { get; set; }</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>property</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The property's name.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="EditSharp.Editing.Choice.html">Choice</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The choices; null for any other property.</p>
+</dd>
   </dl>
 
 
@@ -518,6 +534,9 @@ public TextWrap Wrap { get; set; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_Video_TextVideoSource_ChoicesFor_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A font that isn't installed, or a weight the font doesn't have, is offered too, so the current value always shows.</p>
+</div>
 
 
 
@@ -526,11 +545,10 @@ public TextWrap Wrap { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_TextVideoSource_Duplicate" data-uid="EditSharp.Components.Sources.Video.TextVideoSource.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L211"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy, through SourceSerializer; see class remarks. History is
-suppressed: a fresh copy has no past to undo.</p>
+  <div class="markdown level1 summary"><p>A deep copy, made by saving and loading this source.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -542,7 +560,8 @@ suppressed: a fresh copy has no past to undo.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Sources.Video.TextVideoSource.html">TextVideoSource</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -551,6 +570,9 @@ suppressed: a fresh copy has no past to undo.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_Video_TextVideoSource_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo. A nested timeline is shared, not copied.</p>
+</div>
 
 
 
@@ -559,12 +581,10 @@ suppressed: a fresh copy has no past to undo.</p>
 
   <h3 id="EditSharp_Components_Sources_Video_TextVideoSource_GetNaturalLengthAsync_System_Threading_CancellationToken_" data-uid="EditSharp.Components.Sources.Video.TextVideoSource.GetNaturalLengthAsync(System.Threading.CancellationToken)">
   GetNaturalLengthAsync(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L216"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How long the source's own material is, ignoring Start/Duration.
-Null means unbounded; a still image or a generator has no inherent
-end, so only Duration (or the clip) limits it.</p>
+  <div class="markdown level1 summary"><p>Always null: text has no end of its own.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -575,13 +595,15 @@ end, so only Duration (or the clip) limits it.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>ct</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
+    <dd><p>Unused.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?&gt;</dt>
-    <dd></dd>
+    <dd><p>Null.</p>
+</dd>
   </dl>
 
 
@@ -598,7 +620,7 @@ end, so only Duration (or the clip) limits it.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L82" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L128" class="edit-link">Edit this page</a>
         </div>
 
 

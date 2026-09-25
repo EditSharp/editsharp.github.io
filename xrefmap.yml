@@ -963,12 +963,12 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.Channels.Channel.AddClip
   nameWithType: Channel.AddClip
-- uid: EditSharp.Components.Channels.Channel.AddTransition(EditSharp.Components.Transitions.Transition)
-  name: AddTransition(Transition)
-  href: api/EditSharp.Components.Channels.Channel.html#EditSharp_Components_Channels_Channel_AddTransition_EditSharp_Components_Transitions_Transition_
-  commentId: M:EditSharp.Components.Channels.Channel.AddTransition(EditSharp.Components.Transitions.Transition)
-  fullName: EditSharp.Components.Channels.Channel.AddTransition(EditSharp.Components.Transitions.Transition)
-  nameWithType: Channel.AddTransition(Transition)
+- uid: EditSharp.Components.Channels.Channel.AddTransition(EditSharp.Components.Clips.Clip,EditSharp.Components.Clips.Clip,EditSharp.Components.Transitions.Transition)
+  name: AddTransition(Clip, Clip, Transition)
+  href: api/EditSharp.Components.Channels.Channel.html#EditSharp_Components_Channels_Channel_AddTransition_EditSharp_Components_Clips_Clip_EditSharp_Components_Clips_Clip_EditSharp_Components_Transitions_Transition_
+  commentId: M:EditSharp.Components.Channels.Channel.AddTransition(EditSharp.Components.Clips.Clip,EditSharp.Components.Clips.Clip,EditSharp.Components.Transitions.Transition)
+  fullName: EditSharp.Components.Channels.Channel.AddTransition(EditSharp.Components.Clips.Clip, EditSharp.Components.Clips.Clip, EditSharp.Components.Transitions.Transition)
+  nameWithType: Channel.AddTransition(Clip, Clip, Transition)
 - uid: EditSharp.Components.Channels.Channel.AddTransition*
   name: AddTransition
   href: api/EditSharp.Components.Channels.Channel.html#EditSharp_Components_Channels_Channel_AddTransition_
@@ -6291,38 +6291,6 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.Sources.Audio.ToneAudioSource.Waveform
   nameWithType: ToneAudioSource.Waveform
-- uid: EditSharp.Components.Sources.Audio.VSTInstrumentSource
-  name: VSTInstrumentSource
-  href: api/EditSharp.Components.Sources.Audio.VSTInstrumentSource.html
-  commentId: T:EditSharp.Components.Sources.Audio.VSTInstrumentSource
-  fullName: EditSharp.Components.Sources.Audio.VSTInstrumentSource
-  nameWithType: VSTInstrumentSource
-- uid: EditSharp.Components.Sources.Audio.VSTInstrumentSource.Duplicate
-  name: Duplicate()
-  href: api/EditSharp.Components.Sources.Audio.VSTInstrumentSource.html#EditSharp_Components_Sources_Audio_VSTInstrumentSource_Duplicate
-  commentId: M:EditSharp.Components.Sources.Audio.VSTInstrumentSource.Duplicate
-  fullName: EditSharp.Components.Sources.Audio.VSTInstrumentSource.Duplicate()
-  nameWithType: VSTInstrumentSource.Duplicate()
-- uid: EditSharp.Components.Sources.Audio.VSTInstrumentSource.Duplicate*
-  name: Duplicate
-  href: api/EditSharp.Components.Sources.Audio.VSTInstrumentSource.html#EditSharp_Components_Sources_Audio_VSTInstrumentSource_Duplicate_
-  commentId: Overload:EditSharp.Components.Sources.Audio.VSTInstrumentSource.Duplicate
-  isSpec: "True"
-  fullName: EditSharp.Components.Sources.Audio.VSTInstrumentSource.Duplicate
-  nameWithType: VSTInstrumentSource.Duplicate
-- uid: EditSharp.Components.Sources.Audio.VSTInstrumentSource.GetNaturalLengthAsync(System.Threading.CancellationToken)
-  name: GetNaturalLengthAsync(CancellationToken)
-  href: api/EditSharp.Components.Sources.Audio.VSTInstrumentSource.html#EditSharp_Components_Sources_Audio_VSTInstrumentSource_GetNaturalLengthAsync_System_Threading_CancellationToken_
-  commentId: M:EditSharp.Components.Sources.Audio.VSTInstrumentSource.GetNaturalLengthAsync(System.Threading.CancellationToken)
-  fullName: EditSharp.Components.Sources.Audio.VSTInstrumentSource.GetNaturalLengthAsync(System.Threading.CancellationToken)
-  nameWithType: VSTInstrumentSource.GetNaturalLengthAsync(CancellationToken)
-- uid: EditSharp.Components.Sources.Audio.VSTInstrumentSource.GetNaturalLengthAsync*
-  name: GetNaturalLengthAsync
-  href: api/EditSharp.Components.Sources.Audio.VSTInstrumentSource.html#EditSharp_Components_Sources_Audio_VSTInstrumentSource_GetNaturalLengthAsync_
-  commentId: Overload:EditSharp.Components.Sources.Audio.VSTInstrumentSource.GetNaturalLengthAsync
-  isSpec: "True"
-  fullName: EditSharp.Components.Sources.Audio.VSTInstrumentSource.GetNaturalLengthAsync
-  nameWithType: VSTInstrumentSource.GetNaturalLengthAsync
 - uid: EditSharp.Components.Sources.Audio.Waveform
   name: Waveform
   href: api/EditSharp.Components.Sources.Audio.Waveform.html
@@ -6873,38 +6841,6 @@ references:
   commentId: N:EditSharp.Components.Sources.Video
   fullName: EditSharp.Components.Sources.Video
   nameWithType: EditSharp.Components.Sources.Video
-- uid: EditSharp.Components.Sources.Video.BlenderSceneVideoSource
-  name: BlenderSceneVideoSource
-  href: api/EditSharp.Components.Sources.Video.BlenderSceneVideoSource.html
-  commentId: T:EditSharp.Components.Sources.Video.BlenderSceneVideoSource
-  fullName: EditSharp.Components.Sources.Video.BlenderSceneVideoSource
-  nameWithType: BlenderSceneVideoSource
-- uid: EditSharp.Components.Sources.Video.BlenderSceneVideoSource.Duplicate
-  name: Duplicate()
-  href: api/EditSharp.Components.Sources.Video.BlenderSceneVideoSource.html#EditSharp_Components_Sources_Video_BlenderSceneVideoSource_Duplicate
-  commentId: M:EditSharp.Components.Sources.Video.BlenderSceneVideoSource.Duplicate
-  fullName: EditSharp.Components.Sources.Video.BlenderSceneVideoSource.Duplicate()
-  nameWithType: BlenderSceneVideoSource.Duplicate()
-- uid: EditSharp.Components.Sources.Video.BlenderSceneVideoSource.Duplicate*
-  name: Duplicate
-  href: api/EditSharp.Components.Sources.Video.BlenderSceneVideoSource.html#EditSharp_Components_Sources_Video_BlenderSceneVideoSource_Duplicate_
-  commentId: Overload:EditSharp.Components.Sources.Video.BlenderSceneVideoSource.Duplicate
-  isSpec: "True"
-  fullName: EditSharp.Components.Sources.Video.BlenderSceneVideoSource.Duplicate
-  nameWithType: BlenderSceneVideoSource.Duplicate
-- uid: EditSharp.Components.Sources.Video.BlenderSceneVideoSource.GetNaturalLengthAsync(System.Threading.CancellationToken)
-  name: GetNaturalLengthAsync(CancellationToken)
-  href: api/EditSharp.Components.Sources.Video.BlenderSceneVideoSource.html#EditSharp_Components_Sources_Video_BlenderSceneVideoSource_GetNaturalLengthAsync_System_Threading_CancellationToken_
-  commentId: M:EditSharp.Components.Sources.Video.BlenderSceneVideoSource.GetNaturalLengthAsync(System.Threading.CancellationToken)
-  fullName: EditSharp.Components.Sources.Video.BlenderSceneVideoSource.GetNaturalLengthAsync(System.Threading.CancellationToken)
-  nameWithType: BlenderSceneVideoSource.GetNaturalLengthAsync(CancellationToken)
-- uid: EditSharp.Components.Sources.Video.BlenderSceneVideoSource.GetNaturalLengthAsync*
-  name: GetNaturalLengthAsync
-  href: api/EditSharp.Components.Sources.Video.BlenderSceneVideoSource.html#EditSharp_Components_Sources_Video_BlenderSceneVideoSource_GetNaturalLengthAsync_
-  commentId: Overload:EditSharp.Components.Sources.Video.BlenderSceneVideoSource.GetNaturalLengthAsync
-  isSpec: "True"
-  fullName: EditSharp.Components.Sources.Video.BlenderSceneVideoSource.GetNaturalLengthAsync
-  nameWithType: BlenderSceneVideoSource.GetNaturalLengthAsync
 - uid: EditSharp.Components.Sources.Video.ColorVideoSource
   name: ColorVideoSource
   href: api/EditSharp.Components.Sources.Video.ColorVideoSource.html
@@ -8956,12 +8892,6 @@ references:
   commentId: F:EditSharp.Editing.PropertyEditor.List
   fullName: EditSharp.Editing.PropertyEditor.List
   nameWithType: PropertyEditor.List
-- uid: EditSharp.Editing.PropertyEditor.Media
-  name: Media
-  href: api/EditSharp.Editing.PropertyEditor.html#EditSharp_Editing_PropertyEditor_Media
-  commentId: F:EditSharp.Editing.PropertyEditor.Media
-  fullName: EditSharp.Editing.PropertyEditor.Media
-  nameWithType: PropertyEditor.Media
 - uid: EditSharp.Editing.PropertyEditor.Multiline
   name: Multiline
   href: api/EditSharp.Editing.PropertyEditor.html#EditSharp_Editing_PropertyEditor_Multiline
@@ -8998,6 +8928,12 @@ references:
   commentId: F:EditSharp.Editing.PropertyEditor.Slider
   fullName: EditSharp.Editing.PropertyEditor.Slider
   nameWithType: PropertyEditor.Slider
+- uid: EditSharp.Editing.PropertyEditor.Source
+  name: Source
+  href: api/EditSharp.Editing.PropertyEditor.html#EditSharp_Editing_PropertyEditor_Source
+  commentId: F:EditSharp.Editing.PropertyEditor.Source
+  fullName: EditSharp.Editing.PropertyEditor.Source
+  nameWithType: PropertyEditor.Source
 - uid: EditSharp.Editing.PropertyEditor.Text
   name: Text
   href: api/EditSharp.Editing.PropertyEditor.html#EditSharp_Editing_PropertyEditor_Text
@@ -10273,19 +10209,19 @@ references:
   commentId: T:EditSharp.Rendering.Blueprint
   fullName: EditSharp.Rendering.Blueprint
   nameWithType: Blueprint
-- uid: EditSharp.Rendering.Blueprint.OutputDirectory
-  name: OutputDirectory
-  href: api/EditSharp.Rendering.Blueprint.html#EditSharp_Rendering_Blueprint_OutputDirectory
-  commentId: P:EditSharp.Rendering.Blueprint.OutputDirectory
-  fullName: EditSharp.Rendering.Blueprint.OutputDirectory
-  nameWithType: Blueprint.OutputDirectory
-- uid: EditSharp.Rendering.Blueprint.OutputDirectory*
-  name: OutputDirectory
-  href: api/EditSharp.Rendering.Blueprint.html#EditSharp_Rendering_Blueprint_OutputDirectory_
-  commentId: Overload:EditSharp.Rendering.Blueprint.OutputDirectory
+- uid: EditSharp.Rendering.Blueprint.OutputPath
+  name: OutputPath
+  href: api/EditSharp.Rendering.Blueprint.html#EditSharp_Rendering_Blueprint_OutputPath
+  commentId: P:EditSharp.Rendering.Blueprint.OutputPath
+  fullName: EditSharp.Rendering.Blueprint.OutputPath
+  nameWithType: Blueprint.OutputPath
+- uid: EditSharp.Rendering.Blueprint.OutputPath*
+  name: OutputPath
+  href: api/EditSharp.Rendering.Blueprint.html#EditSharp_Rendering_Blueprint_OutputPath_
+  commentId: Overload:EditSharp.Rendering.Blueprint.OutputPath
   isSpec: "True"
-  fullName: EditSharp.Rendering.Blueprint.OutputDirectory
-  nameWithType: Blueprint.OutputDirectory
+  fullName: EditSharp.Rendering.Blueprint.OutputPath
+  nameWithType: Blueprint.OutputPath
 - uid: EditSharp.Rendering.Blueprint.RenderSettings
   name: RenderSettings
   href: api/EditSharp.Rendering.Blueprint.html#EditSharp_Rendering_Blueprint_RenderSettings

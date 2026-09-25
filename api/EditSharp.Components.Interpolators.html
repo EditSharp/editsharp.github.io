@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Interpolators | EditSharp ">
       
-      <meta name="description" content="Resolves the IInterpolator&amp;lt;T&amp;gt; for a payload type. Covers the three types this schema actually keyframes today (float, Vector2, SKColor — see the Effects/Keyframes sections of the schema doc). A new Animatable&amp;lt;T&amp;gt; payload type needs one line registered here; that is the entire cost of the &amp;quot;new properties can easily become animatable&amp;quot; goal for anything that isn&#39;t one of these three already.">
+      <meta name="description" content="The  for each value type keyframes can hold.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Interpolators" data-uid="EditSharp.Components.Interpolators" class="text-break">
-Class Interpolators  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L85"><i class="bi bi-code-slash"></i></a>
+Class Interpolators  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L81"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,12 +97,7 @@ Class Interpolators  <a class="header-action link-secondary" title="View source"
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Resolves the IInterpolator&lt;T&gt; for a payload type. Covers the three
-types this schema actually keyframes today (float, Vector2, SKColor —
-see the Effects/Keyframes sections of the schema doc). A new
-Animatable&lt;T&gt; payload type needs one line registered here; that is
-the entire cost of the &quot;new properties can easily become animatable&quot;
-goal for anything that isn't one of these three already.</p>
+  <div class="markdown summary"><p>The <a class="xref" href="EditSharp.Components.IInterpolator-1.html">IInterpolator&lt;T&gt;</a> for each value type keyframes can hold.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -165,7 +160,8 @@ goal for anything that isn't one of these three already.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Makes a value type keyframeable, or replaces its arithmetic.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -175,14 +171,16 @@ goal for anything that isn't one of these three already.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>interpolator</code> <a class="xref" href="EditSharp.Components.IInterpolator-1.html">IInterpolator</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The arithmetic for <code class="typeparamref">T</code>.</p>
+</dd>
   </dl>
 
 
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>T</code></dt>
-    <dd></dd>
+    <dd><p>The type of value.</p>
+</dd>
   </dl>
 
 
@@ -191,6 +189,12 @@ goal for anything that isn't one of these three already.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">interpolator</code> is null.</p>
+</dd>
+  </dl>
 
 
 
@@ -198,10 +202,11 @@ goal for anything that isn't one of these three already.</p>
 
   <h3 id="EditSharp_Components_Interpolators_Resolve__1" data-uid="EditSharp.Components.Interpolators.Resolve``1">
   Resolve&lt;T&gt;()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The arithmetic registered for a value type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -212,13 +217,15 @@ goal for anything that isn't one of these three already.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.IInterpolator-1.html">IInterpolator</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The interpolator.</p>
+</dd>
   </dl>
 
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>T</code></dt>
-    <dd></dd>
+    <dd><p>The type of value.</p>
+</dd>
   </dl>
 
 
@@ -227,6 +234,12 @@ goal for anything that isn't one of these three already.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>None is registered for <code class="typeparamref">T</code>.</p>
+</dd>
+  </dl>
 
 
 
@@ -234,7 +247,7 @@ goal for anything that isn't one of these three already.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L85" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L81" class="edit-link">Edit this page</a>
         </div>
 
 

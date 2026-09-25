@@ -157,10 +157,10 @@ Class FontFamilies  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="EditSharp_Components_FontFamilies_Installed" data-uid="EditSharp.Components.FontFamilies.Installed">
   Installed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/FontFamilies.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/FontFamilies.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Every installed family, Title Cased, sorted. Re-read at most every two seconds, so a new install shows up.</p>
+  <div class="markdown level1 summary"><p>Every installed family, in title case, sorted.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -181,6 +181,9 @@ Class FontFamilies  <a class="header-action link-secondary" title="View source" 
 
 
 
+  <h4 class="section" id="EditSharp_Components_FontFamilies_Installed_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Read again at most every two seconds, so a newly installed font shows up.</p>
+</div>
 
 
 
@@ -193,10 +196,11 @@ Class FontFamilies  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="EditSharp_Components_FontFamilies_IsInstalled_System_String_" data-uid="EditSharp.Components.FontFamilies.IsInstalled(System.String)">
   IsInstalled(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/FontFamilies.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/FontFamilies.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether a family is installed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -206,13 +210,15 @@ Class FontFamilies  <a class="header-action link-secondary" title="View source" 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>family</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The family's name, in any case.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True when it's installed.</p>
+</dd>
   </dl>
 
 
@@ -229,10 +235,10 @@ Class FontFamilies  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="EditSharp_Components_FontFamilies_Nearest_System_Collections_Generic_IReadOnlyList_System_Int32__System_Int32_" data-uid="EditSharp.Components.FontFamilies.Nearest(System.Collections.Generic.IReadOnlyList{System.Int32},System.Int32)">
   Nearest(IReadOnlyList&lt;int&gt;, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/FontFamilies.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/FontFamilies.cs/#L73"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Of <code>weights</code>, the one nearest <code>weight</code>; <code>weight</code> itself when there are none.</p>
+  <div class="markdown level1 summary"><p>The weight in a list nearest to another.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -243,15 +249,18 @@ Class FontFamilies  <a class="header-action link-secondary" title="View source" 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>weights</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The weights to choose from.</p>
+</dd>
     <dt><code>weight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>The weight wanted.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>The nearest; <code class="paramref">weight</code> itself when the list is empty.</p>
+</dd>
   </dl>
 
 
@@ -268,10 +277,10 @@ Class FontFamilies  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="EditSharp_Components_FontFamilies_Resolve_System_String_SkiaSharp_SKFontStyle_" data-uid="EditSharp.Components.FontFamilies.Resolve(System.String,SkiaSharp.SKFontStyle)">
   Resolve(string, SKFontStyle)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/FontFamilies.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/FontFamilies.cs/#L81"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The family's typeface in this style; a missing family draws with the default font and warns once.</p>
+  <div class="markdown level1 summary"><p>A family's typeface in a style.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -282,15 +291,18 @@ Class FontFamilies  <a class="header-action link-secondary" title="View source" 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>family</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The family's name.</p>
+</dd>
     <dt><code>style</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/skiasharp.skfontstyle">SKFontStyle</a></dt>
-    <dd></dd>
+    <dd><p>The weight, width and slant.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/skiasharp.sktypeface">SKTypeface</a></dt>
-    <dd></dd>
+    <dd><p>The typeface.</p>
+</dd>
   </dl>
 
 
@@ -299,6 +311,9 @@ Class FontFamilies  <a class="header-action link-secondary" title="View source" 
 
 
 
+  <h4 class="section" id="EditSharp_Components_FontFamilies_Resolve_System_String_SkiaSharp_SKFontStyle__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A family that isn't installed gives the default font, and logs a warning once per family.</p>
+</div>
 
 
 
@@ -307,11 +322,10 @@ Class FontFamilies  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="EditSharp_Components_FontFamilies_TitleCase_System_String_" data-uid="EditSharp.Components.FontFamilies.TitleCase(System.String)">
   TitleCase(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/FontFamilies.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/FontFamilies.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Each word's first letter capitalized; a word already in capitals
-(UI, MS) is left as it is. Nothing is lowercased.</p>
+  <div class="markdown level1 summary"><p>A name with each word's first letter capitalized; nothing is lowercased, so UI and MS stay as they are.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -322,13 +336,15 @@ Class FontFamilies  <a class="header-action link-secondary" title="View source" 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The name.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The name in title case.</p>
+</dd>
   </dl>
 
 
@@ -345,10 +361,10 @@ Class FontFamilies  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="EditSharp_Components_FontFamilies_WeightName_System_Int32_" data-uid="EditSharp.Components.FontFamilies.WeightName(System.Int32)">
   WeightName(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/FontFamilies.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/FontFamilies.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>A weight's usual name (&quot;Semibold&quot;), by the nearest standard weight.</p>
+  <div class="markdown level1 summary"><p>A weight's usual name, such as &quot;Semibold&quot;, from the nearest standard weight.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -359,13 +375,15 @@ Class FontFamilies  <a class="header-action link-secondary" title="View source" 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>weight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>The weight.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The name.</p>
+</dd>
   </dl>
 
 
@@ -382,10 +400,10 @@ Class FontFamilies  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="EditSharp_Components_FontFamilies_WeightsOf_System_String_" data-uid="EditSharp.Components.FontFamilies.WeightsOf(System.String)">
   WeightsOf(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/FontFamilies.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/FontFamilies.cs/#L56"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The weights a family ships, lightest first; empty when it isn't installed.</p>
+  <div class="markdown level1 summary"><p>The weights a family has, lightest first.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -396,13 +414,15 @@ Class FontFamilies  <a class="header-action link-secondary" title="View source" 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>family</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The family's name.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The weights, from 100 (thin) to 900 (black); empty when the family isn't installed.</p>
+</dd>
   </dl>
 
 

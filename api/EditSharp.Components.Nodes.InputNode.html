@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class InputNode | EditSharp ">
       
-      <meta name="description" content="FUNDAMENTAL REWRITE: a node that ORIGINATES a clip&#39;s content, rather than receiving it from upstream — see the schema doc&#39;s &amp;quot;clips are graphs&amp;quot; model. This replaces the old fixed, mandatory ImageSourceNode/AudioSourceNode anchors entirely. An InputNode is just an ordinary node: fully addable, removable, and rewireable like any other. A graph needs at least one InputNode actually reaching OutputNode to render anything, but that&#39;s not tracked as a separate structural invariant here — it falls out naturally from the exact same &amp;quot;Output has no incoming connection&amp;quot; check every evaluator already performs (see ImageGraphEvaluator/AudioGraphEvaluator), the same way it always has for a disconnected Output. This is also what makes a MULTI-input graph (two media sources merged via MergeNode/AudioMixNode, say) nothing special: it&#39;s just a graph with more than one InputNode, no different in kind from one with a single InputNode. Concrete video-domain InputNodes: VideoSourceNode, TextInputNode, ColorGeneratorInputNode, NoiseInputNode, TimelineVideoInputNode (see EditSharp.Components.Nodes.Sources). Concrete audio-domain InputNodes: AudioSourceNode, ToneGeneratorInputNode, TimelineAudioInputNode (see EditSharp.Components.Nodes.Sources). These are what replaced the old VideoClip.Source-is-the-whole-clip / TextClip / GeneratorClip / NoiseClip / TimelineVideoClip / TimelineAudioClip Clip subtypes — the ONLY remaining concrete Clip subtypes are VideoClip and AudioClip, and what used to distinguish those Clip subtypes from each other is now just which InputNode(s) happen to be wired into an otherwise perfectly ordinary Graph. Also see Graph&#39;s own convenience InputNodes property, for reading every InputNode currently in a graph without having to filter Nodes by hand.">
+      <meta name="description" content="A node that brings content into a graph, rather than taking it from upstream.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Nodes_InputNode" data-uid="EditSharp.Components.Nodes.InputNode" class="text-break">
-Class InputNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/InputNode.cs/#L36"><i class="bi bi-code-slash"></i></a>
+Class InputNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/InputNode.cs/#L5"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,35 +97,7 @@ Class InputNode  <a class="header-action link-secondary" title="View source" hre
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>FUNDAMENTAL REWRITE: a node that ORIGINATES a clip's content, rather
-than receiving it from upstream — see the schema doc's &quot;clips are
-graphs&quot; model. This replaces the old fixed, mandatory
-ImageSourceNode/AudioSourceNode anchors entirely. An InputNode is
-just an ordinary node: fully addable, removable, and rewireable like
-any other. A graph needs at least one InputNode actually reaching
-OutputNode to render anything, but that's not tracked as a separate
-structural invariant here — it falls out naturally from the exact
-same &quot;Output has no incoming connection&quot; check every evaluator
-already performs (see ImageGraphEvaluator/AudioGraphEvaluator),
-the same way it always has for a disconnected Output. This is also
-what makes a MULTI-input graph (two media sources merged via
-MergeNode/AudioMixNode, say) nothing special: it's just a graph
-with more than one InputNode, no different in kind from one with a
-single InputNode.</p>
-<p>Concrete video-domain InputNodes: VideoSourceNode, TextInputNode,
-ColorGeneratorInputNode, NoiseInputNode, TimelineVideoInputNode (see
-EditSharp.Components.Nodes.Sources). Concrete audio-domain
-InputNodes: AudioSourceNode, ToneGeneratorInputNode,
-TimelineAudioInputNode (see EditSharp.Components.Nodes.Sources).
-These are what replaced the old VideoClip.Source-is-the-whole-clip /
-TextClip / GeneratorClip / NoiseClip / TimelineVideoClip /
-TimelineAudioClip Clip subtypes — the ONLY remaining concrete Clip
-subtypes are VideoClip and AudioClip, and what used to distinguish
-those Clip subtypes from each other is now just which InputNode(s)
-happen to be wired into an otherwise perfectly ordinary Graph.</p>
-<p>Also see Graph's own convenience InputNodes property, for reading
-every InputNode currently in a graph without having to filter
-Nodes by hand.</p>
+  <div class="markdown summary"><p>A node that brings content into a graph, rather than taking it from upstream.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -198,13 +170,16 @@ Nodes by hand.</p>
 
 
 
+  <h2 id="EditSharp_Components_Nodes_InputNode_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A graph can have any number of inputs, or none; one that reaches the output node is what makes a clip show or play anything. <a class="xref" href="EditSharp.Components.Nodes.Sources.VideoSourceNode.html">VideoSourceNode</a> and <a class="xref" href="EditSharp.Components.Nodes.Sources.AudioSourceNode.html">AudioSourceNode</a> are the inputs; the kind of content comes from their Source.</p>
+</div>
 
 
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/InputNode.cs/#L36" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/InputNode.cs/#L5" class="edit-link">Edit this page</a>
         </div>
 
 

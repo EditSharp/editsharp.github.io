@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Struct AudioTapBlock | EditSharp ">
       
-      <meta name="description" content="One block of audio seen at a tap: interleaved float samples (valid only during the callback), their format, and the timeline position of the block&#39;s first frame.">
+      <meta name="description" content="One block of audio seen at a tap.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,9 +97,7 @@ Struct AudioTapBlock  <a class="header-action link-secondary" title="View source
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>One block of audio seen at a tap: interleaved float samples (valid only
-during the callback), their format, and the timeline position of the
-block's first frame.</p>
+  <div class="markdown summary"><p>One block of audio seen at a tap.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -158,9 +156,7 @@ block's first frame.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Audio/Engine/AudioSession.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>One block of audio seen at a tap: interleaved float samples (valid only
-during the callback), their format, and the timeline position of the
-block's first frame.</p>
+  <div class="markdown level1 summary"><p>One block of audio seen at a tap.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -171,13 +167,17 @@ block's first frame.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>Samples</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlymemory-1">ReadOnlyMemory</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Interleaved float samples; valid only during the callback, so copy them to keep them.</p>
+</dd>
     <dt><code>SampleRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>Frames per second.</p>
+</dd>
     <dt><code>Channels</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>Samples per frame.</p>
+</dd>
     <dt><code>Position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>The timeline time of the block's first frame.</p>
+</dd>
   </dl>
 
 
@@ -202,7 +202,8 @@ block's first frame.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Audio/Engine/AudioSession.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Samples per frame.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -233,7 +234,8 @@ block's first frame.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Audio/Engine/AudioSession.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The timeline time of the block's first frame.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -264,7 +266,8 @@ block's first frame.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Audio/Engine/AudioSession.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Frames per second.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -295,7 +298,8 @@ block's first frame.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Audio/Engine/AudioSession.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Interleaved float samples; valid only during the callback, so copy them to keep them.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

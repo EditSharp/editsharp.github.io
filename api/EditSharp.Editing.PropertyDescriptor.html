@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class PropertyDescriptor | EditSharp ">
       
-      <meta name="description" content="Everything an editor needs to know to show and change one property on one object: what to call it, what control to use, what it accepts, whether it can be keyframed, when it applies, and how to read and write it. Resolved once per type from the EditableAttribute and the property&#39;s own type (see Inspect), so a new node or clip property becomes editable by carrying the attribute and nothing else. Writes go through the property&#39;s own setter, so they are recorded for undo like any other write. List edits are recorded here, since a list&#39;s own Add/Remove are not. A descriptor can be redirected (Through) so that a composite node can present an inner node&#39;s property as its own, under its own name: the descriptor reads and writes the inner node while the inspector only ever hands it the composite.">
+      <meta name="description" content="Everything an editor needs to show and change one editable property: its label, control, limits, and how to read and write it.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Editing_PropertyDescriptor" data-uid="EditSharp.Editing.PropertyDescriptor" class="text-break">
-Class PropertyDescriptor  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L36"><i class="bi bi-code-slash"></i></a>
+Class PropertyDescriptor  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,20 +97,7 @@ Class PropertyDescriptor  <a class="header-action link-secondary" title="View so
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Everything an editor needs to know to show and change one property
-on one object: what to call it, what control to use, what it
-accepts, whether it can be keyframed, when it applies, and how to
-read and write it. Resolved once per type from the EditableAttribute
-and the property's own type (see Inspect), so a new node or clip
-property becomes editable by carrying the attribute and nothing
-else.</p>
-<p>Writes go through the property's own setter, so they are recorded
-for undo like any other write. List edits are recorded here, since
-a list's own Add/Remove are not.</p>
-<p>A descriptor can be redirected (Through) so that a composite node
-can present an inner node's property as its own, under its own
-name: the descriptor reads and writes the inner node while the
-inspector only ever hands it the composite.</p>
+  <div class="markdown summary"><p>Everything an editor needs to show and change one editable property: its label, control, limits, and how to read and write it.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -157,6 +144,14 @@ inspector only ever hands it the composite.</p>
 
 
 
+  <h2 id="EditSharp_Editing_PropertyDescriptor_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Built once per type from <a class="xref" href="EditSharp.Editing.EditableAttribute.html">EditableAttribute</a> and the property's
+own type (see <a class="xref" href="EditSharp.Editing.Inspect.html">Inspect</a>). Writes go through the property's
+setter, so they are recorded for undo; list edits are recorded here. A
+descriptor made with <a class="xref" href="EditSharp.Editing.PropertyDescriptor.html#EditSharp_Editing_PropertyDescriptor_Through_System_Func_System_Object_System_Object__System_String_System_String_">Through(Func&lt;object, object&gt;, string?, string?)</a> reads and writes a property on
+another object, which is how a composite node shows an inner node's
+property as its own.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -167,10 +162,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_Conditions" data-uid="EditSharp.Editing.PropertyDescriptor.Conditions">
   Conditions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L96"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The conditions that must all hold for the property to show.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -198,10 +194,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_DisplayName" data-uid="EditSharp.Editing.PropertyDescriptor.DisplayName">
   DisplayName
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The label editors show.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -229,10 +226,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_Editor" data-uid="EditSharp.Editing.PropertyDescriptor.Editor">
   Editor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L63"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The control to use, resolved from the attribute and the value's type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -260,10 +258,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_Frame" data-uid="EditSharp.Editing.PropertyDescriptor.Frame">
   Frame
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How the value measures against the frame, for editors that can show it in pixels.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -291,10 +290,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_Group" data-uid="EditSharp.Editing.PropertyDescriptor.Group">
   Group
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The heading the property is shown under, if any.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -322,10 +322,10 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_IsAnimatable" data-uid="EditSharp.Editing.PropertyDescriptor.IsAnimatable">
   IsAnimatable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>True for an Animatable&lt;T&gt; — the value can carry keyframes. See GetAnimatable.</p>
+  <div class="markdown level1 summary"><p>Whether the property is an <code>Animatable&lt;T&gt;</code> and can carry keyframes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -354,10 +354,10 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_IsCollection" data-uid="EditSharp.Editing.PropertyDescriptor.IsCollection">
   IsCollection
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L81"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>True for a List&lt;T&gt;. ItemType/ItemEditor say what the items are; see GetList/AddItem/RemoveItem.</p>
+  <div class="markdown level1 summary"><p>Whether the property is a <code>List&lt;T&gt;</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -386,10 +386,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_IsNullable" data-uid="EditSharp.Editing.PropertyDescriptor.IsNullable">
   IsNullable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L78"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the property is a nullable value type, so null is a valid value.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -417,10 +418,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_IsReadOnly" data-uid="EditSharp.Editing.PropertyDescriptor.IsReadOnly">
   IsReadOnly
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the property can be shown but not changed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -448,10 +450,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_ItemEditor" data-uid="EditSharp.Editing.PropertyDescriptor.ItemEditor">
   ItemEditor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L93"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The control used for each item.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -479,10 +482,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_ItemIsAnimatable" data-uid="EditSharp.Editing.PropertyDescriptor.ItemIsAnimatable">
   ItemIsAnimatable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether each item is an <code>Animatable&lt;T&gt;</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -510,10 +514,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_ItemType" data-uid="EditSharp.Editing.PropertyDescriptor.ItemType">
   ItemType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L84"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>A list's item type as declared; null when not a list.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -541,10 +546,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_ItemValueType" data-uid="EditSharp.Editing.PropertyDescriptor.ItemValueType">
   ItemValueType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The type an editor works with for each item; null when not a list.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -572,10 +578,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_Max" data-uid="EditSharp.Editing.PropertyDescriptor.Max">
   Max
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The highest value a numeric editor allows; null for no limit.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -603,10 +610,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_Min" data-uid="EditSharp.Editing.PropertyDescriptor.Min">
   Min
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The lowest value a numeric editor allows; null for no limit.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -634,10 +642,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_Name" data-uid="EditSharp.Editing.PropertyDescriptor.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The property's name in code.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -665,10 +674,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_Order" data-uid="EditSharp.Editing.PropertyDescriptor.Order">
   Order
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Where the property is listed: lower first.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -696,10 +706,10 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_PropertyType" data-uid="EditSharp.Editing.PropertyDescriptor.PropertyType">
   PropertyType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L72"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The declared property type, before any unwrapping.</p>
+  <div class="markdown level1 summary"><p>The property's declared type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -728,10 +738,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_Step" data-uid="EditSharp.Editing.PropertyDescriptor.Step">
   Step
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How far one step moves a numeric editor; null for the editor's default.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -762,7 +773,8 @@ inspector only ever hands it the composite.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Text shown when hovering the property.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -790,10 +802,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_Unit" data-uid="EditSharp.Editing.PropertyDescriptor.Unit">
   Unit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Text shown after the value, such as &quot;dB&quot;.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -821,10 +834,10 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_ValueType" data-uid="EditSharp.Editing.PropertyDescriptor.ValueType">
   ValueType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The type an editor works with: Animatable&lt;T&gt; and T? both read as T.</p>
+  <div class="markdown level1 summary"><p>The type an editor works with: <code>Animatable&lt;T&gt;</code> and <code>T?</code> both read as <code>T</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -857,10 +870,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_AddItem_System_Object_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.AddItem(System.Object,System.Object)">
   AddItem(object, object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L264"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L300"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Adds an item to the end of the list. Recorded for undo.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -870,9 +884,11 @@ inspector only ever hands it the composite.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The object the property belongs to.</p>
+</dd>
     <dt><code>item</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The item to add.</p>
+</dd>
   </dl>
 
 
@@ -883,6 +899,12 @@ inspector only ever hands it the composite.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The property isn't a list.</p>
+</dd>
+  </dl>
 
 
 
@@ -890,10 +912,10 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_CreateItem" data-uid="EditSharp.Editing.PropertyDescriptor.CreateItem">
   CreateItem()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L250"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L282"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>A fresh item of the list's item type, ready to add.</p>
+  <div class="markdown level1 summary"><p>A new item of the list's item type, ready to add.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -905,7 +927,8 @@ inspector only ever hands it the composite.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The item; an animatable item starts at its type's default value.</p>
+</dd>
   </dl>
 
 
@@ -915,6 +938,12 @@ inspector only ever hands it the composite.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The property isn't a list.</p>
+</dd>
+  </dl>
 
 
 
@@ -922,10 +951,10 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_GetAnimatable_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.GetAnimatable(System.Object)">
   GetAnimatable(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L187"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The Animatable behind an animatable property, for keyframe editors. Null for anything else.</p>
+  <div class="markdown level1 summary"><p>The Animatable behind an animatable property, for keyframe editing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -936,13 +965,15 @@ inspector only ever hands it the composite.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The object the property belongs to.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.IAnimatable.html">IAnimatable</a></dt>
-    <dd></dd>
+    <dd><p>The Animatable, or null when the property isn't animatable.</p>
+</dd>
   </dl>
 
 
@@ -959,10 +990,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_GetList_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.GetList(System.Object)">
   GetList(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L247"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L277"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The list behind a list property.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -972,13 +1004,15 @@ inspector only ever hands it the composite.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The object the property belongs to.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ilist">IList</a></dt>
-    <dd></dd>
+    <dd><p>The list, or null when the property isn't a list.</p>
+</dd>
   </dl>
 
 
@@ -995,10 +1029,10 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_GetValue_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.GetValue(System.Object)">
   GetValue(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L154"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The value an editor shows: an Animatable's static value, otherwise the property itself.</p>
+  <div class="markdown level1 summary"><p>The value an editor shows.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1009,13 +1043,15 @@ inspector only ever hands it the composite.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The object the property belongs to.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>An animatable property's static value, otherwise the property's value.</p>
+</dd>
   </dl>
 
 
@@ -1032,10 +1068,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_InsertItem_System_Object_System_Int32_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.InsertItem(System.Object,System.Int32,System.Object)">
   InsertItem(object, int, object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L266"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L307"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Inserts an item into the list. Recorded for undo.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1045,11 +1082,14 @@ inspector only ever hands it the composite.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The object the property belongs to.</p>
+</dd>
     <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>Where to insert; clamped to the list's bounds.</p>
+</dd>
     <dt><code>item</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The item to insert.</p>
+</dd>
   </dl>
 
 
@@ -1060,6 +1100,12 @@ inspector only ever hands it the composite.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The property isn't a list.</p>
+</dd>
+  </dl>
 
 
 
@@ -1067,10 +1113,10 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_IsDefault_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.IsDefault(System.Object)">
   IsDefault(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L222"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>True when the property holds its default on this object.</p>
+  <div class="markdown level1 summary"><p>Whether the property holds its default on <code class="paramref">target</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1081,13 +1127,15 @@ inspector only ever hands it the composite.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The object the property belongs to.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>False when it differs, or there is no default.</p>
+</dd>
   </dl>
 
 
@@ -1104,10 +1152,10 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_IsVisible_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.IsVisible(System.Object)">
   IsVisible(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L222"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L251"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Whether the property applies right now, per its VisibleWhen conditions.</p>
+  <div class="markdown level1 summary"><p>Whether the property applies right now, per its <a class="xref" href="EditSharp.Editing.PropertyDescriptor.html#EditSharp_Editing_PropertyDescriptor_Conditions">Conditions</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1118,13 +1166,15 @@ inspector only ever hands it the composite.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The object the property belongs to.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True when every condition holds.</p>
+</dd>
   </dl>
 
 
@@ -1141,10 +1191,11 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_RemoveItem_System_Object_System_Int32_" data-uid="EditSharp.Editing.PropertyDescriptor.RemoveItem(System.Object,System.Int32)">
   RemoveItem(object, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L277"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L322"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Removes an item from the list. Recorded for undo.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1154,9 +1205,11 @@ inspector only ever hands it the composite.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The object the property belongs to.</p>
+</dd>
     <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>The item's position; nothing happens when it's out of range.</p>
+</dd>
   </dl>
 
 
@@ -1167,6 +1220,12 @@ inspector only ever hands it the composite.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The property isn't a list.</p>
+</dd>
+  </dl>
 
 
 
@@ -1174,10 +1233,10 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_SetValue_System_Object_System_Object_" data-uid="EditSharp.Editing.PropertyDescriptor.SetValue(System.Object,System.Object)">
   SetValue(object, object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L165"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Writes the value, coercing numbers and enums from whatever an editor hands over. Recorded for undo by the setter it goes through.</p>
+  <div class="markdown level1 summary"><p>Writes a value, converting numbers and enum names to the property's type. Recorded for undo.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1188,9 +1247,11 @@ inspector only ever hands it the composite.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The object the property belongs to.</p>
+</dd>
     <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The new value.</p>
+</dd>
   </dl>
 
 
@@ -1201,6 +1262,12 @@ inspector only ever hands it the composite.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The property is read-only, or an animatable property has no Animatable behind it.</p>
+</dd>
+  </dl>
 
 
 
@@ -1208,10 +1275,10 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_Through_System_Func_System_Object_System_Object__System_String_System_String_" data-uid="EditSharp.Editing.PropertyDescriptor.Through(System.Func{System.Object,System.Object},System.String,System.String)">
   Through(Func&lt;object, object&gt;, string?, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L139"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The same property, reached on another object: <code>resolve</code> turns the target an editor holds into the object that actually carries the property.</p>
+  <div class="markdown level1 summary"><p>The same property, reached through another object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1222,17 +1289,21 @@ inspector only ever hands it the composite.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>resolve</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Turns the object an editor holds into the object that carries the property.</p>
+</dd>
     <dt><code>alias</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The label to show instead; null keeps this one's.</p>
+</dd>
     <dt><code>group</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The heading to show it under instead; null keeps this one's.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Editing.PropertyDescriptor.html">PropertyDescriptor</a></dt>
-    <dd></dd>
+    <dd><p>A descriptor that reads and writes through <code class="paramref">resolve</code>.</p>
+</dd>
   </dl>
 
 
@@ -1249,14 +1320,10 @@ inspector only ever hands it the composite.</p>
 
   <h3 id="EditSharp_Editing_PropertyDescriptor_TryGetDefault_System_Object_System_Object__" data-uid="EditSharp.Editing.PropertyDescriptor.TryGetDefault(System.Object,System.Object@)">
   TryGetDefault(object, out object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L197"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The value a reset returns this property to on this object, if
-there is one: the attribute's Default, else the value the same
-property has on a freshly constructed object of the holder's
-type. False when neither exists - an abstract holder with no
-attribute default, say.</p>
+  <div class="markdown level1 summary"><p>The value a reset returns the property to on <code class="paramref">target</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1267,15 +1334,18 @@ attribute default, say.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The object the property belongs to.</p>
+</dd>
     <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The default, when there is one.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>False when there is no default, such as for an abstract type with no attribute default.</p>
+</dd>
   </dl>
 
 
@@ -1284,6 +1354,9 @@ attribute default, say.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Editing_PropertyDescriptor_TryGetDefault_System_Object_System_Object___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The attribute's Default when it has one, otherwise the value the property has on a newly constructed object of the same type.</p>
+</div>
 
 
 
@@ -1292,7 +1365,7 @@ attribute default, say.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L36" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L27" class="edit-link">Edit this page</a>
         </div>
 
 

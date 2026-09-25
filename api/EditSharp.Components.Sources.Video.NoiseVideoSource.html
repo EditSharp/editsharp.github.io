@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class NoiseVideoSource | EditSharp ">
       
-      <meta name="description" content="An evolving noise field filling the canvas.">
+      <meta name="description" content="A field of gradient noise filling the canvas, changing over time.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Sources_Video_NoiseVideoSource" data-uid="EditSharp.Components.Sources.Video.NoiseVideoSource" class="text-break">
-Class NoiseVideoSource  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L38"><i class="bi bi-code-slash"></i></a>
+Class NoiseVideoSource  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class NoiseVideoSource  <a class="header-action link-secondary" title="View sour
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>An evolving noise field filling the canvas.</p>
+  <div class="markdown summary"><p>A field of gradient noise filling the canvas, changing over time.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -190,10 +190,11 @@ public class NoiseVideoSource : VideoSource</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_NoiseVideoSource_Detail" data-uid="EditSharp.Components.Sources.Video.NoiseVideoSource.Detail">
   Detail
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How fine the noise is, from 0 to 1; higher packs more cells across the canvas.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -222,10 +223,11 @@ public float Detail { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_NoiseVideoSource_Seed" data-uid="EditSharp.Components.Sources.Video.NoiseVideoSource.Seed">
   Seed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L49"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Picks the pattern; the same seed draws the same noise. Random by default.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -254,10 +256,11 @@ public int Seed { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_NoiseVideoSource_SeetheRate" data-uid="EditSharp.Components.Sources.Video.NoiseVideoSource.SeetheRate">
   SeetheRate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How fast the noise changes over time, from 0 (still) to 1.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -290,11 +293,10 @@ public float SeetheRate { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_NoiseVideoSource_Duplicate" data-uid="EditSharp.Components.Sources.Video.NoiseVideoSource.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L63"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy, through SourceSerializer; see class remarks. History is
-suppressed: a fresh copy has no past to undo.</p>
+  <div class="markdown level1 summary"><p>A deep copy, made by saving and loading this source.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -306,7 +308,8 @@ suppressed: a fresh copy has no past to undo.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Sources.Video.NoiseVideoSource.html">NoiseVideoSource</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -315,6 +318,9 @@ suppressed: a fresh copy has no past to undo.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_Video_NoiseVideoSource_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo. A nested timeline is shared, not copied.</p>
+</div>
 
 
 
@@ -323,12 +329,10 @@ suppressed: a fresh copy has no past to undo.</p>
 
   <h3 id="EditSharp_Components_Sources_Video_NoiseVideoSource_GetNaturalLengthAsync_System_Threading_CancellationToken_" data-uid="EditSharp.Components.Sources.Video.NoiseVideoSource.GetNaturalLengthAsync(System.Threading.CancellationToken)">
   GetNaturalLengthAsync(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How long the source's own material is, ignoring Start/Duration.
-Null means unbounded; a still image or a generator has no inherent
-end, so only Duration (or the clip) limits it.</p>
+  <div class="markdown level1 summary"><p>Always null: noise has no end of its own.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -339,13 +343,15 @@ end, so only Duration (or the clip) limits it.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>ct</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
+    <dd><p>Unused.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?&gt;</dt>
-    <dd></dd>
+    <dd><p>Null.</p>
+</dd>
   </dl>
 
 
@@ -362,7 +368,7 @@ end, so only Duration (or the clip) limits it.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L38" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L44" class="edit-link">Edit this page</a>
         </div>
 
 

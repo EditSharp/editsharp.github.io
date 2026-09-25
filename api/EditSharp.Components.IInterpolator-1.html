@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IInterpolator&lt;T&gt; | EditSharp ">
       
-      <meta name="description" content="The arithmetic Animatable&amp;lt;T&amp;gt;/KeyframeTrack&amp;lt;T&amp;gt; need to do their job: add/subtract two values (for handle offsets, which are stored as deltas from their keyframe&#39;s own value) and blend two values by a normalized progress (for the cubic evaluation itself). Deliberately a small strategy interface resolved per-T, NOT a self-referential generic constraint (T : IInterpolatable&amp;lt;T&amp;gt;) — the three real payload types this schema keyframes (float, Vector2, SKColor) are all BCL/SkiaSharp types this package doesn&#39;t own, so they can&#39;t be made to declare an interface themselves. See Interpolators below for the registry that resolves one of these per T.">
+      <meta name="description" content="The arithmetic keyframes need for a value type.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_IInterpolator_1" data-uid="EditSharp.Components.IInterpolator`1" class="text-break">
-Interface IInterpolator&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L21"><i class="bi bi-code-slash"></i></a>
+Interface IInterpolator&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,16 +97,7 @@ Interface IInterpolator&lt;T&gt;  <a class="header-action link-secondary" title=
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>The arithmetic Animatable&lt;T&gt;/KeyframeTrack&lt;T&gt; need to do their job:
-add/subtract two values (for handle offsets, which are stored as deltas
-from their keyframe's own value) and blend two values by a normalized
-progress (for the cubic evaluation itself).</p>
-<p>Deliberately a small strategy interface resolved per-T, NOT a
-self-referential generic constraint (<code>T : IInterpolatable&lt;T&gt;</code>) —
-the three real payload types this schema keyframes (float, Vector2,
-SKColor) are all BCL/SkiaSharp types this package doesn't own, so they
-can't be made to declare an interface themselves. See Interpolators
-below for the registry that resolves one of these per T.</p>
+  <div class="markdown summary"><p>The arithmetic keyframes need for a value type.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -119,7 +110,8 @@ below for the registry that resolves one of these per T.</p>
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>T</code></dt>
-    <dd></dd>
+    <dd><p>The type of value.</p>
+</dd>
   </dl>
 
 
@@ -129,6 +121,9 @@ below for the registry that resolves one of these per T.</p>
 
 
 
+  <h2 id="EditSharp_Components_IInterpolator_1_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Register one for a new type with <a class="xref" href="EditSharp.Components.Interpolators.html#EditSharp_Components_Interpolators_Register__1_EditSharp_Components_IInterpolator___0__">Register&lt;T&gt;(IInterpolator&lt;T&gt;)</a>; float, Vector2 and SKColor are built in. Handle offsets are values of the type too, so the arithmetic must work outside the type's usual range.</p>
+</div>
 
 
   <h2 class="section" id="methods">Methods
@@ -139,10 +134,11 @@ below for the registry that resolves one of these per T.</p>
 
   <h3 id="EditSharp_Components_IInterpolator_1_Add__0__0_" data-uid="EditSharp.Components.IInterpolator`1.Add(`0,`0)">
   Add(T, T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The sum of two values.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -152,15 +148,18 @@ below for the registry that resolves one of these per T.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>a</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The first value.</p>
+</dd>
     <dt><code>b</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The second value.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p><code class="paramref">a</code> + <code class="paramref">b</code>.</p>
+</dd>
   </dl>
 
 
@@ -177,10 +176,11 @@ below for the registry that resolves one of these per T.</p>
 
   <h3 id="EditSharp_Components_IInterpolator_1_Lerp__0__0_System_Single_" data-uid="EditSharp.Components.IInterpolator`1.Lerp(`0,`0,System.Single)">
   Lerp(T, T, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>A value part way between two others.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -190,17 +190,21 @@ below for the registry that resolves one of these per T.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>a</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The value at 0.</p>
+</dd>
     <dt><code>b</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The value at 1.</p>
+</dd>
     <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><p>How far from <code class="paramref">a</code> to <code class="paramref">b</code>.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The value.</p>
+</dd>
   </dl>
 
 
@@ -217,10 +221,11 @@ below for the registry that resolves one of these per T.</p>
 
   <h3 id="EditSharp_Components_IInterpolator_1_Scale__0_System_Single_" data-uid="EditSharp.Components.IInterpolator`1.Scale(`0,System.Single)">
   Scale(T, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>A value multiplied by a number.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -230,15 +235,18 @@ below for the registry that resolves one of these per T.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>a</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The value.</p>
+</dd>
     <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><p>The multiplier.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p><code class="paramref">a</code> × <code class="paramref">s</code>.</p>
+</dd>
   </dl>
 
 
@@ -255,10 +263,11 @@ below for the registry that resolves one of these per T.</p>
 
   <h3 id="EditSharp_Components_IInterpolator_1_Subtract__0__0_" data-uid="EditSharp.Components.IInterpolator`1.Subtract(`0,`0)">
   Subtract(T, T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The difference of two values.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -268,15 +277,18 @@ below for the registry that resolves one of these per T.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>a</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The value subtracted from.</p>
+</dd>
     <dt><code>b</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The value subtracted.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p><code class="paramref">a</code> - <code class="paramref">b</code>.</p>
+</dd>
   </dl>
 
 
@@ -293,7 +305,7 @@ below for the registry that resolves one of these per T.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L21" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Interpolation.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
 

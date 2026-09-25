@@ -96,58 +96,22 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Clips.AudioClip.html">AudioClip</a></dt>
-      <dd><p>The only concrete audible Clip type — mirrors VideoClip exactly, one
-domain over. What used to be AudioClip's own flat Source property
-and the distinct TimelineAudioClip Clip subtype are now InputNode
-types wired into this class's single Audio-domain Graph — see
-the static factory methods below and
-EditSharp.Components.Nodes.Sources. Also new
-in this rewrite: CreateTone, wrapping the brand-new
-ToneGeneratorInputNode (there was no synthesized-tone clip type at
-all before this).</p>
+      <dd><p>A clip that plays sound: its graph's inputs, through its effects.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
-      <dd><p>FUNDAMENTAL REWRITE (&quot;clips are graphs&quot;): a clip used to be treated
-as &quot;media that can have a graph of effects&quot; — a Clip subtype per
-kind of content (VideoClip/TextClip/GeneratorClip/NoiseClip/
-TimelineVideoClip on the visual side; AudioClip/TimelineAudioClip on
-the audible side), each wrapping its own bespoke content field, with
-a Graph bolted on afterward. That was backwards: a clip IS
-its graph. The only remaining concrete Clip subtypes are VideoClip
-and AudioClip — everything that used to be a distinct Clip subtype
-(a media file, text, a generated color, procedural noise, a
-synthesized tone, an embedded nested Timeline) is now just a
-different InputNode wired into an otherwise perfectly ordinary
-Graph (see EditSharp.Components.Nodes).
-A graph may have more than one InputNode — nothing about a graph
-having two, three, or more requires a different kind of Clip; it's
-still just VideoClip or AudioClip.</p>
-<p>Abstract base, implements ITimelineEditable.</p>
+      <dd><p>A span of a channel that shows or plays its <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Graph">Graph</a>.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Clips.ClipTransform.html">ClipTransform</a></dt>
-      <dd><p>Every field is individually Animatable&lt;T&gt; — see the schema doc's
-Keyframes section. This replaces the old model where an entire
-ClipTransform snapshot was one keyframe; here, Position can animate on
-a completely different schedule than Scale.</p>
+      <dd><p>Where an image sits in the frame: its position, size and rotation, each keyframeable on its own.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Clips.VideoClip.html">VideoClip</a></dt>
-      <dd><p>The only concrete visual Clip type — see Clip's own remarks on the
-&quot;clips are graphs&quot; rewrite. What used to be TextClip/GeneratorClip/
-NoiseClip/TimelineVideoClip (each a distinct Clip subtype) and
-VideoClip's own flat Source property are now all just different
-InputNode types wired into this class's single Image-domain
-Graph — see the static factory methods below and
-EditSharp.Components.Nodes.Sources.</p>
-<p>Sealed and otherwise data-less beyond Start/Duration/LinkGroupId
-(inherited from Clip) and Graph — everything else a visual clip
-used to carry directly (Modulate, Transform) now lives on nodes
-INSIDE the graph (TintNode, TransformNode), not on this class.</p>
+      <dd><p>A clip that shows an image: its graph's inputs, through its effects.</p>
 </dd>
     </dl>
     <h3 id="structs">
@@ -155,11 +119,7 @@ Structs
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Clips.ResolvedTransform.html">ResolvedTransform</a></dt>
-      <dd><p>A resolved, plain-value snapshot of a ClipTransform at one instant —
-no tracks, just concrete numbers. This is what render code actually
-consumes; it replaces the old Clip.TransformAt(time)'s role, now
-composed from each field's own independently-timed Animatable&lt;T&gt;
-track instead of interpolating between two flat ClipTransform blobs.</p>
+      <dd><p>A <a class="xref" href="EditSharp.Components.Clips.ClipTransform.html">ClipTransform</a>'s values at one moment.</p>
 </dd>
     </dl>
     <h3 id="enums">
@@ -172,7 +132,8 @@ Enums
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Clips.Positions.html">Positions</a></dt>
-      <dd></dd>
+      <dd><p>Nine points in the frame, for <a class="xref" href="EditSharp.Components.Clips.ClipTransform.html#EditSharp_Components_Clips_ClipTransform_FromPosition_EditSharp_Components_Clips_Positions_">FromPosition(Positions)</a>.</p>
+</dd>
     </dl>
 
 

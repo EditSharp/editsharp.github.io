@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ToneAudioSource | EditSharp ">
       
-      <meta name="description" content="A synthesized tone. Frequency and amplitude can be keyframed; they&#39;re evaluated every sample, and phase carries on across blocks so a changing frequency never clicks.">
+      <meta name="description" content="A synthesized tone.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Sources_Audio_ToneAudioSource" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource" class="text-break">
-Class ToneAudioSource  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L17"><i class="bi bi-code-slash"></i></a>
+Class ToneAudioSource  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,9 +97,7 @@ Class ToneAudioSource  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A synthesized tone. Frequency and amplitude can be keyframed; they're
-evaluated every sample, and phase carries on across blocks so a changing
-frequency never clicks.</p>
+  <div class="markdown summary"><p>A synthesized tone.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -176,6 +174,9 @@ public class ToneAudioSource : AudioSource</code></pre>
 
 
 
+  <h2 id="EditSharp_Components_Sources_Audio_ToneAudioSource_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Frequency and amplitude are evaluated every sample, and the phase carries on across blocks, so a changing frequency never clicks.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -186,10 +187,11 @@ public class ToneAudioSource : AudioSource</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Audio_ToneAudioSource_Amplitude" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.Amplitude">
   Amplitude
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The volume, from 0 (silent) to 1 (full scale).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -218,12 +220,10 @@ public Animatable&lt;float&gt; Amplitude { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Audio_ToneAudioSource_Animatables" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>This source's keyframed values. The node holding the source reports
-them as its own, so keyframe editing, fingerprints and head-trim
-keyframe shifting reach them.</p>
+  <div class="markdown level1 summary"><p>This source's keyframeable values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -244,6 +244,9 @@ keyframe shifting reach them.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_Audio_ToneAudioSource_Animatables_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The node holding the source reports them as its own, so keyframe editing, thumbnails and head trims reach them.</p>
+</div>
 
 
 
@@ -252,10 +255,11 @@ keyframe shifting reach them.</p>
 
   <h3 id="EditSharp_Components_Sources_Audio_ToneAudioSource_Frequency" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.Frequency">
   Frequency
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The pitch, in hertz; 440 by default.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -284,10 +288,11 @@ public Animatable&lt;float&gt; Frequency { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Audio_ToneAudioSource_Waveform" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.Waveform">
   Waveform
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The shape of the wave.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -320,11 +325,10 @@ public Waveform Waveform { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Audio_ToneAudioSource_Duplicate" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy, through SourceSerializer; see class remarks. History is
-suppressed: a fresh copy has no past to undo.</p>
+  <div class="markdown level1 summary"><p>A deep copy, made by saving and loading this source.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -336,7 +340,8 @@ suppressed: a fresh copy has no past to undo.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Sources.Audio.ToneAudioSource.html">ToneAudioSource</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -345,6 +350,9 @@ suppressed: a fresh copy has no past to undo.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_Audio_ToneAudioSource_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo. A nested timeline is shared, not copied.</p>
+</div>
 
 
 
@@ -353,12 +361,10 @@ suppressed: a fresh copy has no past to undo.</p>
 
   <h3 id="EditSharp_Components_Sources_Audio_ToneAudioSource_GetNaturalLengthAsync_System_Threading_CancellationToken_" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.GetNaturalLengthAsync(System.Threading.CancellationToken)">
   GetNaturalLengthAsync(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How long the source's own material is, ignoring Start/Duration.
-Null means unbounded; a still image or a generator has no inherent
-end, so only Duration (or the clip) limits it.</p>
+  <div class="markdown level1 summary"><p>Always null: a tone has no end of its own.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -369,13 +375,15 @@ end, so only Duration (or the clip) limits it.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>ct</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
+    <dd><p>Unused.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?&gt;</dt>
-    <dd></dd>
+    <dd><p>Null.</p>
+</dd>
   </dl>
 
 
@@ -392,7 +400,7 @@ end, so only Duration (or the clip) limits it.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L17" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L28" class="edit-link">Edit this page</a>
         </div>
 
 

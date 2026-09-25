@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class MediaAudioSource | EditSharp ">
       
-      <meta name="description" content="The audio stream of a media file on disk (an audio file, or a video file&#39;s soundtrack), streamed through ffmpeg. A file with no audio stream reads as silence for its length.">
+      <meta name="description" content="The audio of a media file on disk: an audio file, or a video file&#39;s soundtrack.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Sources_Audio_MediaAudioSource" data-uid="EditSharp.Components.Sources.Audio.MediaAudioSource" class="text-break">
-Class MediaAudioSource  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/MediaAudioSource.cs/#L16"><i class="bi bi-code-slash"></i></a>
+Class MediaAudioSource  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/MediaAudioSource.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,9 +97,7 @@ Class MediaAudioSource  <a class="header-action link-secondary" title="View sour
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>The audio stream of a media file on disk (an audio file, or a video file's
-soundtrack), streamed through ffmpeg. A file with no audio stream reads as
-silence for its length.</p>
+  <div class="markdown summary"><p>The audio of a media file on disk: an audio file, or a video file's soundtrack.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -182,6 +180,9 @@ public class MediaAudioSource : AudioSource, IFileBackedSource</code></pre>
 
 
 
+  <h2 id="EditSharp_Components_Sources_Audio_MediaAudioSource_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>It's streamed through ffmpeg. A file with no audio stream plays silence for its length.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -192,10 +193,11 @@ public class MediaAudioSource : AudioSource, IFileBackedSource</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Audio_MediaAudioSource_Path" data-uid="EditSharp.Components.Sources.Audio.MediaAudioSource.Path">
   Path
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/MediaAudioSource.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/MediaAudioSource.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The full path of the file.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -228,11 +230,10 @@ public required string Path { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Audio_MediaAudioSource_Duplicate" data-uid="EditSharp.Components.Sources.Audio.MediaAudioSource.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/MediaAudioSource.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/MediaAudioSource.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy, through SourceSerializer; see class remarks. History is
-suppressed: a fresh copy has no past to undo.</p>
+  <div class="markdown level1 summary"><p>A deep copy, made by saving and loading this source.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -244,7 +245,8 @@ suppressed: a fresh copy has no past to undo.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Sources.Audio.MediaAudioSource.html">MediaAudioSource</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -253,6 +255,9 @@ suppressed: a fresh copy has no past to undo.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_Audio_MediaAudioSource_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo. A nested timeline is shared, not copied.</p>
+</div>
 
 
 
@@ -261,12 +266,10 @@ suppressed: a fresh copy has no past to undo.</p>
 
   <h3 id="EditSharp_Components_Sources_Audio_MediaAudioSource_GetNaturalLengthAsync_System_Threading_CancellationToken_" data-uid="EditSharp.Components.Sources.Audio.MediaAudioSource.GetNaturalLengthAsync(System.Threading.CancellationToken)">
   GetNaturalLengthAsync(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/MediaAudioSource.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/MediaAudioSource.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How long the source's own material is, ignoring Start/Duration.
-Null means unbounded; a still image or a generator has no inherent
-end, so only Duration (or the clip) limits it.</p>
+  <div class="markdown level1 summary"><p>How long the file is, from probing it.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -277,13 +280,15 @@ end, so only Duration (or the clip) limits it.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>ct</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
+    <dd><p>Cancels waiting for the probe.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?&gt;</dt>
-    <dd></dd>
+    <dd><p>The file's length; null if it has none.</p>
+</dd>
   </dl>
 
 
@@ -293,6 +298,12 @@ end, so only Duration (or the clip) limits it.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Sources.SourceUnavailableException.html">SourceUnavailableException</a></dt>
+    <dd><p><a class="xref" href="EditSharp.Components.Sources.SourceUnavailableReason.html#EditSharp_Components_Sources_SourceUnavailableReason_MediaOffline">MediaOffline</a> when no file is chosen or it's missing; <a class="xref" href="EditSharp.Components.Sources.SourceUnavailableReason.html#EditSharp_Components_Sources_SourceUnavailableReason_DecodeError">DecodeError</a> when it can't be probed.</p>
+</dd>
+  </dl>
 
 
 
@@ -300,11 +311,10 @@ end, so only Duration (or the clip) limits it.</p>
 
   <h3 id="EditSharp_Components_Sources_Audio_MediaAudioSource_TryGetNaturalLength_System_Nullable_System_TimeSpan___" data-uid="EditSharp.Components.Sources.Audio.MediaAudioSource.TryGetNaturalLength(System.Nullable{System.TimeSpan}@)">
   TryGetNaturalLength(out TimeSpan?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/MediaAudioSource.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/MediaAudioSource.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>GetNaturalLengthAsync's answer when it's known right away; false
-while it still has to be found (a file not probed yet).</p>
+  <div class="markdown level1 summary"><p><a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_GetNaturalLengthAsync_System_Threading_CancellationToken_">GetNaturalLengthAsync(CancellationToken)</a>'s answer, if it's known right away.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -315,13 +325,15 @@ while it still has to be found (a file not probed yet).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>length</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
-    <dd></dd>
+    <dd><p>The natural length when known; otherwise null.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>False while the length still has to be found, such as for a file not probed yet.</p>
+</dd>
   </dl>
 
 
@@ -330,6 +342,9 @@ while it still has to be found (a file not probed yet).</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_Audio_MediaAudioSource_TryGetNaturalLength_System_Nullable_System_TimeSpan____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Answers from the probe cache; a file not probed yet starts its probe in the background.</p>
+</div>
 
 
 
@@ -338,7 +353,7 @@ while it still has to be found (a file not probed yet).</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/MediaAudioSource.cs/#L16" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/MediaAudioSource.cs/#L13" class="edit-link">Edit this page</a>
         </div>
 
 

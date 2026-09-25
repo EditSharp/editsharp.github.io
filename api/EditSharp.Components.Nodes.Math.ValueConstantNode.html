@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ValueConstantNode | EditSharp ">
       
-      <meta name="description" content="Wraps one keyframeable float as a Value-port output — the simplest way to originate a number for a MathNode (or for one of the optional Value modulation inputs a few signal nodes now expose — see GainNode/AudioMixNode/MergeNode&#39;s own remarks) to consume. Declares ONLY a Value port, so Graph.AddNode treats it as domain-universal (see Graph.InferDomain) — the exact same ValueConstantNode class works unmodified inside a VideoClip&#39;s Image-domain graph or an AudioClip&#39;s Audio-domain graph.">
+      <meta name="description" content="A keyframeable number, for a  or a modulation input.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Nodes_Math_ValueConstantNode" data-uid="EditSharp.Components.Nodes.Math.ValueConstantNode" class="text-break">
-Class ValueConstantNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/ValueConstantNode.cs/#L20"><i class="bi bi-code-slash"></i></a>
+Class ValueConstantNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/ValueConstantNode.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,14 +97,7 @@ Class ValueConstantNode  <a class="header-action link-secondary" title="View sou
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Wraps one keyframeable float as a Value-port output — the simplest
-way to originate a number for a MathNode (or for one of the optional
-Value modulation inputs a few signal nodes now expose — see
-GainNode/AudioMixNode/MergeNode's own remarks) to consume.</p>
-<p>Declares ONLY a Value port, so Graph.AddNode treats it as
-domain-universal (see Graph.InferDomain) — the exact same
-ValueConstantNode class works unmodified inside a VideoClip's
-Image-domain graph or an AudioClip's Audio-domain graph.</p>
+  <div class="markdown summary"><p>A keyframeable number, for a <a class="xref" href="EditSharp.Components.Nodes.Math.MathNode.html">MathNode</a> or a modulation input.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -158,6 +151,9 @@ Image-domain graph or an AudioClip's Audio-domain graph.</p>
 
 
 
+  <h2 id="EditSharp_Components_Nodes_Math_ValueConstantNode_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Output: Value. It has only Value ports, so it goes in video and audio graphs alike.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -168,15 +164,10 @@ Image-domain graph or an AudioClip's Audio-domain graph.</p>
 
   <h3 id="EditSharp_Components_Nodes_Math_ValueConstantNode_Animatables" data-uid="EditSharp.Components.Nodes.Math.ValueConstantNode.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/ValueConstantNode.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/ValueConstantNode.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Every keyframeable property this node owns, so a clip can reach
-all of its tracks at once — a head trim/extend shifts every
-keyframe in the graph (see Clip.OnHeadInPointShift). Empty by
-default; a node with Animatable properties overrides it and lists
-each one. An animated property left out here simply stops
-following the content when the clip's head moves.</p>
+  <div class="markdown level1 summary"><p>Every keyframeable value the node owns.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -197,6 +188,9 @@ following the content when the clip's head moves.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Math_ValueConstantNode_Animatables_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Trimming a clip's head shifts every keyframe these hold, so the animation stays with the content. A node with Animatable properties lists every one of them here.</p>
+</div>
 
 
 
@@ -205,10 +199,11 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Math_ValueConstantNode_Ports" data-uid="EditSharp.Components.Nodes.Math.ValueConstantNode.Ports">
   Ports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/ValueConstantNode.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/ValueConstantNode.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The node's ports, fixed by its type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -236,10 +231,11 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Math_ValueConstantNode_Value" data-uid="EditSharp.Components.Nodes.Math.ValueConstantNode.Value">
   Value
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/ValueConstantNode.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/ValueConstantNode.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The number.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -272,13 +268,10 @@ public Animatable&lt;float&gt; Value { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Math_ValueConstantNode_Duplicate" data-uid="EditSharp.Components.Nodes.Math.ValueConstantNode.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/ValueConstantNode.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/ValueConstantNode.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy with a FRESH Id — a duplicated clip's graph must not
-share node identity with the original, or a Connection recorded
-against one graph could be mistaken for referencing a node in
-the other.</p>
+  <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Id</a>, so connections in the two graphs can't be confused.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -290,7 +283,8 @@ the other.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -299,6 +293,9 @@ the other.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Math_ValueConstantNode_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo.</p>
+</div>
 
 
 
@@ -307,7 +304,7 @@ the other.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/ValueConstantNode.cs/#L20" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/ValueConstantNode.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
 

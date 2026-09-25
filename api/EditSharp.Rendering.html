@@ -96,108 +96,22 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Rendering.Blueprint.html">Blueprint</a></dt>
-      <dd></dd>
+      <dd><p>Everything a render needs: what to render, how, and where the file goes.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Rendering.RenderReport.html">RenderReport</a></dt>
-      <dd><p>What went wrong with sources during a render that still completed. A
-failing source is rendered as a labeled placeholder rather than aborting
-the export; this is how the caller finds out.</p>
+      <dd><p>The sources that failed during a render that still completed.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Rendering.Renderer.html">Renderer</a></dt>
-      <dd><p>Entry point for the render strategy — wires the Skia compositor into
-an actual end-to-end render.</p>
-<p>Shape of a render:</p>
-<ol>
-<li>Probe every Video-type VideoSourceNode's native size (MediaProbe)
-across the whole timeline — everything about a video clip's media
-inputs that's constant across its whole life, done once up front
-(ContentPreparation). TextInputNode/ColorGeneratorInputNode/
-NoiseInputNode/TimelineVideoInputNode need no such up-front prep
-any more — see ContentPreparation's own remarks.</li>
-<li>Mix the timeline's audio once (AudioMixer.ComposeAsync) and spawn
-the SINGLE ffmpeg process that will do the real mux + encode for
-the whole render, with its stdin left open as a raw-video pipe.</li>
-<li>Render every output frame SEQUENTIALLY directly against an
-in-process SKCanvas (FrameCompositor), writing each frame's raw
-RGBA8888 bytes straight into that ffmpeg process's stdin as it's
-produced — see STREAMING REWRITE below. A Video-type
-VideoSourceNode's SourceDecoder is opened on its clip's first
-visible frame and disposed once that clip's visible window ends
-(ClipContentSource).</li>
-<li>Close stdin once every frame has been written (ffmpeg's rawvideo
-demuxer treats that exactly like reaching EOF on a file) and wait
-for ffmpeg to finish encoding.</li>
-</ol>
-<p>STREAMING REWRITE — WHY THIS EXISTS: this used to append every frame's
-raw, uncompressed RGBA8888 bytes to a single growing &quot;accumulator&quot;
-temp file on disk, and only handed that file to ffmpeg for mux/encode
-once every frame had already been rendered. At 1920x1080 that's
-8,294,400 bytes/frame (~7.9MiB); an 18-minute 30fps render is 32,400
-frames, i.e. roughly 268GB of raw bytes hitting disk before a single
-byte of that data was ever compressed — reported as &quot;hundreds of
-gigabytes of writes&quot; and confirmed to match this arithmetic almost
-exactly, not a leak or a runaway loop. Frame rendering now writes
-directly into the SAME ffmpeg process's stdin pipe that does the real
-mux/encode (mirroring how SourceDecoder already pipes raw frames IN
-from an ffmpeg decode process — this is the same pattern on the encode
-side), so raw video never touches disk at all: ffmpeg compresses each
-frame into the target codec as it arrives instead of after the whole
-timeline has already been written out losslessly. Disk usage for the
-video side of a render is now effectively just the size of the final
-encoded output file.</p>
-<p>AUDIO STILL GOES THROUGH A SMALL TEMP FILE, DELIBERATELY: the mixed
-master PCM (see AudioMixer.ComposeAsync) is orders of magnitude
-smaller than raw video (48kHz stereo f32 is 384,000 bytes/sec, so an
-18-minute timeline is ~414MB, not hundreds of gigabytes) and ffmpeg
-needs it as a real, complete, seekable input at process-start time —
-unlike the video side, it isn't produced incrementally by anything
-this class does. A second OS pipe/named-pipe could avoid even that,
-but isn't pursued here: it would need real cross-platform machinery
-(named pipes on Windows, a FIFO on Unix) for a temp file that was
-never the actual disk-usage problem.</p>
-<p>ONE CONSEQUENCE OF STREAMING WORTH FLAGGING: because AudioMixer.
-ComposeAsync's result has to be written to that temp file and handed
-to ffmpeg as an -i argument BEFORE ffmpeg can be spawned — and frame
-rendering can't start streaming into ffmpeg's stdin until ffmpeg
-exists — audio composition is now awaited before frame rendering
-begins, rather than run concurrently with it the way this used to
-work. It still overlaps content preparation and GPU/decoder setup
-above it, which is normally the larger win of the two; audio mixing
-itself is a one-shot in-memory computation, not a per-frame cost, so
-this is expected to be a minor, not a proportional, regression versus
-however long the frame-by-frame render itself takes.</p>
-<p>&quot;CLIPS ARE GRAPHS&quot; REWRITE: ContentPreparation's
-nativeSizes/decodePlans/decodeSourcePaths dictionaries are now keyed
-by InputNode Id (Guid), not by Clip — a VideoClip's graph can contain
-more than one VideoSourceNode. staticImagePaths and the tempFiles bag
-PrepareContentAsync used to take are both gone from that call — text
-rasterization now happens lazily inside ClipContentSource itself,
-which owns cleaning up its own temp files on Dispose (this file's own
-tempFiles bag is now used only for the render's OWN raw audio PCM temp
-file — the raw video accumulator described above is gone entirely,
-see the STREAMING REWRITE remarks). FrameStateResolver.Resolve no
-longer takes a nativeSizes parameter at all — see its own remarks.</p>
-<p>REWRITE (&quot;channels split by kind&quot;): the SurfacePool seed count below
-now uses timeline.VideoChannels.Count specifically (only a
-VideoChannel's clips ever need a GPU-backed canvas surface — see
-SurfacePool's own remarks on this being a warm-start heuristic, not
-a hard cap) instead of the old mixed timeline.Channels.Count. Validate's
-FadeToColorTransition check below also now walks timeline.VideoChannels
-specifically — that check is fundamentally about VIDEO channel
-stacking (an opaque transition blacking out whatever composites
-beneath it), which AudioChannels were never actually part of; walking
-VideoChannels directly says what the check means instead of relying on
-AudioChannel transitions happening to never trip it.</p>
+      <dd><p>Renders a timeline to a video file.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Rendering.SourceProblem.html">SourceProblem</a></dt>
-      <dd><p>One source input (graph node) that failed for one reason, summarised:
-where on the timeline it first and last happened and on how many frames.
-Source describes it for a person (&quot;media-video: C:/clips/a.mp4&quot;).</p>
+      <dd><p>One source node that failed for one reason during a render, summarised.</p>
 </dd>
     </dl>
     <h3 id="structs">
@@ -205,7 +119,8 @@ Structs
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Rendering.RenderSettings.html">RenderSettings</a></dt>
-      <dd></dd>
+      <dd><p>How a timeline is rendered: output size, frame rate, codecs and the GPU to use.</p>
+</dd>
     </dl>
 
 

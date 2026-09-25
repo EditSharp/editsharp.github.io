@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Clip | EditSharp ">
       
-      <meta name="description" content="FUNDAMENTAL REWRITE (&amp;quot;clips are graphs&amp;quot;): a clip used to be treated as &amp;quot;media that can have a graph of effects&amp;quot; — a Clip subtype per kind of content (VideoClip/TextClip/GeneratorClip/NoiseClip/ TimelineVideoClip on the visual side; AudioClip/TimelineAudioClip on the audible side), each wrapping its own bespoke content field, with a Graph bolted on afterward. That was backwards: a clip IS its graph. The only remaining concrete Clip subtypes are VideoClip and AudioClip — everything that used to be a distinct Clip subtype (a media file, text, a generated color, procedural noise, a synthesized tone, an embedded nested Timeline) is now just a different InputNode wired into an otherwise perfectly ordinary Graph (see EditSharp.Components.Nodes). A graph may have more than one InputNode — nothing about a graph having two, three, or more requires a different kind of Clip; it&#39;s still just VideoClip or AudioClip. Abstract base, implements ITimelineEditable.">
+      <meta name="description" content="A span of a channel that shows or plays its .">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Clips_Clip" data-uid="EditSharp.Components.Clips.Clip" class="text-break">
-Class Clip  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L30"><i class="bi bi-code-slash"></i></a>
+Class Clip  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,22 +97,7 @@ Class Clip  <a class="header-action link-secondary" title="View source" href="ht
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>FUNDAMENTAL REWRITE (&quot;clips are graphs&quot;): a clip used to be treated
-as &quot;media that can have a graph of effects&quot; — a Clip subtype per
-kind of content (VideoClip/TextClip/GeneratorClip/NoiseClip/
-TimelineVideoClip on the visual side; AudioClip/TimelineAudioClip on
-the audible side), each wrapping its own bespoke content field, with
-a Graph bolted on afterward. That was backwards: a clip IS
-its graph. The only remaining concrete Clip subtypes are VideoClip
-and AudioClip — everything that used to be a distinct Clip subtype
-(a media file, text, a generated color, procedural noise, a
-synthesized tone, an embedded nested Timeline) is now just a
-different InputNode wired into an otherwise perfectly ordinary
-Graph (see EditSharp.Components.Nodes).
-A graph may have more than one InputNode — nothing about a graph
-having two, three, or more requires a different kind of Clip; it's
-still just VideoClip or AudioClip.</p>
-<p>Abstract base, implements ITimelineEditable.</p>
+  <div class="markdown summary"><p>A span of a channel that shows or plays its <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Graph">Graph</a>.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -175,6 +160,13 @@ still just VideoClip or AudioClip.</p>
 
 
 
+  <h2 id="EditSharp_Components_Clips_Clip_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>What a clip shows or plays comes from the input nodes in its graph, so the kind
+of content is the kind of source, not the kind of clip; <a class="xref" href="EditSharp.Components.Clips.VideoClip.html">VideoClip</a>
+and <a class="xref" href="EditSharp.Components.Clips.AudioClip.html">AudioClip</a> are the only two. Edits that can reach neighbouring
+clips (moving, extending, stretching, splitting, deleting) go through the
+clip's <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Channel">Channel</a>, which keeps clips from overlapping.</p>
+</div>
 
 
   <h2 class="section" id="fields">Fields
@@ -184,10 +176,11 @@ still just VideoClip or AudioClip.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_MinimumDuration" data-uid="EditSharp.Components.Clips.Clip.MinimumDuration">
   MinimumDuration
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The shortest a trim or stretch leaves a clip: 1 ms.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -219,10 +212,11 @@ still just VideoClip or AudioClip.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_Channel" data-uid="EditSharp.Components.Clips.Clip.Channel">
   Channel
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L63"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The channel the clip is on; null when it isn't placed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -250,10 +244,10 @@ still just VideoClip or AudioClip.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_ContentDuration" data-uid="EditSharp.Components.Clips.Clip.ContentDuration">
   ContentDuration
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The span of content this clip covers — Duration scaled by Speed.</p>
+  <div class="markdown level1 summary"><p>How much content the clip covers: <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Duration">Duration</a> × <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Speed">Speed</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -282,10 +276,11 @@ still just VideoClip or AudioClip.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_Duration" data-uid="EditSharp.Components.Clips.Clip.Duration">
   Duration
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How long the clip lasts on the timeline.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -306,6 +301,9 @@ public TimeSpan Duration { get; set; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_Duration_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>To resize a placed clip, use the trim, extend and stretch methods; setting Duration directly doesn't check its neighbours or sources.</p>
+</div>
 
 
 
@@ -314,10 +312,11 @@ public TimeSpan Duration { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_End" data-uid="EditSharp.Components.Clips.Clip.End">
   End
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Where the clip ends on the timeline: <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Start">Start</a> + <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Duration">Duration</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -345,12 +344,10 @@ public TimeSpan Duration { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_Graph" data-uid="EditSharp.Components.Clips.Clip.Graph">
   Graph
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>A clip's single Graph, fixed to this clip's own
-NodeDomain at construction (Image for VideoClip, Audio for
-AudioClip) — see this class's own remarks.</p>
+  <div class="markdown level1 summary"><p>The clip's content and effects.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -379,14 +376,10 @@ AudioClip) — see this class's own remarks.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_HeadExtendLimit" data-uid="EditSharp.Components.Clips.Clip.HeadExtendLimit">
   HeadExtendLimit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L105"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How much earlier Start can be pulled before the content runs
-out, in TIMELINE time (MaxHeadExtend is content time, and the
-two differ once Speed is not 1). TimeSpan.MaxValue when nothing
-in the graph constrains it. Exposed so an editor can clamp a
-preview to what ExtendStart will actually accept.</p>
+  <div class="markdown level1 summary"><p>How much earlier <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Start">Start</a> can move before a source runs out, in timeline time; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan.maxvalue">MaxValue</a> when nothing limits it.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -407,6 +400,9 @@ preview to what ExtendStart will actually accept.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_HeadExtendLimit_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p><a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_ExtendStart_System_TimeSpan_">ExtendStart(TimeSpan)</a> stops here; an editor can clamp a drag preview to it.</p>
+</div>
 
 
 
@@ -415,10 +411,11 @@ preview to what ExtendStart will actually accept.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_LinkGroupId" data-uid="EditSharp.Components.Clips.Clip.LinkGroupId">
   LinkGroupId
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="EditSharp.Components.LinkGroup.html">LinkGroup</a> the clip belongs to; null when it isn't linked.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -446,10 +443,11 @@ preview to what ExtendStart will actually accept.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_Name" data-uid="EditSharp.Components.Clips.Clip.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The clip's name, as editors show it.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -478,10 +476,11 @@ public string Name { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_Speed" data-uid="EditSharp.Components.Clips.Clip.Speed">
   Speed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How fast the content plays against the timeline: 2 plays it twice as fast, 0.5 at half speed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -502,6 +501,9 @@ public double Speed { get; set; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_Speed_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The graph and its keyframes stay at 1x; Speed scales the clip's time wherever it's evaluated, so setting it back to 1 undoes a retime. <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_StretchStart_System_TimeSpan_">StretchStart(TimeSpan)</a> and <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_StretchEnd_System_TimeSpan_">StretchEnd(TimeSpan)</a> set it. Raising it trims the clip if a source now ends inside it.</p>
+</div>
 
 
 
@@ -510,10 +512,11 @@ public double Speed { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_Start" data-uid="EditSharp.Components.Clips.Clip.Start">
   Start
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Where the clip starts on the timeline.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -534,6 +537,9 @@ public TimeSpan Start { get; set; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_Start_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>To move a placed clip, use <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Move_System_TimeSpan_EditSharp_Components_Channels_Channel_">Move(TimeSpan, Channel?)</a>; setting Start directly doesn't update its channel.</p>
+</div>
 
 
 
@@ -542,13 +548,10 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_TailExtendLimit" data-uid="EditSharp.Components.Clips.Clip.TailExtendLimit">
   TailExtendLimit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L116"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How much later End can be pushed before a source runs out, in
-TIMELINE time: the tightest of the trimmable inputs with a known
-hard end, zero if one already ends inside the clip. TimeSpan.MaxValue
-when none has one (unbounded, looping, or not probed yet).</p>
+  <div class="markdown level1 summary"><p>How much later <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_End">End</a> can move before a source runs out, in timeline time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -569,6 +572,9 @@ when none has one (unbounded, looping, or not probed yet).</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_TailExtendLimit_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Zero when a source already ends inside the clip; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan.maxvalue">MaxValue</a> when no source has a known end (it has none, it loops, or it isn't probed yet).</p>
+</div>
 
 
 
@@ -581,10 +587,11 @@ when none has one (unbounded, looping, or not probed yet).</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_Delete" data-uid="EditSharp.Components.Clips.Clip.Delete">
   Delete()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L339"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L285"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Removes from the channel, leaving a gap.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -599,7 +606,16 @@ when none has one (unbounded, looping, or not probed yet).</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_Delete_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A link group left with one member is unlinked.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>A clip isn't placed.</p>
+</dd>
+  </dl>
 
 
 
@@ -607,10 +623,11 @@ when none has one (unbounded, looping, or not probed yet).</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_DistanceFrom_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.DistanceFrom(EditSharp.Components.Clips.Clip)">
   DistanceFrom(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L371"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L344"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The gap between the clip and another.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -620,13 +637,15 @@ when none has one (unbounded, looping, or not probed yet).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>other</code> <a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
-    <dd></dd>
+    <dd><p>The other clip.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>The time between the end of the earlier clip and the start of the later; zero when they overlap.</p>
+</dd>
   </dl>
 
 
@@ -643,11 +662,10 @@ when none has one (unbounded, looping, or not probed yet).</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_Duplicate" data-uid="EditSharp.Components.Clips.Clip.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L74"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy — does NOT copy LinkGroupId/Channel (a duplicate
-starts unlinked and unplaced; the caller decides where it goes).</p>
+  <div class="markdown level1 summary"><p>A deep copy with the same name, times and speed, not placed and not linked.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -659,7 +677,8 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -668,6 +687,9 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Nothing is recorded in history.</p>
+</div>
 
 
 
@@ -676,10 +698,11 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_EndIntersectsWith_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.EndIntersectsWith(EditSharp.Components.Clips.Clip)">
   EndIntersectsWith(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L358"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L319"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the clip ends within another, counting its end.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -689,13 +712,15 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>other</code> <a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
-    <dd></dd>
+    <dd><p>The other clip.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True when <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_End">End</a> is after the other's start and at or before its end.</p>
+</dd>
   </dl>
 
 
@@ -712,10 +737,11 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_EndsAt_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.EndsAt(System.TimeSpan)">
   EndsAt(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L352"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L301"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the clip ends at a time.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -725,13 +751,15 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>The timeline time.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True when <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_End">End</a> is <code class="paramref">time</code>.</p>
+</dd>
   </dl>
 
 
@@ -748,10 +776,11 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_EndsInside_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.EndsInside(EditSharp.Components.Clips.Clip)">
   EndsInside(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L355"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L310"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the clip ends strictly inside another.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -761,13 +790,15 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>other</code> <a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
-    <dd></dd>
+    <dd><p>The other clip.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True when <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_End">End</a> is after the other's start and before its end.</p>
+</dd>
   </dl>
 
 
@@ -784,10 +815,10 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_ExtendEnd_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.ExtendEnd(System.TimeSpan)">
   ExtendEnd(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L201"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Grows from the tail (Overwrite default) — can newly overlap a neighbor.</p>
+  <div class="markdown level1 summary"><p>Lengthens from the end, overwriting whatever it grows into.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -798,7 +829,8 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>How much to extend; it stops where a source runs out (<a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_TailExtendLimit">TailExtendLimit</a>).</p>
+</dd>
   </dl>
 
 
@@ -809,6 +841,12 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>A clip isn't placed.</p>
+</dd>
+  </dl>
 
 
 
@@ -816,10 +854,10 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_ExtendStart_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.ExtendStart(System.TimeSpan)">
   ExtendStart(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L180"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Grows from the head (Overwrite default) — can newly overlap a neighbor.</p>
+  <div class="markdown level1 summary"><p>Lengthens from the start, overwriting whatever it grows into.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -830,7 +868,8 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>How much to extend; it stops where a source runs out (<a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_HeadExtendLimit">HeadExtendLimit</a>).</p>
+</dd>
   </dl>
 
 
@@ -841,6 +880,12 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>A clip isn't placed.</p>
+</dd>
+  </dl>
 
 
 
@@ -848,10 +893,11 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_FullyIntersects_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.FullyIntersects(EditSharp.Components.Clips.Clip)">
   FullyIntersects(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L360"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L324"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the clip covers all of another.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -861,13 +907,15 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>other</code> <a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
-    <dd></dd>
+    <dd><p>The other clip.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True when the clip starts at or before the other and ends at or after it.</p>
+</dd>
   </dl>
 
 
@@ -884,10 +932,11 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_IntersectionWith_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.IntersectionWith(EditSharp.Components.Clips.Clip)">
   IntersectionWith(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L364"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L334"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How long the clip and another overlap.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -897,13 +946,15 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>other</code> <a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
-    <dd></dd>
+    <dd><p>The other clip.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>The overlap; zero when they don't overlap.</p>
+</dd>
   </dl>
 
 
@@ -920,10 +971,11 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_IsLongerThan_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.IsLongerThan(EditSharp.Components.Clips.Clip)">
   IsLongerThan(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L362"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L329"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the clip is longer than another.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -933,13 +985,15 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>other</code> <a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
-    <dd></dd>
+    <dd><p>The other clip.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True when its <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Duration">Duration</a> is greater.</p>
+</dd>
   </dl>
 
 
@@ -956,16 +1010,10 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_MaxHeadExtend" data-uid="EditSharp.Components.Clips.Clip.MaxHeadExtend">
   MaxHeadExtend()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L91"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The most-constrained trimmable input node sets the ceiling for
-the WHOLE clip — extending the head further than any ONE of them
-has room for would push that node's in-point negative.
-TimeSpan.MaxValue (unconstrained) when there are no trimmable
-inputs at all in this clip's graph (pure generator/text/noise/
-tone content) — matches the old TextClip/GeneratorClip/
-NoiseClip's inherited unbounded default.</p>
+  <div class="markdown level1 summary"><p>How far the start can move earlier, in content time: the least headroom of any trimmable input.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -977,7 +1025,8 @@ NoiseClip's inherited unbounded default.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>The headroom; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan.maxvalue">MaxValue</a> when no input limits it.</p>
+</dd>
   </dl>
 
 
@@ -994,13 +1043,10 @@ NoiseClip's inherited unbounded default.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_Move_System_TimeSpan_EditSharp_Components_Channels_Channel_" data-uid="EditSharp.Components.Clips.Clip.Move(System.TimeSpan,EditSharp.Components.Channels.Channel)">
   Move(TimeSpan, Channel?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L331"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L274"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Overwrite semantics at the destination — see Placement Integrity
-in the schema doc. targetChannel defaults to the clip's current
-channel; a different, type-compatible channel is a cross-channel
-move.</p>
+  <div class="markdown level1 summary"><p>Moves to a new start, overwriting whatever is there.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1011,9 +1057,11 @@ move.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>newStart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>The new start; for a group, where its earliest member goes, the rest keeping their offsets.</p>
+</dd>
     <dt><code>targetChannel</code> <a class="xref" href="EditSharp.Components.Channels.Channel.html">Channel</a></dt>
-    <dd></dd>
+    <dd><p>The channel to move to; null stays on the current one.</p>
+</dd>
   </dl>
 
 
@@ -1024,6 +1072,15 @@ move.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>A clip isn't placed.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">targetChannel</code> holds the other kind of clip.</p>
+</dd>
+  </dl>
 
 
 
@@ -1031,10 +1088,10 @@ move.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_OnHeadInPointShift_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.OnHeadInPointShift(System.TimeSpan)">
   OnHeadInPointShift(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Positive <code>amount</code> = trim (in-point advances), negative = extend (in-point recedes).</p>
+  <div class="markdown level1 summary"><p>Moves every trimmable input's in-point, and every keyframe in the graph, when the clip's start moves.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1045,7 +1102,8 @@ move.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>How far the in-points move, in content time: positive for a trim, negative for an extend.</p>
+</dd>
   </dl>
 
 
@@ -1055,6 +1113,9 @@ move.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_OnHeadInPointShift_System_TimeSpan__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Keyframes belong to the content, not to <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Start">Start</a>, so a head trim or extend moves them too.</p>
+</div>
 
 
 
@@ -1063,10 +1124,10 @@ move.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_RippleDelete" data-uid="EditSharp.Components.Clips.Clip.RippleDelete">
   RippleDelete()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L342"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L289"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Delete, and close the gap this clip leaves on its own channel.</p>
+  <div class="markdown level1 summary"><p>Deletes the clip and closes the gap: everything after it on its channel moves earlier by its length.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1083,6 +1144,12 @@ move.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The clip isn't placed.</p>
+</dd>
+  </dl>
 
 
 
@@ -1090,10 +1157,11 @@ move.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_RippleExtendEnd_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.RippleExtendEnd(System.TimeSpan)">
   RippleExtendEnd(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L255"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L203"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Lengthens from the end; clips after it move later by the same amount instead of being overwritten.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1103,7 +1171,8 @@ move.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>How much to extend; it stops where a source runs out (<a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_TailExtendLimit">TailExtendLimit</a>).</p>
+</dd>
   </dl>
 
 
@@ -1114,6 +1183,12 @@ move.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>A clip isn't placed.</p>
+</dd>
+  </dl>
 
 
 
@@ -1121,10 +1196,11 @@ move.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_RippleExtendStart_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.RippleExtendStart(System.TimeSpan)">
   RippleExtendStart(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L182"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Lengthens from the start; clips from the new start on move later by the same amount instead of being overwritten.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1134,7 +1210,8 @@ move.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>How much to extend; it stops where a source runs out (<a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_HeadExtendLimit">HeadExtendLimit</a>).</p>
+</dd>
   </dl>
 
 
@@ -1145,6 +1222,12 @@ move.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>A clip isn't placed.</p>
+</dd>
+  </dl>
 
 
 
@@ -1152,10 +1235,10 @@ move.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_RippleMove_System_TimeSpan_EditSharp_Components_Channels_Channel_" data-uid="EditSharp.Components.Clips.Clip.RippleMove(System.TimeSpan,EditSharp.Components.Channels.Channel)">
   RippleMove(TimeSpan, Channel?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L334"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L278"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Same as Move, but destination-side neighbors shift later instead of being overwritten.</p>
+  <div class="markdown level1 summary"><p>Moves to a new start, moving clips from there on later instead of overwriting them.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1166,9 +1249,11 @@ move.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>newStart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>The new start; for a group, where its earliest member goes, the rest keeping their offsets.</p>
+</dd>
     <dt><code>targetChannel</code> <a class="xref" href="EditSharp.Components.Channels.Channel.html">Channel</a></dt>
-    <dd></dd>
+    <dd><p>The channel to move to; null stays on the current one.</p>
+</dd>
   </dl>
 
 
@@ -1179,6 +1264,15 @@ move.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>A clip isn't placed.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">targetChannel</code> holds the other kind of clip.</p>
+</dd>
+  </dl>
 
 
 
@@ -1186,14 +1280,10 @@ move.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_Split_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.Split(System.TimeSpan)">
   Split(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L337"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L282"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Cuts at a point in time. On a Clip, splits just that clip (both
-halves keep the same LinkGroupId). On a LinkGroup, splits every
-member spanning the point and resolves into two groups — see the
-schema doc's Split section for the full DaVinci-Resolve-matching
-behavior.</p>
+  <div class="markdown level1 summary"><p>Cuts in two at a timeline time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1204,7 +1294,8 @@ behavior.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>at</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Where to cut; for a single clip, strictly inside it.</p>
+</dd>
   </dl>
 
 
@@ -1214,7 +1305,19 @@ behavior.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_Split_System_TimeSpan__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A clip's halves keep its name and link group. A group splits every member that spans the time; members from the time on form a new group, and a side left with one clip is unlinked.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">at</code> isn't strictly inside the clip.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>A clip isn't placed.</p>
+</dd>
+  </dl>
 
 
 
@@ -1222,10 +1325,11 @@ behavior.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_StartIntersectsWith_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.StartIntersectsWith(EditSharp.Components.Clips.Clip)">
   StartIntersectsWith(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L357"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L315"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the clip starts within another, counting its start.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1235,13 +1339,15 @@ behavior.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>other</code> <a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
-    <dd></dd>
+    <dd><p>The other clip.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True when <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Start">Start</a> is at or after the other's start and before its end.</p>
+</dd>
   </dl>
 
 
@@ -1258,10 +1364,11 @@ behavior.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_StartsAt_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.StartsAt(System.TimeSpan)">
   StartsAt(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L351"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L297"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the clip starts at a time.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1271,13 +1378,15 @@ behavior.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>The timeline time.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True when <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Start">Start</a> is <code class="paramref">time</code>.</p>
+</dd>
   </dl>
 
 
@@ -1294,10 +1403,11 @@ behavior.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_StartsInside_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.StartsInside(EditSharp.Components.Clips.Clip)">
   StartsInside(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L354"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L306"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the clip starts strictly inside another.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1307,13 +1417,15 @@ behavior.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>other</code> <a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
-    <dd></dd>
+    <dd><p>The other clip.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True when <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Start">Start</a> is after the other's start and before its end.</p>
+</dd>
   </dl>
 
 
@@ -1330,10 +1442,10 @@ behavior.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_StretchEnd_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.StretchEnd(System.TimeSpan)">
   StretchEnd(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L298"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L245"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Positive <code>amount</code> = End moves later (clip grows, plays slower); negative = earlier (shrinks, plays faster). Start never moves.</p>
+  <div class="markdown level1 summary"><p>Moves the end while the start and the content stay put, so the clip plays slower or faster.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1344,7 +1456,8 @@ behavior.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Positive moves the end later (longer, slower); negative earlier (shorter, faster). It stops at <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_MinimumDuration">MinimumDuration</a>.</p>
+</dd>
   </dl>
 
 
@@ -1354,7 +1467,16 @@ behavior.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_StretchEnd_System_TimeSpan__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Growing overwrites whatever the clip grows into; <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Speed">Speed</a> takes up the change.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The clip isn't placed.</p>
+</dd>
+  </dl>
 
 
 
@@ -1362,10 +1484,10 @@ behavior.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_StretchStart_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.StretchStart(System.TimeSpan)">
   StretchStart(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L287"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L231"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Positive <code>amount</code> = Start moves earlier (clip grows, plays slower); negative = later (shrinks, plays faster). End never moves.</p>
+  <div class="markdown level1 summary"><p>Moves the start while the end and the content stay put, so the clip plays slower or faster.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1376,7 +1498,8 @@ behavior.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Positive moves the start earlier (longer, slower); negative later (shorter, faster). It stops at the timeline's start and at <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_MinimumDuration">MinimumDuration</a>.</p>
+</dd>
   </dl>
 
 
@@ -1386,7 +1509,16 @@ behavior.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_StretchStart_System_TimeSpan__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Growing overwrites whatever the clip grows into; <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Speed">Speed</a> takes up the change.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The clip isn't placed.</p>
+</dd>
+  </dl>
 
 
 
@@ -1394,10 +1526,10 @@ behavior.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_TrimEnd_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.TrimEnd(System.TimeSpan)">
   TrimEnd(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L160"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Shrinks from the tail — never creates overlap, so there is no Ripple variant.</p>
+  <div class="markdown level1 summary"><p>Shortens from the end.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1408,7 +1540,8 @@ behavior.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>How much to trim; it stops at <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_MinimumDuration">MinimumDuration</a>.</p>
+</dd>
   </dl>
 
 
@@ -1426,10 +1559,10 @@ behavior.</p>
 
   <h3 id="EditSharp_Components_Clips_Clip_TrimStart_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.TrimStart(System.TimeSpan)">
   TrimStart(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L198"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L146"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Shrinks from the head — never creates overlap, so there is no Ripple variant.</p>
+  <div class="markdown level1 summary"><p>Shortens from the start; the content stays where it is on the timeline.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1440,7 +1573,8 @@ behavior.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>How much to trim; it stops at <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_MinimumDuration">MinimumDuration</a>.</p>
+</dd>
   </dl>
 
 
@@ -1458,7 +1592,7 @@ behavior.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L30" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L19" class="edit-link">Edit this page</a>
         </div>
 
 

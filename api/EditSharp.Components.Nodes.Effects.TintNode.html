@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class TintNode | EditSharp ">
       
-      <meta name="description" content="Color tint, doubling as transparency via alpha. Auto-created and wired in by default (see Graph.CreateVideoGraph) alongside TransformNode — this is what replaced the old flat VisualClip.Modulate property entirely, fully consistent with how GainNode already replaced the old flat AudioClip.Volume: a normal, removable, reorderable node beyond the default, not a fixed clip property any more.">
+      <meta name="description" content="Multiplies the image by a colour; the colour&#39;s alpha sets the image&#39;s opacity.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Nodes_Effects_TintNode" data-uid="EditSharp.Components.Nodes.Effects.TintNode" class="text-break">
-Class TintNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/TintNode.cs/#L19"><i class="bi bi-code-slash"></i></a>
+Class TintNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/TintNode.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,13 +97,7 @@ Class TintNode  <a class="header-action link-secondary" title="View source" href
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Color tint, doubling as transparency via alpha. Auto-created and
-wired in by default (see Graph.CreateVideoGraph) alongside
-TransformNode — this is what replaced the old flat
-VisualClip.Modulate property entirely, fully consistent with how
-GainNode already replaced the old flat AudioClip.Volume: a normal,
-removable, reorderable node beyond the default, not a fixed clip
-property any more.</p>
+  <div class="markdown summary"><p>Multiplies the image by a colour; the colour's alpha sets the image's opacity.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -157,6 +151,9 @@ property any more.</p>
 
 
 
+  <h2 id="EditSharp_Components_Nodes_Effects_TintNode_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Input: Image. Output: Image. A new video clip's graph has one.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -167,15 +164,10 @@ property any more.</p>
 
   <h3 id="EditSharp_Components_Nodes_Effects_TintNode_Animatables" data-uid="EditSharp.Components.Nodes.Effects.TintNode.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/TintNode.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/TintNode.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Every keyframeable property this node owns, so a clip can reach
-all of its tracks at once — a head trim/extend shifts every
-keyframe in the graph (see Clip.OnHeadInPointShift). Empty by
-default; a node with Animatable properties overrides it and lists
-each one. An animated property left out here simply stops
-following the content when the clip's head moves.</p>
+  <div class="markdown level1 summary"><p>Every keyframeable value the node owns.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -196,6 +188,9 @@ following the content when the clip's head moves.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Effects_TintNode_Animatables_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Trimming a clip's head shifts every keyframe these hold, so the animation stays with the content. A node with Animatable properties lists every one of them here.</p>
+</div>
 
 
 
@@ -204,10 +199,11 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Effects_TintNode_Color" data-uid="EditSharp.Components.Nodes.Effects.TintNode.Color">
   Color
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/TintNode.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/TintNode.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The colour to multiply by; white leaves the image unchanged.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -236,10 +232,11 @@ public Animatable&lt;SKColor&gt; Color { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_TintNode_Ports" data-uid="EditSharp.Components.Nodes.Effects.TintNode.Ports">
   Ports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/TintNode.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/TintNode.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The node's ports, fixed by its type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -271,13 +268,10 @@ public Animatable&lt;SKColor&gt; Color { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_TintNode_Duplicate" data-uid="EditSharp.Components.Nodes.Effects.TintNode.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/TintNode.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/TintNode.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy with a FRESH Id — a duplicated clip's graph must not
-share node identity with the original, or a Connection recorded
-against one graph could be mistaken for referencing a node in
-the other.</p>
+  <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Id</a>, so connections in the two graphs can't be confused.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -289,7 +283,8 @@ the other.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -298,6 +293,9 @@ the other.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Effects_TintNode_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo.</p>
+</div>
 
 
 
@@ -306,7 +304,7 @@ the other.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/TintNode.cs/#L19" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/TintNode.cs/#L12" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Transition | EditSharp ">
       
-      <meta name="description" content="One channel-level transition between two adjacent clips. Abstract — the CLASS is the type, no separate TransitionType enum, matching Effect/EffectNode&#39;s own &amp;quot;the class is the type&amp;quot; convention elsewhere in this schema. NEW in this rewrite: carries its own From/To directly (previously a Channel held a separate (Clip, Transition) tuple list) — see the schema doc&#39;s Channel section. This is what lets Channel.Transitions simply be a List&amp;lt;Transition&amp;gt;.">
+      <meta name="description" content="A change from one clip to the next on a channel, over the time the two overlap.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Transitions_Transition" data-uid="EditSharp.Components.Transitions.Transition" class="text-break">
-Class Transition  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Transitions/Transition.cs/#L19"><i class="bi bi-code-slash"></i></a>
+Class Transition  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Transitions/Transition.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,14 +97,7 @@ Class Transition  <a class="header-action link-secondary" title="View source" hr
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>One channel-level transition between two adjacent clips. Abstract —
-the CLASS is the type, no separate TransitionType enum, matching
-Effect/EffectNode's own &quot;the class is the type&quot; convention elsewhere
-in this schema.</p>
-<p>NEW in this rewrite: carries its own From/To directly (previously a
-Channel held a separate (Clip, Transition) tuple list) — see the
-schema doc's Channel section. This is what lets Channel.Transitions
-simply be a List&lt;Transition&gt;.</p>
+  <div class="markdown summary"><p>A change from one clip to the next on a channel, over the time the two overlap.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -162,6 +155,9 @@ simply be a List&lt;Transition&gt;.</p>
 
 
 
+  <h2 id="EditSharp_Components_Transitions_Transition_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Attach one with <a class="xref" href="EditSharp.Components.Channels.Channel.html#EditSharp_Components_Channels_Channel_AddTransition_EditSharp_Components_Clips_Clip_EditSharp_Components_Clips_Clip_EditSharp_Components_Transitions_Transition_">AddTransition(Clip, Clip, Transition)</a>. It's removed when an edit leaves its clips no longer overlapping by its duration.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -172,10 +168,11 @@ simply be a List&lt;Transition&gt;.</p>
 
   <h3 id="EditSharp_Components_Transitions_Transition_Duration" data-uid="EditSharp.Components.Transitions.Transition.Duration">
   Duration
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Transitions/Transition.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Transitions/Transition.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How long the transition lasts: the time its two clips overlap.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -204,10 +201,11 @@ public TimeSpan Duration { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Transitions_Transition_From" data-uid="EditSharp.Components.Transitions.Transition.From">
   From
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Transitions/Transition.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Transitions/Transition.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The clip the transition leaves; set by <a class="xref" href="EditSharp.Components.Channels.Channel.html#EditSharp_Components_Channels_Channel_AddTransition_EditSharp_Components_Clips_Clip_EditSharp_Components_Clips_Clip_EditSharp_Components_Transitions_Transition_">AddTransition(Clip, Clip, Transition)</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -235,10 +233,11 @@ public TimeSpan Duration { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Transitions_Transition_To" data-uid="EditSharp.Components.Transitions.Transition.To">
   To
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Transitions/Transition.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Transitions/Transition.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The clip the transition arrives at; set by <a class="xref" href="EditSharp.Components.Channels.Channel.html#EditSharp_Components_Channels_Channel_AddTransition_EditSharp_Components_Clips_Clip_EditSharp_Components_Clips_Clip_EditSharp_Components_Transitions_Transition_">AddTransition(Clip, Clip, Transition)</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -270,10 +269,11 @@ public TimeSpan Duration { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Transitions_Transition_Duplicate" data-uid="EditSharp.Components.Transitions.Transition.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Transitions/Transition.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Transitions/Transition.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>A copy with the same settings, not attached to any clips.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -284,7 +284,8 @@ public TimeSpan Duration { get; set; }</code></pre>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Transitions.Transition.html">Transition</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -293,6 +294,9 @@ public TimeSpan Duration { get; set; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Transitions_Transition_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Nothing is recorded in history.</p>
+</div>
 
 
 
@@ -301,7 +305,7 @@ public TimeSpan Duration { get; set; }</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Transitions/Transition.cs/#L19" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Transitions/Transition.cs/#L10" class="edit-link">Edit this page</a>
         </div>
 
 

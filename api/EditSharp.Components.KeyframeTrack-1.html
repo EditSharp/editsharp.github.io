@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class KeyframeTrack&lt;T&gt; | EditSharp ">
       
-      <meta name="description" content="One animatable property&#39;s own timeline of keyframes. See the schema doc&#39;s Keyframes section for the full design — this is &amp;quot;one track per animatable property,&amp;quot; replacing the old whole-ClipTransform-per- keyframe list. Encapsulation principle applies here same as everywhere else in the schema: Keyframes is read-only externally, all mutation goes through this class&#39;s own methods — which is what makes handle-clamping and Auto-tangent-recompute-on-neighbor-change actually enforceable rather than something a caller could bypass by editing a Keyframe directly.">
+      <meta name="description" content="One value&#39;s keyframes, in time order.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_KeyframeTrack_1" data-uid="EditSharp.Components.KeyframeTrack`1" class="text-break">
-Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L88"><i class="bi bi-code-slash"></i></a>
+Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,15 +97,7 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>One animatable property's own timeline of keyframes. See the schema
-doc's Keyframes section for the full design — this is &quot;one track per
-animatable property,&quot; replacing the old whole-ClipTransform-per-
-keyframe list.</p>
-<p>Encapsulation principle applies here same as everywhere else in the
-schema: Keyframes is read-only externally, all mutation goes through
-this class's own methods — which is what makes handle-clamping and
-Auto-tangent-recompute-on-neighbor-change actually enforceable rather
-than something a caller could bypass by editing a Keyframe directly.</p>
+  <div class="markdown summary"><p>One value's keyframes, in time order.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -118,7 +110,8 @@ than something a caller could bypass by editing a Keyframe directly.</p>
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>T</code></dt>
-    <dd></dd>
+    <dd><p>The type of value.</p>
+</dd>
   </dl>
 
   <dl class="typelist inheritance">
@@ -166,6 +159,9 @@ than something a caller could bypass by editing a Keyframe directly.</p>
 
 
 
+  <h2 id="EditSharp_Components_KeyframeTrack_1_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Keyframes change only through the track's methods, which keep them in order, keep two from sharing a time, keep handles from reaching past a neighbour, and update Auto handles when a neighbour changes. Every change is recorded in history.</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -176,10 +172,11 @@ than something a caller could bypass by editing a Keyframe directly.</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1__ctor" data-uid="EditSharp.Components.KeyframeTrack`1.#ctor">
   KeyframeTrack()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L81"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An empty track using the <a class="xref" href="EditSharp.Components.IInterpolator-1.html">IInterpolator&lt;T&gt;</a> registered for <code class="typeparamref">T</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -195,6 +192,12 @@ than something a caller could bypass by editing a Keyframe directly.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p>No interpolator is registered for <code class="typeparamref">T</code>.</p>
+</dd>
+  </dl>
 
 
 
@@ -202,10 +205,11 @@ than something a caller could bypass by editing a Keyframe directly.</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1__ctor_EditSharp_Components_IInterpolator__0__" data-uid="EditSharp.Components.KeyframeTrack`1.#ctor(EditSharp.Components.IInterpolator{`0})">
   KeyframeTrack(IInterpolator&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L86"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An empty track using a given interpolator.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -215,7 +219,8 @@ than something a caller could bypass by editing a Keyframe directly.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>interpolator</code> <a class="xref" href="EditSharp.Components.IInterpolator-1.html">IInterpolator</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The arithmetic for <code class="typeparamref">T</code>.</p>
+</dd>
   </dl>
 
 
@@ -226,6 +231,12 @@ than something a caller could bypass by editing a Keyframe directly.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">interpolator</code> is null.</p>
+</dd>
+  </dl>
 
 
 
@@ -237,10 +248,11 @@ than something a caller could bypass by editing a Keyframe directly.</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1_Keyframes" data-uid="EditSharp.Components.KeyframeTrack`1.Keyframes">
   Keyframes
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L77"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The keyframes, in time order.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -272,15 +284,10 @@ than something a caller could bypass by editing a Keyframe directly.</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1_AddKeyframe_System_TimeSpan__0_" data-uid="EditSharp.Components.KeyframeTrack`1.AddKeyframe(System.TimeSpan,`0)">
   AddKeyframe(TimeSpan, T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L95"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adding at a Start that already has a keyframe updates that
-keyframe's Value in place rather than creating a duplicate entry —
-no two keyframes on one track can share a Start, and this is the
-least surprising way to enforce it (matches &quot;add a keyframe at
-the current time&quot; in every mainstream tool when one's already
-there).</p>
+  <div class="markdown level1 summary"><p>Adds a keyframe, or updates the value of the one already at that time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -291,15 +298,18 @@ there).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>When, in content time.</p>
+</dd>
     <dt><code>value</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The value.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The keyframe.</p>
+</dd>
   </dl>
 
 
@@ -316,10 +326,10 @@ there).</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1_CopyKeyframeExtras_EditSharp_Components_Keyframe__0__EditSharp_Components_Keyframe__0__" data-uid="EditSharp.Components.KeyframeTrack`1.CopyKeyframeExtras(EditSharp.Components.Keyframe{`0},EditSharp.Components.Keyframe{`0})">
   CopyKeyframeExtras(Keyframe&lt;T&gt;, Keyframe&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L176"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Copies whatever a keyframe subtype carries beyond the base fields — see PositionTrack.</p>
+  <div class="markdown level1 summary"><p>Copies whatever a subclass's keyframes hold beyond the base fields, for <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_Duplicate">Duplicate()</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -330,9 +340,11 @@ there).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>source</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The keyframe copied from.</p>
+</dd>
     <dt><code>target</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The keyframe copied to.</p>
+</dd>
   </dl>
 
 
@@ -350,10 +362,10 @@ there).</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1_CreateEmptyCopy" data-uid="EditSharp.Components.KeyframeTrack`1.CreateEmptyCopy">
   CreateEmptyCopy()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L202"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L171"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An empty track of this exact type, for Duplicate — a subclass returns its own type.</p>
+  <div class="markdown level1 summary"><p>An empty track of this kind, for <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_Duplicate">Duplicate()</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -365,7 +377,8 @@ there).</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.KeyframeTrack-1.html">KeyframeTrack</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The empty track.</p>
+</dd>
   </dl>
 
 
@@ -382,12 +395,10 @@ there).</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1_CreateKeyframe_System_TimeSpan__0_" data-uid="EditSharp.Components.KeyframeTrack`1.CreateKeyframe(System.TimeSpan,`0)">
   CreateKeyframe(TimeSpan, T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L156"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L127"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Factory hook so a subclass (PositionTrack) can hand back its own
-Keyframe subtype (SpatialKeyframe) instead of a plain Keyframe&lt;T&gt;,
-without AddKeyframe itself needing to know about that.</p>
+  <div class="markdown level1 summary"><p>Makes a new keyframe; a subclass can return its own kind, as <a class="xref" href="EditSharp.Components.PositionTrack.html">PositionTrack</a> does.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -398,15 +409,18 @@ without AddKeyframe itself needing to know about that.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>When, in content time.</p>
+</dd>
     <dt><code>value</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The value.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The keyframe.</p>
+</dd>
   </dl>
 
 
@@ -423,10 +437,10 @@ without AddKeyframe itself needing to know about that.</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1_Duplicate" data-uid="EditSharp.Components.KeyframeTrack`1.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L172"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L142"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy, of the same concrete track type — see CreateEmptyCopy/CopyKeyframeExtras.</p>
+  <div class="markdown level1 summary"><p>A deep copy of the same kind of track.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -438,7 +452,8 @@ without AddKeyframe itself needing to know about that.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.KeyframeTrack-1.html">KeyframeTrack</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -447,6 +462,9 @@ without AddKeyframe itself needing to know about that.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_KeyframeTrack_1_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Nothing is recorded in history.</p>
+</div>
 
 
 
@@ -455,12 +473,10 @@ without AddKeyframe itself needing to know about that.</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1_Evaluate_System_TimeSpan_" data-uid="EditSharp.Components.KeyframeTrack`1.Evaluate(System.TimeSpan)">
   Evaluate(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L422"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L350"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Fewer than 2 keyframes: Animatable&lt;T&gt; handles the StaticValue
-fallback, but Evaluate is still well-defined on its own (holds the
-single keyframe's value, or the interpolator's default if empty).</p>
+  <div class="markdown level1 summary"><p>The value at a moment.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -471,13 +487,15 @@ single keyframe's value, or the interpolator's default if empty).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Content time.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The value; default when there are no keyframes.</p>
+</dd>
   </dl>
 
 
@@ -486,6 +504,9 @@ single keyframe's value, or the interpolator's default if empty).</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_KeyframeTrack_1_Evaluate_System_TimeSpan__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Before the first keyframe it's the first keyframe's value, after the last the last's. <a class="xref" href="EditSharp.Components.Animatable-1.html">Animatable&lt;T&gt;</a> uses its static value instead when there are fewer than two keyframes.</p>
+</div>
 
 
 
@@ -494,15 +515,10 @@ single keyframe's value, or the interpolator's default if empty).</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1_InterpolateSegment_EditSharp_Components_Keyframe__0__EditSharp_Components_Keyframe__0__System_TimeSpan_" data-uid="EditSharp.Components.KeyframeTrack`1.InterpolateSegment(EditSharp.Components.Keyframe{`0},EditSharp.Components.Keyframe{`0},System.TimeSpan)">
   InterpolateSegment(Keyframe&lt;T&gt;, Keyframe&lt;T&gt;, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L469"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L377"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Resolves one segment's value at <code>time</code>. Virtual so PositionTrack
-can reuse the Hold/Linear/Bezier TIMING logic (via the protected
-SolveU helper) while swapping in a spatial bezier for the actual
-value, instead of this class's plain value-cubic — see the
-schema doc's &quot;two-stage, deliberately NOT independent per-axis
-easing&quot; remark on PositionTrack.</p>
+  <div class="markdown level1 summary"><p>The value between two neighbouring keyframes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -513,17 +529,21 @@ easing&quot; remark on PositionTrack.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>from</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The earlier keyframe.</p>
+</dd>
     <dt><code>to</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The later keyframe.</p>
+</dd>
     <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>A content time between them.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The value.</p>
+</dd>
   </dl>
 
 
@@ -540,13 +560,10 @@ easing&quot; remark on PositionTrack.</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1_MoveKeyframe_EditSharp_Components_Keyframe__0__System_TimeSpan__0_" data-uid="EditSharp.Components.KeyframeTrack`1.MoveKeyframe(EditSharp.Components.Keyframe{`0},System.TimeSpan,`0)">
   MoveKeyframe(Keyframe&lt;T&gt;, TimeSpan, T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L210"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Clamps newStart so the keyframe can never move onto or past a
-neighboring keyframe on the same track — same clamping principle
-already applied to a handle's own TimeOffset, just applied to the
-keyframe's own position now too.</p>
+  <div class="markdown level1 summary"><p>Moves a keyframe and sets its value; it stays strictly between its neighbours.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -557,11 +574,14 @@ keyframe's own position now too.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>keyframe</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The keyframe; one not on the track is ignored.</p>
+</dd>
     <dt><code>newStart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>The new time, clamped to just inside its neighbours.</p>
+</dd>
     <dt><code>newValue</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The new value.</p>
+</dd>
   </dl>
 
 
@@ -579,12 +599,10 @@ keyframe's own position now too.</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1_RemoveKeyframe_EditSharp_Components_Keyframe__0__" data-uid="EditSharp.Components.KeyframeTrack`1.RemoveKeyframe(EditSharp.Components.Keyframe{`0})">
   RemoveKeyframe(Keyframe&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L212"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L180"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>A track reduced to zero keyframes is a valid state, not an error —
-Animatable&lt;T&gt;.Evaluate falls back to StaticValue whenever there
-are fewer than 2 (0 or 1 both qualify).</p>
+  <div class="markdown level1 summary"><p>Removes a keyframe; one not on the track is ignored.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -595,7 +613,8 @@ are fewer than 2 (0 or 1 both qualify).</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>keyframe</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The keyframe.</p>
+</dd>
   </dl>
 
 
@@ -613,18 +632,10 @@ are fewer than 2 (0 or 1 both qualify).</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1_SetHandle_EditSharp_Components_Keyframe__0__System_Boolean_System_TimeSpan__0_" data-uid="EditSharp.Components.KeyframeTrack`1.SetHandle(EditSharp.Components.Keyframe{`0},System.Boolean,System.TimeSpan,`0)">
   SetHandle(Keyframe&lt;T&gt;, bool, TimeSpan, T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L300"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L249"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Sets a handle's offset, clamping TimeOffset so it can never cross
-the neighboring keyframe on that side. Setting a handle on a
-keyframe whose TangentMode for that side is Auto switches it to
-Free first — matches After-Effects-style &quot;manually dragging an
-Auto handle promotes it to Free.&quot;</p>
-<p>Smooth mirrors the OTHER side's handle through the keyframe
-automatically: setting one side of a Smooth-paired keyframe
-updates the mirrored side too, so the curve stays continuous
-without the caller having to set both by hand.</p>
+  <div class="markdown level1 summary"><p>Sets one of a keyframe's handles.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -635,13 +646,17 @@ without the caller having to set both by hand.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>keyframe</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The keyframe; one not on the track is ignored.</p>
+</dd>
     <dt><code>isInHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True for the arriving handle, false for the leaving one.</p>
+</dd>
     <dt><code>timeOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>How far the handle reaches toward the neighbour on its side, clamped to that neighbour.</p>
+</dd>
     <dt><code>valueOffset</code> <span class="xref">T</span></dt>
-    <dd></dd>
+    <dd><p>The control point's value, as an offset added to the keyframe's value.</p>
+</dd>
   </dl>
 
 
@@ -651,6 +666,9 @@ without the caller having to set both by hand.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_KeyframeTrack_1_SetHandle_EditSharp_Components_Keyframe__0__System_Boolean_System_TimeSpan__0__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>An Auto side becomes Free. A Smooth side mirrors the other handle through the keyframe, so the curve stays continuous.</p>
+</div>
 
 
 
@@ -659,10 +677,11 @@ without the caller having to set both by hand.</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1_SetTangentMode_EditSharp_Components_Keyframe__0__System_Boolean_EditSharp_Components_TangentMode_" data-uid="EditSharp.Components.KeyframeTrack`1.SetTangentMode(EditSharp.Components.Keyframe{`0},System.Boolean,EditSharp.Components.TangentMode)">
   SetTangentMode(Keyframe&lt;T&gt;, bool, TangentMode)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L329"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L283"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sets how one of a keyframe's handles is set.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -672,11 +691,14 @@ without the caller having to set both by hand.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>keyframe</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The keyframe.</p>
+</dd>
     <dt><code>isIn</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True for the arriving side, false for the leaving one.</p>
+</dd>
     <dt><code>mode</code> <a class="xref" href="EditSharp.Components.TangentMode.html">TangentMode</a></dt>
-    <dd></dd>
+    <dd><p>The mode.</p>
+</dd>
   </dl>
 
 
@@ -686,6 +708,9 @@ without the caller having to set both by hand.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_KeyframeTrack_1_SetTangentMode_EditSharp_Components_Keyframe__0__System_Boolean_EditSharp_Components_TangentMode__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Auto recomputes the handle from the neighbours now and whenever they change; Smooth mirrors the other handle; Free leaves it as set.</p>
+</div>
 
 
 
@@ -694,13 +719,10 @@ without the caller having to set both by hand.</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1_Shift_System_TimeSpan_" data-uid="EditSharp.Components.KeyframeTrack`1.Shift(System.TimeSpan)">
   Shift(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L132"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Moves every keyframe by <code>amount</code>, in place. Handles are offsets
-from their own keyframe, so they come along untouched. Keyframes
-may end up before zero: a head trim leaves the ones it cut past
-at negative times, so an extend back restores them exactly.</p>
+  <div class="markdown level1 summary"><p>Moves every keyframe by the same amount, handles and all.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -711,7 +733,8 @@ at negative times, so an extend back restores them exactly.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>How far to move them; negative moves them earlier.</p>
+</dd>
   </dl>
 
 
@@ -721,6 +744,9 @@ at negative times, so an extend back restores them exactly.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_KeyframeTrack_1_Shift_System_TimeSpan__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Keyframes can end up before zero: a head trim leaves the ones it cut past at negative times, so extending back restores them.</p>
+</div>
 
 
 
@@ -729,10 +755,10 @@ at negative times, so an extend back restores them exactly.</p>
 
   <h3 id="EditSharp_Components_KeyframeTrack_1_SolveU_System_TimeSpan_EditSharp_Components_Keyframe__0__EditSharp_Components_Keyframe__0__" data-uid="EditSharp.Components.KeyframeTrack`1.SolveU(System.TimeSpan,EditSharp.Components.Keyframe{`0},EditSharp.Components.Keyframe{`0})">
   SolveU(TimeSpan, Keyframe&lt;T&gt;, Keyframe&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L544"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L441"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Shared by PositionTrack's temporal stage — see its own remarks.</p>
+  <div class="markdown level1 summary"><p>How far through a segment a time is, in the curve's own parameter, taking the time handles into account.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -743,17 +769,21 @@ at negative times, so an extend back restores them exactly.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>A content time between the keyframes.</p>
+</dd>
     <dt><code>from</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The earlier keyframe.</p>
+</dd>
     <dt><code>to</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;T&gt;</dt>
-    <dd></dd>
+    <dd><p>The later keyframe.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><p>The parameter, from 0 at <code class="paramref">from</code> to 1 at <code class="paramref">to</code>.</p>
+</dd>
   </dl>
 
 
@@ -770,7 +800,7 @@ at negative times, so an extend back restores them exactly.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L88" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L71" class="edit-link">Edit this page</a>
         </div>
 
 

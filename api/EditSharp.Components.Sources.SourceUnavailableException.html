@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SourceUnavailableException | EditSharp ">
       
-      <meta name="description" content="The one way a source reports that it cannot provide content. Sources never substitute placeholders themselves; they throw this and let the caller decide by Reason.">
+      <meta name="description" content="How a source reports that it can&#39;t provide content.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,9 +97,7 @@ Class SourceUnavailableException  <a class="header-action link-secondary" title=
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>The one way a source reports that it cannot provide content. Sources
-never substitute placeholders themselves; they throw this and let the
-caller decide by Reason.</p>
+  <div class="markdown summary"><p>How a source reports that it can't provide content.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -180,6 +178,9 @@ caller decide by Reason.</p>
 
 
 
+  <h2 id="EditSharp_Components_Sources_SourceUnavailableException_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Sources never draw placeholders themselves; they throw this and the caller decides by <a class="xref" href="EditSharp.Components.Sources.SourceUnavailableException.html#EditSharp_Components_Sources_SourceUnavailableException_Reason">Reason</a>.</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -193,9 +194,7 @@ caller decide by Reason.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceUnavailableException.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The one way a source reports that it cannot provide content. Sources
-never substitute placeholders themselves; they throw this and let the
-caller decide by Reason.</p>
+  <div class="markdown level1 summary"><p>How a source reports that it can't provide content.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -206,11 +205,14 @@ caller decide by Reason.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>reason</code> <a class="xref" href="EditSharp.Components.Sources.SourceUnavailableReason.html">SourceUnavailableReason</a></dt>
-    <dd></dd>
+    <dd><p>Why the content isn't available.</p>
+</dd>
     <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>What went wrong, for logs and reports.</p>
+</dd>
     <dt><code>inner</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></dt>
-    <dd></dd>
+    <dd><p>The exception that caused this one, if any.</p>
+</dd>
   </dl>
 
 
@@ -220,6 +222,9 @@ caller decide by Reason.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_SourceUnavailableException__ctor_EditSharp_Components_Sources_SourceUnavailableReason_System_String_System_Exception__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Sources never draw placeholders themselves; they throw this and the caller decides by <a class="xref" href="EditSharp.Components.Sources.SourceUnavailableException.html#EditSharp_Components_Sources_SourceUnavailableException_Reason">Reason</a>.</p>
+</div>
 
 
 
@@ -232,10 +237,11 @@ caller decide by Reason.</p>
 
   <h3 id="EditSharp_Components_Sources_SourceUnavailableException_Reason" data-uid="EditSharp.Components.Sources.SourceUnavailableException.Reason">
   Reason
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceUnavailableException.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceUnavailableException.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Why the content isn't available.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">

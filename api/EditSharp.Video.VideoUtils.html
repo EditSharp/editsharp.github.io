@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class VideoUtils | EditSharp ">
       
-      <meta name="description" content="Small, generic ffmpeg-backed video building blocks — muxing, re-encoding with an optional resize — meant to be reusable both by EditSharp&#39;s own pipeline and by a consumer doing an ordinary video task that has nothing to do with the timeline renderer. Deliberately kept free of pipeline- specific filter-graph knowledge — a caller with clip/effect-specific needs (e.g. OptimizedMediaCache&#39;s own encode, which needs its own -profile:v handling) builds its own ffmpeg args using the shared lookups here (PixelFormatFor, ContainerExtensionFor, ProfileArgsFor, CodecNames.VideoCodecNames) rather than this file growing pipeline- specific branches of its own.">
+      <meta name="description" content="Everyday ffmpeg tasks outside the timeline renderer: joining streams and re-encoding.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Video_VideoUtils" data-uid="EditSharp.Video.VideoUtils" class="text-break">
-Class VideoUtils  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L27"><i class="bi bi-code-slash"></i></a>
+Class VideoUtils  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,16 +97,7 @@ Class VideoUtils  <a class="header-action link-secondary" title="View source" hr
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Small, generic ffmpeg-backed video building blocks — muxing, re-encoding
-with an optional resize — meant to be reusable both by EditSharp's own
-pipeline and by a consumer doing an ordinary video task that has nothing
-to do with the timeline renderer. Deliberately kept free of pipeline-
-specific filter-graph knowledge — a caller with clip/effect-specific
-needs (e.g. OptimizedMediaCache's own encode, which needs its own
--profile:v handling) builds its own ffmpeg args using the shared
-lookups here (PixelFormatFor, ContainerExtensionFor, ProfileArgsFor,
-CodecNames.VideoCodecNames) rather than this file growing pipeline-
-specific branches of its own.</p>
+  <div class="markdown summary"><p>Everyday ffmpeg tasks outside the timeline renderer: joining streams and re-encoding.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -166,14 +157,10 @@ specific branches of its own.</p>
 
   <h3 id="EditSharp_Video_VideoUtils_MuxAudioVideoAsync_EditSharp_Components_Sources_Video_MediaVideoSource_EditSharp_Components_Sources_Audio_MediaAudioSource_System_String_" data-uid="EditSharp.Video.VideoUtils.MuxAudioVideoAsync(EditSharp.Components.Sources.Video.MediaVideoSource,EditSharp.Components.Sources.Audio.MediaAudioSource,System.String)">
   MuxAudioVideoAsync(MediaVideoSource, MediaAudioSource, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Muxes a video source and an audio source into one file at outputPath
-with a single ffmpeg process — no InputGraph, no filter_complex, no
-pass through the timeline pipeline. Both streams are stream-COPIED,
-not re-encoded, so this is cheap but only works when the container at
-outputPath can legally hold both codecs as-is.</p>
+  <div class="markdown level1 summary"><p>Joins a video and an audio source into one file without re-encoding either.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -184,17 +171,21 @@ outputPath can legally hold both codecs as-is.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>video</code> <a class="xref" href="EditSharp.Components.Sources.Video.MediaVideoSource.html">MediaVideoSource</a></dt>
-    <dd></dd>
+    <dd><p>The video source; its video stream is used.</p>
+</dd>
     <dt><code>audio</code> <a class="xref" href="EditSharp.Components.Sources.Audio.MediaAudioSource.html">MediaAudioSource</a></dt>
-    <dd></dd>
+    <dd><p>The audio source; its audio stream is used.</p>
+</dd>
     <dt><code>outputPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The file to write; its extension picks the container.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="EditSharp.Components.Sources.Video.MediaVideoSource.html">MediaVideoSource</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>A source for the new file.</p>
+</dd>
   </dl>
 
 
@@ -203,7 +194,19 @@ outputPath can legally hold both codecs as-is.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Video_VideoUtils_MuxAudioVideoAsync_EditSharp_Components_Sources_Video_MediaVideoSource_EditSharp_Components_Sources_Audio_MediaAudioSource_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Both streams are copied, so it's fast, but the output container must accept both codecs as they are. Each source's Start and Duration trim it, landing on the nearest keyframe. The output ends with the shorter stream.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filenotfoundexception">FileNotFoundException</a></dt>
+    <dd><p>Either input doesn't exist.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>ffmpeg failed.</p>
+</dd>
+  </dl>
 
 
 
@@ -211,39 +214,10 @@ outputPath can legally hold both codecs as-is.</p>
 
   <h3 id="EditSharp_Video_VideoUtils_ReencodeVideoAsync_EditSharp_Components_Sources_Video_MediaVideoSource_EditSharp_Video_VideoCodec_System_Nullable_System_ValueTuple_System_Int32_System_Int32___" data-uid="EditSharp.Video.VideoUtils.ReencodeVideoAsync(EditSharp.Components.Sources.Video.MediaVideoSource,EditSharp.Video.VideoCodec,System.Nullable{System.ValueTuple{System.Int32,System.Int32}})">
   ReencodeVideoAsync(MediaVideoSource, VideoCodec, (int Width, int Height)?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L84"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Re-encodes a source's video stream to a different codec via a single
-ffmpeg process — decode input, encode output, an optional resize,
-no audio. A general-purpose helper, not specific to any one part of
-the pipeline; any caller re-encoding a video source to a different
-codec, with an optional resize, can use it. (OptimizedMediaCache
-does NOT use this method directly — it needs a -profile:v argument
-this method has no parameter for, so it builds its own equivalent
-ffmpeg invocation instead, sharing PixelFormatFor/
-ContainerExtensionFor/ProfileArgsFor with this method rather than
-duplicating those lookups.)</p>
-<p>Unlike AddTrimmedInput's use in MuxAudioVideoAsync, the input seek
-here IS frame-accurate. -ss before -i only lands on the nearest
-keyframe when the stream is stream-copied — there's nothing to trim
-mid-GOP without decoding. This method re-encodes, so ffmpeg decodes
-forward from the nearest keyframe to the exact requested timestamp
-before the encoder ever sees a frame.</p>
-<p>Only VideoCodec.FFV1 has a pixel format wired up
-(Ffv1PixelFormat). See PixelFormatFor. Other codecs fall back
-to whatever ffmpeg negotiates on its own; there's no current caller
-that needs them.</p>
-<p>scaleTo, when given, downscales to that exact size — the caller is
-responsible for having already worked out an aspect-correct,
-never-upscaling target; this method just applies whatever box it's
-handed.</p>
-<p>Baking a clip's effects into a re-encode is deliberately NOT a
-feature of this method — nothing in the current pipeline needs
-that (SkClipVideoChain/ClipEffects apply a clip's effects live,
-per frame, against whatever this method or OptimizedMediaCache
-hands back), so this stays a small building block rather than
-growing pipeline-specific knowledge.</p>
+  <div class="markdown level1 summary"><p>Re-encodes a source's video to another codec, optionally resized, with no audio.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -254,17 +228,21 @@ growing pipeline-specific knowledge.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>source</code> <a class="xref" href="EditSharp.Components.Sources.Video.MediaVideoSource.html">MediaVideoSource</a></dt>
-    <dd></dd>
+    <dd><p>The source to re-encode.</p>
+</dd>
     <dt><code>codec</code> <a class="xref" href="EditSharp.Video.VideoCodec.html">VideoCodec</a></dt>
-    <dd></dd>
+    <dd><p>The codec to encode with.</p>
+</dd>
     <dt><code>scaleTo</code> (<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.width">Width</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.height">Height</a>)?</dt>
-    <dd></dd>
+    <dd><p>The exact output size, already aspect-correct; null keeps the source's size.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The path of the new file.</p>
+</dd>
   </dl>
 
 
@@ -273,7 +251,22 @@ growing pipeline-specific knowledge.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Video_VideoUtils_ReencodeVideoAsync_EditSharp_Components_Sources_Video_MediaVideoSource_EditSharp_Video_VideoCodec_System_Nullable_System_ValueTuple_System_Int32_System_Int32____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The source's Start and Duration trim it frame-accurately, since ffmpeg decodes from the nearest keyframe to the exact time. The file goes under <a class="xref" href="EditSharp.EditSharpConfig.html#EditSharp_EditSharpConfig_TempDirectory">TempDirectory</a>.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filenotfoundexception">FileNotFoundException</a></dt>
+    <dd><p>The source file doesn't exist.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.notsupportedexception">NotSupportedException</a></dt>
+    <dd><p><code class="paramref">codec</code> has no encoder.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>ffmpeg failed.</p>
+</dd>
+  </dl>
 
 
 
@@ -281,7 +274,7 @@ growing pipeline-specific knowledge.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L27" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L16" class="edit-link">Edit this page</a>
         </div>
 
 

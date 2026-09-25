@@ -96,49 +96,25 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Caching.Proxy.ProxyCache.html">ProxyCache</a></dt>
-      <dd><p>The one proxy per original media file; shared by scrubbing, playback
-and paused editing alike. An entry remembers its original (by content
-hash, so a renamed, moved or duplicated file finds the same proxy), its
-format, and how far it has been built.</p>
-<p>NOTHING BUILDS AUTOMATICALLY. A consumer calls BuildAsync (typically
-on import) and watches StatusChanged; everything that reads media only
-ever looks proxies up. Builds queue behind
-EditSharpConfig.MaxConcurrentProxyBuilds; concurrent requests for the
-same file share one build, which is cancelled only once every caller
-has cancelled.</p>
-<p>PARTIAL PROXIES ARE FIRST-CLASS: a proxy is readable from its start up
-to AvailableUpTo while it builds, stays readable if the build is
-interrupted (ProxyState.Partial), and the next BuildAsync resumes from
-there. Building a different format than the one on disk replaces it:
-the old proxy keeps serving reads until the new one completes, then is
-deleted.</p>
-<p>ON DISK (EditSharpConfig.ProxyDirectory/&lt;hash[..2]&gt;/), one stem per
-format (&lt;hash&gt;.delta7, .rgba, .dnxhr, .prores) so a replacement never
-collides with the proxy it replaces:
-&lt;stem&gt;.esrp                 an .esrp proxy (progress lives in its index)
-&lt;stem&gt;.mov.json             a MOV proxy's sidecar (segments/progress)
-&lt;stem&gt;.seg&lt;n&gt;.mov, &lt;stem&gt;.mov   its segments while building, its final file once complete</p>
+      <dd><p>Builds and finds proxies: one per original media file, used for scrubbing, playback and editing.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Caching.Proxy.ProxyEntry.html">ProxyEntry</a></dt>
-      <dd><p>One original's proxy on disk. Path is the .esrp file, or for a MOV
-proxy its sidecar (which lists the segments or the final file).
-Width/Height/FrameRate are the proxy's own.</p>
+      <dd><p>One original's proxy on disk.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Caching.Proxy.ProxyStatusChangedEventArgs.html">ProxyStatusChangedEventArgs</a></dt>
-      <dd></dd>
+      <dd><p>Details of a proxy status change.</p>
+</dd>
     </dl>
     <h3 id="structs">
 Structs
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Caching.Proxy.ProxyStatus.html">ProxyStatus</a></dt>
-      <dd><p>Where a file's proxy stands. AvailableUpTo is how much of the original,
-from its start, can be read from the proxy right now; Progress is the
-same as a fraction of the whole.</p>
+      <dd><p>Where a file's proxy stands.</p>
 </dd>
     </dl>
     <h3 id="enums">
@@ -158,11 +134,13 @@ file's control-byte planes, never to its shared palette. See EsrpZstd.</p>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Caching.Proxy.ProxyFormat.html">ProxyFormat</a></dt>
-      <dd></dd>
+      <dd><p>How a proxy is stored on disk.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Caching.Proxy.ProxyState.html">ProxyState</a></dt>
-      <dd></dd>
+      <dd><p>Where a file's proxy is in its life.</p>
+</dd>
     </dl>
 
 

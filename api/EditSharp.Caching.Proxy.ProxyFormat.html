@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Enum ProxyFormat | EditSharp ">
       
-      
+      <meta name="description" content="How a proxy is stored on disk.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -90,7 +90,7 @@
 
 
   <h1 id="EditSharp_Caching_Proxy_ProxyFormat" data-uid="EditSharp.Caching.Proxy.ProxyFormat" class="text-break">
-Enum ProxyFormat  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L5"><i class="bi bi-code-slash"></i></a>
+Enum ProxyFormat  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L6"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,7 +98,8 @@ Enum ProxyFormat  <a class="header-action link-secondary" title="View source" hr
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>How a proxy is stored on disk.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -118,19 +119,19 @@ Enum ProxyFormat  <a class="header-action link-secondary" title="View source" hr
   <dl class="parameters">
     <dt id="EditSharp_Caching_Proxy_ProxyFormat_DNxHR"><code>DNxHR = 2</code></dt>
   
-  <dd><p>DNxHR in a MOV; all-intra, widely compatible; read through ffmpeg.</p>
+  <dd><p>DNxHR in a MOV: every frame a keyframe, and readable by most editors; read through ffmpeg.</p>
 </dd>
     <dt id="EditSharp_Caching_Proxy_ProxyFormat_EsrpDelta7"><code>EsrpDelta7 = 0</code></dt>
   
-  <dd><p>.esrp, 7-bit indexed against one shared palette. Smallest; lowest colour fidelity; no subprocess to read.</p>
+  <dd><p>.esrp, 7-bit indexed against one shared palette. Smallest, with the lowest colour fidelity; read without ffmpeg.</p>
 </dd>
     <dt id="EditSharp_Caching_Proxy_ProxyFormat_EsrpRgba"><code>EsrpRgba = 1</code></dt>
   
-  <dd><p>.esrp, full RGBA8888. Large; full fidelity at proxy size; no subprocess to read.</p>
+  <dd><p>.esrp, full RGBA8888. Large, with full fidelity at proxy size; read without ffmpeg.</p>
 </dd>
     <dt id="EditSharp_Caching_Proxy_ProxyFormat_ProRes"><code>ProRes = 3</code></dt>
   
-  <dd><p>ProRes in a MOV; all-intra, widely compatible; read through ffmpeg.</p>
+  <dd><p>ProRes in a MOV: every frame a keyframe, and readable by most editors; read through ffmpeg.</p>
 </dd>
   </dl>
 
@@ -139,7 +140,7 @@ Enum ProxyFormat  <a class="header-action link-secondary" title="View source" hr
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L5" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L6" class="edit-link">Edit this page</a>
         </div>
 
 

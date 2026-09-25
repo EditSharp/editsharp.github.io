@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Enum PropertyEditor | EditSharp ">
       
-      <meta name="description" content="What kind of control edits a property. Auto lets the type decide — see Inspect.Infer — and the rest override it where the type alone cannot tell (a float that is an angle, a string that is a path).">
+      <meta name="description" content="Which control an editor uses for a property.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -90,7 +90,7 @@
 
 
   <h1 id="EditSharp_Editing_PropertyEditor" data-uid="EditSharp.Editing.PropertyEditor" class="text-break">
-Enum PropertyEditor  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L11"><i class="bi bi-code-slash"></i></a>
+Enum PropertyEditor  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,9 +98,7 @@ Enum PropertyEditor  <a class="header-action link-secondary" title="View source"
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>What kind of control edits a property. Auto lets the type decide —
-see Inspect.Infer — and the rest override it where the type alone
-cannot tell (a float that is an angle, a string that is a path).</p>
+  <div class="markdown summary"><p>Which control an editor uses for a property.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -121,63 +119,83 @@ cannot tell (a float that is an angle, a string that is a path).</p>
   <dl class="parameters">
     <dt id="EditSharp_Editing_PropertyEditor_Angle"><code>Angle = 3</code></dt>
   
-  <dd></dd>
+  <dd><p>A number in degrees.</p>
+</dd>
     <dt id="EditSharp_Editing_PropertyEditor_Auto"><code>Auto = 0</code></dt>
   
-  <dd></dd>
+  <dd><p>Chosen from the value's type.</p>
+</dd>
     <dt id="EditSharp_Editing_PropertyEditor_Color"><code>Color = 9</code></dt>
   
-  <dd></dd>
+  <dd><p>A colour.</p>
+</dd>
     <dt id="EditSharp_Editing_PropertyEditor_Dropdown"><code>Dropdown = 8</code></dt>
   
-  <dd></dd>
+  <dd><p>A pick from a fixed set: an enum's values, or what an <a class="xref" href="EditSharp.Editing.IChoiceProvider.html">IChoiceProvider</a> offers.</p>
+</dd>
     <dt id="EditSharp_Editing_PropertyEditor_List"><code>List = 15</code></dt>
   
-  <dd></dd>
-    <dt id="EditSharp_Editing_PropertyEditor_Media"><code>Media = 12</code></dt>
-  
-  <dd></dd>
+  <dd><p>A list whose items are edited one by one.</p>
+</dd>
     <dt id="EditSharp_Editing_PropertyEditor_Multiline"><code>Multiline = 7</code></dt>
   
-  <dd></dd>
+  <dd><p>Text over several lines.</p>
+</dd>
     <dt id="EditSharp_Editing_PropertyEditor_Number"><code>Number = 1</code></dt>
   
-  <dd></dd>
+  <dd><p>A number field.</p>
+</dd>
     <dt id="EditSharp_Editing_PropertyEditor_Object"><code>Object = 16</code></dt>
   
-  <dd></dd>
+  <dd><p>An object whose own editable properties are shown in place.</p>
+</dd>
     <dt id="EditSharp_Editing_PropertyEditor_Path"><code>Path = 13</code></dt>
   
-  <dd></dd>
+  <dd><p>A file path.</p>
+</dd>
     <dt id="EditSharp_Editing_PropertyEditor_Percent"><code>Percent = 4</code></dt>
   
-  <dd></dd>
+  <dd><p>A number shown as a percentage, where 1 is 100%.</p>
+</dd>
     <dt id="EditSharp_Editing_PropertyEditor_Slider"><code>Slider = 2</code></dt>
   
-  <dd></dd>
+  <dd><p>A number with a range; inferred when the attribute sets both Min and Max.</p>
+</dd>
+    <dt id="EditSharp_Editing_PropertyEditor_Source"><code>Source = 12</code></dt>
+  
+  <dd><p>A source of any kind, shown with the source's own properties.</p>
+</dd>
     <dt id="EditSharp_Editing_PropertyEditor_Text"><code>Text = 6</code></dt>
   
-  <dd></dd>
+  <dd><p>A single line of text.</p>
+</dd>
     <dt id="EditSharp_Editing_PropertyEditor_Time"><code>Time = 11</code></dt>
   
-  <dd></dd>
+  <dd><p>A time.</p>
+</dd>
     <dt id="EditSharp_Editing_PropertyEditor_Timeline"><code>Timeline = 14</code></dt>
   
-  <dd></dd>
+  <dd><p>A timeline in the project.</p>
+</dd>
     <dt id="EditSharp_Editing_PropertyEditor_Toggle"><code>Toggle = 5</code></dt>
   
-  <dd></dd>
+  <dd><p>An on/off switch for a bool.</p>
+</dd>
     <dt id="EditSharp_Editing_PropertyEditor_Vector"><code>Vector = 10</code></dt>
   
-  <dd></dd>
+  <dd><p>An x and y pair.</p>
+</dd>
   </dl>
 
 
+  <h2 id="EditSharp_Editing_PropertyEditor_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p><a class="xref" href="EditSharp.Editing.PropertyEditor.html#EditSharp_Editing_PropertyEditor_Auto">Auto</a> lets the value's type decide (see <a class="xref" href="EditSharp.Editing.Inspect.html">Inspect</a>); the others override it where the type alone can't tell, such as a float that is an angle.</p>
+</div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L11" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L8" class="edit-link">Edit this page</a>
         </div>
 
 

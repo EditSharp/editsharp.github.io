@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Enum ChannelBlendMode | EditSharp ">
       
-      <meta name="description" content="Replaces the old ffmpeg-era BlendMode enum (deleted). Rather than exposing SKBlendMode directly on Channel.BlendMode, this mirrors every native Skia blend mode 1:1 by name AND reserves four extra slots for the old enum&#39;s arithmetic modes that have no SKBlendMode equivalent at all (Average, Negation, Divide, Subtract — Photoshop/ GIMP-era formulas, not Porter-Duff/CSS compositing operators). Why a wrapper again, after item 7 deliberately deleted the old wrapper in favour of raw SKBlendMode: those four modes need SOMEWHERE to live if they&#39;re ever implemented via a custom SKRuntimeEffect (SkSL) shader, and SKBlendMode is a sealed native enum — there&#39;s no way to add a value to it. A superset wrapper gives them a stable, permanent slot in the public API now, so wiring in a real implementation later is additive (ChannelCompositor&#39;s mapping gains a case) rather than another breaking enum swap on Channel. The four reserved slots THROW today (see ChannelCompositor&#39;s mapping) rather than silently doing nothing or falling back to SrcOver — a clip configured with one of these gets a clear error, not a silently-wrong render.">
+      <meta name="description" content="How a layer (a video channel, or MergeNode&#39;s B) combines with what&#39;s below it.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -90,7 +90,7 @@
 
 
   <h1 id="EditSharp_Components_Channels_ChannelBlendMode" data-uid="EditSharp.Components.Channels.ChannelBlendMode" class="text-break">
-Enum ChannelBlendMode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/ChannelBlendMode.cs/#L25"><i class="bi bi-code-slash"></i></a>
+Enum ChannelBlendMode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/ChannelBlendMode.cs/#L5"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,24 +98,7 @@ Enum ChannelBlendMode  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Replaces the old ffmpeg-era <code>BlendMode</code> enum (deleted). Rather than
-exposing <code>SKBlendMode</code> directly on <code>Channel.BlendMode</code>, this mirrors
-every native Skia blend mode 1:1 by name AND reserves four extra
-slots for the old enum's arithmetic modes that have no SKBlendMode
-equivalent at all (Average, Negation, Divide, Subtract — Photoshop/
-GIMP-era formulas, not Porter-Duff/CSS compositing operators).</p>
-<p>Why a wrapper again, after item 7 deliberately deleted the old
-wrapper in favour of raw SKBlendMode: those four modes need
-SOMEWHERE to live if they're ever implemented via a custom
-SKRuntimeEffect (SkSL) shader, and <code>SKBlendMode</code> is a sealed native
-enum — there's no way to add a value to it. A superset wrapper gives
-them a stable, permanent slot in the public API now, so wiring in a
-real implementation later is additive (ChannelCompositor's mapping
-gains a case) rather than another breaking enum swap on Channel.</p>
-<p>The four reserved slots THROW today (see ChannelCompositor's
-mapping) rather than silently doing nothing or falling back to
-SrcOver — a clip configured with one of these gets a clear error,
-not a silently-wrong render.</p>
+  <div class="markdown summary"><p>How a layer (a video channel, or MergeNode's B) combines with what's below it.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -136,111 +119,147 @@ not a silently-wrong render.</p>
   <dl class="parameters">
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Average"><code>Average = 29</code></dt>
   
-  <dd></dd>
+  <dd><p>The mean of the two.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Clear"><code>Clear = 0</code></dt>
   
-  <dd></dd>
+  <dd><p>Nothing: the result is transparent.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Color"><code>Color = 27</code></dt>
   
-  <dd></dd>
+  <dd><p>The layer's hue and saturation, with the luminosity below.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_ColorBurn"><code>ColorBurn = 19</code></dt>
   
-  <dd></dd>
+  <dd><p>Darkens what's below to reflect the layer.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_ColorDodge"><code>ColorDodge = 18</code></dt>
   
-  <dd></dd>
+  <dd><p>Brightens what's below to reflect the layer.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Darken"><code>Darken = 16</code></dt>
   
-  <dd></dd>
+  <dd><p>The darker of the two.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Difference"><code>Difference = 22</code></dt>
   
-  <dd></dd>
+  <dd><p>The difference between the two.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Divide"><code>Divide = 31</code></dt>
   
-  <dd></dd>
+  <dd><p>What's below divided by the layer: brightens.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Dst"><code>Dst = 2</code></dt>
   
-  <dd></dd>
+  <dd><p>Only what's below; the layer is ignored.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_DstATop"><code>DstATop = 10</code></dt>
   
-  <dd></dd>
+  <dd><p>What's below over the layer, only where the layer is.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_DstIn"><code>DstIn = 6</code></dt>
   
-  <dd></dd>
+  <dd><p>What's below, only where the layer is.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_DstOut"><code>DstOut = 8</code></dt>
   
-  <dd></dd>
+  <dd><p>What's below, only where the layer isn't.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_DstOver"><code>DstOver = 4</code></dt>
   
-  <dd></dd>
+  <dd><p>What's below over the layer.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Exclusion"><code>Exclusion = 23</code></dt>
   
-  <dd></dd>
+  <dd><p>Like Difference, with lower contrast.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_HardLight"><code>HardLight = 20</code></dt>
   
-  <dd></dd>
+  <dd><p>Multiply or Screen, depending on the layer.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Hue"><code>Hue = 25</code></dt>
   
-  <dd></dd>
+  <dd><p>The layer's hue, with the saturation and luminosity below.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Lighten"><code>Lighten = 17</code></dt>
   
-  <dd></dd>
+  <dd><p>The lighter of the two.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Luminosity"><code>Luminosity = 28</code></dt>
   
-  <dd></dd>
+  <dd><p>The layer's luminosity, with the hue and saturation below.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Modulate"><code>Modulate = 13</code></dt>
   
-  <dd></dd>
+  <dd><p>The two multiplied, alpha included.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Multiply"><code>Multiply = 24</code></dt>
   
-  <dd></dd>
+  <dd><p>The two multiplied: darkens.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Negation"><code>Negation = 30</code></dt>
   
-  <dd></dd>
+  <dd><p>One minus the distance of their sum from one: 1 - |1 - below - layer|.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Overlay"><code>Overlay = 15</code></dt>
   
-  <dd></dd>
+  <dd><p>Multiply or Screen, depending on what's below.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Plus"><code>Plus = 12</code></dt>
   
-  <dd></dd>
+  <dd><p>The two added together.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Saturation"><code>Saturation = 26</code></dt>
   
-  <dd></dd>
+  <dd><p>The layer's saturation, with the hue and luminosity below.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Screen"><code>Screen = 14</code></dt>
   
-  <dd></dd>
+  <dd><p>Lightens: the inverse of multiplying the inverses.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_SoftLight"><code>SoftLight = 21</code></dt>
   
-  <dd></dd>
+  <dd><p>A softer HardLight: darkens or lightens depending on the layer.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Src"><code>Src = 1</code></dt>
   
-  <dd></dd>
+  <dd><p>The layer replaces what's below.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_SrcATop"><code>SrcATop = 9</code></dt>
   
-  <dd></dd>
+  <dd><p>The layer over what's below, only where there's something below.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_SrcIn"><code>SrcIn = 5</code></dt>
   
-  <dd></dd>
+  <dd><p>The layer, only where there's something below.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_SrcOut"><code>SrcOut = 7</code></dt>
   
-  <dd></dd>
+  <dd><p>The layer, only where there's nothing below.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_SrcOver"><code>SrcOver = 3</code></dt>
   
-  <dd></dd>
+  <dd><p>The layer over what's below: ordinary drawing.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Subtract"><code>Subtract = 32</code></dt>
   
-  <dd></dd>
+  <dd><p>The layer taken away from what's below: darkens.</p>
+</dd>
     <dt id="EditSharp_Components_Channels_ChannelBlendMode_Xor"><code>Xor = 11</code></dt>
   
-  <dd></dd>
+  <dd><p>Each only where the other isn't.</p>
+</dd>
   </dl>
 
 
+  <h2 id="EditSharp_Components_Channels_ChannelBlendMode_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The first 29 are Skia's own blend modes, alpha-aware; Average, Negation, Divide and Subtract are separable blends applied where both layers are opaque, each layer alone where the other isn't.</p>
+</div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/ChannelBlendMode.cs/#L25" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/ChannelBlendMode.cs/#L5" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class VideoSource | EditSharp ">
       
-      <meta name="description" content="A source of frames. Reading is two-phase: PrepareAsync does the slow, once-per-session work (probing, choosing which file/decoder to use) and hands back a prepared handle; the handle then opens cheap, synchronous readers whenever compositing needs one. The handle and its readers hold all state; the source itself stays plain data.">
+      <meta name="description" content="A source of frames.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,11 +97,7 @@ Class VideoSource  <a class="header-action link-secondary" title="View source" h
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A source of frames. Reading is two-phase: PrepareAsync does the slow,
-once-per-session work (probing, choosing which file/decoder to use) and
-hands back a prepared handle; the handle then opens cheap, synchronous
-readers whenever compositing needs one. The handle and its readers hold
-all state; the source itself stays plain data.</p>
+  <div class="markdown summary"><p>A source of frames.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -125,7 +121,6 @@ all state; the source itself stays plain data.</p>
   <dl class="typelist derived">
     <dt>Derived</dt>
     <dd>
-      <div><a class="xref" href="EditSharp.Components.Sources.Video.BlenderSceneVideoSource.html">BlenderSceneVideoSource</a></div>
       <div><a class="xref" href="EditSharp.Components.Sources.Video.ColorVideoSource.html">ColorVideoSource</a></div>
       <div><a class="xref" href="EditSharp.Components.Sources.Video.MediaVideoSource.html">MediaVideoSource</a></div>
       <div><a class="xref" href="EditSharp.Components.Sources.Video.NoiseVideoSource.html">NoiseVideoSource</a></div>
@@ -193,6 +188,12 @@ all state; the source itself stays plain data.</p>
 
 
 
+  <h2 id="EditSharp_Components_Sources_Video_VideoSource_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Reading has two steps. PrepareAsync does the slow work once per session
+(probing, choosing a file and decoder) and returns a prepared handle; the
+handle opens cheap, synchronous readers whenever compositing needs one. The
+handle and its readers hold all the state, so the source stays plain data.</p>
+</div>
 
 
   <h2 class="section" id="methods">Methods
@@ -203,11 +204,10 @@ all state; the source itself stays plain data.</p>
 
   <h3 id="EditSharp_Components_Sources_Video_VideoSource_Duplicate" data-uid="EditSharp.Components.Sources.Video.VideoSource.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/VideoSource.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/VideoSource.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy, through SourceSerializer; see class remarks. History is
-suppressed: a fresh copy has no past to undo.</p>
+  <div class="markdown level1 summary"><p>A deep copy, made by saving and loading this source.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -219,7 +219,8 @@ suppressed: a fresh copy has no past to undo.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Sources.Video.VideoSource.html">VideoSource</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -228,6 +229,9 @@ suppressed: a fresh copy has no past to undo.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_Video_VideoSource_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo. A nested timeline is shared, not copied.</p>
+</div>
 
 
 
@@ -236,15 +240,10 @@ suppressed: a fresh copy has no past to undo.</p>
 
   <h3 id="EditSharp_Components_Sources_Video_VideoSource_GetFrameAtAsync_System_TimeSpan_EditSharp_Components_Sources_SourceMode_System_Int32_System_Int32_System_Threading_CancellationToken_" data-uid="EditSharp.Components.Sources.Video.VideoSource.GetFrameAtAsync(System.TimeSpan,EditSharp.Components.Sources.SourceMode,System.Int32,System.Int32,System.Threading.CancellationToken)">
   GetFrameAtAsync(TimeSpan, SourceMode, int, int, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/VideoSource.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/VideoSource.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>One frame at <code>contentTime</code>, for callers that just need a single
-picture (thumbnails); nothing stays open afterwards. The caller owns
-the result. <code>mode</code> picks proxy or original like a session would
-(ProxiesOnly throws ProxyPending or ProxyMissing where there's no proxy frame);
-<code>maxWidth</code>/<code>maxHeight</code> cap the size (0 = native). Kinds with a
-cheaper route (a still image) override it.</p>
+  <div class="markdown level1 summary"><p>One frame, for callers that need a single picture, such as thumbnails; nothing stays open afterwards.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -255,21 +254,27 @@ cheaper route (a still image) override it.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>contentTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Time since the in-point, at 1x.</p>
+</dd>
     <dt><code>mode</code> <a class="xref" href="EditSharp.Components.Sources.SourceMode.html">SourceMode</a></dt>
-    <dd></dd>
+    <dd><p>Whether to read the proxy or the original, as a session would.</p>
+</dd>
     <dt><code>maxWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>The largest width wanted; 0 for the native width.</p>
+</dd>
     <dt><code>maxHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>The largest height wanted; 0 for the native height.</p>
+</dd>
     <dt><code>ct</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
+    <dd><p>Cancels reading the frame.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/skiasharp.skimage">SKImage</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The frame; the caller disposes it.</p>
+</dd>
   </dl>
 
 
@@ -279,6 +284,12 @@ cheaper route (a still image) override it.</p>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Sources.SourceUnavailableException.html">SourceUnavailableException</a></dt>
+    <dd><p>The frame can't be read; with <a class="xref" href="EditSharp.Components.Sources.SourceMode.html#EditSharp_Components_Sources_SourceMode_ProxiesOnly">ProxiesOnly</a>, a frame with no proxy is <a class="xref" href="EditSharp.Components.Sources.SourceUnavailableReason.html#EditSharp_Components_Sources_SourceUnavailableReason_ProxyPending">ProxyPending</a> or <a class="xref" href="EditSharp.Components.Sources.SourceUnavailableReason.html#EditSharp_Components_Sources_SourceUnavailableReason_ProxyMissing">ProxyMissing</a>.</p>
+</dd>
+  </dl>
 
 
 

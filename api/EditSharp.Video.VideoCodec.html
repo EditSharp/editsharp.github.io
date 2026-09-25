@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Enum VideoCodec | EditSharp ">
       
-      
+      <meta name="description" content="The video codec a render encodes with.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -90,7 +90,7 @@
 
 
   <h1 id="EditSharp_Video_VideoCodec" data-uid="EditSharp.Video.VideoCodec" class="text-break">
-Enum VideoCodec  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/Codecs.cs/#L7"><i class="bi bi-code-slash"></i></a>
+Enum VideoCodec  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/Codecs.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,7 +98,8 @@ Enum VideoCodec  <a class="header-action link-secondary" title="View source" hre
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>The video codec a render encodes with.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -118,39 +119,31 @@ Enum VideoCodec  <a class="header-action link-secondary" title="View source" hre
   <dl class="parameters">
     <dt id="EditSharp_Video_VideoCodec_AV1"><code>AV1 = 2</code></dt>
   
-  <dd></dd>
+  <dd><p>AV1; hardware encoders are tried first when the GPU is allowed.</p>
+</dd>
     <dt id="EditSharp_Video_VideoCodec_DNxHR"><code>DNxHR = 5</code></dt>
   
-  <dd><p>Avid DNxHR — one of two codecs OptimizedMediaCache can build its
-persistent optimized media with (see EditSharpConfig.
-OptimizedMediaCodec), and the DEFAULT of the two: an open format
-with no licensing friction, and ffmpeg's &quot;dnxhd&quot; encoder handles
-it natively and cross-platform. All-intra, which is the entire
-point for this use — see OptimizedMediaCache's class remarks.
-CPU encode/decode only; no vendor has a hardware codec block for
-this format — decided in conversation, see OptimizedMediaCache's
-remarks on Vulkan Video's actual codec coverage (H.264/HEVC/AV1
-only, nothing else, on any vendor).</p>
+  <dd><p>Avid DNxHR: every frame a keyframe, open, and read by most editors; always encoded on the CPU.</p>
 </dd>
     <dt id="EditSharp_Video_VideoCodec_FFV1"><code>FFV1 = 4</code></dt>
   
-  <dd></dd>
+  <dd><p>FFV1, lossless; always encoded on the CPU.</p>
+</dd>
     <dt id="EditSharp_Video_VideoCodec_GIF"><code>GIF = 3</code></dt>
   
-  <dd></dd>
+  <dd><p>An animated GIF, with no audio; always encoded on the CPU.</p>
+</dd>
     <dt id="EditSharp_Video_VideoCodec_H264"><code>H264 = 0</code></dt>
   
-  <dd></dd>
+  <dd><p>H.264 (AVC); hardware encoders are tried first when the GPU is allowed.</p>
+</dd>
     <dt id="EditSharp_Video_VideoCodec_H265"><code>H265 = 1</code></dt>
   
-  <dd></dd>
+  <dd><p>H.265 (HEVC); hardware encoders are tried first when the GPU is allowed.</p>
+</dd>
     <dt id="EditSharp_Video_VideoCodec_ProRes"><code>ProRes = 6</code></dt>
   
-  <dd><p>Apple ProRes — the other codec OptimizedMediaCache can build
-optimized media with. Common in pro NLE ecosystems; ffmpeg's
-&quot;prores_ks&quot; encoder (not the older, lower-quality &quot;prores&quot;) is
-what this project uses for it. Same all-intra, CPU-only
-reasoning as DNxHR — see its own remarks.</p>
+  <dd><p>Apple ProRes, through ffmpeg's prores_ks encoder: every frame a keyframe; always encoded on the CPU.</p>
 </dd>
   </dl>
 
@@ -159,7 +152,7 @@ reasoning as DNxHR — see its own remarks.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Video/Codecs.cs/#L7" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Video/Codecs.cs/#L8" class="edit-link">Edit this page</a>
         </div>
 
 

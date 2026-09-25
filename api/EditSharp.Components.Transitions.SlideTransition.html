@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SlideTransition | EditSharp ">
       
-      <meta name="description" content="Both clips translate together across the canvas at Angle degrees.">
+      <meta name="description" content="The incoming clip pushes the outgoing one out of the frame.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,7 @@ Class SlideTransition  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Both clips translate together across the canvas at Angle degrees.</p>
+  <div class="markdown summary"><p>The incoming clip pushes the outgoing one out of the frame.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -167,7 +167,8 @@ Class SlideTransition  <a class="header-action link-secondary" title="View sourc
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Transitions/SlideTransition.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Which way the clips move, in degrees anticlockwise from rightwards: 0 is right, 90 is up.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -200,10 +201,11 @@ public float Angle { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Transitions_SlideTransition_Duplicate" data-uid="EditSharp.Components.Transitions.SlideTransition.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Transitions/SlideTransition.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Transitions/SlideTransition.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>A copy with the same settings, not attached to any clips.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -214,7 +216,8 @@ public float Angle { get; set; }</code></pre>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Transitions.Transition.html">Transition</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -223,6 +226,9 @@ public float Angle { get; set; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Transitions_SlideTransition_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Nothing is recorded in history.</p>
+</div>
 
 
 

@@ -96,44 +96,31 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Sources.Audio.AudioSource.html">AudioSource</a></dt>
-      <dd><p>A source of sound, read as a stream: PrepareAsync does the slow
-once-per-session work, and the prepared handle opens readers that pull
-interleaved float samples block by block, already in the format the
-caller asked for. Mirrors VideoSource's two-phase shape.</p>
+      <dd><p>A source of sound, read as a stream.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Sources.Audio.MediaAudioSource.html">MediaAudioSource</a></dt>
-      <dd><p>The audio stream of a media file on disk (an audio file, or a video file's
-soundtrack), streamed through ffmpeg. A file with no audio stream reads as
-silence for its length.</p>
+      <dd><p>The audio of a media file on disk: an audio file, or a video file's soundtrack.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Sources.Audio.TimelineAudioSource.html">TimelineAudioSource</a></dt>
-      <dd><p>Another timeline's mixed audio, rendered block by block by its own
-TimelineAudioRenderer in the reading session. Start/Duration/Loop trim it
-like any source; its natural length is the timeline's duration. Saved as
-the timeline's Id (see SourceSerializer.Deserialize).</p>
+      <dd><p>Another timeline's mixed audio.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Sources.Audio.ToneAudioSource.html">ToneAudioSource</a></dt>
-      <dd><p>A synthesized tone. Frequency and amplitude can be keyframed; they're
-evaluated every sample, and phase carries on across blocks so a changing
-frequency never clicks.</p>
+      <dd><p>A synthesized tone.</p>
 </dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Components.Sources.Audio.VSTInstrumentSource.html">VSTInstrumentSource</a></dt>
-      <dd></dd>
     </dl>
     <h3 id="enums">
 Enums
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Sources.Audio.Waveform.html">Waveform</a></dt>
-      <dd></dd>
+      <dd><p>The shape of a tone's wave.</p>
+</dd>
     </dl>
 
 

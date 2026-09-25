@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Struct ProxyStatus | EditSharp ">
       
-      <meta name="description" content="Where a file&#39;s proxy stands. AvailableUpTo is how much of the original, from its start, can be read from the proxy right now; Progress is the same as a fraction of the whole.">
+      <meta name="description" content="Where a file&#39;s proxy stands.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Caching_Proxy_ProxyStatus" data-uid="EditSharp.Caching.Proxy.ProxyStatus" class="text-break">
-Struct ProxyStatus  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L43"><i class="bi bi-code-slash"></i></a>
+Struct ProxyStatus  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L49"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,9 +97,7 @@ Struct ProxyStatus  <a class="header-action link-secondary" title="View source" 
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Where a file's proxy stands. AvailableUpTo is how much of the original,
-from its start, can be read from the proxy right now; Progress is the
-same as a fraction of the whole.</p>
+  <div class="markdown summary"><p>Where a file's proxy stands.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -155,12 +153,10 @@ same as a fraction of the whole.</p>
 
   <h3 id="EditSharp_Caching_Proxy_ProxyStatus__ctor_EditSharp_Caching_Proxy_ProxyState_System_TimeSpan_System_Nullable_EditSharp_Caching_Proxy_ProxyFormat__System_Double_System_Exception_" data-uid="EditSharp.Caching.Proxy.ProxyStatus.#ctor(EditSharp.Caching.Proxy.ProxyState,System.TimeSpan,System.Nullable{EditSharp.Caching.Proxy.ProxyFormat},System.Double,System.Exception)">
   ProxyStatus(ProxyState, TimeSpan, ProxyFormat?, double, Exception?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L49"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Where a file's proxy stands. AvailableUpTo is how much of the original,
-from its start, can be read from the proxy right now; Progress is the
-same as a fraction of the whole.</p>
+  <div class="markdown level1 summary"><p>Where a file's proxy stands.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -171,15 +167,20 @@ same as a fraction of the whole.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>State</code> <a class="xref" href="EditSharp.Caching.Proxy.ProxyState.html">ProxyState</a></dt>
-    <dd></dd>
+    <dd><p>The proxy's state.</p>
+</dd>
     <dt><code>AvailableUpTo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>How much of the original, from its start, can be read from the proxy right now.</p>
+</dd>
     <dt><code>Format</code> <a class="xref" href="EditSharp.Caching.Proxy.ProxyFormat.html">ProxyFormat</a>?</dt>
-    <dd></dd>
+    <dd><p>The proxy's format; null when there is none.</p>
+</dd>
     <dt><code>Progress</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd></dd>
+    <dd><p><code class="paramref">AvailableUpTo</code> as a fraction of the original's length, 0 to 1.</p>
+</dd>
     <dt><code>Error</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></dt>
-    <dd></dd>
+    <dd><p>Why the last build failed; null unless <code class="paramref">State</code> is Failed.</p>
+</dd>
   </dl>
 
 
@@ -201,10 +202,11 @@ same as a fraction of the whole.</p>
 
   <h3 id="EditSharp_Caching_Proxy_ProxyStatus_AvailableUpTo" data-uid="EditSharp.Caching.Proxy.ProxyStatus.AvailableUpTo">
   AvailableUpTo
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How much of the original, from its start, can be read from the proxy right now.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -232,10 +234,11 @@ same as a fraction of the whole.</p>
 
   <h3 id="EditSharp_Caching_Proxy_ProxyStatus_Error" data-uid="EditSharp.Caching.Proxy.ProxyStatus.Error">
   Error
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Why the last build failed; null unless <code class="paramref">State</code> is Failed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -263,10 +266,11 @@ same as a fraction of the whole.</p>
 
   <h3 id="EditSharp_Caching_Proxy_ProxyStatus_Format" data-uid="EditSharp.Caching.Proxy.ProxyStatus.Format">
   Format
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The proxy's format; null when there is none.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -294,10 +298,11 @@ same as a fraction of the whole.</p>
 
   <h3 id="EditSharp_Caching_Proxy_ProxyStatus_NotCached" data-uid="EditSharp.Caching.Proxy.ProxyStatus.NotCached">
   NotCached
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The status of a file with no proxy.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -325,10 +330,11 @@ same as a fraction of the whole.</p>
 
   <h3 id="EditSharp_Caching_Proxy_ProxyStatus_Progress" data-uid="EditSharp.Caching.Proxy.ProxyStatus.Progress">
   Progress
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p><code class="paramref">AvailableUpTo</code> as a fraction of the original's length, 0 to 1.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -356,10 +362,11 @@ same as a fraction of the whole.</p>
 
   <h3 id="EditSharp_Caching_Proxy_ProxyStatus_State" data-uid="EditSharp.Caching.Proxy.ProxyStatus.State">
   State
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The proxy's state.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -387,7 +394,7 @@ same as a fraction of the whole.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L43" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L49" class="edit-link">Edit this page</a>
         </div>
 
 

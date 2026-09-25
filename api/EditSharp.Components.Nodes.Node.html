@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Node | EditSharp ">
       
-      
+      <meta name="description" content="One step in a clip&#39;s : a source, an effect, a mask or a value.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Nodes_Node" data-uid="EditSharp.Components.Nodes.Node" class="text-break">
-Class Node  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Node.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Class Node  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Node.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Class Node  <a class="header-action link-secondary" title="View source" href="ht
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>One step in a clip's <span class="xref">EditSharp.Components.Nodes.Node.Graph</span>: a source, an effect, a mask or a value.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -169,6 +170,9 @@ Class Node  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
+  <h2 id="EditSharp_Components_Nodes_Node_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A node's ports are fixed by its type. Its settings are its [Editable] properties.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -179,15 +183,10 @@ Class Node  <a class="header-action link-secondary" title="View source" href="ht
 
   <h3 id="EditSharp_Components_Nodes_Node_Animatables" data-uid="EditSharp.Components.Nodes.Node.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Node.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Node.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Every keyframeable property this node owns, so a clip can reach
-all of its tracks at once — a head trim/extend shifts every
-keyframe in the graph (see Clip.OnHeadInPointShift). Empty by
-default; a node with Animatable properties overrides it and lists
-each one. An animated property left out here simply stops
-following the content when the clip's head moves.</p>
+  <div class="markdown level1 summary"><p>Every keyframeable value the node owns.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -208,6 +207,9 @@ following the content when the clip's head moves.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Node_Animatables_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Trimming a clip's head shifts every keyframe these hold, so the animation stays with the content. A node with Animatable properties lists every one of them here.</p>
+</div>
 
 
 
@@ -216,10 +218,11 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Node_Enabled" data-uid="EditSharp.Components.Nodes.Node.Enabled">
   Enabled
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Node.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Node.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the node runs.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -240,6 +243,9 @@ public bool Enabled { get; set; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Node_Enabled_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A disabled source outputs nothing (transparent, or silence). A disabled effect passes its first input through. A disabled mask node outputs no mask, so whatever it fed is unmasked, and a disabled Value node feeds nothing, so the node it fed uses its own value.</p>
+</div>
 
 
 
@@ -248,10 +254,11 @@ public bool Enabled { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Node_Id" data-uid="EditSharp.Components.Nodes.Node.Id">
   Id
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Node.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Node.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Identifies the node within its graph; connections refer to nodes by it.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -279,10 +286,11 @@ public bool Enabled { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Node_Ports" data-uid="EditSharp.Components.Nodes.Node.Ports">
   Ports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Node.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Node.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The node's ports, fixed by its type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -314,13 +322,10 @@ public bool Enabled { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Node_Duplicate" data-uid="EditSharp.Components.Nodes.Node.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Node.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Node.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy with a FRESH Id — a duplicated clip's graph must not
-share node identity with the original, or a Connection recorded
-against one graph could be mistaken for referencing a node in
-the other.</p>
+  <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Id</a>, so connections in the two graphs can't be confused.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -332,7 +337,8 @@ the other.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -341,6 +347,9 @@ the other.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Node_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo.</p>
+</div>
 
 
 
@@ -349,7 +358,7 @@ the other.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Node.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Node.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
 

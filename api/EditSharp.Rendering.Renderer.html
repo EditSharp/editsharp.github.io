@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Renderer | EditSharp ">
       
-      <meta name="description" content="Entry point for the render strategy — wires the Skia compositor into an actual end-to-end render. Shape of a render:  Probe every Video-type VideoSourceNode&#39;s native size (MediaProbe) across the whole timeline — everything about a video clip&#39;s media inputs that&#39;s constant across its whole life, done once up front (ContentPreparation). TextInputNode/ColorGeneratorInputNode/ NoiseInputNode/TimelineVideoInputNode need no such up-front prep any more — see ContentPreparation&#39;s own remarks. Mix the timeline&#39;s audio once (AudioMixer.ComposeAsync) and spawn the SINGLE ffmpeg process that will do the real mux + encode for the whole render, with its stdin left open as a raw-video pipe. Render every output frame SEQUENTIALLY directly against an in-process SKCanvas (FrameCompositor), writing each frame&#39;s raw RGBA8888 bytes straight into that ffmpeg process&#39;s stdin as it&#39;s produced — see STREAMING REWRITE below. A Video-type VideoSourceNode&#39;s SourceDecoder is opened on its clip&#39;s first visible frame and disposed once that clip&#39;s visible window ends (ClipContentSource). Close stdin once every frame has been written (ffmpeg&#39;s rawvideo demuxer treats that exactly like reaching EOF on a file) and wait for ffmpeg to finish encoding.  STREAMING REWRITE — WHY THIS EXISTS: this used to append every frame&#39;s raw, uncompressed RGBA8888 bytes to a single growing &amp;quot;accumulator&amp;quot; temp file on disk, and only handed that file to ffmpeg for mux/encode once every frame had already been rendered. At 1920x1080 that&#39;s 8,294,400 bytes/frame (~7.9MiB); an 18-minute 30fps render is 32,400 frames, i.e. roughly 268GB of raw bytes hitting disk before a single byte of that data was ever compressed — reported as &amp;quot;hundreds of gigabytes of writes&amp;quot; and confirmed to match this arithmetic almost exactly, not a leak or a runaway loop. Frame rendering now writes directly into the SAME ffmpeg process&#39;s stdin pipe that does the real mux/encode (mirroring how SourceDecoder already pipes raw frames IN from an ffmpeg decode process — this is the same pattern on the encode side), so raw video never touches disk at all: ffmpeg compresses each frame into the target codec as it arrives instead of after the whole timeline has already been written out losslessly. Disk usage for the video side of a render is now effectively just the size of the final encoded output file. AUDIO STILL GOES THROUGH A SMALL TEMP FILE, DELIBERATELY: the mixed master PCM (see AudioMixer.ComposeAsync) is orders of magnitude smaller than raw video (48kHz stereo f32 is 384,000 bytes/sec, so an 18-minute timeline is ~414MB, not hundreds of gigabytes) and ffmpeg needs it as a real, complete, seekable input at process-start time — unlike the video side, it isn&#39;t produced incrementally by anything this class does. A second OS pipe/named-pipe could avoid even that, but isn&#39;t pursued here: it would need real cross-platform machinery (named pipes on Windows, a FIFO on Unix) for a temp file that was never the actual disk-usage problem. ONE CONSEQUENCE OF STREAMING WORTH FLAGGING: because AudioMixer. ComposeAsync&#39;s result has to be written to that temp file and handed to ffmpeg as an -i argument BEFORE ffmpeg can be spawned — and frame rendering can&#39;t start streaming into ffmpeg&#39;s stdin until ffmpeg exists — audio composition is now awaited before frame rendering begins, rather than run concurrently with it the way this used to work. It still overlaps content preparation and GPU/decoder setup above it, which is normally the larger win of the two; audio mixing itself is a one-shot in-memory computation, not a per-frame cost, so this is expected to be a minor, not a proportional, regression versus however long the frame-by-frame render itself takes. &amp;quot;CLIPS ARE GRAPHS&amp;quot; REWRITE: ContentPreparation&#39;s nativeSizes/decodePlans/decodeSourcePaths dictionaries are now keyed by InputNode Id (Guid), not by Clip — a VideoClip&#39;s graph can contain more than one VideoSourceNode. staticImagePaths and the tempFiles bag PrepareContentAsync used to take are both gone from that call — text rasterization now happens lazily inside ClipContentSource itself, which owns cleaning up its own temp files on Dispose (this file&#39;s own tempFiles bag is now used only for the render&#39;s OWN raw audio PCM temp file — the raw video accumulator described above is gone entirely, see the STREAMING REWRITE remarks). FrameStateResolver.Resolve no longer takes a nativeSizes parameter at all — see its own remarks. REWRITE (&amp;quot;channels split by kind&amp;quot;): the SurfacePool seed count below now uses timeline.VideoChannels.Count specifically (only a VideoChannel&#39;s clips ever need a GPU-backed canvas surface — see SurfacePool&#39;s own remarks on this being a warm-start heuristic, not a hard cap) instead of the old mixed timeline.Channels.Count. Validate&#39;s FadeToColorTransition check below also now walks timeline.VideoChannels specifically — that check is fundamentally about VIDEO channel stacking (an opaque transition blacking out whatever composites beneath it), which AudioChannels were never actually part of; walking VideoChannels directly says what the check means instead of relying on AudioChannel transitions happening to never trip it.">
+      <meta name="description" content="Renders a timeline to a video file.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Rendering_Renderer" data-uid="EditSharp.Rendering.Renderer" class="text-break">
-Class Renderer  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Rendering/Renderer.cs/#L119"><i class="bi bi-code-slash"></i></a>
+Class Renderer  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Rendering/Renderer.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,90 +97,7 @@ Class Renderer  <a class="header-action link-secondary" title="View source" href
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Entry point for the render strategy — wires the Skia compositor into
-an actual end-to-end render.</p>
-<p>Shape of a render:</p>
-<ol>
-<li>Probe every Video-type VideoSourceNode's native size (MediaProbe)
-across the whole timeline — everything about a video clip's media
-inputs that's constant across its whole life, done once up front
-(ContentPreparation). TextInputNode/ColorGeneratorInputNode/
-NoiseInputNode/TimelineVideoInputNode need no such up-front prep
-any more — see ContentPreparation's own remarks.</li>
-<li>Mix the timeline's audio once (AudioMixer.ComposeAsync) and spawn
-the SINGLE ffmpeg process that will do the real mux + encode for
-the whole render, with its stdin left open as a raw-video pipe.</li>
-<li>Render every output frame SEQUENTIALLY directly against an
-in-process SKCanvas (FrameCompositor), writing each frame's raw
-RGBA8888 bytes straight into that ffmpeg process's stdin as it's
-produced — see STREAMING REWRITE below. A Video-type
-VideoSourceNode's SourceDecoder is opened on its clip's first
-visible frame and disposed once that clip's visible window ends
-(ClipContentSource).</li>
-<li>Close stdin once every frame has been written (ffmpeg's rawvideo
-demuxer treats that exactly like reaching EOF on a file) and wait
-for ffmpeg to finish encoding.</li>
-</ol>
-<p>STREAMING REWRITE — WHY THIS EXISTS: this used to append every frame's
-raw, uncompressed RGBA8888 bytes to a single growing &quot;accumulator&quot;
-temp file on disk, and only handed that file to ffmpeg for mux/encode
-once every frame had already been rendered. At 1920x1080 that's
-8,294,400 bytes/frame (~7.9MiB); an 18-minute 30fps render is 32,400
-frames, i.e. roughly 268GB of raw bytes hitting disk before a single
-byte of that data was ever compressed — reported as &quot;hundreds of
-gigabytes of writes&quot; and confirmed to match this arithmetic almost
-exactly, not a leak or a runaway loop. Frame rendering now writes
-directly into the SAME ffmpeg process's stdin pipe that does the real
-mux/encode (mirroring how SourceDecoder already pipes raw frames IN
-from an ffmpeg decode process — this is the same pattern on the encode
-side), so raw video never touches disk at all: ffmpeg compresses each
-frame into the target codec as it arrives instead of after the whole
-timeline has already been written out losslessly. Disk usage for the
-video side of a render is now effectively just the size of the final
-encoded output file.</p>
-<p>AUDIO STILL GOES THROUGH A SMALL TEMP FILE, DELIBERATELY: the mixed
-master PCM (see AudioMixer.ComposeAsync) is orders of magnitude
-smaller than raw video (48kHz stereo f32 is 384,000 bytes/sec, so an
-18-minute timeline is ~414MB, not hundreds of gigabytes) and ffmpeg
-needs it as a real, complete, seekable input at process-start time —
-unlike the video side, it isn't produced incrementally by anything
-this class does. A second OS pipe/named-pipe could avoid even that,
-but isn't pursued here: it would need real cross-platform machinery
-(named pipes on Windows, a FIFO on Unix) for a temp file that was
-never the actual disk-usage problem.</p>
-<p>ONE CONSEQUENCE OF STREAMING WORTH FLAGGING: because AudioMixer.
-ComposeAsync's result has to be written to that temp file and handed
-to ffmpeg as an -i argument BEFORE ffmpeg can be spawned — and frame
-rendering can't start streaming into ffmpeg's stdin until ffmpeg
-exists — audio composition is now awaited before frame rendering
-begins, rather than run concurrently with it the way this used to
-work. It still overlaps content preparation and GPU/decoder setup
-above it, which is normally the larger win of the two; audio mixing
-itself is a one-shot in-memory computation, not a per-frame cost, so
-this is expected to be a minor, not a proportional, regression versus
-however long the frame-by-frame render itself takes.</p>
-<p>&quot;CLIPS ARE GRAPHS&quot; REWRITE: ContentPreparation's
-nativeSizes/decodePlans/decodeSourcePaths dictionaries are now keyed
-by InputNode Id (Guid), not by Clip — a VideoClip's graph can contain
-more than one VideoSourceNode. staticImagePaths and the tempFiles bag
-PrepareContentAsync used to take are both gone from that call — text
-rasterization now happens lazily inside ClipContentSource itself,
-which owns cleaning up its own temp files on Dispose (this file's own
-tempFiles bag is now used only for the render's OWN raw audio PCM temp
-file — the raw video accumulator described above is gone entirely,
-see the STREAMING REWRITE remarks). FrameStateResolver.Resolve no
-longer takes a nativeSizes parameter at all — see its own remarks.</p>
-<p>REWRITE (&quot;channels split by kind&quot;): the SurfacePool seed count below
-now uses timeline.VideoChannels.Count specifically (only a
-VideoChannel's clips ever need a GPU-backed canvas surface — see
-SurfacePool's own remarks on this being a warm-start heuristic, not
-a hard cap) instead of the old mixed timeline.Channels.Count. Validate's
-FadeToColorTransition check below also now walks timeline.VideoChannels
-specifically — that check is fundamentally about VIDEO channel
-stacking (an opaque transition blacking out whatever composites
-beneath it), which AudioChannels were never actually part of; walking
-VideoChannels directly says what the check means instead of relying on
-AudioChannel transitions happening to never trip it.</p>
+  <div class="markdown summary"><p>Renders a timeline to a video file.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -230,6 +147,15 @@ AudioChannel transitions happening to never trip it.</p>
 
 
 
+  <h2 id="EditSharp_Rendering_Renderer_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>One ffmpeg process encodes the whole render. Frames are composited in
+order on the GPU and written straight into ffmpeg's stdin as raw RGBA;
+audio is rendered by the streaming audio engine at the same time and
+written into a named pipe ffmpeg reads as its second input. Neither ever
+touches disk before it's encoded. Sources are read ahead of the frame
+being composited, and each clip's decoder is closed once the clip has
+passed.</p>
+</div>
 
 
   <h2 class="section" id="methods">Methods
@@ -240,13 +166,10 @@ AudioChannel transitions happening to never trip it.</p>
 
   <h3 id="EditSharp_Rendering_Renderer_RenderAsync_EditSharp_Rendering_Blueprint_" data-uid="EditSharp.Rendering.Renderer.RenderAsync(EditSharp.Rendering.Blueprint)">
   RenderAsync(Blueprint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Rendering/Renderer.cs/#L134"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Rendering/Renderer.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Renders <code>blueprint</code> to its output file. A source that can't provide
-a frame doesn't abort the render: it's drawn as a labeled
-placeholder, and the returned report says which sources failed,
-why, and where on the timeline.</p>
+  <div class="markdown level1 summary"><p>Renders <code class="paramref">blueprint</code> to its output file.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -257,13 +180,15 @@ why, and where on the timeline.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>blueprint</code> <a class="xref" href="EditSharp.Rendering.Blueprint.html">Blueprint</a></dt>
-    <dd></dd>
+    <dd><p>What to render, how, and where.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="EditSharp.Rendering.RenderReport.html">RenderReport</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The sources that failed, if any.</p>
+</dd>
   </dl>
 
 
@@ -272,7 +197,19 @@ why, and where on the timeline.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Rendering_Renderer_RenderAsync_EditSharp_Rendering_Blueprint__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A source that can't provide content doesn't stop the render: it's drawn as a labelled placeholder (or plays as silence), and the report says which sources failed, why, and where.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p>The blueprint is invalid: an empty timeline, a non-positive size or frame rate, a negative GPU index, no output path, or a fade-to-colour transition above the bottom channel.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>ffmpeg failed, or streaming the audio failed.</p>
+</dd>
+  </dl>
 
 
 
@@ -280,7 +217,7 @@ why, and where on the timeline.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Rendering/Renderer.cs/#L119" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Rendering/Renderer.cs/#L39" class="edit-link">Edit this page</a>
         </div>
 
 

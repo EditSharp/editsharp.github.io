@@ -96,16 +96,7 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Video.VideoUtils.html">VideoUtils</a></dt>
-      <dd><p>Small, generic ffmpeg-backed video building blocks — muxing, re-encoding
-with an optional resize — meant to be reusable both by EditSharp's own
-pipeline and by a consumer doing an ordinary video task that has nothing
-to do with the timeline renderer. Deliberately kept free of pipeline-
-specific filter-graph knowledge — a caller with clip/effect-specific
-needs (e.g. OptimizedMediaCache's own encode, which needs its own
--profile:v handling) builds its own ffmpeg args using the shared
-lookups here (PixelFormatFor, ContainerExtensionFor, ProfileArgsFor,
-CodecNames.VideoCodecNames) rather than this file growing pipeline-
-specific branches of its own.</p>
+      <dd><p>Everyday ffmpeg tasks outside the timeline renderer: joining streams and re-encoding.</p>
 </dd>
     </dl>
     <h3 id="enums">
@@ -113,37 +104,18 @@ Enums
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Video.AudioCodec.html">AudioCodec</a></dt>
-      <dd></dd>
+      <dd><p>The audio codec a render encodes with.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Video.HardwareAccelerator.html">HardwareAccelerator</a></dt>
-      <dd><p>A single top-level switch covering every stage of the pipeline that
-has a hardware path at all: source DECODE (SourceDecoder's ffmpeg
-subprocesses), in-process COMPOSITE (the Skia GRContext the
-compositor's surfaces are backed by, see GpuContext/SurfacePool),
-and final ENCODE (FfmpegRunner's mux/encode step). Replaces the old
-Nvenc-only enum, which named one specific vendor encoder rather than
-describing an intent — this one says &quot;use hardware wherever it's
-available&quot; and leaves resolving that to the fastest option ACTUALLY
-present on the machine at each of the three stages independently.</p>
-<p>None forces software at every single stage, deliberately and
-unconditionally — not &quot;prefer software&quot;, an absolute guarantee, since
-this is the value a consumer reaches for specifically to get
-deterministic, hardware-independent output (e.g. matching a
-reference render, or working around a suspect driver).</p>
-<p>GPU attempts hardware at each stage independently, probes it before
-committing, and falls back to software FOR THAT STAGE ONLY if the
-probe fails — decided in conversation: a machine with working NVENC
-but no GPU decode support shouldn't lose GPU encoding just because
-decode fell back. Every fallback is logged loudly via
-EditSharpConfig.Logger.Log (not LogVerbose) specifically so a sudden,
-unexplained slowdown on GPU is never silent — see FfmpegRunner and
-GpuContext for where each stage's probe and fallback actually happen.</p>
+      <dd><p>Whether decoding, compositing and encoding may use the GPU.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Video.VideoCodec.html">VideoCodec</a></dt>
-      <dd></dd>
+      <dd><p>The video codec a render encodes with.</p>
+</dd>
     </dl>
 
 

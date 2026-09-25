@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class TimelineVideoSource | EditSharp ">
       
-      <meta name="description" content="Another timeline&#39;s picture, composited frame by frame. Start/Duration/Loop trim it like any source; its natural length is the timeline&#39;s duration. Saved as the timeline&#39;s Id (see SourceSerializer.Deserialize). Compositor-bound: frames are composited with the parent&#39;s own GPU context and surface pool, on its GPU thread, so they never cross GPU contexts and are never prefetched.">
+      <meta name="description" content="Another timeline&#39;s picture, composited frame by frame.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Sources_Video_TimelineVideoSource" data-uid="EditSharp.Components.Sources.Video.TimelineVideoSource" class="text-break">
-Class TimelineVideoSource  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/TimelineVideoSource.cs/#L22"><i class="bi bi-code-slash"></i></a>
+Class TimelineVideoSource  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/TimelineVideoSource.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,12 +97,7 @@ Class TimelineVideoSource  <a class="header-action link-secondary" title="View s
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Another timeline's picture, composited frame by frame. Start/Duration/Loop
-trim it like any source; its natural length is the timeline's duration.
-Saved as the timeline's Id (see SourceSerializer.Deserialize).</p>
-<p>Compositor-bound: frames are composited with the parent's own GPU
-context and surface pool, on its GPU thread, so they never cross GPU
-contexts and are never prefetched.</p>
+  <div class="markdown summary"><p>Another timeline's picture, composited frame by frame.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -185,6 +180,9 @@ public class TimelineVideoSource : VideoSource</code></pre>
 
 
 
+  <h2 id="EditSharp_Components_Sources_Video_TimelineVideoSource_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Frames are composited with the parent's own GPU context and surface pool, on its GPU thread, so they never cross GPU contexts and are never prefetched. It's saved as the timeline's Id; see <a class="xref" href="EditSharp.Components.Sources.SourceSerializer.html#EditSharp_Components_Sources_SourceSerializer_Deserialize_System_String_System_Func_System_Guid_EditSharp_Components_Timeline__">Deserialize(string, Func&lt;Guid, Timeline?&gt;?)</a>.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -195,10 +193,11 @@ public class TimelineVideoSource : VideoSource</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_TimelineVideoSource_Timeline" data-uid="EditSharp.Components.Sources.Video.TimelineVideoSource.Timeline">
   Timeline
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/TimelineVideoSource.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/TimelineVideoSource.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The timeline to show; null shows nothing and reports the source offline.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -231,11 +230,10 @@ public Timeline? Timeline { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Sources_Video_TimelineVideoSource_Duplicate" data-uid="EditSharp.Components.Sources.Video.TimelineVideoSource.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/TimelineVideoSource.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/TimelineVideoSource.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy, through SourceSerializer; see class remarks. History is
-suppressed: a fresh copy has no past to undo.</p>
+  <div class="markdown level1 summary"><p>A deep copy, made by saving and loading this source.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -247,7 +245,8 @@ suppressed: a fresh copy has no past to undo.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Sources.Video.TimelineVideoSource.html">TimelineVideoSource</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -256,6 +255,9 @@ suppressed: a fresh copy has no past to undo.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Sources_Video_TimelineVideoSource_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo. A nested timeline is shared, not copied.</p>
+</div>
 
 
 
@@ -264,12 +266,10 @@ suppressed: a fresh copy has no past to undo.</p>
 
   <h3 id="EditSharp_Components_Sources_Video_TimelineVideoSource_GetNaturalLengthAsync_System_Threading_CancellationToken_" data-uid="EditSharp.Components.Sources.Video.TimelineVideoSource.GetNaturalLengthAsync(System.Threading.CancellationToken)">
   GetNaturalLengthAsync(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/TimelineVideoSource.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/TimelineVideoSource.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How long the source's own material is, ignoring Start/Duration.
-Null means unbounded; a still image or a generator has no inherent
-end, so only Duration (or the clip) limits it.</p>
+  <div class="markdown level1 summary"><p>The timeline's duration.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -280,13 +280,15 @@ end, so only Duration (or the clip) limits it.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>ct</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd></dd>
+    <dd><p>Unused.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?&gt;</dt>
-    <dd></dd>
+    <dd><p>The duration; null when no timeline is chosen.</p>
+</dd>
   </dl>
 
 
@@ -303,7 +305,7 @@ end, so only Duration (or the clip) limits it.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/TimelineVideoSource.cs/#L22" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/TimelineVideoSource.cs/#L15" class="edit-link">Edit this page</a>
         </div>
 
 

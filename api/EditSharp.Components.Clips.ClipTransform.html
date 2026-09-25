@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ClipTransform | EditSharp ">
       
-      <meta name="description" content="Every field is individually Animatable&amp;lt;T&amp;gt; — see the schema doc&#39;s Keyframes section. This replaces the old model where an entire ClipTransform snapshot was one keyframe; here, Position can animate on a completely different schedule than Scale.">
+      <meta name="description" content="Where an image sits in the frame: its position, size and rotation, each keyframeable on its own.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Clips_ClipTransform" data-uid="EditSharp.Components.Clips.ClipTransform" class="text-break">
-Class ClipTransform  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L25"><i class="bi bi-code-slash"></i></a>
+Class ClipTransform  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,10 +97,7 @@ Class ClipTransform  <a class="header-action link-secondary" title="View source"
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Every field is individually Animatable&lt;T&gt; — see the schema doc's
-Keyframes section. This replaces the old model where an entire
-ClipTransform snapshot was one keyframe; here, Position can animate on
-a completely different schedule than Scale.</p>
+  <div class="markdown summary"><p>Where an image sits in the frame: its position, size and rotation, each keyframeable on its own.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -147,6 +144,9 @@ a completely different schedule than Scale.</p>
 
 
 
+  <h2 id="EditSharp_Components_Clips_ClipTransform_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>At the defaults the content fits inside the frame, centred. Rotations apply yaw, then pitch, then rotation, seen in perspective with a 90 degree horizontal field of view.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -160,7 +160,7 @@ a completely different schedule than Scale.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Every track on this transform — see Node.Animatables.</p>
+  <div class="markdown level1 summary"><p>Every keyframeable value on the transform.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -189,10 +189,11 @@ a completely different schedule than Scale.</p>
 
   <h3 id="EditSharp_Components_Clips_ClipTransform_Pitch" data-uid="EditSharp.Components.Clips.ClipTransform.Pitch">
   Pitch
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The tilt about the horizontal axis, in degrees.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -221,10 +222,11 @@ public Animatable&lt;float&gt; Pitch { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_ClipTransform_Position" data-uid="EditSharp.Components.Clips.ClipTransform.Position">
   Position
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Where the content's centre is, in half-frames from the frame's centre: X of half the frame's width, Y of half its height, y up.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -253,10 +255,11 @@ public Animatable&lt;Vector2&gt; Position { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_ClipTransform_Rotation" data-uid="EditSharp.Components.Clips.ClipTransform.Rotation">
   Rotation
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The turn in the frame's plane, in degrees clockwise.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -285,10 +288,11 @@ public Animatable&lt;float&gt; Rotation { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_ClipTransform_Scale" data-uid="EditSharp.Components.Clips.ClipTransform.Scale">
   Scale
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The content's size as a multiple of its fit inside the frame, per axis; (1, 1) fits it.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -320,7 +324,8 @@ public Animatable&lt;Vector2&gt; Scale { get; set; }</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The turn about the vertical axis, in degrees.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -353,10 +358,11 @@ public Animatable&lt;float&gt; Yaw { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_ClipTransform_Duplicate" data-uid="EditSharp.Components.Clips.ClipTransform.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>A deep copy, keyframes included.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -367,7 +373,8 @@ public Animatable&lt;float&gt; Yaw { get; set; }</code></pre>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Clips.ClipTransform.html">ClipTransform</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -376,6 +383,9 @@ public Animatable&lt;float&gt; Yaw { get; set; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_ClipTransform_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Nothing is recorded in history.</p>
+</div>
 
 
 
@@ -384,10 +394,11 @@ public Animatable&lt;float&gt; Yaw { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_ClipTransform_Evaluate_System_TimeSpan_" data-uid="EditSharp.Components.Clips.ClipTransform.Evaluate(System.TimeSpan)">
   Evaluate(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L72"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Every value at one moment.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -397,13 +408,15 @@ public Animatable&lt;float&gt; Yaw { get; set; }</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>clipRelativeTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Content time: since the clip's in-point, at 1x.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Clips.ResolvedTransform.html">ResolvedTransform</a></dt>
-    <dd></dd>
+    <dd><p>The values.</p>
+</dd>
   </dl>
 
 
@@ -420,10 +433,11 @@ public Animatable&lt;float&gt; Yaw { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_ClipTransform_FromPosition_EditSharp_Components_Clips_Positions_" data-uid="EditSharp.Components.Clips.ClipTransform.FromPosition(EditSharp.Components.Clips.Positions)">
   FromPosition(Positions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L82"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="EditSharp.Components.Clips.ClipTransform.html#EditSharp_Components_Clips_ClipTransform_Position">Position</a> value that puts the content's centre at one of nine points in the frame.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -433,13 +447,15 @@ public Animatable&lt;float&gt; Yaw { get; set; }</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>position</code> <a class="xref" href="EditSharp.Components.Clips.Positions.html">Positions</a></dt>
-    <dd></dd>
+    <dd><p>The point.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
-    <dd></dd>
+    <dd><p>The position, in half-frames: the corners are (±1, ±1).</p>
+</dd>
   </dl>
 
 
@@ -456,14 +472,10 @@ public Animatable&lt;float&gt; Yaw { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_ClipTransform_UsePositionTrack" data-uid="EditSharp.Components.Clips.ClipTransform.UsePositionTrack">
   UsePositionTrack()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Position specifically gets the spatial-handle PositionTrack
-treatment (see the schema doc) — this is a convenience that
-installs one and points Position.Track at it, rather than a
-second, separate field. Calling it more than once is a no-op if
-Position already has a track.</p>
+  <div class="markdown level1 summary"><p>Gives <a class="xref" href="EditSharp.Components.Clips.ClipTransform.html#EditSharp_Components_Clips_ClipTransform_Position">Position</a> a <a class="xref" href="EditSharp.Components.PositionTrack.html">PositionTrack</a>, whose keyframes also shape the path between them.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -475,7 +487,8 @@ Position already has a track.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.PositionTrack.html">PositionTrack</a></dt>
-    <dd></dd>
+    <dd><p>The track; the existing one if Position already has a PositionTrack.</p>
+</dd>
   </dl>
 
 
@@ -492,7 +505,7 @@ Position already has a track.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L25" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/ClipTransform.cs/#L20" class="edit-link">Edit this page</a>
         </div>
 
 

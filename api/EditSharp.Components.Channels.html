@@ -96,55 +96,25 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Channels.AudioChannel.html">AudioChannel</a></dt>
-      <dd></dd>
+      <dd><p>A channel of audio clips; every audio channel is mixed together.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Channels.Channel.html">Channel</a></dt>
-      <dd><p>A single row of clips. Enforces the one invariant that matters here:
-clips on a channel never overlap, except exactly two joined by a
-Transition may overlap for that transition's Duration.</p>
-<p>REWRITE note (&quot;clips are graphs&quot;): the old TimelineVideoClip/
-TimelineAudioClip Clip subtypes are gone — an embedded nested
-Timeline is now just a TimelineVideoInputNode/TimelineAudioInputNode
-somewhere inside an ordinary VideoClip's/AudioClip's graph (see
-Clip.cs's own remarks). That means the cycle-check and Timeline.UsedBy
-bookkeeping that used to live in Timeline.AddTimelineClipCore (a
-SEPARATE add path from ordinary Channel.AddClip, reserved
-specifically for the old dedicated clip types) has moved here, into
-AddClipCore — the ONE place any clip newly enters a channel via the
-public Add path — generalized to scan whatever embed nodes a clip's
-graph happens to contain, of which there can now be any number
-(zero, one, or several, in a graph with multiple InputNodes). See
-Timeline.ValidateNoCycle/RegisterEmbeddedTimelines/NotifyClipDetached.</p>
+      <dd><p>One row of clips on a timeline.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Channels.VideoChannel.html">VideoChannel</a></dt>
-      <dd></dd>
+      <dd><p>A channel of video clips; each video channel draws over the ones below it.</p>
+</dd>
     </dl>
     <h3 id="enums">
 Enums
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Channels.ChannelBlendMode.html">ChannelBlendMode</a></dt>
-      <dd><p>Replaces the old ffmpeg-era <code>BlendMode</code> enum (deleted). Rather than
-exposing <code>SKBlendMode</code> directly on <code>Channel.BlendMode</code>, this mirrors
-every native Skia blend mode 1:1 by name AND reserves four extra
-slots for the old enum's arithmetic modes that have no SKBlendMode
-equivalent at all (Average, Negation, Divide, Subtract — Photoshop/
-GIMP-era formulas, not Porter-Duff/CSS compositing operators).</p>
-<p>Why a wrapper again, after item 7 deliberately deleted the old
-wrapper in favour of raw SKBlendMode: those four modes need
-SOMEWHERE to live if they're ever implemented via a custom
-SKRuntimeEffect (SkSL) shader, and <code>SKBlendMode</code> is a sealed native
-enum — there's no way to add a value to it. A superset wrapper gives
-them a stable, permanent slot in the public API now, so wiring in a
-real implementation later is additive (ChannelCompositor's mapping
-gains a case) rather than another breaking enum swap on Channel.</p>
-<p>The four reserved slots THROW today (see ChannelCompositor's
-mapping) rather than silently doing nothing or falling back to
-SrcOver — a clip configured with one of these gets a clear error,
-not a silently-wrong render.</p>
+      <dd><p>How a layer (a video channel, or MergeNode's B) combines with what's below it.</p>
 </dd>
     </dl>
 

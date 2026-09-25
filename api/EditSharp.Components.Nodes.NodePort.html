@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class NodePort | EditSharp ">
       
-      <meta name="description" content="A fixed port declared by a concrete Node type.">
+      <meta name="description" content="A port a node&#39;s type declares.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Nodes_NodePort" data-uid="EditSharp.Components.Nodes.NodePort" class="text-break">
-Class NodePort  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L12"><i class="bi bi-code-slash"></i></a>
+Class NodePort  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class NodePort  <a class="header-action link-secondary" title="View source" href
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A fixed port declared by a concrete Node type.</p>
+  <div class="markdown summary"><p>A port a node's type declares.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -154,10 +154,11 @@ Class NodePort  <a class="header-action link-secondary" title="View source" href
 
   <h3 id="EditSharp_Components_Nodes_NodePort__ctor_System_String_EditSharp_Components_Nodes_PortType_EditSharp_Components_Nodes_PortDirection_System_Boolean_" data-uid="EditSharp.Components.Nodes.NodePort.#ctor(System.String,EditSharp.Components.Nodes.PortType,EditSharp.Components.Nodes.PortDirection,System.Boolean)">
   NodePort(string, PortType, PortDirection, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Declares a port.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -167,13 +168,17 @@ Class NodePort  <a class="header-action link-secondary" title="View source" href
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The port's name.</p>
+</dd>
     <dt><code>type</code> <a class="xref" href="EditSharp.Components.Nodes.PortType.html">PortType</a></dt>
-    <dd></dd>
+    <dd><p>What it carries.</p>
+</dd>
     <dt><code>direction</code> <a class="xref" href="EditSharp.Components.Nodes.PortDirection.html">PortDirection</a></dt>
-    <dd></dd>
+    <dd><p>Whether it's an input or an output.</p>
+</dd>
     <dt><code>optional</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>Whether the node works with it unconnected.</p>
+</dd>
   </dl>
 
 
@@ -195,10 +200,11 @@ Class NodePort  <a class="header-action link-secondary" title="View source" href
 
   <h3 id="EditSharp_Components_Nodes_NodePort_Direction" data-uid="EditSharp.Components.Nodes.NodePort.Direction">
   Direction
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether it's an input or an output.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -226,10 +232,11 @@ Class NodePort  <a class="header-action link-secondary" title="View source" href
 
   <h3 id="EditSharp_Components_Nodes_NodePort_Name" data-uid="EditSharp.Components.Nodes.NodePort.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The port's name, unique among the node's ports of the same direction; <a class="xref" href="EditSharp.Components.Nodes.Graph.html#EditSharp_Components_Nodes_Graph_Connect_System_Guid_System_String_System_Guid_System_String_">Connect(Guid, string, Guid, string)</a> takes it.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -257,10 +264,11 @@ Class NodePort  <a class="header-action link-secondary" title="View source" href
 
   <h3 id="EditSharp_Components_Nodes_NodePort_Optional" data-uid="EditSharp.Components.Nodes.NodePort.Optional">
   Optional
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether the node does its job with this input unconnected, such as a mask or a modulation input.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -288,10 +296,11 @@ Class NodePort  <a class="header-action link-secondary" title="View source" href
 
   <h3 id="EditSharp_Components_Nodes_NodePort_Type" data-uid="EditSharp.Components.Nodes.NodePort.Type">
   Type
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>What the port carries.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -319,7 +328,7 @@ Class NodePort  <a class="header-action link-secondary" title="View source" href
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L12" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L35" class="edit-link">Edit this page</a>
         </div>
 
 

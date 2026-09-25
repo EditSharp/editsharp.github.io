@@ -131,10 +131,7 @@ Classes
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.EditSharpConfig.html">EditSharpConfig</a></dt>
-      <dd><p>Process-wide configuration for EditSharp. Set these once at startup,
-before the first call into TimelineAssembler — nothing here is
-per-render, so a value changed mid-flight applies to every render
-sharing the process from that point on, not just the next one.</p>
+      <dd><p>Process-wide settings. Set them once at startup; a change applies to everything running in the process from then on.</p>
 </dd>
     </dl>
     <h3 id="interfaces">
@@ -142,10 +139,7 @@ Interfaces
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.IEditSharpLogger.html">IEditSharpLogger</a></dt>
-      <dd><p>Minimal logging seam so EditSharp doesn't assume Console, a specific
-logging framework, or any other ambient logger exists in the host
-process. Adapt to Microsoft.Extensions.Logging, Serilog, etc. with a
-one-line wrapper — e.g. <code>msg =&gt; _logger.LogInformation(msg)</code>.</p>
+      <dd><p>Where EditSharp sends log messages. Wrap your own logging framework in it.</p>
 </dd>
     </dl>
 

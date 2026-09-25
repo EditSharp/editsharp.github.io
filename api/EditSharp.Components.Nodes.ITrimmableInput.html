@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface ITrimmableInput | EditSharp ">
       
-      <meta name="description" content="A node whose own in-point should shift in lockstep with every OTHER trimmable input when the owning Clip&#39;s head is trimmed/extended — see Clip.OnHeadInPointShift/MaxHeadExtend, and the schema doc&#39;s multi-input-trim rule (&amp;quot;shift them all together, clamped by whichever one has the least room left&amp;quot;). Implemented by VideoSourceNode/AudioSourceNode (wrapping Source.Start) and TimelineVideoInputNode/TimelineAudioInputNode (wrapping TimelineReference.Start). Generator/procedural/text input nodes (ColorGeneratorInputNode, NoiseInputNode, TextInputNode, ToneGeneratorInputNode) do NOT implement this — they have no &amp;quot;in-point&amp;quot; concept, matching the old TextClip/GeneratorClip/ NoiseClip&#39;s inherited no-op/unbounded Clip defaults from before this rewrite.">
+      <meta name="description" content="An input with an in-point that moves when its clip&#39;s head is trimmed.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Nodes_ITrimmableInput" data-uid="EditSharp.Components.Nodes.ITrimmableInput" class="text-break">
-Interface ITrimmableInput  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/ITrimmableInput.cs/#L21"><i class="bi bi-code-slash"></i></a>
+Interface ITrimmableInput  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/ITrimmableInput.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,19 +97,7 @@ Interface ITrimmableInput  <a class="header-action link-secondary" title="View s
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A node whose own in-point should shift in lockstep with every OTHER
-trimmable input when the owning Clip's head is trimmed/extended —
-see Clip.OnHeadInPointShift/MaxHeadExtend, and the schema doc's
-multi-input-trim rule (&quot;shift them all together, clamped by whichever
-one has the least room left&quot;).</p>
-<p>Implemented by VideoSourceNode/AudioSourceNode (wrapping
-Source.Start) and TimelineVideoInputNode/TimelineAudioInputNode
-(wrapping TimelineReference.Start). Generator/procedural/text input
-nodes (ColorGeneratorInputNode, NoiseInputNode, TextInputNode,
-ToneGeneratorInputNode) do NOT implement this — they have no
-&quot;in-point&quot; concept, matching the old TextClip/GeneratorClip/
-NoiseClip's inherited no-op/unbounded Clip defaults from before this
-rewrite.</p>
+  <div class="markdown summary"><p>An input with an in-point that moves when its clip's head is trimmed.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -127,6 +115,9 @@ rewrite.</p>
 
 
 
+  <h2 id="EditSharp_Components_Nodes_ITrimmableInput_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Trimming a clip's head moves every trimmable input in its graph by the same amount, limited by whichever has the least room.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -137,10 +128,10 @@ rewrite.</p>
 
   <h3 id="EditSharp_Components_Nodes_ITrimmableInput_ContentLength" data-uid="EditSharp.Components.Nodes.ITrimmableInput.ContentLength">
   ContentLength
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/ITrimmableInput.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/ITrimmableInput.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How much content follows the in-point when there's a known hard end; null when unbounded, looping, or not known yet.</p>
+  <div class="markdown level1 summary"><p>How much content follows the in-point; null when there's no end, it loops, or it isn't known yet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -169,10 +160,10 @@ rewrite.</p>
 
   <h3 id="EditSharp_Components_Nodes_ITrimmableInput_InPoint" data-uid="EditSharp.Components.Nodes.ITrimmableInput.InPoint">
   InPoint
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/ITrimmableInput.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/ITrimmableInput.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The node's own in-point. Setting this is what OnHeadInPointShift actually does, per node.</p>
+  <div class="markdown level1 summary"><p>How far into the content the clip starts.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -201,10 +192,10 @@ rewrite.</p>
 
   <h3 id="EditSharp_Components_Nodes_ITrimmableInput_MaxHeadroom" data-uid="EditSharp.Components.Nodes.ITrimmableInput.MaxHeadroom">
   MaxHeadroom
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/ITrimmableInput.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/ITrimmableInput.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How far InPoint could move EARLIER (an extend) — TimeSpan.MaxValue if unconstrained.</p>
+  <div class="markdown level1 summary"><p>How far <a class="xref" href="EditSharp.Components.Nodes.ITrimmableInput.html#EditSharp_Components_Nodes_ITrimmableInput_InPoint">InPoint</a> can move earlier; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan.maxvalue">MaxValue</a> if there's no limit.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -233,7 +224,7 @@ rewrite.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/ITrimmableInput.cs/#L21" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/ITrimmableInput.cs/#L7" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class EditSharpConfig | EditSharp ">
       
-      <meta name="description" content="Process-wide configuration for EditSharp. Set these once at startup, before the first call into TimelineAssembler — nothing here is per-render, so a value changed mid-flight applies to every render sharing the process from that point on, not just the next one.">
+      <meta name="description" content="Process-wide settings. Set them once at startup; a change applies to everything running in the process from then on.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_EditSharpConfig" data-uid="EditSharp.EditSharpConfig" class="text-break">
-Class EditSharpConfig  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class EditSharpConfig  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,10 +97,7 @@ Class EditSharpConfig  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Process-wide configuration for EditSharp. Set these once at startup,
-before the first call into TimelineAssembler — nothing here is
-per-render, so a value changed mid-flight applies to every render
-sharing the process from that point on, not just the next one.</p>
+  <div class="markdown summary"><p>Process-wide settings. Set them once at startup; a change applies to everything running in the process from then on.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -160,12 +157,10 @@ sharing the process from that point on, not just the next one.</p>
 
   <h3 id="EditSharp_EditSharpConfig_AudioBlockFrames" data-uid="EditSharp.EditSharpConfig.AudioBlockFrames">
   AudioBlockFrames
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L109"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Frames of audio processed per engine tick. Parameter changes land
-within one block (512 frames is about 10.7 ms at 48 kHz). Read when a
-session starts.</p>
+  <div class="markdown level1 summary"><p>How many audio frames the engine processes per tick, 32 to 16384.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -186,7 +181,16 @@ session starts.</p>
 
 
 
+  <h4 class="section" id="EditSharp_EditSharpConfig_AudioBlockFrames_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Parameter changes take effect within one block; 512 frames is about 10.7 ms at 48 kHz. Read when a session starts.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Set outside 32 to 16384.</p>
+</dd>
+  </dl>
 
 
 
@@ -194,11 +198,10 @@ session starts.</p>
 
   <h3 id="EditSharp_EditSharpConfig_AudioLatency" data-uid="EditSharp.EditSharpConfig.AudioLatency">
   AudioLatency
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L122"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How far ahead of the speakers playback renders audio, which is also
-how long an edit takes to be heard. Read when a session starts.</p>
+  <div class="markdown level1 summary"><p>How far ahead of the speakers playback renders audio, which is also how long an edit takes to be heard.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -219,7 +222,16 @@ how long an edit takes to be heard. Read when a session starts.</p>
 
 
 
+  <h4 class="section" id="EditSharp_EditSharpConfig_AudioLatency_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Read when a session starts.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Set to zero or less.</p>
+</dd>
+  </dl>
 
 
 
@@ -227,12 +239,10 @@ how long an edit takes to be heard. Read when a session starts.</p>
 
   <h3 id="EditSharp_EditSharpConfig_EsrpCompressionLevel" data-uid="EditSharp.EditSharpConfig.EsrpCompressionLevel">
   EsrpCompressionLevel
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Zstd level for .esrp proxy frames (1-22). Higher is smaller and
-slower to build: on 1280x720 frames, 9 is about 18x faster than 19
-for about 10% more disk. Reading is the same speed at any level.</p>
+  <div class="markdown level1 summary"><p>The Zstd level for .esrp proxy frames, 1 to 22.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -253,7 +263,16 @@ for about 10% more disk. Reading is the same speed at any level.</p>
 
 
 
+  <h4 class="section" id="EditSharp_EditSharpConfig_EsrpCompressionLevel_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Higher is smaller and slower to build: on 1280x720 frames, 9 builds about 18 times faster than 19 for about 10% more disk. Reading speed is the same at any level.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Set outside 1 to 22.</p>
+</dd>
+  </dl>
 
 
 
@@ -261,10 +280,10 @@ for about 10% more disk. Reading is the same speed at any level.</p>
 
   <h3 id="EditSharp_EditSharpConfig_EsrpCompressionScheme" data-uid="EditSharp.EditSharpConfig.EsrpCompressionScheme">
   EsrpCompressionScheme
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How .esrp proxies compress each frame. Applies to newly built proxies only.</p>
+  <div class="markdown level1 summary"><p>How .esrp proxies compress each frame. Applies to proxies built after the change.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -293,11 +312,10 @@ for about 10% more disk. Reading is the same speed at any level.</p>
 
   <h3 id="EditSharp_EditSharpConfig_FfmpegPath" data-uid="EditSharp.EditSharpConfig.FfmpegPath">
   FfmpegPath
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L147"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Executable name or full path used to launch ffmpeg. Defaults to
-&quot;ffmpeg&quot;, resolved from PATH.</p>
+  <div class="markdown level1 summary"><p>The ffmpeg executable: a name found on PATH, or a full path.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -326,11 +344,10 @@ for about 10% more disk. Reading is the same speed at any level.</p>
 
   <h3 id="EditSharp_EditSharpConfig_FfprobePath" data-uid="EditSharp.EditSharpConfig.FfprobePath">
   FfprobePath
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L202"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L150"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Executable name or full path used to launch ffprobe. Defaults to
-&quot;ffprobe&quot;, resolved from PATH.</p>
+  <div class="markdown level1 summary"><p>The ffprobe executable: a name found on PATH, or a full path.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -359,83 +376,10 @@ for about 10% more disk. Reading is the same speed at any level.</p>
 
   <h3 id="EditSharp_EditSharpConfig_FilterThreads" data-uid="EditSharp.EditSharpConfig.FilterThreads">
   FilterThreads
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L286"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How many threads libavfilter may use to execute a filter graph
-(ffmpeg's -filter_threads / -filter_complex_threads). Defaults to
-1 — deliberately NOT the processor count ffmpeg would otherwise
-pick on its own.</p>
-<p>THIS DEFAULT IS A CORRECTNESS FIX, NOT A TUNING CHOICE.</p>
-<p>Rendering on a 16-logical-core machine produced exactly 15 evenly
-spaced horizontal black lines across every frame — 15 being
-precisely the number of INTERIOR boundaries between 16 slices.
-Measured off a real affected frame: the lines sat at rows 60, 129,
-198 ... 1026 (a dead-uniform 69px pitch, 15 of them), and spanned
-x=960 to x=1919 — exactly the right half of a 1920-wide canvas, to
-the pixel. Both numbers are structural rather than incidental: a
-count equal to threads-1, and a boundary at exactly width/2, is
-what a per-thread work partition looks like when the seams between
-its regions don't reconstruct cleanly. The artifact is a
-one-pixel-tall row of ZEROED ALPHA at each seam, which then lets
-the opaque black backdrop FrameFilterChain.Flatten composites onto
-show through — hence &quot;black lines&quot; rather than discoloured ones.</p>
-<p>Three independent observations ruled out every non-threading
-explanation that was considered:</p>
-<ul>
-<li>The lines DON'T move or change count when the canvas
-resolution changes. A frame-size-derived partition (an FFV1
-slice grid, a buffer-size seam) necessarily would; a
-thread-count-derived one doesn't, because thread count is a
-property of the machine and not of the frame.</li>
-<li>They appear with NO NoiseClip present, and on a blueprint of a
-single GeneratorClip with no effects on a Normal-blend channel
-— which rules out perlin, FFV1 (that graph decodes nothing at
-all; its content is a <code>color</code> source), and every effect chain.</li>
-<li>They are already in the RAW ACCUMULATOR, before
-FinalizeOutputAsync's H.264/yuv420p encode ever runs, so the
-final encode is not introducing them either.</li>
-</ul>
-<p>What's left is the per-frame filter graph itself, executed
-multi-threaded. Every clip runs <code>perspective</code> unconditionally
-(ClipVideoChain.Build always calls ApplyTransform, identity
-transform or not), <code>scale</code> several times including the
-MaskSupersample up/down pair, and the accumulator's own starting
-frame (FfmpegArgs.BuildTransparentBlank) is built fresh on
-every single render regardless of blueprint — all filters
-libavfilter is free to slice across threads. Worth knowing for
-anyone revisiting this: ffmpeg 8.0 (this project's target) ships a
-rewritten, multi-threaded swscale, so a <code>scale</code> that was
-effectively serial on the ffmpeg this pipeline was first written
-against is not serial any more.</p>
-<p>A PER-FILTER version of this fix (a <code>threads=1</code> pin on only the
-specific filters implicated, leaving the rest of the graph free to
-thread) was built, tested, and reverted — worth recording why, since
-it looked like the right call at the time. An early A/B seemed to
-show the global pin costing roughly 3x per-frame render time on a
-real blueprint (4-7s baseline vs 15s+ pinned), which justified the
-extra complexity. That comparison turned out to be invalid: the
-baseline was measured at Blueprint.FrameRenderConcurrency=1 and the
-pinned case at FrameRenderConcurrency=4 — an unrelated variable
-left inconsistent between the two runs, not a cost of the pin
-itself. Re-measured at matched concurrency, the global pin's actual
-cost was negligible on this blueprint and every other one tested.
-The per-filter mechanism (FfmpegArgs.ThreadPin and a <code>threads=1</code>
-suffix threaded through every filter emission in ClipVideoChain and
-FrameFilterChain) was real code paid for under a false premise, so
-it was removed rather than kept &quot;just in case&quot; — simplicity won
-once the actual numbers were in. If a genuine need to reclaim
-filter-level parallelism ever shows up, EditSharp-Handoff.md /
-project history has the reverted version to start from rather than
-rebuilding it from scratch.</p>
-<p>The single-frame render design is what makes 1 an acceptable
-default rather than a painful one: parallelism here is better
-spent at the PROCESS level (Blueprint.FrameRenderConcurrency,
-which renders whole frames concurrently) than inside one frame's
-graph, since whole frames are perfectly independent while filter
-slices have to stitch back together — which is the very thing
-going wrong. If you raise this, raise it while watching for the
-lines to come back.</p>
+  <div class="markdown level1 summary"><p>How many threads ffmpeg's filters may use (its -filter_threads and -filter_complex_threads).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -456,7 +400,16 @@ lines to come back.</p>
 
 
 
+  <h4 class="section" id="EditSharp_EditSharpConfig_FilterThreads_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Defaults to 1 because ffmpeg splitting a frame across threads left a one-pixel row of zero alpha at every seam between thread slices, which showed as thin horizontal lines. Raise it only while checking output for those lines.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Set below 1.</p>
+</dd>
+  </dl>
 
 
 
@@ -464,12 +417,10 @@ lines to come back.</p>
 
   <h3 id="EditSharp_EditSharpConfig_Logger" data-uid="EditSharp.EditSharpConfig.Logger">
   Logger
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L144"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Where EditSharp reports render progress and diagnostics. Defaults to
-a no-op logger, so a consumer who never sets this gets silence rather
-than an exception or unexpected console output.</p>
+  <div class="markdown level1 summary"><p>Where EditSharp reports progress and diagnostics. Logs nothing until set.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -498,12 +449,10 @@ than an exception or unexpected console output.</p>
 
   <h3 id="EditSharp_EditSharpConfig_MaxConcurrentProxyBuilds" data-uid="EditSharp.EditSharpConfig.MaxConcurrentProxyBuilds">
   MaxConcurrentProxyBuilds
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How many proxies may build at once; further BuildAsync calls queue
-(ProxyState.Queued) in order. Read when a build is dequeued, so a
-change applies to builds that haven't started yet.</p>
+  <div class="markdown level1 summary"><p>How many proxies may build at once; further builds wait in order.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -524,7 +473,16 @@ change applies to builds that haven't started yet.</p>
 
 
 
+  <h4 class="section" id="EditSharp_EditSharpConfig_MaxConcurrentProxyBuilds_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Read when a queued build starts, so a change applies to builds that haven't started yet.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Set below 1.</p>
+</dd>
+  </dl>
 
 
 
@@ -532,13 +490,10 @@ change applies to builds that haven't started yet.</p>
 
   <h3 id="EditSharp_EditSharpConfig_ProxyDirectory" data-uid="EditSharp.EditSharpConfig.ProxyDirectory">
   ProxyDirectory
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Root directory ProxyCache reads and writes proxies in (and where
-MediaHasher keeps its hash index). Persistent across runs: nothing
-in EditSharp ever deletes it, so a consumer can point it somewhere
-durable and reopen projects against the same proxies later.</p>
+  <div class="markdown level1 summary"><p>Where proxies are stored, along with the media hash index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -559,7 +514,16 @@ durable and reopen projects against the same proxies later.</p>
 
 
 
+  <h4 class="section" id="EditSharp_EditSharpConfig_ProxyDirectory_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>EditSharp never deletes it, so pointing it somewhere durable lets projects reuse proxies across runs.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Set to null.</p>
+</dd>
+  </dl>
 
 
 
@@ -567,12 +531,10 @@ durable and reopen projects against the same proxies later.</p>
 
   <h3 id="EditSharp_EditSharpConfig_ProxyFormat" data-uid="EditSharp.EditSharpConfig.ProxyFormat">
   ProxyFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The format ProxyCache.BuildAsync builds when none is named. The
-.esrp formats read with no subprocess at all (true random access);
-DNxHR/ProRes are for compatibility and read through ffmpeg.</p>
+  <div class="markdown level1 summary"><p>The format <a class="xref" href="EditSharp.Caching.Proxy.ProxyCache.html#EditSharp_Caching_Proxy_ProxyCache_BuildAsync_System_String_System_Nullable_EditSharp_Caching_Proxy_ProxyFormat__System_IProgress_System_Double__EditSharp_Video_HardwareAccelerator_System_Threading_CancellationToken_">BuildAsync(string, ProxyFormat?, IProgress&lt;double&gt;?, HardwareAccelerator, CancellationToken)</a> builds when none is named.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -593,6 +555,9 @@ DNxHR/ProRes are for compatibility and read through ffmpeg.</p>
 
 
 
+  <h4 class="section" id="EditSharp_EditSharpConfig_ProxyFormat_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The .esrp formats read without starting ffmpeg and allow true random access; DNxHR and ProRes are for use in other software and read through ffmpeg.</p>
+</div>
 
 
 
@@ -601,12 +566,10 @@ DNxHR/ProRes are for compatibility and read through ffmpeg.</p>
 
   <h3 id="EditSharp_EditSharpConfig_ProxyMaxDimension" data-uid="EditSharp.EditSharpConfig.ProxyMaxDimension">
   ProxyMaxDimension
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The longest side a proxy is built at (never upscaled). Proxies keep
-the source's own frame rate, so one proxy serves scrubbing and
-playback alike.</p>
+  <div class="markdown level1 summary"><p>The longest side a proxy is built at, in pixels; smaller sources aren't scaled up.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -627,7 +590,16 @@ playback alike.</p>
 
 
 
+  <h4 class="section" id="EditSharp_EditSharpConfig_ProxyMaxDimension_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Proxies keep the source's frame rate, so one proxy serves scrubbing and playback.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Set to zero or less.</p>
+</dd>
+  </dl>
 
 
 
@@ -635,12 +607,10 @@ playback alike.</p>
 
   <h3 id="EditSharp_EditSharpConfig_ReaderBufferFrames" data-uid="EditSharp.EditSharpConfig.ReaderBufferFrames">
   ReaderBufferFrames
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L135"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How many frames each open reader decodes ahead of (behind, in
-reverse) the one being shown. Memory is roughly this many decoded
-frames per visible or upcoming media input.</p>
+  <div class="markdown level1 summary"><p>How many frames each open reader decodes ahead of the one shown (behind it, in reverse).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -661,7 +631,16 @@ frames per visible or upcoming media input.</p>
 
 
 
+  <h4 class="section" id="EditSharp_EditSharpConfig_ReaderBufferFrames_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Memory use is about this many decoded frames per visible or upcoming source.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Set below 1.</p>
+</dd>
+  </dl>
 
 
 
@@ -669,12 +648,10 @@ frames per visible or upcoming media input.</p>
 
   <h3 id="EditSharp_EditSharpConfig_SourceLookahead" data-uid="EditSharp.EditSharpConfig.SourceLookahead">
   SourceLookahead
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L96"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How far ahead of the playhead (behind, in reverse) playback and
-export prepare a clip's sources and open their readers, so a clip
-arriving on screen already has frames waiting instead of stalling.</p>
+  <div class="markdown level1 summary"><p>How far ahead of the playhead (behind it, in reverse) sources are prepared and their readers opened.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -695,7 +672,16 @@ arriving on screen already has frames waiting instead of stalling.</p>
 
 
 
+  <h4 class="section" id="EditSharp_EditSharpConfig_SourceLookahead_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A clip that arrives on screen then already has frames waiting.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Set below zero.</p>
+</dd>
+  </dl>
 
 
 
@@ -703,12 +689,10 @@ arriving on screen already has frames waiting instead of stalling.</p>
 
   <h3 id="EditSharp_EditSharpConfig_SourceRetryInterval" data-uid="EditSharp.EditSharpConfig.SourceRetryInterval">
   SourceRetryInterval
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L83"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How long a preview waits before retrying a source that failed with
-MediaOffline or DecodeError (a drive may be reconnected, a file
-re-exported). Renders never retry.</p>
+  <div class="markdown level1 summary"><p>How long a preview waits before retrying a source that was offline or failed to decode.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -729,7 +713,16 @@ re-exported). Renders never retry.</p>
 
 
 
+  <h4 class="section" id="EditSharp_EditSharpConfig_SourceRetryInterval_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A drive may be reconnected or a file re-exported in the meantime. Exports never retry.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>Set to zero or less.</p>
+</dd>
+  </dl>
 
 
 
@@ -737,38 +730,10 @@ re-exported). Renders never retry.</p>
 
   <h3 id="EditSharp_EditSharpConfig_SwsBackends" data-uid="EditSharp.EditSharpConfig.SwsBackends">
   SwsBackends
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L329"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L168"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Which swscale backend(s) ffmpeg 9.0+ is allowed to use for scale/
-format conversions (the scaler's -sws_backends flag). Defaults to
-&quot;x86&quot; — explicitly opting in to the new x86 SIMD kernel backend
-from 9.0's swscale rewrite.</p>
-<p>THIS DEFAULT IS DELIBERATE, NOT FFMPEG'S OWN DEFAULT. Per FFmpeg's
-scaler docs, sws_backends defaults to 'auto', which resolves to
-'stable' unless the 'unstable' flag is set — and SWS_BACKEND_X86
-is defined as part of SWS_BACKEND_UNSTABLE, not
-SWS_BACKEND_STABLE. So on a stock 9.0 build, every scale/format
-conversion in this pipeline is running the plain C reference
-path, not the SIMD path, unless this is set explicitly.</p>
-<p>This is orthogonal to FilterThreads, not a rerun of the same
-bug: FilterThreads controls libavfilter's cross-thread SLICING of
-a frame into pieces (the thing that produced the black-line
-seams — see that property's remarks), while sws_backends
-controls which SIMD kernel swscale uses to do the per-pixel math
-WITHIN a single thread's execution. FilterThreads=1 means there
-is only one slice/one thread; sws_backends=x86 just makes that
-one thread faster. Nothing here re-partitions the frame, so the
-seam mechanism the black-line fix addressed shouldn't apply.</p>
-<p>That said, this has not yet been verified against a real render
-on the actual 9.0 build — ffmpeg's own docs describe x86 as an
-&quot;unstable&quot; backend (their word, likely meaning &quot;newer/less
-battle-tested&quot;, not literally unsafe), and the swscale rewrite
-itself is very new. If a render regresses in a way that smells
-at all like the black-line bug (seams, banding, wrong alpha)
-after this is turned on, that is the first thing to revert and
-would mean the two are not as orthogonal in practice as they are
-on paper.</p>
+  <div class="markdown level1 summary"><p>Which swscale backends ffmpeg 9 and later may use for scaling and pixel format conversion (its -sws_backends).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -789,6 +754,9 @@ on paper.</p>
 
 
 
+  <h4 class="section" id="EditSharp_EditSharpConfig_SwsBackends_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Defaults to &quot;x86&quot;, which opts into ffmpeg's SIMD backend; ffmpeg's own default only uses the plain C one. ffmpeg marks x86 unstable, so if output shows seams, banding or wrong alpha, set this to &quot;stable&quot;.</p>
+</div>
 
 
 
@@ -797,24 +765,10 @@ on paper.</p>
 
   <h3 id="EditSharp_EditSharpConfig_TempDirectory" data-uid="EditSharp.EditSharpConfig.TempDirectory">
   TempDirectory
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Root directory EditSharp writes scratch files into — rasterized text
-PNGs, oversized filter-graph scripts, segmented-render intermediates.</p>
-<p>Defaults to AppContext.BaseDirectory (next to the host app's own
-executable), NOT the OS temp path — do not change this default to
-Path.GetTempPath(). Testing traced a native ffmpeg crash (0xc0000409,
-a stack buffer overrun) specifically to scratch files living under
-Windows %TEMP%, most likely because that path's length (deep under
-AppData\Local\Temp, plus a GUID filename) trips a bug in the
-comparatively less-mature &quot;-/option&quot; file-loading mechanism ffmpeg
-uses for large filter graphs. A consumer is free to point
-TempDirectory at %TEMP% anyway, but it's an opt-in regression, not
-the shipped default.</p>
-<p>EditSharp creates its own subfolders under this directory lazily, on
-first write — the host app does not need to pre-create anything, and
-setting this to a path that doesn't exist yet at all is fine too.</p>
+  <div class="markdown level1 summary"><p>Where EditSharp writes scratch files, such as re-encoded media.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -835,7 +789,16 @@ setting this to a path that doesn't exist yet at all is fine too.</p>
 
 
 
+  <h4 class="section" id="EditSharp_EditSharpConfig_TempDirectory_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Defaults to a Temp folder next to the application. Subfolders are created on first write, so the directory doesn't need to exist.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p>Set to null.</p>
+</dd>
+  </dl>
 
 
 
@@ -843,7 +806,7 @@ setting this to a path that doesn't exist yet at all is fine too.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L8" class="edit-link">Edit this page</a>
         </div>
 
 

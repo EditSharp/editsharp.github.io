@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Enum HardwareAccelerator | EditSharp ">
       
-      <meta name="description" content="A single top-level switch covering every stage of the pipeline that has a hardware path at all: source DECODE (SourceDecoder&#39;s ffmpeg subprocesses), in-process COMPOSITE (the Skia GRContext the compositor&#39;s surfaces are backed by, see GpuContext/SurfacePool), and final ENCODE (FfmpegRunner&#39;s mux/encode step). Replaces the old Nvenc-only enum, which named one specific vendor encoder rather than describing an intent — this one says &amp;quot;use hardware wherever it&#39;s available&amp;quot; and leaves resolving that to the fastest option ACTUALLY present on the machine at each of the three stages independently. None forces software at every single stage, deliberately and unconditionally — not &amp;quot;prefer software&amp;quot;, an absolute guarantee, since this is the value a consumer reaches for specifically to get deterministic, hardware-independent output (e.g. matching a reference render, or working around a suspect driver). GPU attempts hardware at each stage independently, probes it before committing, and falls back to software FOR THAT STAGE ONLY if the probe fails — decided in conversation: a machine with working NVENC but no GPU decode support shouldn&#39;t lose GPU encoding just because decode fell back. Every fallback is logged loudly via EditSharpConfig.Logger.Log (not LogVerbose) specifically so a sudden, unexplained slowdown on GPU is never silent — see FfmpegRunner and GpuContext for where each stage&#39;s probe and fallback actually happen.">
+      <meta name="description" content="Whether decoding, compositing and encoding may use the GPU.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -90,7 +90,7 @@
 
 
   <h1 id="EditSharp_Video_HardwareAccelerator" data-uid="EditSharp.Video.HardwareAccelerator" class="text-break">
-Enum HardwareAccelerator  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/Codecs.cs/#L72"><i class="bi bi-code-slash"></i></a>
+Enum HardwareAccelerator  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/Codecs.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,28 +98,7 @@ Enum HardwareAccelerator  <a class="header-action link-secondary" title="View so
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A single top-level switch covering every stage of the pipeline that
-has a hardware path at all: source DECODE (SourceDecoder's ffmpeg
-subprocesses), in-process COMPOSITE (the Skia GRContext the
-compositor's surfaces are backed by, see GpuContext/SurfacePool),
-and final ENCODE (FfmpegRunner's mux/encode step). Replaces the old
-Nvenc-only enum, which named one specific vendor encoder rather than
-describing an intent — this one says &quot;use hardware wherever it's
-available&quot; and leaves resolving that to the fastest option ACTUALLY
-present on the machine at each of the three stages independently.</p>
-<p>None forces software at every single stage, deliberately and
-unconditionally — not &quot;prefer software&quot;, an absolute guarantee, since
-this is the value a consumer reaches for specifically to get
-deterministic, hardware-independent output (e.g. matching a
-reference render, or working around a suspect driver).</p>
-<p>GPU attempts hardware at each stage independently, probes it before
-committing, and falls back to software FOR THAT STAGE ONLY if the
-probe fails — decided in conversation: a machine with working NVENC
-but no GPU decode support shouldn't lose GPU encoding just because
-decode fell back. Every fallback is logged loudly via
-EditSharpConfig.Logger.Log (not LogVerbose) specifically so a sudden,
-unexplained slowdown on GPU is never silent — see FfmpegRunner and
-GpuContext for where each stage's probe and fallback actually happen.</p>
+  <div class="markdown summary"><p>Whether decoding, compositing and encoding may use the GPU.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -140,10 +119,14 @@ GpuContext for where each stage's probe and fallback actually happen.</p>
   <dl class="parameters">
     <dt id="EditSharp_Video_HardwareAccelerator_GPU"><code>GPU = 1</code></dt>
   
-  <dd></dd>
+  <dd><p>The GPU at each stage where it works. Each stage (decode, composite,
+encode) is probed on its own and falls back to software alone if its
+probe fails; every fallback is logged.</p>
+</dd>
     <dt id="EditSharp_Video_HardwareAccelerator_None"><code>None = 0</code></dt>
   
-  <dd></dd>
+  <dd><p>Software at every stage, for output that doesn't depend on the machine's GPU or driver.</p>
+</dd>
   </dl>
 
 
@@ -151,7 +134,7 @@ GpuContext for where each stage's probe and fallback actually happen.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Video/Codecs.cs/#L72" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Video/Codecs.cs/#L46" class="edit-link">Edit this page</a>
         </div>
 
 

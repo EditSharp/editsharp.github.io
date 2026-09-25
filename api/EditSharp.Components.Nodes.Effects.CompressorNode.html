@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class CompressorNode | EditSharp ">
       
-      
+      <meta name="description" content="Reduces the level of loud passages: a peak-sensing, feed-forward compressor.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Nodes_Effects_CompressorNode" data-uid="EditSharp.Components.Nodes.Effects.CompressorNode" class="text-break">
-Class CompressorNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L11"><i class="bi bi-code-slash"></i></a>
+Class CompressorNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Class CompressorNode  <a class="header-action link-secondary" title="View source
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Reduces the level of loud passages: a peak-sensing, feed-forward compressor.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -150,6 +151,9 @@ Class CompressorNode  <a class="header-action link-secondary" title="View source
 
 
 
+  <h2 id="EditSharp_Components_Nodes_Effects_CompressorNode_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Input: Audio. Output: Audio.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -160,15 +164,10 @@ Class CompressorNode  <a class="header-action link-secondary" title="View source
 
   <h3 id="EditSharp_Components_Nodes_Effects_CompressorNode_Animatables" data-uid="EditSharp.Components.Nodes.Effects.CompressorNode.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Every keyframeable property this node owns, so a clip can reach
-all of its tracks at once — a head trim/extend shifts every
-keyframe in the graph (see Clip.OnHeadInPointShift). Empty by
-default; a node with Animatable properties overrides it and lists
-each one. An animated property left out here simply stops
-following the content when the clip's head moves.</p>
+  <div class="markdown level1 summary"><p>Every keyframeable value the node owns.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -189,6 +188,9 @@ following the content when the clip's head moves.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Effects_CompressorNode_Animatables_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Trimming a clip's head shifts every keyframe these hold, so the animation stays with the content. A node with Animatable properties lists every one of them here.</p>
+</div>
 
 
 
@@ -197,10 +199,11 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Effects_CompressorNode_AttackMs" data-uid="EditSharp.Components.Nodes.Effects.CompressorNode.AttackMs">
   AttackMs
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How quickly, in milliseconds, it turns down a signal that rises over the threshold.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -229,10 +232,11 @@ public Animatable&lt;float&gt; AttackMs { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_CompressorNode_MakeupGainDb" data-uid="EditSharp.Components.Nodes.Effects.CompressorNode.MakeupGainDb">
   MakeupGainDb
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gain, in dB, applied after compressing.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -261,10 +265,11 @@ public Animatable&lt;float&gt; MakeupGainDb { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_CompressorNode_Ports" data-uid="EditSharp.Components.Nodes.Effects.CompressorNode.Ports">
   Ports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The node's ports, fixed by its type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -292,10 +297,11 @@ public Animatable&lt;float&gt; MakeupGainDb { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_CompressorNode_Ratio" data-uid="EditSharp.Components.Nodes.Effects.CompressorNode.Ratio">
   Ratio
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How much a level above the threshold is reduced: 4 turns 4 dB over into 1 dB over.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -324,10 +330,11 @@ public Animatable&lt;float&gt; Ratio { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_CompressorNode_ReleaseMs" data-uid="EditSharp.Components.Nodes.Effects.CompressorNode.ReleaseMs">
   ReleaseMs
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How quickly, in milliseconds, it recovers once the signal falls back.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -356,10 +363,11 @@ public Animatable&lt;float&gt; ReleaseMs { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_CompressorNode_Threshold" data-uid="EditSharp.Components.Nodes.Effects.CompressorNode.Threshold">
   Threshold
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The level, in dB, above which the signal is turned down.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -392,13 +400,10 @@ public Animatable&lt;float&gt; Threshold { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_CompressorNode_Duplicate" data-uid="EditSharp.Components.Nodes.Effects.CompressorNode.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy with a FRESH Id — a duplicated clip's graph must not
-share node identity with the original, or a Connection recorded
-against one graph could be mistaken for referencing a node in
-the other.</p>
+  <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Id</a>, so connections in the two graphs can't be confused.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -410,7 +415,8 @@ the other.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -419,6 +425,9 @@ the other.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Effects_CompressorNode_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo.</p>
+</div>
 
 
 
@@ -427,7 +436,7 @@ the other.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L11" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/CompressorNode.cs/#L13" class="edit-link">Edit this page</a>
         </div>
 
 

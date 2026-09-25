@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IAnimatable | EditSharp ">
       
-      
+      <meta name="description" content="A keyframeable value seen without its value type, for editors and for code that reaches every keyframe at once.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_IAnimatable" data-uid="EditSharp.Components.IAnimatable" class="text-break">
-Interface IAnimatable  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L30"><i class="bi bi-code-slash"></i></a>
+Interface IAnimatable  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Interface IAnimatable  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>A keyframeable value seen without its value type, for editors and for code that reaches every keyframe at once.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -124,10 +125,10 @@ Interface IAnimatable  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="EditSharp_Components_IAnimatable_IsAnimated" data-uid="EditSharp.Components.IAnimatable.IsAnimated">
   IsAnimated
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>True once the track has enough keyframes to override the static value.</p>
+  <div class="markdown level1 summary"><p>Whether it has at least two keyframes, so they decide its value instead of the static value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -156,12 +157,10 @@ Interface IAnimatable  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="EditSharp_Components_IAnimatable_Keyframes" data-uid="EditSharp.Components.IAnimatable.Keyframes">
   Keyframes
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Every keyframe on this property, in time order; empty when it
-has no track. Times are content-relative, like everything else
-on a track.</p>
+  <div class="markdown level1 summary"><p>Every keyframe, in time order; empty when there's no track.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -190,10 +189,10 @@ on a track.</p>
 
   <h3 id="EditSharp_Components_IAnimatable_ValueType" data-uid="EditSharp.Components.IAnimatable.ValueType">
   ValueType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The T in Animatable&lt;T&gt;.</p>
+  <div class="markdown level1 summary"><p>The type of value it holds.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -226,10 +225,10 @@ on a track.</p>
 
   <h3 id="EditSharp_Components_IAnimatable_ClearKeyframes" data-uid="EditSharp.Components.IAnimatable.ClearKeyframes">
   ClearKeyframes()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Drops the track: no keyframes, the static value alone.</p>
+  <div class="markdown level1 summary"><p>Removes every keyframe, leaving the static value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -253,10 +252,10 @@ on a track.</p>
 
   <h3 id="EditSharp_Components_IAnimatable_Evaluate_System_TimeSpan_" data-uid="EditSharp.Components.IAnimatable.Evaluate(System.TimeSpan)">
   Evaluate(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The value at a content time, keyframes or not.</p>
+  <div class="markdown level1 summary"><p>The value at a moment.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -267,13 +266,15 @@ on a track.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>clipRelativeTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Content time: since the clip's in-point, at 1x.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The value.</p>
+</dd>
   </dl>
 
 
@@ -290,10 +291,10 @@ on a track.</p>
 
   <h3 id="EditSharp_Components_IAnimatable_GetStaticValue" data-uid="EditSharp.Components.IAnimatable.GetStaticValue">
   GetStaticValue()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The static value, untyped — for editors that only know the descriptor.</p>
+  <div class="markdown level1 summary"><p>The value used when it isn't animated.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -305,7 +306,8 @@ on a track.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The static value.</p>
+</dd>
   </dl>
 
 
@@ -322,10 +324,10 @@ on a track.</p>
 
   <h3 id="EditSharp_Components_IAnimatable_RemoveKeyframeAt_System_TimeSpan_" data-uid="EditSharp.Components.IAnimatable.RemoveKeyframeAt(System.TimeSpan)">
   RemoveKeyframeAt(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Removes the keyframe at exactly this time, if any.</p>
+  <div class="markdown level1 summary"><p>Removes the keyframe at exactly a time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -336,13 +338,15 @@ on a track.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>When, in content time.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>False when there was no keyframe at that time.</p>
+</dd>
   </dl>
 
 
@@ -359,11 +363,10 @@ on a track.</p>
 
   <h3 id="EditSharp_Components_IAnimatable_SetKeyframe_System_TimeSpan_System_Object_" data-uid="EditSharp.Components.IAnimatable.SetKeyframe(System.TimeSpan,System.Object)">
   SetKeyframe(TimeSpan, object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a keyframe at the time, or updates the one already there.
-Creates the track if there was none.</p>
+  <div class="markdown level1 summary"><p>Adds a keyframe, or updates the one already at that time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -374,9 +377,11 @@ Creates the track if there was none.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>When, in content time.</p>
+</dd>
     <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The value; numbers and enums are converted to the value type.</p>
+</dd>
   </dl>
 
 
@@ -394,10 +399,10 @@ Creates the track if there was none.</p>
 
   <h3 id="EditSharp_Components_IAnimatable_SetStaticValue_System_Object_" data-uid="EditSharp.Components.IAnimatable.SetStaticValue(System.Object)">
   SetStaticValue(object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Writes the static value from an untyped editor, coercing numbers and enums.</p>
+  <div class="markdown level1 summary"><p>Sets the value used when it isn't animated.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -408,7 +413,8 @@ Creates the track if there was none.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The value; numbers and enums are converted to the value type.</p>
+</dd>
   </dl>
 
 
@@ -426,10 +432,10 @@ Creates the track if there was none.</p>
 
   <h3 id="EditSharp_Components_IAnimatable_ShiftKeyframes_System_TimeSpan_" data-uid="EditSharp.Components.IAnimatable.ShiftKeyframes(System.TimeSpan)">
   ShiftKeyframes(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Moves every keyframe by <code>amount</code>. Keyframes are anchored to the content, so a head trim/extend shifts them all.</p>
+  <div class="markdown level1 summary"><p>Moves every keyframe by the same amount.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -440,7 +446,8 @@ Creates the track if there was none.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>How far to move them; negative moves them earlier.</p>
+</dd>
   </dl>
 
 
@@ -458,7 +465,7 @@ Creates the track if there was none.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L30" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L19" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Keyframe&lt;T&gt; | EditSharp ">
       
-      
+      <meta name="description" content="A value at a moment on a .">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Keyframe_1" data-uid="EditSharp.Components.Keyframe`1" class="text-break">
-Class Keyframe&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L36"><i class="bi bi-code-slash"></i></a>
+Class Keyframe&lt;T&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Class Keyframe&lt;T&gt;  <a class="header-action link-secondary" title="View sou
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>A value at a moment on a <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html">KeyframeTrack&lt;T&gt;</a>.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -109,7 +110,8 @@ Class Keyframe&lt;T&gt;  <a class="header-action link-secondary" title="View sou
   <h4 class="section">Type Parameters</h4>
   <dl class="parameters">
     <dt><code>T</code></dt>
-    <dd></dd>
+    <dd><p>The type of value.</p>
+</dd>
   </dl>
 
   <dl class="typelist inheritance">
@@ -163,6 +165,9 @@ Class Keyframe&lt;T&gt;  <a class="header-action link-secondary" title="View sou
 
 
 
+  <h2 id="EditSharp_Components_Keyframe_1_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Each side has its own interpolation: a segment's shape comes from the left keyframe's <a class="xref" href="EditSharp.Components.Keyframe-1.html#EditSharp_Components_Keyframe_1_OutInterpolation">OutInterpolation</a> and the right keyframe's <a class="xref" href="EditSharp.Components.Keyframe-1.html#EditSharp_Components_Keyframe_1_InInterpolation">InInterpolation</a>.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -173,10 +178,11 @@ Class Keyframe&lt;T&gt;  <a class="header-action link-secondary" title="View sou
 
   <h3 id="EditSharp_Components_Keyframe_1_InHandle" data-uid="EditSharp.Components.Keyframe`1.InHandle">
   InHandle
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L49"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The handle on the arriving side; used when <a class="xref" href="EditSharp.Components.Keyframe-1.html#EditSharp_Components_Keyframe_1_InInterpolation">InInterpolation</a> is Bezier.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -204,10 +210,11 @@ Class Keyframe&lt;T&gt;  <a class="header-action link-secondary" title="View sou
 
   <h3 id="EditSharp_Components_Keyframe_1_InInterpolation" data-uid="EditSharp.Components.Keyframe`1.InInterpolation">
   InInterpolation
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The shape of the curve arriving at this keyframe.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -235,10 +242,11 @@ Class Keyframe&lt;T&gt;  <a class="header-action link-secondary" title="View sou
 
   <h3 id="EditSharp_Components_Keyframe_1_InTangentMode" data-uid="EditSharp.Components.Keyframe`1.InTangentMode">
   InTangentMode
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L56"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How the arriving handle is set; see <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_SetTangentMode_EditSharp_Components_Keyframe__0__System_Boolean_EditSharp_Components_TangentMode_">SetTangentMode(Keyframe&lt;T&gt;, bool, TangentMode)</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -266,10 +274,11 @@ Class Keyframe&lt;T&gt;  <a class="header-action link-secondary" title="View sou
 
   <h3 id="EditSharp_Components_Keyframe_1_OutHandle" data-uid="EditSharp.Components.Keyframe`1.OutHandle">
   OutHandle
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The handle on the leaving side; used when <a class="xref" href="EditSharp.Components.Keyframe-1.html#EditSharp_Components_Keyframe_1_OutInterpolation">OutInterpolation</a> is Bezier.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -297,10 +306,11 @@ Class Keyframe&lt;T&gt;  <a class="header-action link-secondary" title="View sou
 
   <h3 id="EditSharp_Components_Keyframe_1_OutInterpolation" data-uid="EditSharp.Components.Keyframe`1.OutInterpolation">
   OutInterpolation
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The shape of the curve leaving this keyframe; Hold here holds the value until the next keyframe.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -328,10 +338,11 @@ Class Keyframe&lt;T&gt;  <a class="header-action link-secondary" title="View sou
 
   <h3 id="EditSharp_Components_Keyframe_1_OutTangentMode" data-uid="EditSharp.Components.Keyframe`1.OutTangentMode">
   OutTangentMode
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>How the leaving handle is set; see <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_SetTangentMode_EditSharp_Components_Keyframe__0__System_Boolean_EditSharp_Components_TangentMode_">SetTangentMode(Keyframe&lt;T&gt;, bool, TangentMode)</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -359,10 +370,11 @@ Class Keyframe&lt;T&gt;  <a class="header-action link-secondary" title="View sou
 
   <h3 id="EditSharp_Components_Keyframe_1_Start" data-uid="EditSharp.Components.Keyframe`1.Start">
   Start
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When the keyframe is, in content time; move it with <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_MoveKeyframe_EditSharp_Components_Keyframe__0__System_TimeSpan__0_">MoveKeyframe(Keyframe&lt;T&gt;, TimeSpan, T)</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -390,10 +402,11 @@ Class Keyframe&lt;T&gt;  <a class="header-action link-secondary" title="View sou
 
   <h3 id="EditSharp_Components_Keyframe_1_Value" data-uid="EditSharp.Components.Keyframe`1.Value">
   Value
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The value.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -421,7 +434,7 @@ Class Keyframe&lt;T&gt;  <a class="header-action link-secondary" title="View sou
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L36" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L28" class="edit-link">Edit this page</a>
         </div>
 
 

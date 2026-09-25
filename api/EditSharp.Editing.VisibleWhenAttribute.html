@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class VisibleWhenAttribute | EditSharp ">
       
-      <meta name="description" content="Hides the property unless a sibling property on the same object currently holds one of the given values — a polygon&#39;s points are only worth showing while the shape is a polygon. Several of these on one property must all hold.">
+      <meta name="description" content="Hides a property unless a sibling property currently holds one of the given values.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Editing_VisibleWhenAttribute" data-uid="EditSharp.Editing.VisibleWhenAttribute" class="text-break">
-Class VisibleWhenAttribute  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L105"><i class="bi bi-code-slash"></i></a>
+Class VisibleWhenAttribute  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L132"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,10 +97,7 @@ Class VisibleWhenAttribute  <a class="header-action link-secondary" title="View 
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Hides the property unless a sibling property on the same object
-currently holds one of the given values — a polygon's points are
-only worth showing while the shape is a polygon. Several of these
-on one property must all hold.</p>
+  <div class="markdown summary"><p>Hides a property unless a sibling property currently holds one of the given values.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -254,6 +251,9 @@ public sealed class VisibleWhenAttribute : Attribute</code></pre>
 
 
 
+  <h2 id="EditSharp_Editing_VisibleWhenAttribute_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A polygon mask's points, for example, only show while its shape is Polygon. When a property has several of these, all must hold.</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -264,10 +264,11 @@ public sealed class VisibleWhenAttribute : Attribute</code></pre>
 
   <h3 id="EditSharp_Editing_VisibleWhenAttribute__ctor_System_String_System_Object___" data-uid="EditSharp.Editing.VisibleWhenAttribute.#ctor(System.String,System.Object[])">
   VisibleWhenAttribute(string, params object?[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L144"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Shows the property only while <code class="paramref">property</code> holds one of <code class="paramref">anyOf</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -277,9 +278,11 @@ public sealed class VisibleWhenAttribute : Attribute</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>property</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The name of the sibling property to check.</p>
+</dd>
     <dt><code>anyOf</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>[]</dt>
-    <dd></dd>
+    <dd><p>The values that make the property visible.</p>
+</dd>
   </dl>
 
 
@@ -301,10 +304,11 @@ public sealed class VisibleWhenAttribute : Attribute</code></pre>
 
   <h3 id="EditSharp_Editing_VisibleWhenAttribute_AnyOf" data-uid="EditSharp.Editing.VisibleWhenAttribute.AnyOf">
   AnyOf
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L139"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The values that make the property visible.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -332,10 +336,11 @@ public sealed class VisibleWhenAttribute : Attribute</code></pre>
 
   <h3 id="EditSharp_Editing_VisibleWhenAttribute_Property" data-uid="EditSharp.Editing.VisibleWhenAttribute.Property">
   Property
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L136"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The name of the sibling property to check.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -363,7 +368,7 @@ public sealed class VisibleWhenAttribute : Attribute</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L105" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L132" class="edit-link">Edit this page</a>
         </div>
 
 

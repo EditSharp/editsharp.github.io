@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Enum PlaybackMode | EditSharp ">
       
-      
+      <meta name="description" content="What playback gives up when it can&#39;t keep up in real time.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -90,7 +90,7 @@
 
 
   <h1 id="EditSharp_Playback_PlaybackMode" data-uid="EditSharp.Playback.PlaybackMode" class="text-break">
-Enum PlaybackMode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/PlaybackMode.cs/#L5"><i class="bi bi-code-slash"></i></a>
+Enum PlaybackMode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/PlaybackMode.cs/#L6"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,7 +98,8 @@ Enum PlaybackMode  <a class="header-action link-secondary" title="View source" h
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>What playback gives up when it can't keep up in real time.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -118,13 +119,16 @@ Enum PlaybackMode  <a class="header-action link-secondary" title="View source" h
   <dl class="parameters">
     <dt id="EditSharp_Playback_PlaybackMode_EveryFrame"><code>EveryFrame = 0</code></dt>
   
-  <dd></dd>
+  <dd><p>Every video frame is shown; when video falls behind, playback slows down and audio waits with it.</p>
+</dd>
     <dt id="EditSharp_Playback_PlaybackMode_FrameDropping"><code>FrameDropping = 1</code></dt>
   
-  <dd></dd>
+  <dd><p>Video keeps real time by skipping frames that would be late, and audio skips blocks that would be late.</p>
+</dd>
     <dt id="EditSharp_Playback_PlaybackMode_SyncToAudio"><code>SyncToAudio = 2</code></dt>
   
-  <dd></dd>
+  <dd><p>Audio sets the pace; video shows the frame for audio's position, waiting or skipping to stay on it.</p>
+</dd>
   </dl>
 
 
@@ -132,7 +136,7 @@ Enum PlaybackMode  <a class="header-action link-secondary" title="View source" h
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Playback/PlaybackMode.cs/#L5" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Playback/PlaybackMode.cs/#L6" class="edit-link">Edit this page</a>
         </div>
 
 

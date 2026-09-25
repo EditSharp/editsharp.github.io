@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Enum FrameMeasure | EditSharp ">
       
-      <meta name="description" content="How a value measures against the frame, so an editor can show it in pixels of the render resolution. Stored values stay frame-relative, which keeps a project independent of its canvas size.">
+      <meta name="description" content="How a value measures against the frame, so an editor can show it in pixels of the render resolution.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -90,7 +90,7 @@
 
 
   <h1 id="EditSharp_Editing_FrameMeasure" data-uid="EditSharp.Editing.FrameMeasure" class="text-break">
-Enum FrameMeasure  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L37"><i class="bi bi-code-slash"></i></a>
+Enum FrameMeasure  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L64"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,9 +98,7 @@ Enum FrameMeasure  <a class="header-action link-secondary" title="View source" h
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>How a value measures against the frame, so an editor can show it in
-pixels of the render resolution. Stored values stay frame-relative,
-which keeps a project independent of its canvas size.</p>
+  <div class="markdown summary"><p>How a value measures against the frame, so an editor can show it in pixels of the render resolution.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -129,7 +127,8 @@ which keeps a project independent of its canvas size.</p>
 </dd>
     <dt id="EditSharp_Editing_FrameMeasure_None"><code>None = 0</code></dt>
   
-  <dd></dd>
+  <dd><p>Not measured against the frame.</p>
+</dd>
     <dt id="EditSharp_Editing_FrameMeasure_Width"><code>Width = 1</code></dt>
   
   <dd><p>A length, as a fraction of the frame width.</p>
@@ -137,11 +136,14 @@ which keeps a project independent of its canvas size.</p>
   </dl>
 
 
+  <h2 id="EditSharp_Editing_FrameMeasure_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Stored values stay fractions of the frame, which keeps a project independent of its resolution.</p>
+</div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L37" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Editing/Editable.cs/#L64" class="edit-link">Edit this page</a>
         </div>
 
 

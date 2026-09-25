@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Inspect | EditSharp ">
       
-      <meta name="description" content="Where editors ask what a thing has to edit. Of(Type) reflects the EditableAttributes once and caches the descriptors; Of(object) lets an IInspectable answer for itself instead.">
+      <meta name="description" content="Finds what an object or type has to edit.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Editing_Inspect" data-uid="EditSharp.Editing.Inspect" class="text-break">
-Class Inspect  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L346"><i class="bi bi-code-slash"></i></a>
+Class Inspect  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L386"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,9 +97,7 @@ Class Inspect  <a class="header-action link-secondary" title="View source" href=
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Where editors ask what a thing has to edit. Of(Type) reflects the
-EditableAttributes once and caches the descriptors; Of(object)
-lets an IInspectable answer for itself instead.</p>
+  <div class="markdown summary"><p>Finds what an object or type has to edit.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -149,6 +147,9 @@ lets an IInspectable answer for itself instead.</p>
 
 
 
+  <h2 id="EditSharp_Editing_Inspect_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Descriptors for a type are read from its <a class="xref" href="EditSharp.Editing.EditableAttribute.html">EditableAttribute</a>s once and cached; an <a class="xref" href="EditSharp.Editing.IInspectable.html">IInspectable</a> object lists its own instead.</p>
+</div>
 
 
   <h2 class="section" id="methods">Methods
@@ -159,10 +160,11 @@ lets an IInspectable answer for itself instead.</p>
 
   <h3 id="EditSharp_Editing_Inspect_Find_System_Object_System_String_" data-uid="EditSharp.Editing.Inspect.Find(System.Object,System.String)">
   Find(object, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L355"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L405"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>One editable property of an object, by name.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -172,15 +174,18 @@ lets an IInspectable answer for itself instead.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The object.</p>
+</dd>
     <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The property's name in code.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Editing.PropertyDescriptor.html">PropertyDescriptor</a></dt>
-    <dd></dd>
+    <dd><p>The descriptor, or null when the object has no editable property by that name.</p>
+</dd>
   </dl>
 
 
@@ -197,10 +202,11 @@ lets an IInspectable answer for itself instead.</p>
 
   <h3 id="EditSharp_Editing_Inspect_Of_System_Object_" data-uid="EditSharp.Editing.Inspect.Of(System.Object)">
   Of(object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L350"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L393"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The editable properties of an object.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -210,13 +216,15 @@ lets an IInspectable answer for itself instead.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>target</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The object.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="EditSharp.Editing.PropertyDescriptor.html">PropertyDescriptor</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Its descriptors, ordered by Order then declaration.</p>
+</dd>
   </dl>
 
 
@@ -233,10 +241,11 @@ lets an IInspectable answer for itself instead.</p>
 
   <h3 id="EditSharp_Editing_Inspect_Of_System_Type_" data-uid="EditSharp.Editing.Inspect.Of(System.Type)">
   Of(Type)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L353"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L399"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The editable properties a type declares or inherits.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -246,13 +255,15 @@ lets an IInspectable answer for itself instead.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>type</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.type">Type</a></dt>
-    <dd></dd>
+    <dd><p>The type.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="EditSharp.Editing.PropertyDescriptor.html">PropertyDescriptor</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Its descriptors, ordered by Order then declaration.</p>
+</dd>
   </dl>
 
 
@@ -269,7 +280,7 @@ lets an IInspectable answer for itself instead.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L346" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Editing/PropertyDescriptor.cs/#L386" class="edit-link">Edit this page</a>
         </div>
 
 

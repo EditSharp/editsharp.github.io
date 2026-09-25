@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IKeyframe | EditSharp ">
       
-      <meta name="description" content="The general per-property wrapper — see the schema doc&#39;s Keyframes section. Wrapping a property in Animatable&amp;lt;T&amp;gt; is the only step required to make it keyframeable; nothing about KeyframeTrack&amp;lt;T&amp;gt; itself needs to change for a new property type (as long as an IInterpolator&amp;lt;T&amp;gt; is registered — see Interpolators.Resolve).">
+      <meta name="description" content="A keyframe seen without its value type.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_IKeyframe" data-uid="EditSharp.Components.IKeyframe" class="text-break">
-Interface IKeyframe  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L24"><i class="bi bi-code-slash"></i></a>
+Interface IKeyframe  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,11 +97,7 @@ Interface IKeyframe  <a class="header-action link-secondary" title="View source"
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>The general per-property wrapper — see the schema doc's Keyframes
-section. Wrapping a property in Animatable&lt;T&gt; is the only step
-required to make it keyframeable; nothing about KeyframeTrack&lt;T&gt;
-itself needs to change for a new property type (as long as an
-IInterpolator&lt;T&gt; is registered — see Interpolators.Resolve).</p>
+  <div class="markdown summary"><p>A keyframe seen without its value type.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -129,10 +125,11 @@ IInterpolator&lt;T&gt; is registered — see Interpolators.Resolve).</p>
 
   <h3 id="EditSharp_Components_IKeyframe_Start" data-uid="EditSharp.Components.IKeyframe.Start">
   Start
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When the keyframe is, in content time.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -160,10 +157,11 @@ IInterpolator&lt;T&gt; is registered — see Interpolators.Resolve).</p>
 
   <h3 id="EditSharp_Components_IKeyframe_Value" data-uid="EditSharp.Components.IKeyframe.Value">
   Value
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The value it holds.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -191,7 +189,7 @@ IInterpolator&lt;T&gt; is registered — see Interpolators.Resolve).</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L24" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
 

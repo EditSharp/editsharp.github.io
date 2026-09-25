@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class PositionTrack | EditSharp ">
       
-      <meta name="description" content="Position&#39;s own KeyframeTrack&amp;lt;Vector2&amp;gt; subclass. Evaluate is deliberately two-stage rather than sharing the base class&#39;s plain value-cubic:  Temporal stage: the ordinary Hold/Linear/Bezier handle logic (this class&#39;s inherited InHandle/OutHandle, via the base&#39;s shared SolveU) produces a scalar progress u in [0,1] between the two bounding keyframes — exactly the same computation every other KeyframeTrack&amp;lt;T&amp;gt; does to find its cubic parameter. Spatial stage: u is fed as the parametric input to the cubic bezier PATH defined by (left.Value, left.SpatialOutHandle, right.SpatialInHandle, right.Value).  Easing each axis independently (the base class&#39;s own approach, if it were used unmodified here) is the classic bug that produces visibly curved motion on an intended straight line — see the schema doc for why &amp;quot;how fast&amp;quot; and &amp;quot;which way&amp;quot; have to be two curves composed through one shared progress value instead.">
+      <meta name="description" content="A position track whose keyframes shape the path between them as well as the timing.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_PositionTrack" data-uid="EditSharp.Components.PositionTrack" class="text-break">
-Class PositionTrack  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L49"><i class="bi bi-code-slash"></i></a>
+Class PositionTrack  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,24 +97,7 @@ Class PositionTrack  <a class="header-action link-secondary" title="View source"
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Position's own KeyframeTrack&lt;Vector2&gt; subclass. Evaluate is
-deliberately two-stage rather than sharing the base class's plain
-value-cubic:</p>
-<ol>
-<li>Temporal stage: the ordinary Hold/Linear/Bezier handle logic
-(this class's inherited InHandle/OutHandle, via the base's
-shared SolveU) produces a scalar progress u in [0,1] between the
-two bounding keyframes — exactly the same computation every
-other KeyframeTrack&lt;T&gt; does to find its cubic parameter.</li>
-<li>Spatial stage: u is fed as the parametric input to the cubic
-bezier PATH defined by (left.Value, left.SpatialOutHandle,
-right.SpatialInHandle, right.Value).</li>
-</ol>
-<p>Easing each axis independently (the base class's own approach, if it
-were used unmodified here) is the classic bug that produces visibly
-curved motion on an intended straight line — see the schema doc for
-why &quot;how fast&quot; and &quot;which way&quot; have to be two curves composed through
-one shared progress value instead.</p>
+  <div class="markdown summary"><p>A position track whose keyframes shape the path between them as well as the timing.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -189,6 +172,12 @@ one shared progress value instead.</p>
 
 
 
+  <h2 id="EditSharp_Components_PositionTrack_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A segment is evaluated in two steps. The time handles give how far along it
+the moment is, the same way every track does; that fraction is then the point
+along the path the spatial handles shape. Easing each axis on its own would
+bend a straight path.</p>
+</div>
 
 
   <h2 class="section" id="methods">Methods
@@ -199,10 +188,11 @@ one shared progress value instead.</p>
 
   <h3 id="EditSharp_Components_PositionTrack_AddSpatialKeyframe_System_TimeSpan_System_Numerics_Vector2_" data-uid="EditSharp.Components.PositionTrack.AddSpatialKeyframe(System.TimeSpan,System.Numerics.Vector2)">
   AddSpatialKeyframe(TimeSpan, Vector2)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Adds a keyframe, or updates the value of the one already at that time.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -212,15 +202,18 @@ one shared progress value instead.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>When, in content time.</p>
+</dd>
     <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
-    <dd></dd>
+    <dd><p>The position.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.SpatialKeyframe.html">SpatialKeyframe</a></dt>
-    <dd></dd>
+    <dd><p>The keyframe.</p>
+</dd>
   </dl>
 
 
@@ -237,10 +230,10 @@ one shared progress value instead.</p>
 
   <h3 id="EditSharp_Components_PositionTrack_CopyKeyframeExtras_EditSharp_Components_Keyframe_System_Numerics_Vector2__EditSharp_Components_Keyframe_System_Numerics_Vector2__" data-uid="EditSharp.Components.PositionTrack.CopyKeyframeExtras(EditSharp.Components.Keyframe{System.Numerics.Vector2},EditSharp.Components.Keyframe{System.Numerics.Vector2})">
   CopyKeyframeExtras(Keyframe&lt;Vector2&gt;, Keyframe&lt;Vector2&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Copies whatever a keyframe subtype carries beyond the base fields — see PositionTrack.</p>
+  <div class="markdown level1 summary"><p>Copies whatever a subclass's keyframes hold beyond the base fields, for <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_Duplicate">Duplicate()</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -251,9 +244,11 @@ one shared progress value instead.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>source</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The keyframe copied from.</p>
+</dd>
     <dt><code>target</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The keyframe copied to.</p>
+</dd>
   </dl>
 
 
@@ -271,10 +266,10 @@ one shared progress value instead.</p>
 
   <h3 id="EditSharp_Components_PositionTrack_CreateEmptyCopy" data-uid="EditSharp.Components.PositionTrack.CreateEmptyCopy">
   CreateEmptyCopy()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An empty track of this exact type, for Duplicate — a subclass returns its own type.</p>
+  <div class="markdown level1 summary"><p>An empty track of this kind, for <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_Duplicate">Duplicate()</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -286,7 +281,8 @@ one shared progress value instead.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.KeyframeTrack-1.html">KeyframeTrack</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The empty track.</p>
+</dd>
   </dl>
 
 
@@ -303,12 +299,10 @@ one shared progress value instead.</p>
 
   <h3 id="EditSharp_Components_PositionTrack_CreateKeyframe_System_TimeSpan_System_Numerics_Vector2_" data-uid="EditSharp.Components.PositionTrack.CreateKeyframe(System.TimeSpan,System.Numerics.Vector2)">
   CreateKeyframe(TimeSpan, Vector2)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Factory hook so a subclass (PositionTrack) can hand back its own
-Keyframe subtype (SpatialKeyframe) instead of a plain Keyframe&lt;T&gt;,
-without AddKeyframe itself needing to know about that.</p>
+  <div class="markdown level1 summary"><p>Makes a new keyframe; a subclass can return its own kind, as <a class="xref" href="EditSharp.Components.PositionTrack.html">PositionTrack</a> does.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -319,15 +313,18 @@ without AddKeyframe itself needing to know about that.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>When, in content time.</p>
+</dd>
     <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
-    <dd></dd>
+    <dd><p>The value.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The keyframe.</p>
+</dd>
   </dl>
 
 
@@ -344,15 +341,10 @@ without AddKeyframe itself needing to know about that.</p>
 
   <h3 id="EditSharp_Components_PositionTrack_InterpolateSegment_EditSharp_Components_Keyframe_System_Numerics_Vector2__EditSharp_Components_Keyframe_System_Numerics_Vector2__System_TimeSpan_" data-uid="EditSharp.Components.PositionTrack.InterpolateSegment(EditSharp.Components.Keyframe{System.Numerics.Vector2},EditSharp.Components.Keyframe{System.Numerics.Vector2},System.TimeSpan)">
   InterpolateSegment(Keyframe&lt;Vector2&gt;, Keyframe&lt;Vector2&gt;, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Resolves one segment's value at <code>time</code>. Virtual so PositionTrack
-can reuse the Hold/Linear/Bezier TIMING logic (via the protected
-SolveU helper) while swapping in a spatial bezier for the actual
-value, instead of this class's plain value-cubic — see the
-schema doc's &quot;two-stage, deliberately NOT independent per-axis
-easing&quot; remark on PositionTrack.</p>
+  <div class="markdown level1 summary"><p>The value between two neighbouring keyframes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -363,17 +355,21 @@ easing&quot; remark on PositionTrack.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>from</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The earlier keyframe.</p>
+</dd>
     <dt><code>to</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The later keyframe.</p>
+</dd>
     <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>A content time between them.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
-    <dd></dd>
+    <dd><p>The value.</p>
+</dd>
   </dl>
 
 
@@ -390,10 +386,11 @@ easing&quot; remark on PositionTrack.</p>
 
   <h3 id="EditSharp_Components_PositionTrack_SetSpatialHandle_EditSharp_Components_SpatialKeyframe_System_Boolean_System_Numerics_Vector2_" data-uid="EditSharp.Components.PositionTrack.SetSpatialHandle(EditSharp.Components.SpatialKeyframe,System.Boolean,System.Numerics.Vector2)">
   SetSpatialHandle(SpatialKeyframe, bool, Vector2)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sets one of a keyframe's path handles.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -403,11 +400,14 @@ easing&quot; remark on PositionTrack.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>keyframe</code> <a class="xref" href="EditSharp.Components.SpatialKeyframe.html">SpatialKeyframe</a></dt>
-    <dd></dd>
+    <dd><p>The keyframe.</p>
+</dd>
     <dt><code>isInHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True for the arriving handle, false for the leaving one.</p>
+</dd>
     <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
-    <dd></dd>
+    <dd><p>The control point, as an offset from the keyframe's position.</p>
+</dd>
   </dl>
 
 
@@ -417,6 +417,9 @@ easing&quot; remark on PositionTrack.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_PositionTrack_SetSpatialHandle_EditSharp_Components_SpatialKeyframe_System_Boolean_System_Numerics_Vector2__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>An Auto side becomes Free. A Smooth side mirrors the other handle through the keyframe.</p>
+</div>
 
 
 
@@ -425,7 +428,7 @@ easing&quot; remark on PositionTrack.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L49" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L34" class="edit-link">Edit this page</a>
         </div>
 
 

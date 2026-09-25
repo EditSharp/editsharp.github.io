@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class AudioSourceNode | EditSharp ">
       
-      <meta name="description" content="Feeds an AudioSource&#39;s samples into the graph, whatever kind it is. Replaces the old AudioClip.Source property directly.">
+      <meta name="description" content="Feeds a &#39;s samples into the graph, whatever kind of source it is.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Nodes_Sources_AudioSourceNode" data-uid="EditSharp.Components.Nodes.Sources.AudioSourceNode" class="text-break">
-Class AudioSourceNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class AudioSourceNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class AudioSourceNode  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Feeds an AudioSource's samples into the graph, whatever kind it is. Replaces the old AudioClip.Source property directly.</p>
+  <div class="markdown summary"><p>Feeds a <a class="xref" href="EditSharp.Components.Sources.Audio.AudioSource.html">AudioSource</a>'s samples into the graph, whatever kind of source it is.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -158,6 +158,9 @@ Class AudioSourceNode  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <h2 id="EditSharp_Components_Nodes_Sources_AudioSourceNode_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Output: Audio.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -168,15 +171,10 @@ Class AudioSourceNode  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="EditSharp_Components_Nodes_Sources_AudioSourceNode_Animatables" data-uid="EditSharp.Components.Nodes.Sources.AudioSourceNode.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Every keyframeable property this node owns, so a clip can reach
-all of its tracks at once — a head trim/extend shifts every
-keyframe in the graph (see Clip.OnHeadInPointShift). Empty by
-default; a node with Animatable properties overrides it and lists
-each one. An animated property left out here simply stops
-following the content when the clip's head moves.</p>
+  <div class="markdown level1 summary"><p>Every keyframeable value the node owns.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -197,6 +195,9 @@ following the content when the clip's head moves.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Sources_AudioSourceNode_Animatables_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Trimming a clip's head shifts every keyframe these hold, so the animation stays with the content. A node with Animatable properties lists every one of them here.</p>
+</div>
 
 
 
@@ -205,10 +206,10 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Sources_AudioSourceNode_ContentLength" data-uid="EditSharp.Components.Nodes.Sources.AudioSourceNode.ContentLength">
   ContentLength
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How much content follows the in-point when there's a known hard end; null when unbounded, looping, or not known yet.</p>
+  <div class="markdown level1 summary"><p>The source's usable length; null when it loops, has no end, or isn't known yet.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -237,10 +238,10 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Sources_AudioSourceNode_InPoint" data-uid="EditSharp.Components.Nodes.Sources.AudioSourceNode.InPoint">
   InPoint
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The node's own in-point. Setting this is what OnHeadInPointShift actually does, per node.</p>
+  <div class="markdown level1 summary"><p>The source's <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Start">Start</a>, zero when unset.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -269,10 +270,10 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Sources_AudioSourceNode_MaxHeadroom" data-uid="EditSharp.Components.Nodes.Sources.AudioSourceNode.MaxHeadroom">
   MaxHeadroom
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How far InPoint could move EARLIER (an extend) — TimeSpan.MaxValue if unconstrained.</p>
+  <div class="markdown level1 summary"><p>How far the in-point can move earlier: back to the start of the source.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -301,10 +302,11 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Sources_AudioSourceNode_Ports" data-uid="EditSharp.Components.Nodes.Sources.AudioSourceNode.Ports">
   Ports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The node's ports, fixed by its type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -332,10 +334,11 @@ following the content when the clip's head moves.</p>
 
   <h3 id="EditSharp_Components_Nodes_Sources_AudioSourceNode_Source" data-uid="EditSharp.Components.Nodes.Sources.AudioSourceNode.Source">
   Source
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Where the samples come from.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -356,6 +359,9 @@ public required AudioSource Source { get; set; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Sources_AudioSourceNode_Source_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Setting it trims the clip if the new source ends sooner.</p>
+</div>
 
 
 
@@ -368,13 +374,10 @@ public required AudioSource Source { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Sources_AudioSourceNode_Duplicate" data-uid="EditSharp.Components.Nodes.Sources.AudioSourceNode.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy with a FRESH Id — a duplicated clip's graph must not
-share node identity with the original, or a Connection recorded
-against one graph could be mistaken for referencing a node in
-the other.</p>
+  <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Id</a>, so connections in the two graphs can't be confused.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -386,7 +389,8 @@ the other.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -395,6 +399,9 @@ the other.</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Nodes_Sources_AudioSourceNode_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo.</p>
+</div>
 
 
 
@@ -403,7 +410,7 @@ the other.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Sources/AudioSourceNode.cs/#L14" class="edit-link">Edit this page</a>
         </div>
 
 

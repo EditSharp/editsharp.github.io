@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class AudioClip | EditSharp ">
       
-      <meta name="description" content="The only concrete audible Clip type — mirrors VideoClip exactly, one domain over. What used to be AudioClip&#39;s own flat Source property and the distinct TimelineAudioClip Clip subtype are now InputNode types wired into this class&#39;s single Audio-domain Graph — see the static factory methods below and EditSharp.Components.Nodes.Sources. Also new in this rewrite: CreateTone, wrapping the brand-new ToneGeneratorInputNode (there was no synthesized-tone clip type at all before this).">
+      <meta name="description" content="A clip that plays sound: its graph&#39;s inputs, through its effects.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Clips_AudioClip" data-uid="EditSharp.Components.Clips.AudioClip" class="text-break">
-Class AudioClip  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L22"><i class="bi bi-code-slash"></i></a>
+Class AudioClip  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,15 +97,7 @@ Class AudioClip  <a class="header-action link-secondary" title="View source" hre
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>The only concrete audible Clip type — mirrors VideoClip exactly, one
-domain over. What used to be AudioClip's own flat Source property
-and the distinct TimelineAudioClip Clip subtype are now InputNode
-types wired into this class's single Audio-domain Graph — see
-the static factory methods below and
-EditSharp.Components.Nodes.Sources. Also new
-in this rewrite: CreateTone, wrapping the brand-new
-ToneGeneratorInputNode (there was no synthesized-tone clip type at
-all before this).</p>
+  <div class="markdown summary"><p>A clip that plays sound: its graph's inputs, through its effects.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -261,6 +253,9 @@ all before this).</p>
 
 
 
+  <h2 id="EditSharp_Components_Clips_AudioClip_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>It goes on an <a class="xref" href="EditSharp.Components.Channels.AudioChannel.html">AudioChannel</a>. The factories build the usual graph: the source, then a gain.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -271,12 +266,10 @@ all before this).</p>
 
   <h3 id="EditSharp_Components_Clips_AudioClip_Graph" data-uid="EditSharp.Components.Clips.AudioClip.Graph">
   Graph
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>A clip's single Graph, fixed to this clip's own
-NodeDomain at construction (Image for VideoClip, Audio for
-AudioClip) — see this class's own remarks.</p>
+  <div class="markdown level1 summary"><p>The clip's content and effects.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -305,7 +298,7 @@ AudioClip) — see this class's own remarks.</p>
 
   <h3 id="EditSharp_Components_Clips_AudioClip_PreservePitch" data-uid="EditSharp.Components.Clips.AudioClip.PreservePitch">
   PreservePitch
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>How the clip keeps its pitch when Speed isn't 1x.</p>
@@ -342,10 +335,10 @@ public PitchPreservation PreservePitch { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_AudioClip_CreateCustom_EditSharp_Components_Nodes_Graph_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.Clips.AudioClip.CreateCustom(EditSharp.Components.Nodes.Graph,System.TimeSpan,System.TimeSpan)">
   CreateCustom(Graph, TimeSpan, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Escape hatch for a fully custom graph — see VideoClip.CreateCustom's own remarks.</p>
+  <div class="markdown level1 summary"><p>A clip with a graph you've built, such as one with several inputs mixed together.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -356,17 +349,21 @@ public PitchPreservation PreservePitch { get; set; }</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>graph</code> <a class="xref" href="EditSharp.Components.Nodes.Graph.html">Graph</a></dt>
-    <dd></dd>
+    <dd><p>The clip's graph; start one with <a class="xref" href="EditSharp.Components.Nodes.Graph.html#EditSharp_Components_Nodes_Graph_CreateEmptyAudioGraph">CreateEmptyAudioGraph()</a>.</p>
+</dd>
     <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Where the clip starts on the timeline.</p>
+</dd>
     <dt><code>duration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>How long it lasts.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Clips.AudioClip.html">AudioClip</a></dt>
-    <dd></dd>
+    <dd><p>The clip.</p>
+</dd>
   </dl>
 
 
@@ -375,7 +372,16 @@ public PitchPreservation PreservePitch { get; set; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_AudioClip_CreateCustom_EditSharp_Components_Nodes_Graph_System_TimeSpan_System_TimeSpan__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The clip isn't placed; add it to a channel. Nothing is recorded in history.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">graph</code> isn't an audio graph.</p>
+</dd>
+  </dl>
 
 
 
@@ -383,10 +389,11 @@ public PitchPreservation PreservePitch { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_AudioClip_CreateFromSource_EditSharp_Components_Sources_Audio_AudioSource_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.Clips.AudioClip.CreateFromSource(EditSharp.Components.Sources.Audio.AudioSource,System.TimeSpan,System.TimeSpan)">
   CreateFromSource(AudioSource, TimeSpan, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>A clip playing a source.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -396,17 +403,21 @@ public PitchPreservation PreservePitch { get; set; }</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>source</code> <a class="xref" href="EditSharp.Components.Sources.Audio.AudioSource.html">AudioSource</a></dt>
-    <dd></dd>
+    <dd><p>What the clip plays.</p>
+</dd>
     <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Where the clip starts on the timeline.</p>
+</dd>
     <dt><code>duration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>How long it lasts.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Clips.AudioClip.html">AudioClip</a></dt>
-    <dd></dd>
+    <dd><p>The clip.</p>
+</dd>
   </dl>
 
 
@@ -415,6 +426,9 @@ public PitchPreservation PreservePitch { get; set; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_AudioClip_CreateFromSource_EditSharp_Components_Sources_Audio_AudioSource_System_TimeSpan_System_TimeSpan__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The clip isn't placed; add it to a channel. Nothing is recorded in history.</p>
+</div>
 
 
 
@@ -423,10 +437,11 @@ public PitchPreservation PreservePitch { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_AudioClip_CreateTimelineEmbed_EditSharp_Components_Timeline_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.Clips.AudioClip.CreateTimelineEmbed(EditSharp.Components.Timeline,System.TimeSpan,System.TimeSpan)">
   CreateTimelineEmbed(Timeline, TimeSpan, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>A clip playing another timeline's mixed audio.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -436,17 +451,21 @@ public PitchPreservation PreservePitch { get; set; }</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>timeline</code> <a class="xref" href="EditSharp.Components.Timeline.html">Timeline</a></dt>
-    <dd></dd>
+    <dd><p>The timeline to play.</p>
+</dd>
     <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Where the clip starts on the timeline.</p>
+</dd>
     <dt><code>duration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>How long it lasts.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Clips.AudioClip.html">AudioClip</a></dt>
-    <dd></dd>
+    <dd><p>The clip.</p>
+</dd>
   </dl>
 
 
@@ -455,6 +474,9 @@ public PitchPreservation PreservePitch { get; set; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_AudioClip_CreateTimelineEmbed_EditSharp_Components_Timeline_System_TimeSpan_System_TimeSpan__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The clip isn't placed; add it to a channel. Nothing is recorded in history.</p>
+</div>
 
 
 
@@ -463,10 +485,11 @@ public PitchPreservation PreservePitch { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_AudioClip_CreateTone_System_TimeSpan_System_TimeSpan_EditSharp_Components_Sources_Audio_Waveform_System_Single_System_Single_" data-uid="EditSharp.Components.Clips.AudioClip.CreateTone(System.TimeSpan,System.TimeSpan,EditSharp.Components.Sources.Audio.Waveform,System.Single,System.Single)">
   CreateTone(TimeSpan, TimeSpan, Waveform, float, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>A clip playing a synthesized tone; see <a class="xref" href="EditSharp.Components.Sources.Audio.ToneAudioSource.html">ToneAudioSource</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -476,21 +499,27 @@ public PitchPreservation PreservePitch { get; set; }</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>Where the clip starts on the timeline.</p>
+</dd>
     <dt><code>duration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>How long it lasts.</p>
+</dd>
     <dt><code>waveform</code> <a class="xref" href="EditSharp.Components.Sources.Audio.Waveform.html">Waveform</a></dt>
-    <dd></dd>
+    <dd><p>The shape of the wave.</p>
+</dd>
     <dt><code>frequencyHz</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><p>The pitch, in hertz.</p>
+</dd>
     <dt><code>amplitude</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dd><p>The volume, from 0 (silent) to 1 (full scale).</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Clips.AudioClip.html">AudioClip</a></dt>
-    <dd></dd>
+    <dd><p>The clip.</p>
+</dd>
   </dl>
 
 
@@ -499,6 +528,9 @@ public PitchPreservation PreservePitch { get; set; }</code></pre>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_AudioClip_CreateTone_System_TimeSpan_System_TimeSpan_EditSharp_Components_Sources_Audio_Waveform_System_Single_System_Single__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The clip isn't placed; add it to a channel. Nothing is recorded in history.</p>
+</div>
 
 
 
@@ -507,11 +539,10 @@ public PitchPreservation PreservePitch { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_AudioClip_Duplicate" data-uid="EditSharp.Components.Clips.AudioClip.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L76"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Deep copy — does NOT copy LinkGroupId/Channel (a duplicate
-starts unlinked and unplaced; the caller decides where it goes).</p>
+  <div class="markdown level1 summary"><p>A deep copy with the same name, times and speed, not placed and not linked.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -523,7 +554,8 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="EditSharp.Components.Clips.AudioClip.html">AudioClip</a></dt>
-    <dd></dd>
+    <dd><p>The copy.</p>
+</dd>
   </dl>
 
 
@@ -532,6 +564,9 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
 
 
 
+  <h4 class="section" id="EditSharp_Components_Clips_AudioClip_Duplicate_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Nothing is recorded in history.</p>
+</div>
 
 
 
@@ -540,7 +575,7 @@ starts unlinked and unplaced; the caller decides where it goes).</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L22" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/AudioClip.cs/#L13" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IEditSharpLogger | EditSharp ">
       
-      <meta name="description" content="Minimal logging seam so EditSharp doesn&#39;t assume Console, a specific logging framework, or any other ambient logger exists in the host process. Adapt to Microsoft.Extensions.Logging, Serilog, etc. with a one-line wrapper — e.g. msg =&amp;gt; _logger.LogInformation(msg).">
+      <meta name="description" content="Where EditSharp sends log messages. Wrap your own logging framework in it.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_IEditSharpLogger" data-uid="EditSharp.IEditSharpLogger" class="text-break">
-Interface IEditSharpLogger  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L338"><i class="bi bi-code-slash"></i></a>
+Interface IEditSharpLogger  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L173"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,10 +97,7 @@ Interface IEditSharpLogger  <a class="header-action link-secondary" title="View 
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Minimal logging seam so EditSharp doesn't assume Console, a specific
-logging framework, or any other ambient logger exists in the host
-process. Adapt to Microsoft.Extensions.Logging, Serilog, etc. with a
-one-line wrapper — e.g. <code>msg =&gt; _logger.LogInformation(msg)</code>.</p>
+  <div class="markdown summary"><p>Where EditSharp sends log messages. Wrap your own logging framework in it.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -118,6 +115,9 @@ one-line wrapper — e.g. <code>msg =&gt; _logger.LogInformation(msg)</code>.</p
 
 
 
+  <h2 id="EditSharp_IEditSharpLogger_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>For Microsoft.Extensions.Logging, for example, <a class="xref" href="EditSharp.IEditSharpLogger.html#EditSharp_IEditSharpLogger_Log_System_String_">Log(string)</a> can call <code>_logger.LogInformation(message)</code>.</p>
+</div>
 
 
   <h2 class="section" id="methods">Methods
@@ -128,10 +128,11 @@ one-line wrapper — e.g. <code>msg =&gt; _logger.LogInformation(msg)</code>.</p
 
   <h3 id="EditSharp_IEditSharpLogger_Log_System_String_" data-uid="EditSharp.IEditSharpLogger.Log(System.String)">
   Log(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L342"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L177"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Information a user cares about, such as a render finishing.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -141,7 +142,8 @@ one-line wrapper — e.g. <code>msg =&gt; _logger.LogInformation(msg)</code>.</p
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The message.</p>
+</dd>
   </dl>
 
 
@@ -159,10 +161,11 @@ one-line wrapper — e.g. <code>msg =&gt; _logger.LogInformation(msg)</code>.</p
 
   <h3 id="EditSharp_IEditSharpLogger_LogError_System_String_" data-uid="EditSharp.IEditSharpLogger.LogError(System.String)">
   LogError(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L354"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L189"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>A failure that stopped an operation, such as ffmpeg crashing mid-render.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -172,7 +175,8 @@ one-line wrapper — e.g. <code>msg =&gt; _logger.LogInformation(msg)</code>.</p
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The message.</p>
+</dd>
   </dl>
 
 
@@ -190,10 +194,11 @@ one-line wrapper — e.g. <code>msg =&gt; _logger.LogInformation(msg)</code>.</p
 
   <h3 id="EditSharp_IEditSharpLogger_LogVerbose_System_String_" data-uid="EditSharp.IEditSharpLogger.LogVerbose(System.String)">
   LogVerbose(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L346"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L181"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Step-by-step detail for debugging, such as each rendered frame.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -203,7 +208,8 @@ one-line wrapper — e.g. <code>msg =&gt; _logger.LogInformation(msg)</code>.</p
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The message.</p>
+</dd>
   </dl>
 
 
@@ -221,10 +227,11 @@ one-line wrapper — e.g. <code>msg =&gt; _logger.LogInformation(msg)</code>.</p
 
   <h3 id="EditSharp_IEditSharpLogger_LogWarning_System_String_" data-uid="EditSharp.IEditSharpLogger.LogWarning(System.String)">
   LogWarning(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L350"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L185"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>A problem that was worked around, such as falling back from the GPU.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -234,7 +241,8 @@ one-line wrapper — e.g. <code>msg =&gt; _logger.LogInformation(msg)</code>.</p
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The message.</p>
+</dd>
   </dl>
 
 
@@ -252,7 +260,7 @@ one-line wrapper — e.g. <code>msg =&gt; _logger.LogInformation(msg)</code>.</p
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L338" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/EditSharpConfig.cs/#L173" class="edit-link">Edit this page</a>
         </div>
 
 

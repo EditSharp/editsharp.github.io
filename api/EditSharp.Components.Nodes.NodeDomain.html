@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Enum NodeDomain | EditSharp ">
       
-      <meta name="description" content="Which domain a graph&#39;s ports may use — see Graph.AddNode.">
+      <meta name="description" content="Which kind of signal a graph carries; a node with ports of the other kind can&#39;t be added.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -90,7 +90,7 @@
 
 
   <h1 id="EditSharp_Components_Nodes_NodeDomain" data-uid="EditSharp.Components.Nodes.NodeDomain" class="text-break">
-Enum NodeDomain  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L50"><i class="bi bi-code-slash"></i></a>
+Enum NodeDomain  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L88"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,7 +98,7 @@ Enum NodeDomain  <a class="header-action link-secondary" title="View source" hre
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Which domain a graph's ports may use — see Graph.AddNode.</p>
+  <div class="markdown summary"><p>Which kind of signal a graph carries; a node with ports of the other kind can't be added.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -119,10 +119,12 @@ Enum NodeDomain  <a class="header-action link-secondary" title="View source" hre
   <dl class="parameters">
     <dt id="EditSharp_Components_Nodes_NodeDomain_Audio"><code>Audio = 1</code></dt>
   
-  <dd></dd>
+  <dd><p>An audio clip's graph: Audio and Value ports.</p>
+</dd>
     <dt id="EditSharp_Components_Nodes_NodeDomain_Image"><code>Image = 0</code></dt>
   
-  <dd></dd>
+  <dd><p>A video clip's graph: Image, Mask and Value ports.</p>
+</dd>
   </dl>
 
 
@@ -130,7 +132,7 @@ Enum NodeDomain  <a class="header-action link-secondary" title="View source" hre
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L50" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L88" class="edit-link">Edit this page</a>
         </div>
 
 

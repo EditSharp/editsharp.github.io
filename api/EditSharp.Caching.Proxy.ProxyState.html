@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Enum ProxyState | EditSharp ">
       
-      
+      <meta name="description" content="Where a file&#39;s proxy is in its life.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -90,7 +90,7 @@
 
 
   <h1 id="EditSharp_Caching_Proxy_ProxyState" data-uid="EditSharp.Caching.Proxy.ProxyState" class="text-break">
-Enum ProxyState  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L20"><i class="bi bi-code-slash"></i></a>
+Enum ProxyState  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -98,7 +98,8 @@ Enum ProxyState  <a class="header-action link-secondary" title="View source" hre
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Where a file's proxy is in its life.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -118,24 +119,27 @@ Enum ProxyState  <a class="header-action link-secondary" title="View source" hre
   <dl class="parameters">
     <dt id="EditSharp_Caching_Proxy_ProxyState_Building"><code>Building = 2</code></dt>
   
-  <dd></dd>
+  <dd><p>Being built; readable up to <a class="xref" href="EditSharp.Caching.Proxy.ProxyStatus.html#EditSharp_Caching_Proxy_ProxyStatus_AvailableUpTo">AvailableUpTo</a>.</p>
+</dd>
     <dt id="EditSharp_Caching_Proxy_ProxyState_Complete"><code>Complete = 4</code></dt>
   
-  <dd></dd>
+  <dd><p>Built in full.</p>
+</dd>
     <dt id="EditSharp_Caching_Proxy_ProxyState_Failed"><code>Failed = 5</code></dt>
   
-  <dd><p>The last build failed. Anything it wrote before failing stays readable up to AvailableUpTo.</p>
+  <dd><p>The last build failed. Anything it wrote before failing stays readable up to <a class="xref" href="EditSharp.Caching.Proxy.ProxyStatus.html#EditSharp_Caching_Proxy_ProxyStatus_AvailableUpTo">AvailableUpTo</a>.</p>
 </dd>
     <dt id="EditSharp_Caching_Proxy_ProxyState_NotCached"><code>NotCached = 0</code></dt>
   
-  <dd></dd>
+  <dd><p>No proxy exists and none is queued.</p>
+</dd>
     <dt id="EditSharp_Caching_Proxy_ProxyState_Partial"><code>Partial = 3</code></dt>
   
-  <dd><p>A build stopped part-way (cancelled, or the app exited). Readable up to AvailableUpTo; the next BuildAsync resumes it.</p>
+  <dd><p>A build stopped part-way (cancelled, or the app exited). Readable up to <a class="xref" href="EditSharp.Caching.Proxy.ProxyStatus.html#EditSharp_Caching_Proxy_ProxyStatus_AvailableUpTo">AvailableUpTo</a>; the next build resumes it.</p>
 </dd>
     <dt id="EditSharp_Caching_Proxy_ProxyState_Queued"><code>Queued = 1</code></dt>
   
-  <dd><p>Waiting for a build slot (see EditSharpConfig.MaxConcurrentProxyBuilds).</p>
+  <dd><p>Waiting for a build slot (see <a class="xref" href="EditSharp.EditSharpConfig.html#EditSharp_EditSharpConfig_MaxConcurrentProxyBuilds">MaxConcurrentProxyBuilds</a>).</p>
 </dd>
   </dl>
 
@@ -144,7 +148,7 @@ Enum ProxyState  <a class="header-action link-secondary" title="View source" hre
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L20" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L22" class="edit-link">Edit this page</a>
         </div>
 
 
