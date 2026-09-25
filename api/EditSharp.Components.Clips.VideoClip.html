@@ -156,6 +156,9 @@ Class VideoClip  <a class="header-action link-secondary" title="View source" hre
       <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_MinimumDuration">Clip.MinimumDuration</a>
     </div>
     <div>
+      <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_CreateClipsFromMedia_EditSharp_Components_Media_VideoMedia_System_TimeSpan_System_TimeSpan_">Clip.CreateClipsFromMedia(VideoMedia, TimeSpan, TimeSpan)</a>
+    </div>
+    <div>
       <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_HeadExtendLimit">Clip.HeadExtendLimit</a>
     </div>
     <div>
@@ -254,7 +257,7 @@ Class VideoClip  <a class="header-action link-secondary" title="View source" hre
 
 
   <h2 id="EditSharp_Components_Clips_VideoClip_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>It goes on a <a class="xref" href="EditSharp.Components.Channels.VideoChannel.html">VideoChannel</a>. The factories build the usual graph: the source, then a tint, then a transform.</p>
+  <div class="markdown level0 remarks"><p>It goes on a <a class="xref" href="EditSharp.Components.Channels.VideoChannel.html">VideoChannel</a>. The factories build the usual graph: the input, then a tint, then a transform.</p>
 </div>
 
 
@@ -302,7 +305,7 @@ Class VideoClip  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="EditSharp_Components_Clips_VideoClip_CreateColorGenerator_SkiaSharp_SKColor_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.Clips.VideoClip.CreateColorGenerator(SkiaSharp.SKColor,System.TimeSpan,System.TimeSpan)">
   CreateColorGenerator(SKColor, TimeSpan, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/VideoClip.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/VideoClip.cs/#L73"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A clip filling the frame with one colour.</p>
@@ -350,7 +353,7 @@ Class VideoClip  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="EditSharp_Components_Clips_VideoClip_CreateCustom_EditSharp_Components_Nodes_Graph_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.Clips.VideoClip.CreateCustom(EditSharp.Components.Nodes.Graph,System.TimeSpan,System.TimeSpan)">
   CreateCustom(Graph, TimeSpan, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/VideoClip.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/VideoClip.cs/#L108"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A clip with a graph you've built, such as one with several inputs merged together.</p>
@@ -400,24 +403,72 @@ Class VideoClip  <a class="header-action link-secondary" title="View source" hre
 
 
 
-  <a id="EditSharp_Components_Clips_VideoClip_CreateFromSource_" data-uid="EditSharp.Components.Clips.VideoClip.CreateFromSource*"></a>
+  <a id="EditSharp_Components_Clips_VideoClip_CreateFromInput_" data-uid="EditSharp.Components.Clips.VideoClip.CreateFromInput*"></a>
 
-  <h3 id="EditSharp_Components_Clips_VideoClip_CreateFromSource_EditSharp_Components_Sources_Video_VideoSource_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.Clips.VideoClip.CreateFromSource(EditSharp.Components.Sources.Video.VideoSource,System.TimeSpan,System.TimeSpan)">
-  CreateFromSource(VideoSource, TimeSpan, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/VideoClip.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_VideoClip_CreateFromInput_EditSharp_Components_Nodes_Input_VideoInputNode_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.Clips.VideoClip.CreateFromInput(EditSharp.Components.Nodes.Input.VideoInputNode,System.TimeSpan,System.TimeSpan)">
+  CreateFromInput(VideoInputNode, TimeSpan, TimeSpan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/VideoClip.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>A clip showing a source.</p>
+  <div class="markdown level1 summary"><p>A clip showing an input node of any kind, such as a generator you've set up.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static VideoClip CreateFromSource(VideoSource source, TimeSpan start, TimeSpan duration)</code></pre>
+    <pre><code class="lang-csharp hljs">public static VideoClip CreateFromInput(VideoInputNode input, TimeSpan start, TimeSpan duration)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>source</code> <a class="xref" href="EditSharp.Components.Sources.Video.VideoSource.html">VideoSource</a></dt>
+    <dt><code>input</code> <a class="xref" href="EditSharp.Components.Nodes.Input.VideoInputNode.html">VideoInputNode</a></dt>
+    <dd><p>Where the frames come from.</p>
+</dd>
+    <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd><p>Where the clip starts on the timeline.</p>
+</dd>
+    <dt><code>duration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd><p>How long it lasts.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Clips.VideoClip.html">VideoClip</a></dt>
+    <dd><p>The clip.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="EditSharp_Components_Clips_VideoClip_CreateFromInput_EditSharp_Components_Nodes_Input_VideoInputNode_System_TimeSpan_System_TimeSpan__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The clip isn't placed; add it to a channel. Nothing is recorded in history.</p>
+</div>
+
+
+
+
+  <a id="EditSharp_Components_Clips_VideoClip_CreateFromMedia_" data-uid="EditSharp.Components.Clips.VideoClip.CreateFromMedia*"></a>
+
+  <h3 id="EditSharp_Components_Clips_VideoClip_CreateFromMedia_EditSharp_Components_Media_VideoMedia_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.Clips.VideoClip.CreateFromMedia(EditSharp.Components.Media.VideoMedia,System.TimeSpan,System.TimeSpan)">
+  CreateFromMedia(VideoMedia, TimeSpan, TimeSpan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/VideoClip.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A clip showing a media.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static VideoClip CreateFromMedia(VideoMedia media, TimeSpan start, TimeSpan duration)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>media</code> <a class="xref" href="EditSharp.Components.Media.VideoMedia.html">VideoMedia</a></dt>
     <dd><p>What the clip shows.</p>
 </dd>
     <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
@@ -441,7 +492,7 @@ Class VideoClip  <a class="header-action link-secondary" title="View source" hre
 
 
 
-  <h4 class="section" id="EditSharp_Components_Clips_VideoClip_CreateFromSource_EditSharp_Components_Sources_Video_VideoSource_System_TimeSpan_System_TimeSpan__remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Components_Clips_VideoClip_CreateFromMedia_EditSharp_Components_Media_VideoMedia_System_TimeSpan_System_TimeSpan__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>The clip isn't placed; add it to a channel. Nothing is recorded in history.</p>
 </div>
 
@@ -452,10 +503,10 @@ Class VideoClip  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="EditSharp_Components_Clips_VideoClip_CreateNoise_System_TimeSpan_System_TimeSpan_System_Nullable_System_Int32__System_Single_System_Single_" data-uid="EditSharp.Components.Clips.VideoClip.CreateNoise(System.TimeSpan,System.TimeSpan,System.Nullable{System.Int32},System.Single,System.Single)">
   CreateNoise(TimeSpan, TimeSpan, int?, float, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/VideoClip.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/VideoClip.cs/#L84"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>A clip filling the frame with changing noise; see <a class="xref" href="EditSharp.Components.Sources.Video.NoiseVideoSource.html">NoiseVideoSource</a>.</p>
+  <div class="markdown level1 summary"><p>A clip filling the frame with changing noise; see <a class="xref" href="EditSharp.Components.Nodes.Input.NoiseNode.html">NoiseNode</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -504,12 +555,12 @@ Class VideoClip  <a class="header-action link-secondary" title="View source" hre
 
   <a id="EditSharp_Components_Clips_VideoClip_CreateText_" data-uid="EditSharp.Components.Clips.VideoClip.CreateText*"></a>
 
-  <h3 id="EditSharp_Components_Clips_VideoClip_CreateText_System_String_System_TimeSpan_System_TimeSpan_System_String_System_Int32_System_Boolean_EditSharp_Components_Sources_Video_HorizontalTextAlignment_System_Single_" data-uid="EditSharp.Components.Clips.VideoClip.CreateText(System.String,System.TimeSpan,System.TimeSpan,System.String,System.Int32,System.Boolean,EditSharp.Components.Sources.Video.HorizontalTextAlignment,System.Single)">
+  <h3 id="EditSharp_Components_Clips_VideoClip_CreateText_System_String_System_TimeSpan_System_TimeSpan_System_String_System_Int32_System_Boolean_EditSharp_Components_Nodes_Input_HorizontalTextAlignment_System_Single_" data-uid="EditSharp.Components.Clips.VideoClip.CreateText(System.String,System.TimeSpan,System.TimeSpan,System.String,System.Int32,System.Boolean,EditSharp.Components.Nodes.Input.HorizontalTextAlignment,System.Single)">
   CreateText(string, TimeSpan, TimeSpan, string, int, bool, HorizontalTextAlignment, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/VideoClip.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/VideoClip.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>A clip showing text; see <a class="xref" href="EditSharp.Components.Sources.Video.TextVideoSource.html">TextVideoSource</a>.</p>
+  <div class="markdown level1 summary"><p>A clip showing text; see <a class="xref" href="EditSharp.Components.Nodes.Input.TextNode.html">TextNode</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -537,7 +588,7 @@ Class VideoClip  <a class="header-action link-secondary" title="View source" hre
     <dt><code>italic</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Whether to use the font's italic.</p>
 </dd>
-    <dt><code>align</code> <a class="xref" href="EditSharp.Components.Sources.Video.HorizontalTextAlignment.html">HorizontalTextAlignment</a></dt>
+    <dt><code>align</code> <a class="xref" href="EditSharp.Components.Nodes.Input.HorizontalTextAlignment.html">HorizontalTextAlignment</a></dt>
     <dd><p>How lines line up across the text box.</p>
 </dd>
     <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
@@ -558,7 +609,7 @@ Class VideoClip  <a class="header-action link-secondary" title="View source" hre
 
 
 
-  <h4 class="section" id="EditSharp_Components_Clips_VideoClip_CreateText_System_String_System_TimeSpan_System_TimeSpan_System_String_System_Int32_System_Boolean_EditSharp_Components_Sources_Video_HorizontalTextAlignment_System_Single__remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Components_Clips_VideoClip_CreateText_System_String_System_TimeSpan_System_TimeSpan_System_String_System_Int32_System_Boolean_EditSharp_Components_Nodes_Input_HorizontalTextAlignment_System_Single__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>The clip isn't placed; add it to a channel. Nothing is recorded in history.</p>
 </div>
 
@@ -569,7 +620,7 @@ Class VideoClip  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="EditSharp_Components_Clips_VideoClip_CreateTimelineEmbed_EditSharp_Components_Timeline_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.Clips.VideoClip.CreateTimelineEmbed(EditSharp.Components.Timeline,System.TimeSpan,System.TimeSpan)">
   CreateTimelineEmbed(Timeline, TimeSpan, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/VideoClip.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/VideoClip.cs/#L98"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A clip showing another timeline's picture.</p>
@@ -617,7 +668,7 @@ Class VideoClip  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="EditSharp_Components_Clips_VideoClip_Duplicate" data-uid="EditSharp.Components.Clips.VideoClip.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/VideoClip.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/VideoClip.cs/#L117"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A deep copy with the same name, times and speed, not placed and not linked.</p>

@@ -428,7 +428,7 @@ transparent, and an unconnected audio input is silent.</p>
 
   <h3 id="EditSharp_Components_Nodes_Graph_AddNode_EditSharp_Components_Nodes_Node_" data-uid="EditSharp.Components.Nodes.Graph.AddNode(EditSharp.Components.Nodes.Node)">
   AddNode(Node)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L371"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L462"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a node, unconnected.</p>
@@ -473,7 +473,7 @@ transparent, and an unconnected audio input is silent.</p>
 
   <h3 id="EditSharp_Components_Nodes_Graph_Connect_System_Guid_System_String_System_Guid_System_String_" data-uid="EditSharp.Components.Nodes.Graph.Connect(System.Guid,System.String,System.Guid,System.String)">
   Connect(Guid, string, Guid, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L413"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L504"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Wires one node's output port to another's input port.</p>
@@ -680,7 +680,7 @@ transparent, and an unconnected audio input is silent.</p>
 
   <h3 id="EditSharp_Components_Nodes_Graph_Disconnect_EditSharp_Components_Nodes_Connection_" data-uid="EditSharp.Components.Nodes.Graph.Disconnect(EditSharp.Components.Nodes.Connection)">
   Disconnect(Connection)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L443"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L534"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes a connection; one that isn't in the graph is ignored.</p>
@@ -749,7 +749,7 @@ transparent, and an unconnected audio input is silent.</p>
 
   <h3 id="EditSharp_Components_Nodes_Graph_RemoveNode_EditSharp_Components_Nodes_Node_" data-uid="EditSharp.Components.Nodes.Graph.RemoveNode(EditSharp.Components.Nodes.Node)">
   RemoveNode(Node)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L389"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L480"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes a node and every connection to or from it.</p>
@@ -779,6 +779,68 @@ transparent, and an unconnected audio input is silent.</p>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
     <dd><p><code class="paramref">node</code> is the <a class="xref" href="EditSharp.Components.Nodes.Graph.html#EditSharp_Components_Nodes_Graph_OutputNode">OutputNode</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="EditSharp_Components_Nodes_Graph_ReplaceNode_" data-uid="EditSharp.Components.Nodes.Graph.ReplaceNode*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Graph_ReplaceNode_EditSharp_Components_Nodes_Node_EditSharp_Components_Nodes_Node_" data-uid="EditSharp.Components.Nodes.Graph.ReplaceNode(EditSharp.Components.Nodes.Node,EditSharp.Components.Nodes.Node)">
+  ReplaceNode(Node, Node)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Graph.cs/#L367"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Puts another node in a node's place, keeping its wires.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Node ReplaceNode(Node node, Node replacement)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
+    <dd><p>The node to replace.</p>
+</dd>
+    <dt><code>replacement</code> <a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
+    <dd><p>The node to put in its place; a node with only Value ports goes in either kind of graph.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
+    <dd><p><code class="paramref">replacement</code>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="EditSharp_Components_Nodes_Graph_ReplaceNode_EditSharp_Components_Nodes_Node_EditSharp_Components_Nodes_Node__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Every wire into or out of the old node moves to the port of the same name,
+type and direction on the replacement. A wired port the replacement lacks is
+opened through <a class="xref" href="EditSharp.Components.Nodes.IPortOpener.html">IPortOpener</a> when the replacement can open one;
+otherwise the replacement is refused before anything changes. A composite
+around this graph that exposes the old node's ports or properties exposes
+the replacement's instead, and stops exposing any it lacks. The replacement
+takes the old node's place in <a class="xref" href="EditSharp.Components.Nodes.Graph.html#EditSharp_Components_Nodes_Graph_Nodes">Nodes</a>; the old node is left
+unwired and out of the graph. Each change is recorded in the current History
+transaction.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">node</code> isn't in this graph, or <code class="paramref">replacement</code> is already in a graph.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p><code class="paramref">node</code> is the <a class="xref" href="EditSharp.Components.Nodes.Graph.html#EditSharp_Components_Nodes_Graph_OutputNode">OutputNode</a>; <code class="paramref">replacement</code> is an output node, or its ports are for the other kind of graph; a wired port has no counterpart on the replacement and it can't open one; or the replacement would embed a timeline in itself.</p>
 </dd>
   </dl>
 

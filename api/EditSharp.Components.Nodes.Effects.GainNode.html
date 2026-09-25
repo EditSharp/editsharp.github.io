@@ -102,7 +102,8 @@ Class GainNode  <a class="header-action link-secondary" title="View source" href
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class GainNode : Node</code></pre>
+    <pre><code class="lang-csharp hljs">[NodeKind(&quot;gain&quot;, DisplayName = &quot;Gain&quot;)]
+public sealed class GainNode : Node</code></pre>
   </div>
 
 
@@ -164,7 +165,7 @@ Class GainNode  <a class="header-action link-secondary" title="View source" href
 
   <h3 id="EditSharp_Components_Nodes_Effects_GainNode_Animatables" data-uid="EditSharp.Components.Nodes.Effects.GainNode.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Every keyframeable value the node owns.</p>
@@ -199,7 +200,7 @@ Class GainNode  <a class="header-action link-secondary" title="View source" href
 
   <h3 id="EditSharp_Components_Nodes_Effects_GainNode_Gain" data-uid="EditSharp.Components.Nodes.Effects.GainNode.Gain">
   Gain
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The volume as a multiplier: 0 is silent, 1 unchanged, 2 twice as loud.</p>
@@ -232,7 +233,7 @@ public Animatable&lt;float&gt; Gain { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_GainNode_Ports" data-uid="EditSharp.Components.Nodes.Effects.GainNode.Ports">
   Ports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The node's ports, fixed by its type.</p>
@@ -268,7 +269,7 @@ public Animatable&lt;float&gt; Gain { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_GainNode_Duplicate" data-uid="EditSharp.Components.Nodes.Effects.GainNode.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/GainNode.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Id</a>, so connections in the two graphs can't be confused.</p>

@@ -102,7 +102,8 @@ Class MathNode  <a class="header-action link-secondary" title="View source" href
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class MathNode : Node</code></pre>
+    <pre><code class="lang-csharp hljs">[NodeKind(&quot;math&quot;, DisplayName = &quot;Math&quot;)]
+public sealed class MathNode : Node</code></pre>
   </div>
 
 
@@ -171,7 +172,7 @@ MixModulation), which multiplies the node's own value by it.</p>
 
   <h3 id="EditSharp_Components_Nodes_Math_MathNode_Operation" data-uid="EditSharp.Components.Nodes.Math.MathNode.Operation">
   Operation
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/MathNode.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/MathNode.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>What to do with A and B.</p>
@@ -204,7 +205,7 @@ public MathOperation Operation { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Math_MathNode_Ports" data-uid="EditSharp.Components.Nodes.Math.MathNode.Ports">
   Ports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/MathNode.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/MathNode.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The node's ports, fixed by its type.</p>
@@ -240,7 +241,7 @@ public MathOperation Operation { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Math_MathNode_Duplicate" data-uid="EditSharp.Components.Nodes.Math.MathNode.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/MathNode.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Math/MathNode.cs/#L56"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Id</a>, so connections in the two graphs can't be confused.</p>

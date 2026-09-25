@@ -99,11 +99,11 @@ Namespaces
       <dd></dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Components.Nodes.Math.html">EditSharp.Components.Nodes.Math</a></dt>
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Input.html">EditSharp.Components.Nodes.Input</a></dt>
       <dd></dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Components.Nodes.Sources.html">EditSharp.Components.Nodes.Sources</a></dt>
+      <dt><a class="xref" href="EditSharp.Components.Nodes.Math.html">EditSharp.Components.Nodes.Math</a></dt>
       <dd></dd>
     </dl>
     <h3 id="classes">
@@ -146,12 +146,27 @@ Classes
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Nodes.InputNode.html">InputNode</a></dt>
-      <dd><p>A node that brings content into a graph, rather than taking it from upstream.</p>
+      <dd><p>A node that brings content into a graph, rather than taking it from upstream: a media file, a generator, another timeline.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
       <dd><p>One step in a clip's <span class="xref">EditSharp.Components.Nodes.Node.Graph</span>: a source, an effect, a mask or a value.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.NodeKindAttribute.html">NodeKindAttribute</a></dt>
+      <dd><p>Registers a concrete <a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a> for saving and loading under a stable id.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.NodeKindInfo.html">NodeKindInfo</a></dt>
+      <dd><p>A kind of node a picker can offer.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Nodes.NodeKinds.html">NodeKinds</a></dt>
+      <dd><p>The node kinds pickers offer, and switching a node from one kind to another.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -168,8 +183,8 @@ Classes
 Interfaces
 </h3>
     <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Components.Nodes.ITrimmableInput.html">ITrimmableInput</a></dt>
-      <dd><p>An input with an in-point that moves when its clip's head is trimmed.</p>
+      <dt><a class="xref" href="EditSharp.Components.Nodes.IPortOpener.html">IPortOpener</a></dt>
+      <dd><p>A node that can add ports on request, so <a class="xref" href="EditSharp.Components.Nodes.Graph.html#EditSharp_Components_Nodes_Graph_ReplaceNode_EditSharp_Components_Nodes_Node_EditSharp_Components_Nodes_Node_">ReplaceNode(Node, Node)</a> can wire it in place of a node with more ports than it declares.</p>
 </dd>
     </dl>
     <h3 id="enums">

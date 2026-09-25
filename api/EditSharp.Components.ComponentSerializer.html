@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ComponentSerializer | EditSharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ComponentSerializer | EditSharp ">
+      
+      <meta name="description" content="Saves and loads media and nodes as JSON.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_ComponentSerializer.md&amp;value=---%0Auid%3A%20EditSharp.Components.ComponentSerializer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EditSharp">
+            EditSharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EditSharp.Components.ComponentSerializer">
+
+
+
+  <h1 id="EditSharp_Components_ComponentSerializer" data-uid="EditSharp.Components.ComponentSerializer" class="text-break">
+Class ComponentSerializer  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/ComponentSerializer.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Saves and loads media and nodes as JSON.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ComponentSerializer</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ComponentSerializer</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="EditSharp_Components_ComponentSerializer_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Media and nodes are polymorphic, told apart by &quot;$kind&quot; holding the id from
+each kind's <a class="xref" href="EditSharp.Components.Media.MediaKindAttribute.html">MediaKindAttribute</a> or <a class="xref" href="EditSharp.Components.Nodes.NodeKindAttribute.html">NodeKindAttribute</a>;
+there's no central list to edit when a kind is added. Only kinds in the
+EditSharp assembly are found.</p>
+<p>
+A media saves its properties, its Id and its name as given, with any media it
+holds (a video's audio) written inside it under their own Ids. A node
+saves exactly its [Editable] properties: never its Id, which a loaded node
+gets fresh, nor a composite's inner graph, since graphs aren't saved yet.
+Property names are camelCase and TimeSpans are "c"-format strings
+(JsonSerializerDefaults.Web). Enums are saved as names, keyframed values
+carry their whole track, colours are "#AARRGGBB", a nested Timeline is
+saved as its Id, and a media held by a node is saved as its Id.
+</p>
+<p>
+Loading always runs with history suppressed, so a loaded object has no
+undo entries of its own.
+</p>
+</div>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="EditSharp_Components_ComponentSerializer_KindProperty" data-uid="EditSharp.Components.ComponentSerializer.KindProperty">
+  KindProperty
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/ComponentSerializer.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The JSON property that holds an object's kind id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string KindProperty = &quot;$kind&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="EditSharp_Components_ComponentSerializer_Options_" data-uid="EditSharp.Components.ComponentSerializer.Options*"></a>
+
+  <h3 id="EditSharp_Components_ComponentSerializer_Options" data-uid="EditSharp.Components.ComponentSerializer.Options">
+  Options
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/ComponentSerializer.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The options everything is saved and loaded with, read-only.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JsonSerializerOptions Options { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.jsonserializeroptions">JsonSerializerOptions</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="EditSharp_Components_ComponentSerializer_Options_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Use them directly, or chain their TypeInfoResolver into your own, to embed media or nodes in other JSON. A nested Timeline or a shared media can only be loaded through <a class="xref" href="EditSharp.Components.ComponentSerializer.html#EditSharp_Components_ComponentSerializer_Deserialize__1_System_String_System_Func_System_Guid_EditSharp_Components_Timeline__System_Func_System_Guid_EditSharp_Components_Media_IMedia__">Deserialize&lt;T&gt;(string, Func&lt;Guid, Timeline?&gt;?, Func&lt;Guid, IMedia?&gt;?)</a>, which supplies them.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="EditSharp_Components_ComponentSerializer_DeserializeMedia_" data-uid="EditSharp.Components.ComponentSerializer.DeserializeMedia*"></a>
+
+  <h3 id="EditSharp_Components_ComponentSerializer_DeserializeMedia_System_String_System_Func_System_Guid_EditSharp_Components_Timeline__" data-uid="EditSharp.Components.ComponentSerializer.DeserializeMedia(System.String,System.Func{System.Guid,EditSharp.Components.Timeline})">
+  DeserializeMedia(string, Func&lt;Guid, Timeline?&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/ComponentSerializer.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads a media of any kind.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IMedia DeserializeMedia(string json, Func&lt;Guid, Timeline?&gt;? timelines = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>json</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The saved media.</p>
+</dd>
+    <dt><code>timelines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>, <a class="xref" href="EditSharp.Components.Timeline.html">Timeline</a>&gt;</dt>
+    <dd><p>Finds a nested timeline by its Id, typically in the project being loaded; needed only when the media refers to one.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Media.IMedia.html">IMedia</a></dt>
+    <dd><p>The media.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.jsonexception">JsonException</a></dt>
+    <dd><p>The JSON isn't a media, or refers to a timeline <code class="paramref">timelines</code> doesn't find.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="EditSharp_Components_ComponentSerializer_DeserializeNode_" data-uid="EditSharp.Components.ComponentSerializer.DeserializeNode*"></a>
+
+  <h3 id="EditSharp_Components_ComponentSerializer_DeserializeNode_System_String_System_Func_System_Guid_EditSharp_Components_Timeline__System_Func_System_Guid_EditSharp_Components_Media_IMedia__" data-uid="EditSharp.Components.ComponentSerializer.DeserializeNode(System.String,System.Func{System.Guid,EditSharp.Components.Timeline},System.Func{System.Guid,EditSharp.Components.Media.IMedia})">
+  DeserializeNode(string, Func&lt;Guid, Timeline?&gt;?, Func&lt;Guid, IMedia?&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/ComponentSerializer.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads a node of any kind.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Node DeserializeNode(string json, Func&lt;Guid, Timeline?&gt;? timelines = null, Func&lt;Guid, IMedia?&gt;? media = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>json</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The saved node.</p>
+</dd>
+    <dt><code>timelines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>, <a class="xref" href="EditSharp.Components.Timeline.html">Timeline</a>&gt;</dt>
+    <dd><p>Finds a nested timeline by its Id, typically in the project being loaded; needed only when the node refers to one.</p>
+</dd>
+    <dt><code>media</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>, <a class="xref" href="EditSharp.Components.Media.IMedia.html">IMedia</a>&gt;</dt>
+    <dd><p>Finds a shared media by its Id, typically in the project being loaded; needed only when the node refers to one.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
+    <dd><p>The node, with a new Id.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.jsonexception">JsonException</a></dt>
+    <dd><p>The JSON isn't a node, or refers to a timeline or media the resolvers don't find.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="EditSharp_Components_ComponentSerializer_Deserialize_" data-uid="EditSharp.Components.ComponentSerializer.Deserialize*"></a>
+
+  <h3 id="EditSharp_Components_ComponentSerializer_Deserialize__1_System_String_System_Func_System_Guid_EditSharp_Components_Timeline__System_Func_System_Guid_EditSharp_Components_Media_IMedia__" data-uid="EditSharp.Components.ComponentSerializer.Deserialize``1(System.String,System.Func{System.Guid,EditSharp.Components.Timeline},System.Func{System.Guid,EditSharp.Components.Media.IMedia})">
+  Deserialize&lt;T&gt;(string, Func&lt;Guid, Timeline?&gt;?, Func&lt;Guid, IMedia?&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/ComponentSerializer.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads an object of a given type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T Deserialize&lt;T&gt;(string json, Func&lt;Guid, Timeline?&gt;? timelines = null, Func&lt;Guid, IMedia?&gt;? media = null) where T : class</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>json</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The saved object.</p>
+</dd>
+    <dt><code>timelines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>, <a class="xref" href="EditSharp.Components.Timeline.html">Timeline</a>&gt;</dt>
+    <dd><p>Finds a nested timeline by its Id, typically in the project being loaded; needed only when the object refers to one.</p>
+</dd>
+    <dt><code>media</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>, <a class="xref" href="EditSharp.Components.Media.IMedia.html">IMedia</a>&gt;</dt>
+    <dd><p>Finds a shared media by its Id, typically in the project being loaded; needed only when the object refers to one.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>The object.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>The type the object must be.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.json.jsonexception">JsonException</a></dt>
+    <dd><p>The JSON isn't a <code class="typeparamref">T</code>, or refers to a timeline or media the resolvers don't find.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="EditSharp_Components_ComponentSerializer_Serialize_" data-uid="EditSharp.Components.ComponentSerializer.Serialize*"></a>
+
+  <h3 id="EditSharp_Components_ComponentSerializer_Serialize_EditSharp_Components_Media_IMedia_" data-uid="EditSharp.Components.ComponentSerializer.Serialize(EditSharp.Components.Media.IMedia)">
+  Serialize(IMedia)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/ComponentSerializer.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves a media.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Serialize(IMedia media)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>media</code> <a class="xref" href="EditSharp.Components.Media.IMedia.html">IMedia</a></dt>
+    <dd><p>The media to save.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The media as JSON.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_ComponentSerializer_Serialize_" data-uid="EditSharp.Components.ComponentSerializer.Serialize*"></a>
+
+  <h3 id="EditSharp_Components_ComponentSerializer_Serialize_EditSharp_Components_Nodes_Node_" data-uid="EditSharp.Components.ComponentSerializer.Serialize(EditSharp.Components.Nodes.Node)">
+  Serialize(Node)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/ComponentSerializer.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves a node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Serialize(Node node)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>node</code> <a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
+    <dd><p>The node to save.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The node as JSON.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/ComponentSerializer.cs/#L37" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

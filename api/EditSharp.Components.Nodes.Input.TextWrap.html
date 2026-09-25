@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Enum HorizontalTextAlignment | EditSharp </title>
+      <title>Enum TextWrap | EditSharp </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Enum HorizontalTextAlignment | EditSharp ">
+      <meta name="title" content="Enum TextWrap | EditSharp ">
       
-      <meta name="description" content="How lines of text line up across their box.">
+      <meta name="description" content="Where text breaks onto a new line when it reaches the width of its box.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Sources_Video_HorizontalTextAlignment.md&amp;value=---%0Auid%3A%20EditSharp.Components.Sources.Video.HorizontalTextAlignment%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Nodes_Input_TextWrap.md&amp;value=---%0Auid%3A%20EditSharp.Components.Nodes.Input.TextWrap%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,26 +84,26 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="EditSharp.Components.Sources.Video.HorizontalTextAlignment">
+        <article data-uid="EditSharp.Components.Nodes.Input.TextWrap">
 
 
 
 
-  <h1 id="EditSharp_Components_Sources_Video_HorizontalTextAlignment" data-uid="EditSharp.Components.Sources.Video.HorizontalTextAlignment" class="text-break">
-Enum HorizontalTextAlignment  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  <h1 id="EditSharp_Components_Nodes_Input_TextWrap" data-uid="EditSharp.Components.Nodes.Input.TextWrap" class="text-break">
+Enum TextWrap  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Input/TextNode.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a>.<a class="xref" href="EditSharp.Components.Sources.html">Sources</a>.<a class="xref" href="EditSharp.Components.Sources.Video.html">Video</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a>.<a class="xref" href="EditSharp.Components.Nodes.html">Nodes</a>.<a class="xref" href="EditSharp.Components.Nodes.Input.html">Input</a></dd></dl>
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>How lines of text line up across their box.</p>
+  <div class="markdown summary"><p>Where text breaks onto a new line when it reaches the width of its box.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum HorizontalTextAlignment</code></pre>
+    <pre><code class="lang-csharp hljs">public enum TextWrap</code></pre>
   </div>
 
 
@@ -117,21 +117,17 @@ Enum HorizontalTextAlignment  <a class="header-action link-secondary" title="Vie
   <h2 id="fields">Fields
 </h2>
   <dl class="parameters">
-    <dt id="EditSharp_Components_Sources_Video_HorizontalTextAlignment_Center"><code>Center = 1</code></dt>
+    <dt id="EditSharp_Components_Nodes_Input_TextWrap_Off"><code>Off = 0</code></dt>
   
-  <dd><p>Lines are centred in the box.</p>
+  <dd><p>Lines break only at line breaks in the text.</p>
 </dd>
-    <dt id="EditSharp_Components_Sources_Video_HorizontalTextAlignment_Justify"><code>Justify = 3</code></dt>
+    <dt id="EditSharp_Components_Nodes_Input_TextWrap_WrapCharacters"><code>WrapCharacters = 2</code></dt>
   
-  <dd><p>Wrapped lines stretch to the box's full width; a paragraph's last line stays left.</p>
+  <dd><p>Lines break between any two characters.</p>
 </dd>
-    <dt id="EditSharp_Components_Sources_Video_HorizontalTextAlignment_Left"><code>Left = 0</code></dt>
+    <dt id="EditSharp_Components_Nodes_Input_TextWrap_WrapWords"><code>WrapWords = 1</code></dt>
   
-  <dd><p>Lines start at the box's left edge.</p>
-</dd>
-    <dt id="EditSharp_Components_Sources_Video_HorizontalTextAlignment_Right"><code>Right = 2</code></dt>
-  
-  <dd><p>Lines end at the box's right edge.</p>
+  <dd><p>Lines break between words; a word wider than the box breaks between characters.</p>
 </dd>
   </dl>
 
@@ -140,7 +136,7 @@ Enum HorizontalTextAlignment  <a class="header-action link-secondary" title="Vie
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L98" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Input/TextNode.cs/#L16" class="edit-link">Edit this page</a>
         </div>
 
 

@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Enum SourceUnavailableReason | EditSharp </title>
+      <title>Interface IPortOpener | EditSharp </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Enum SourceUnavailableReason | EditSharp ">
+      <meta name="title" content="Interface IPortOpener | EditSharp ">
       
-      <meta name="description" content="Why a source can&#39;t provide content right now; compositing picks what to show from this.">
+      <meta name="description" content="A node that can add ports on request, so  can wire it in place of a node with more ports than it declares.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Sources_SourceUnavailableReason.md&amp;value=---%0Auid%3A%20EditSharp.Components.Sources.SourceUnavailableReason%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Nodes_IPortOpener.md&amp;value=---%0Auid%3A%20EditSharp.Components.Nodes.IPortOpener%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,26 +84,25 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="EditSharp.Components.Sources.SourceUnavailableReason">
+        <article data-uid="EditSharp.Components.Nodes.IPortOpener">
 
 
 
-
-  <h1 id="EditSharp_Components_Sources_SourceUnavailableReason" data-uid="EditSharp.Components.Sources.SourceUnavailableReason" class="text-break">
-Enum SourceUnavailableReason  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceUnavailableException.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  <h1 id="EditSharp_Components_Nodes_IPortOpener" data-uid="EditSharp.Components.Nodes.IPortOpener" class="text-break">
+Interface IPortOpener  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/IPortOpener.cs/#L5"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a>.<a class="xref" href="EditSharp.Components.Sources.html">Sources</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a>.<a class="xref" href="EditSharp.Components.Nodes.html">Nodes</a></dd></dl>
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Why a source can't provide content right now; compositing picks what to show from this.</p>
+  <div class="markdown summary"><p>A node that can add ports on request, so <a class="xref" href="EditSharp.Components.Nodes.Graph.html#EditSharp_Components_Nodes_Graph_ReplaceNode_EditSharp_Components_Nodes_Node_EditSharp_Components_Nodes_Node_">ReplaceNode(Node, Node)</a> can wire it in place of a node with more ports than it declares.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum SourceUnavailableReason</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IPortOpener</code></pre>
   </div>
 
 
@@ -114,41 +113,67 @@ Enum SourceUnavailableReason  <a class="header-action link-secondary" title="Vie
 
 
 
-  <h2 id="fields">Fields
+
+
+  <h2 id="EditSharp_Components_Nodes_IPortOpener_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Nothing implements it yet; a node with a variable number of inputs, such as a merge of any number of images, would.</p>
+</div>
+
+
+  <h2 class="section" id="methods">Methods
 </h2>
+
+
+  <a id="EditSharp_Components_Nodes_IPortOpener_TryOpenPort_" data-uid="EditSharp.Components.Nodes.IPortOpener.TryOpenPort*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_IPortOpener_TryOpenPort_System_String_EditSharp_Components_Nodes_PortType_EditSharp_Components_Nodes_PortDirection_" data-uid="EditSharp.Components.Nodes.IPortOpener.TryOpenPort(System.String,EditSharp.Components.Nodes.PortType,EditSharp.Components.Nodes.PortDirection)">
+  TryOpenPort(string, PortType, PortDirection)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/IPortOpener.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Opens a port for a wire that has nowhere else to go.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">NodePort? TryOpenPort(string name, PortType type, PortDirection direction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt id="EditSharp_Components_Sources_SourceUnavailableReason_DecodeError"><code>DecodeError = 4</code></dt>
-  
-  <dd><p>The material is there but can't be decoded or rendered.</p>
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The port's name on the node being replaced; a hint, since the opened port may be called something else.</p>
 </dd>
-    <dt id="EditSharp_Components_Sources_SourceUnavailableReason_EndOfSource"><code>EndOfSource = 5</code></dt>
-  
-  <dd><p>The requested time is past the end of the source's window and Loop is off.</p>
+    <dt><code>type</code> <a class="xref" href="EditSharp.Components.Nodes.PortType.html">PortType</a></dt>
+    <dd><p>What the port must carry.</p>
 </dd>
-    <dt id="EditSharp_Components_Sources_SourceUnavailableReason_MediaOffline"><code>MediaOffline = 3</code></dt>
-  
-  <dd><p>The material is missing or unreadable (a file gone, a device unplugged).</p>
-</dd>
-    <dt id="EditSharp_Components_Sources_SourceUnavailableReason_Opening"><code>Opening = 0</code></dt>
-  
-  <dd><p>The reader is still opening and has nothing to hand back yet.</p>
-</dd>
-    <dt id="EditSharp_Components_Sources_SourceUnavailableReason_ProxyMissing"><code>ProxyMissing = 2</code></dt>
-  
-  <dd><p>The read needs a proxy frame, and no build is queued or running to make it.</p>
-</dd>
-    <dt id="EditSharp_Components_Sources_SourceUnavailableReason_ProxyPending"><code>ProxyPending = 1</code></dt>
-  
-  <dd><p>The read needs a proxy frame that a queued or running build hasn't reached yet.</p>
+    <dt><code>direction</code> <a class="xref" href="EditSharp.Components.Nodes.PortDirection.html">PortDirection</a></dt>
+    <dd><p>Whether it must take a wire in or send one out.</p>
 </dd>
   </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Components.Nodes.NodePort.html">NodePort</a></dt>
+    <dd><p>The opened port, now in <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Ports">Ports</a>; null when the node can't open one of that type and direction.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceUnavailableException.cs/#L6" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/IPortOpener.cs/#L5" class="edit-link">Edit this page</a>
         </div>
 
 

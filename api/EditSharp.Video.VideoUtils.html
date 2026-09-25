@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Video_VideoUtils" data-uid="EditSharp.Video.VideoUtils" class="text-break">
-Class VideoUtils  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L16"><i class="bi bi-code-slash"></i></a>
+Class VideoUtils  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -155,9 +155,9 @@ Class VideoUtils  <a class="header-action link-secondary" title="View source" hr
 
   <a id="EditSharp_Video_VideoUtils_MuxAudioVideoAsync_" data-uid="EditSharp.Video.VideoUtils.MuxAudioVideoAsync*"></a>
 
-  <h3 id="EditSharp_Video_VideoUtils_MuxAudioVideoAsync_EditSharp_Components_Sources_Video_MediaVideoSource_EditSharp_Components_Sources_Audio_MediaAudioSource_System_String_" data-uid="EditSharp.Video.VideoUtils.MuxAudioVideoAsync(EditSharp.Components.Sources.Video.MediaVideoSource,EditSharp.Components.Sources.Audio.MediaAudioSource,System.String)">
-  MuxAudioVideoAsync(MediaVideoSource, MediaAudioSource, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Video_VideoUtils_MuxAudioVideoAsync_EditSharp_Components_Nodes_Input_VideoMediaNode_EditSharp_Components_Nodes_Input_AudioMediaNode_System_String_" data-uid="EditSharp.Video.VideoUtils.MuxAudioVideoAsync(EditSharp.Components.Nodes.Input.VideoMediaNode,EditSharp.Components.Nodes.Input.AudioMediaNode,System.String)">
+  MuxAudioVideoAsync(VideoMediaNode, AudioMediaNode, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Joins a video and an audio source into one file without re-encoding either.</p>
@@ -165,15 +165,15 @@ Class VideoUtils  <a class="header-action link-secondary" title="View source" hr
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;MediaVideoSource&gt; MuxAudioVideoAsync(MediaVideoSource video, MediaAudioSource audio, string outputPath)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;VideoMedia&gt; MuxAudioVideoAsync(VideoMediaNode video, AudioMediaNode audio, string outputPath)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>video</code> <a class="xref" href="EditSharp.Components.Sources.Video.MediaVideoSource.html">MediaVideoSource</a></dt>
+    <dt><code>video</code> <a class="xref" href="EditSharp.Components.Nodes.Input.VideoMediaNode.html">VideoMediaNode</a></dt>
     <dd><p>The video source; its video stream is used.</p>
 </dd>
-    <dt><code>audio</code> <a class="xref" href="EditSharp.Components.Sources.Audio.MediaAudioSource.html">MediaAudioSource</a></dt>
+    <dt><code>audio</code> <a class="xref" href="EditSharp.Components.Nodes.Input.AudioMediaNode.html">AudioMediaNode</a></dt>
     <dd><p>The audio source; its audio stream is used.</p>
 </dd>
     <dt><code>outputPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
@@ -183,7 +183,7 @@ Class VideoUtils  <a class="header-action link-secondary" title="View source" hr
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="EditSharp.Components.Sources.Video.MediaVideoSource.html">MediaVideoSource</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="EditSharp.Components.Media.VideoMedia.html">VideoMedia</a>&gt;</dt>
     <dd><p>A source for the new file.</p>
 </dd>
   </dl>
@@ -194,7 +194,7 @@ Class VideoUtils  <a class="header-action link-secondary" title="View source" hr
 
 
 
-  <h4 class="section" id="EditSharp_Video_VideoUtils_MuxAudioVideoAsync_EditSharp_Components_Sources_Video_MediaVideoSource_EditSharp_Components_Sources_Audio_MediaAudioSource_System_String__remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Video_VideoUtils_MuxAudioVideoAsync_EditSharp_Components_Nodes_Input_VideoMediaNode_EditSharp_Components_Nodes_Input_AudioMediaNode_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Both streams are copied, so it's fast, but the output container must accept both codecs as they are. Each source's Start and Duration trim it, landing on the nearest keyframe. The output ends with the shorter stream.</p>
 </div>
 
@@ -212,9 +212,9 @@ Class VideoUtils  <a class="header-action link-secondary" title="View source" hr
 
   <a id="EditSharp_Video_VideoUtils_ReencodeVideoAsync_" data-uid="EditSharp.Video.VideoUtils.ReencodeVideoAsync*"></a>
 
-  <h3 id="EditSharp_Video_VideoUtils_ReencodeVideoAsync_EditSharp_Components_Sources_Video_MediaVideoSource_EditSharp_Video_VideoCodec_System_Nullable_System_ValueTuple_System_Int32_System_Int32___" data-uid="EditSharp.Video.VideoUtils.ReencodeVideoAsync(EditSharp.Components.Sources.Video.MediaVideoSource,EditSharp.Video.VideoCodec,System.Nullable{System.ValueTuple{System.Int32,System.Int32}})">
-  ReencodeVideoAsync(MediaVideoSource, VideoCodec, (int Width, int Height)?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Video_VideoUtils_ReencodeVideoAsync_EditSharp_Components_Nodes_Input_VideoMediaNode_EditSharp_Video_VideoCodec_System_Nullable_System_ValueTuple_System_Int32_System_Int32___" data-uid="EditSharp.Video.VideoUtils.ReencodeVideoAsync(EditSharp.Components.Nodes.Input.VideoMediaNode,EditSharp.Video.VideoCodec,System.Nullable{System.ValueTuple{System.Int32,System.Int32}})">
+  ReencodeVideoAsync(VideoMediaNode, VideoCodec, (int Width, int Height)?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Re-encodes a source's video to another codec, optionally resized, with no audio.</p>
@@ -222,12 +222,12 @@ Class VideoUtils  <a class="header-action link-secondary" title="View source" hr
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; ReencodeVideoAsync(MediaVideoSource source, VideoCodec codec, (int Width, int Height)? scaleTo = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; ReencodeVideoAsync(VideoMediaNode source, VideoCodec codec, (int Width, int Height)? scaleTo = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>source</code> <a class="xref" href="EditSharp.Components.Sources.Video.MediaVideoSource.html">MediaVideoSource</a></dt>
+    <dt><code>source</code> <a class="xref" href="EditSharp.Components.Nodes.Input.VideoMediaNode.html">VideoMediaNode</a></dt>
     <dd><p>The source to re-encode.</p>
 </dd>
     <dt><code>codec</code> <a class="xref" href="EditSharp.Video.VideoCodec.html">VideoCodec</a></dt>
@@ -251,7 +251,7 @@ Class VideoUtils  <a class="header-action link-secondary" title="View source" hr
 
 
 
-  <h4 class="section" id="EditSharp_Video_VideoUtils_ReencodeVideoAsync_EditSharp_Components_Sources_Video_MediaVideoSource_EditSharp_Video_VideoCodec_System_Nullable_System_ValueTuple_System_Int32_System_Int32____remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Video_VideoUtils_ReencodeVideoAsync_EditSharp_Components_Nodes_Input_VideoMediaNode_EditSharp_Video_VideoCodec_System_Nullable_System_ValueTuple_System_Int32_System_Int32____remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>The source's Start and Duration trim it frame-accurately, since ffmpeg decodes from the nearest keyframe to the exact time. The file goes under <a class="xref" href="EditSharp.EditSharpConfig.html#EditSharp_EditSharpConfig_TempDirectory">TempDirectory</a>.</p>
 </div>
 
@@ -274,7 +274,7 @@ Class VideoUtils  <a class="header-action link-secondary" title="View source" hr
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L16" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Video/VideoUtils.cs/#L17" class="edit-link">Edit this page</a>
         </div>
 
 

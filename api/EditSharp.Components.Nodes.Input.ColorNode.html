@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class ColorVideoSource | EditSharp </title>
+      <title>Class ColorNode | EditSharp </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class ColorVideoSource | EditSharp ">
+      <meta name="title" content="Class ColorNode | EditSharp ">
       
       <meta name="description" content="A solid colour filling the canvas; the colour can be keyframed.">
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Sources_Video_ColorVideoSource.md&amp;value=---%0Auid%3A%20EditSharp.Components.Sources.Video.ColorVideoSource%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Nodes_Input_ColorNode.md&amp;value=---%0Auid%3A%20EditSharp.Components.Nodes.Input.ColorNode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,16 +84,16 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="EditSharp.Components.Sources.Video.ColorVideoSource">
+        <article data-uid="EditSharp.Components.Nodes.Input.ColorNode">
 
 
 
-  <h1 id="EditSharp_Components_Sources_Video_ColorVideoSource" data-uid="EditSharp.Components.Sources.Video.ColorVideoSource" class="text-break">
-Class ColorVideoSource  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <h1 id="EditSharp_Components_Nodes_Input_ColorNode" data-uid="EditSharp.Components.Nodes.Input.ColorNode" class="text-break">
+Class ColorNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Input/ColorNode.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a>.<a class="xref" href="EditSharp.Components.Sources.html">Sources</a>.<a class="xref" href="EditSharp.Components.Sources.Video.html">Video</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a>.<a class="xref" href="EditSharp.Components.Nodes.html">Nodes</a>.<a class="xref" href="EditSharp.Components.Nodes.Input.html">Input</a></dd></dl>
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
@@ -102,8 +102,8 @@ Class ColorVideoSource  <a class="header-action link-secondary" title="View sour
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[SourceKind(&quot;color&quot;, DisplayName = &quot;Color&quot;)]
-public class ColorVideoSource : VideoSource</code></pre>
+    <pre><code class="lang-csharp hljs">[NodeKind(&quot;color&quot;, DisplayName = &quot;Color&quot;)]
+public sealed class ColorNode : VideoInputNode</code></pre>
   </div>
 
 
@@ -113,9 +113,10 @@ public class ColorVideoSource : VideoSource</code></pre>
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><a class="xref" href="EditSharp.Components.Sources.Source.html">Source</a></div>
-      <div><a class="xref" href="EditSharp.Components.Sources.Video.VideoSource.html">VideoSource</a></div>
-      <div><span class="xref">ColorVideoSource</span></div>
+      <div><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></div>
+      <div><a class="xref" href="EditSharp.Components.Nodes.InputNode.html">InputNode</a></div>
+      <div><a class="xref" href="EditSharp.Components.Nodes.Input.VideoInputNode.html">VideoInputNode</a></div>
+      <div><span class="xref">ColorNode</span></div>
     </dd>
   </dl>
 
@@ -125,31 +126,46 @@ public class ColorVideoSource : VideoSource</code></pre>
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Video.VideoSource.html#EditSharp_Components_Sources_Video_VideoSource_GetFrameAtAsync_System_TimeSpan_EditSharp_Components_Sources_SourceMode_System_Int32_System_Int32_System_Threading_CancellationToken_">VideoSource.GetFrameAtAsync(TimeSpan, SourceMode, int, int, CancellationToken)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.Input.VideoInputNode.html#EditSharp_Components_Nodes_Input_VideoInputNode_Ports">VideoInputNode.Ports</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Start">Source.Start</a>
+      <a class="xref" href="EditSharp.Components.Nodes.Input.VideoInputNode.html#EditSharp_Components_Nodes_Input_VideoInputNode_GetFrameAtAsync_System_TimeSpan_EditSharp_Components_Media_SourceMode_System_Int32_System_Int32_System_Threading_CancellationToken_">VideoInputNode.GetFrameAtAsync(TimeSpan, SourceMode, int, int, CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Duration">Source.Duration</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_Start">InputNode.Start</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Loop">Source.Loop</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_Duration">InputNode.Duration</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_GetUsableLengthAsync_System_Threading_CancellationToken_">Source.GetUsableLengthAsync(CancellationToken)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_Loop">InputNode.Loop</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_TryGetNaturalLength_System_Nullable_System_TimeSpan___">Source.TryGetNaturalLength(out TimeSpan?)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_GetUsableLengthAsync_System_Threading_CancellationToken_">InputNode.GetUsableLengthAsync(CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_TryGetUsableLength_System_Nullable_System_TimeSpan___">Source.TryGetUsableLength(out TimeSpan?)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_TryGetNaturalLength_System_Nullable_System_TimeSpan___">InputNode.TryGetNaturalLength(out TimeSpan?)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_ResolveWindow_System_Nullable_System_TimeSpan__">Source.ResolveWindow(TimeSpan?)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_TryGetUsableLength_System_Nullable_System_TimeSpan___">InputNode.TryGetUsableLength(out TimeSpan?)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_ToSourceTime_System_TimeSpan_System_Nullable_System_TimeSpan__">Source.ToSourceTime(TimeSpan, TimeSpan?)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_InPoint">InputNode.InPoint</a>
+    </div>
+    <div>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_MaxHeadroom">InputNode.MaxHeadroom</a>
+    </div>
+    <div>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_ContentLength">InputNode.ContentLength</a>
+    </div>
+    <div>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_Duplicate">InputNode.Duplicate()</a>
+    </div>
+    <div>
+      <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Node.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Enabled">Node.Enabled</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -162,9 +178,6 @@ public class ColorVideoSource : VideoSource</code></pre>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
@@ -183,14 +196,14 @@ public class ColorVideoSource : VideoSource</code></pre>
 </h2>
 
 
-  <a id="EditSharp_Components_Sources_Video_ColorVideoSource_Animatables_" data-uid="EditSharp.Components.Sources.Video.ColorVideoSource.Animatables*"></a>
+  <a id="EditSharp_Components_Nodes_Input_ColorNode_Animatables_" data-uid="EditSharp.Components.Nodes.Input.ColorNode.Animatables*"></a>
 
-  <h3 id="EditSharp_Components_Sources_Video_ColorVideoSource_Animatables" data-uid="EditSharp.Components.Sources.Video.ColorVideoSource.Animatables">
+  <h3 id="EditSharp_Components_Nodes_Input_ColorNode_Animatables" data-uid="EditSharp.Components.Nodes.Input.ColorNode.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Input/ColorNode.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>This source's keyframeable values.</p>
+  <div class="markdown level1 summary"><p>Every keyframeable value the node owns.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -211,18 +224,18 @@ public class ColorVideoSource : VideoSource</code></pre>
 
 
 
-  <h4 class="section" id="EditSharp_Components_Sources_Video_ColorVideoSource_Animatables_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>The node holding the source reports them as its own, so keyframe editing, thumbnails and head trims reach them.</p>
+  <h4 class="section" id="EditSharp_Components_Nodes_Input_ColorNode_Animatables_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Trimming a clip's head shifts every keyframe these hold, so the animation stays with the content. A node with Animatable properties lists every one of them here.</p>
 </div>
 
 
 
 
-  <a id="EditSharp_Components_Sources_Video_ColorVideoSource_Color_" data-uid="EditSharp.Components.Sources.Video.ColorVideoSource.Color*"></a>
+  <a id="EditSharp_Components_Nodes_Input_ColorNode_Color_" data-uid="EditSharp.Components.Nodes.Input.ColorNode.Color*"></a>
 
-  <h3 id="EditSharp_Components_Sources_Video_ColorVideoSource_Color" data-uid="EditSharp.Components.Sources.Video.ColorVideoSource.Color">
+  <h3 id="EditSharp_Components_Nodes_Input_ColorNode_Color" data-uid="EditSharp.Components.Nodes.Input.ColorNode.Color">
   Color
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Input/ColorNode.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The colour; black by default.</p>
@@ -255,47 +268,11 @@ public Animatable&lt;SKColor&gt; Color { get; set; }</code></pre>
 </h2>
 
 
-  <a id="EditSharp_Components_Sources_Video_ColorVideoSource_Duplicate_" data-uid="EditSharp.Components.Sources.Video.ColorVideoSource.Duplicate*"></a>
+  <a id="EditSharp_Components_Nodes_Input_ColorNode_GetNaturalLengthAsync_" data-uid="EditSharp.Components.Nodes.Input.ColorNode.GetNaturalLengthAsync*"></a>
 
-  <h3 id="EditSharp_Components_Sources_Video_ColorVideoSource_Duplicate" data-uid="EditSharp.Components.Sources.Video.ColorVideoSource.Duplicate">
-  Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L28"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>A deep copy, made by saving and loading this source.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override ColorVideoSource Duplicate()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="EditSharp.Components.Sources.Video.ColorVideoSource.html">ColorVideoSource</a></dt>
-    <dd><p>The copy.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="EditSharp_Components_Sources_Video_ColorVideoSource_Duplicate_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo. A nested timeline is shared, not copied.</p>
-</div>
-
-
-
-
-  <a id="EditSharp_Components_Sources_Video_ColorVideoSource_GetNaturalLengthAsync_" data-uid="EditSharp.Components.Sources.Video.ColorVideoSource.GetNaturalLengthAsync*"></a>
-
-  <h3 id="EditSharp_Components_Sources_Video_ColorVideoSource_GetNaturalLengthAsync_System_Threading_CancellationToken_" data-uid="EditSharp.Components.Sources.Video.ColorVideoSource.GetNaturalLengthAsync(System.Threading.CancellationToken)">
+  <h3 id="EditSharp_Components_Nodes_Input_ColorNode_GetNaturalLengthAsync_System_Threading_CancellationToken_" data-uid="EditSharp.Components.Nodes.Input.ColorNode.GetNaturalLengthAsync(System.Threading.CancellationToken)">
   GetNaturalLengthAsync(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Input/ColorNode.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Always null: a colour has no end of its own.</p>
@@ -334,7 +311,7 @@ public Animatable&lt;SKColor&gt; Color { get; set; }</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Video/GeneratedVideoSources.cs/#L16" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Input/ColorNode.cs/#L13" class="edit-link">Edit this page</a>
         </div>
 
 

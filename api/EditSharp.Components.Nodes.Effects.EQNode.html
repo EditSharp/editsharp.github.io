@@ -102,7 +102,8 @@ Class EQNode  <a class="header-action link-secondary" title="View source" href="
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class EQNode : Node</code></pre>
+    <pre><code class="lang-csharp hljs">[NodeKind(&quot;eq&quot;, DisplayName = &quot;EQ&quot;)]
+public sealed class EQNode : Node</code></pre>
   </div>
 
 
@@ -164,7 +165,7 @@ Class EQNode  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="EditSharp_Components_Nodes_Effects_EQNode_Animatables" data-uid="EditSharp.Components.Nodes.Effects.EQNode.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Every keyframeable value the node owns.</p>
@@ -199,7 +200,7 @@ Class EQNode  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="EditSharp_Components_Nodes_Effects_EQNode_Bands" data-uid="EditSharp.Components.Nodes.Effects.EQNode.Bands">
   Bands
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The bands, applied in order.</p>
@@ -232,7 +233,7 @@ public List&lt;EQBand&gt; Bands { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_EQNode_Ports" data-uid="EditSharp.Components.Nodes.Effects.EQNode.Ports">
   Ports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The node's ports, fixed by its type.</p>
@@ -268,7 +269,7 @@ public List&lt;EQBand&gt; Bands { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_EQNode_Duplicate" data-uid="EditSharp.Components.Nodes.Effects.EQNode.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Id</a>, so connections in the two graphs can't be confused.</p>

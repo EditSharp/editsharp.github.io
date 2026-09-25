@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Enum SourceMode | EditSharp </title>
+      <title>Enum SourceUnavailableReason | EditSharp </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Enum SourceMode | EditSharp ">
+      <meta name="title" content="Enum SourceUnavailableReason | EditSharp ">
       
-      <meta name="description" content="Whether sources that have proxies read the proxy or the original.">
+      <meta name="description" content="Why a source can&#39;t provide content right now; compositing picks what to show from this.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Sources_SourceMode.md&amp;value=---%0Auid%3A%20EditSharp.Components.Sources.SourceMode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Media_SourceUnavailableReason.md&amp;value=---%0Auid%3A%20EditSharp.Components.Media.SourceUnavailableReason%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,26 +84,26 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="EditSharp.Components.Sources.SourceMode">
+        <article data-uid="EditSharp.Components.Media.SourceUnavailableReason">
 
 
 
 
-  <h1 id="EditSharp_Components_Sources_SourceMode" data-uid="EditSharp.Components.Sources.SourceMode" class="text-break">
-Enum SourceMode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceMode.cs/#L5"><i class="bi bi-code-slash"></i></a>
+  <h1 id="EditSharp_Components_Media_SourceUnavailableReason" data-uid="EditSharp.Components.Media.SourceUnavailableReason" class="text-break">
+Enum SourceUnavailableReason  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/SourceUnavailableException.cs/#L6"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a>.<a class="xref" href="EditSharp.Components.Sources.html">Sources</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a>.<a class="xref" href="EditSharp.Components.Media.html">Media</a></dd></dl>
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Whether sources that have proxies read the proxy or the original.</p>
+  <div class="markdown summary"><p>Why a source can't provide content right now; compositing picks what to show from this.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum SourceMode</code></pre>
+    <pre><code class="lang-csharp hljs">public enum SourceUnavailableReason</code></pre>
   </div>
 
 
@@ -117,29 +117,46 @@ Enum SourceMode  <a class="header-action link-secondary" title="View source" hre
   <h2 id="fields">Fields
 </h2>
   <dl class="parameters">
-    <dt id="EditSharp_Components_Sources_SourceMode_ProxiesAndSource"><code>ProxiesAndSource = 1</code></dt>
+    <dt id="EditSharp_Components_Media_SourceUnavailableReason_DecodeError"><code>DecodeError = 4</code></dt>
   
-  <dd><p>The proxy wherever it covers the frame, the original everywhere else; decided frame by frame.</p>
+  <dd><p>The material is there but can't be decoded or rendered.</p>
 </dd>
-    <dt id="EditSharp_Components_Sources_SourceMode_ProxiesOnly"><code>ProxiesOnly = 0</code></dt>
+    <dt id="EditSharp_Components_Media_SourceUnavailableReason_EndOfSource"><code>EndOfSource = 5</code></dt>
   
-  <dd><p>Only proxies; a frame without one is ProxyPending while a build is under way, ProxyMissing otherwise.</p>
+  <dd><p>The requested time is past the end of the source's window and Loop is off.</p>
 </dd>
-    <dt id="EditSharp_Components_Sources_SourceMode_SourceOnly"><code>SourceOnly = 2</code></dt>
+    <dt id="EditSharp_Components_Media_SourceUnavailableReason_MediaOffline"><code>MediaOffline = 3</code></dt>
   
-  <dd><p>Only originals for sequential reads (random access still needs a proxy).</p>
+  <dd><p>The material is missing or unreadable (a file gone, a device unplugged).</p>
+</dd>
+    <dt id="EditSharp_Components_Media_SourceUnavailableReason_NoMedia"><code>NoMedia = 6</code></dt>
+  
+  <dd><p>There's nothing to read: the input has no media, or the media has no file chosen.</p>
+</dd>
+    <dt id="EditSharp_Components_Media_SourceUnavailableReason_NoTimeline"><code>NoTimeline = 7</code></dt>
+  
+  <dd><p>There's nothing to read: the input has no timeline.</p>
+</dd>
+    <dt id="EditSharp_Components_Media_SourceUnavailableReason_Opening"><code>Opening = 0</code></dt>
+  
+  <dd><p>The reader is still opening and has nothing to hand back yet.</p>
+</dd>
+    <dt id="EditSharp_Components_Media_SourceUnavailableReason_ProxyMissing"><code>ProxyMissing = 2</code></dt>
+  
+  <dd><p>The read needs a proxy frame, and no build is queued or running to make it.</p>
+</dd>
+    <dt id="EditSharp_Components_Media_SourceUnavailableReason_ProxyPending"><code>ProxyPending = 1</code></dt>
+  
+  <dd><p>The read needs a proxy frame that a queued or running build hasn't reached yet.</p>
 </dd>
   </dl>
 
 
-  <h2 id="EditSharp_Components_Sources_SourceMode_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>Kinds with no proxy (a still image, a generator) ignore this. Random access (scrubbing, reverse) always reads the proxy whatever the mode, since decoding an original at an arbitrary position every frame is too slow.</p>
-</div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/SourceMode.cs/#L5" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/SourceUnavailableException.cs/#L6" class="edit-link">Edit this page</a>
         </div>
 
 

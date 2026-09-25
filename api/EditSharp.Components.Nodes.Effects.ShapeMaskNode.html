@@ -102,7 +102,8 @@ Class ShapeMaskNode  <a class="header-action link-secondary" title="View source"
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class ShapeMaskNode : Node</code></pre>
+    <pre><code class="lang-csharp hljs">[NodeKind(&quot;shape-mask&quot;, DisplayName = &quot;Shape mask&quot;)]
+public sealed class ShapeMaskNode : Node</code></pre>
   </div>
 
 
@@ -164,7 +165,7 @@ Class ShapeMaskNode  <a class="header-action link-secondary" title="View source"
 
   <h3 id="EditSharp_Components_Nodes_Effects_ShapeMaskNode_Animatables" data-uid="EditSharp.Components.Nodes.Effects.ShapeMaskNode.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L61"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Every keyframeable value the node owns.</p>
@@ -199,7 +200,7 @@ Class ShapeMaskNode  <a class="header-action link-secondary" title="View source"
 
   <h3 id="EditSharp_Components_Nodes_Effects_ShapeMaskNode_Feather" data-uid="EditSharp.Components.Nodes.Effects.ShapeMaskNode.Feather">
   Feather
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>How soft the edge is (a blur's standard deviation), as a fraction of the frame's shorter side.</p>
@@ -232,7 +233,7 @@ public Animatable&lt;float&gt; Feather { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_ShapeMaskNode_PolygonPoints" data-uid="EditSharp.Components.Nodes.Effects.ShapeMaskNode.PolygonPoints">
   PolygonPoints
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A polygon's corners, in half-frames from <a class="xref" href="EditSharp.Components.Nodes.Effects.ShapeMaskNode.html#EditSharp_Components_Nodes_Effects_ShapeMaskNode_Position">Position</a>, turned with <a class="xref" href="EditSharp.Components.Nodes.Effects.ShapeMaskNode.html#EditSharp_Components_Nodes_Effects_ShapeMaskNode_Rotation">Rotation</a>.</p>
@@ -269,7 +270,7 @@ public List&lt;Animatable&lt;Vector2&gt;&gt; PolygonPoints { get; set; }</code><
 
   <h3 id="EditSharp_Components_Nodes_Effects_ShapeMaskNode_Ports" data-uid="EditSharp.Components.Nodes.Effects.ShapeMaskNode.Ports">
   Ports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The node's ports, fixed by its type.</p>
@@ -301,7 +302,7 @@ public List&lt;Animatable&lt;Vector2&gt;&gt; PolygonPoints { get; set; }</code><
 
   <h3 id="EditSharp_Components_Nodes_Effects_ShapeMaskNode_Position" data-uid="EditSharp.Components.Nodes.Effects.ShapeMaskNode.Position">
   Position
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The shape's centre, in half-frames from the frame's centre: X of half the frame's width, Y of half its height, y up.</p>
@@ -334,7 +335,7 @@ public Animatable&lt;Vector2&gt; Position { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_ShapeMaskNode_Rotation" data-uid="EditSharp.Components.Nodes.Effects.ShapeMaskNode.Rotation">
   Rotation
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The shape's rotation about its centre, in degrees clockwise.</p>
@@ -367,7 +368,7 @@ public Animatable&lt;float&gt; Rotation { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_ShapeMaskNode_Shape" data-uid="EditSharp.Components.Nodes.Effects.ShapeMaskNode.Shape">
   Shape
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Which shape to draw.</p>
@@ -400,7 +401,7 @@ public ShapeType Shape { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_ShapeMaskNode_Size" data-uid="EditSharp.Components.Nodes.Effects.ShapeMaskNode.Size">
   Size
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The size of a rectangle or ellipse: X as a fraction of the frame's width, Y of its height.</p>
@@ -437,7 +438,7 @@ public Animatable&lt;Vector2&gt; Size { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_ShapeMaskNode_Duplicate" data-uid="EditSharp.Components.Nodes.Effects.ShapeMaskNode.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/ShapeMaskNode.cs/#L64"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Id</a>, so connections in the two graphs can't be confused.</p>

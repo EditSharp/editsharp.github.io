@@ -377,6 +377,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.ComponentSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.ComponentSerializer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.ComponentSerializer",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.ComponentSerializer.yml\" sourcestartlinenumber=\"1\">Saves and loads media and nodes as JSON.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/EditSharp.Components.FontFamilies.yml",
       "output": {
         ".html": {
@@ -528,6 +542,146 @@
       "IsMRef": true,
       "Title": "EditSharp.Components.LinkGroup",
       "Summary": "<p sourcefile=\"api/EditSharp.Components.LinkGroup.yml\" sourcestartlinenumber=\"1\">Clips linked together, so edits apply to all of them.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Media.AudioMedia.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Media.AudioMedia.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Media.AudioMedia",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Media.AudioMedia.yml\" sourcestartlinenumber=\"1\">The audio of a media file on disk: an audio file, or a video file's soundtrack.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Media.IMedia.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Media.IMedia.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Media.IMedia",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Media.IMedia.yml\" sourcestartlinenumber=\"1\">Material an input node reads: a file on disk, opened the way its kind knows how.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Media.MediaKindAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Media.MediaKindAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Media.MediaKindAttribute",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Media.MediaKindAttribute.yml\" sourcestartlinenumber=\"1\">Registers a concrete <xref href=\"EditSharp.Components.Media.IMedia\" data-throw-if-not-resolved=\"false\"></xref> for saving and loading under a stable id.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Media.MediaKindInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Media.MediaKindInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Media.MediaKindInfo",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Media.MediaKindInfo.yml\" sourcestartlinenumber=\"1\">A kind of media a picker can offer.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Media.MediaKinds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Media.MediaKinds.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Media.MediaKinds",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Media.MediaKinds.yml\" sourcestartlinenumber=\"1\">The media kinds pickers offer.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Media.SourceMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Media.SourceMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Media.SourceMode",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Media.SourceMode.yml\" sourcestartlinenumber=\"1\">Whether sources that have proxies read the proxy or the original.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Media.SourceUnavailableException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Media.SourceUnavailableException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Media.SourceUnavailableException",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Media.SourceUnavailableException.yml\" sourcestartlinenumber=\"1\">How a source reports that it can't provide content.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Media.SourceUnavailableReason.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Media.SourceUnavailableReason.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Media.SourceUnavailableReason",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Media.SourceUnavailableReason.yml\" sourcestartlinenumber=\"1\">Why a source can't provide content right now; compositing picks what to show from this.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Media.VideoMedia.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Media.VideoMedia.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Media.VideoMedia",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Media.VideoMedia.yml\" sourcestartlinenumber=\"1\">A video file or a still image on disk.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Media.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Media.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Media",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -867,17 +1021,17 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Nodes.ITrimmableInput.yml",
+      "source_relative_path": "api/EditSharp.Components.Nodes.IPortOpener.yml",
       "output": {
         ".html": {
-          "relative_path": "api/EditSharp.Components.Nodes.ITrimmableInput.html"
+          "relative_path": "api/EditSharp.Components.Nodes.IPortOpener.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "EditSharp.Components.Nodes.ITrimmableInput",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.ITrimmableInput.yml\" sourcestartlinenumber=\"1\">An input with an in-point that moves when its clip's head is trimmed.</p>\n"
+      "Title": "EditSharp.Components.Nodes.IPortOpener",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.IPortOpener.yml\" sourcestartlinenumber=\"1\">A node that can add ports on request, so <xref href=\"EditSharp.Components.Nodes.Graph.ReplaceNode(EditSharp.Components.Nodes.Node%2cEditSharp.Components.Nodes.Node)\" data-throw-if-not-resolved=\"false\"></xref> can wire it in place of a node with more ports than it declares.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -895,6 +1049,216 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.Input.AudioInputNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.Input.AudioInputNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.Input.AudioInputNode",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Input.AudioInputNode.yml\" sourcestartlinenumber=\"1\">An input that brings sound into an audio graph, read as a stream.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.Input.AudioMediaNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.Input.AudioMediaNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.Input.AudioMediaNode",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Input.AudioMediaNode.yml\" sourcestartlinenumber=\"1\">Feeds an <xref href=\"EditSharp.Components.Media.AudioMedia\" data-throw-if-not-resolved=\"false\"></xref>'s samples into the graph.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.Input.ColorNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.Input.ColorNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.Input.ColorNode",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Input.ColorNode.yml\" sourcestartlinenumber=\"1\">A solid colour filling the canvas; the colour can be keyframed.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.Input.HorizontalTextAlignment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.Input.HorizontalTextAlignment.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.Input.HorizontalTextAlignment",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Input.HorizontalTextAlignment.yml\" sourcestartlinenumber=\"1\">How lines of text line up across their box.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.Input.NoiseNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.Input.NoiseNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.Input.NoiseNode",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Input.NoiseNode.yml\" sourcestartlinenumber=\"1\">A field of gradient noise filling the canvas, changing over time.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.Input.TextNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.Input.TextNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.Input.TextNode",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Input.TextNode.yml\" sourcestartlinenumber=\"1\">A block of white text on a transparent, frame-sized image.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.Input.TextWrap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.Input.TextWrap.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.Input.TextWrap",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Input.TextWrap.yml\" sourcestartlinenumber=\"1\">Where text breaks onto a new line when it reaches the width of its box.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.Input.TimelineAudioNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.Input.TimelineAudioNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.Input.TimelineAudioNode",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Input.TimelineAudioNode.yml\" sourcestartlinenumber=\"1\">Another timeline's mixed audio.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.Input.TimelineVideoNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.Input.TimelineVideoNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.Input.TimelineVideoNode",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Input.TimelineVideoNode.yml\" sourcestartlinenumber=\"1\">Another timeline's picture, composited frame by frame.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.Input.ToneNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.Input.ToneNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.Input.ToneNode",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Input.ToneNode.yml\" sourcestartlinenumber=\"1\">A synthesized tone.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.Input.VerticalTextAlignment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.Input.VerticalTextAlignment.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.Input.VerticalTextAlignment",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Input.VerticalTextAlignment.yml\" sourcestartlinenumber=\"1\">Where a block of text sits in its box, top to bottom.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.Input.VideoInputNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.Input.VideoInputNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.Input.VideoInputNode",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Input.VideoInputNode.yml\" sourcestartlinenumber=\"1\">An input that brings frames into a video graph.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.Input.VideoMediaNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.Input.VideoMediaNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.Input.VideoMediaNode",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Input.VideoMediaNode.yml\" sourcestartlinenumber=\"1\">Feeds a <xref href=\"EditSharp.Components.Media.VideoMedia\" data-throw-if-not-resolved=\"false\"></xref>'s frames into the graph.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.Input.Waveform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.Input.Waveform.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.Input.Waveform",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Input.Waveform.yml\" sourcestartlinenumber=\"1\">The shape of a tone's wave.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.Input.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.Input.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.Input",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/EditSharp.Components.Nodes.InputNode.yml",
       "output": {
         ".html": {
@@ -905,7 +1269,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "EditSharp.Components.Nodes.InputNode",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.InputNode.yml\" sourcestartlinenumber=\"1\">A node that brings content into a graph, rather than taking it from upstream.</p>\n"
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.InputNode.yml\" sourcestartlinenumber=\"1\">A node that brings content into a graph, rather than taking it from upstream: a media file, a generator, another timeline.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -993,6 +1357,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.NodeKindAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.NodeKindAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.NodeKindAttribute",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.NodeKindAttribute.yml\" sourcestartlinenumber=\"1\">Registers a concrete <xref href=\"EditSharp.Components.Nodes.Node\" data-throw-if-not-resolved=\"false\"></xref> for saving and loading under a stable id.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.NodeKindInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.NodeKindInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.NodeKindInfo",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.NodeKindInfo.yml\" sourcestartlinenumber=\"1\">A kind of node a picker can offer.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Nodes.NodeKinds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Nodes.NodeKinds.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Nodes.NodeKinds",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.NodeKinds.yml\" sourcestartlinenumber=\"1\">The node kinds pickers offer, and switching a node from one kind to another.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/EditSharp.Components.Nodes.NodePort.yml",
       "output": {
         ".html": {
@@ -1049,48 +1455,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Nodes.Sources.AudioSourceNode.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Nodes.Sources.AudioSourceNode.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Nodes.Sources.AudioSourceNode",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Sources.AudioSourceNode.yml\" sourcestartlinenumber=\"1\">Feeds a <xref href=\"EditSharp.Components.Sources.Audio.AudioSource\" data-throw-if-not-resolved=\"false\"></xref>'s samples into the graph, whatever kind of source it is.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Nodes.Sources.VideoSourceNode.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Nodes.Sources.VideoSourceNode.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Nodes.Sources.VideoSourceNode",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Nodes.Sources.VideoSourceNode.yml\" sourcestartlinenumber=\"1\">Feeds a <xref href=\"EditSharp.Components.Sources.Video.VideoSource\" data-throw-if-not-resolved=\"false\"></xref>'s frames into the graph, whatever kind of source it is.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Nodes.Sources.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Nodes.Sources.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Nodes.Sources",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/EditSharp.Components.Nodes.yml",
       "output": {
         ".html": {
@@ -1116,370 +1480,6 @@
       "IsMRef": true,
       "Title": "EditSharp.Components.PositionTrack",
       "Summary": "<p sourcefile=\"api/EditSharp.Components.PositionTrack.yml\" sourcestartlinenumber=\"1\">A position track whose keyframes shape the path between them as well as the timing.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Audio.AudioSource.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Audio.AudioSource.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Audio.AudioSource",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.Audio.AudioSource.yml\" sourcestartlinenumber=\"1\">A source of sound, read as a stream.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Audio.MediaAudioSource.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Audio.MediaAudioSource.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Audio.MediaAudioSource",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.Audio.MediaAudioSource.yml\" sourcestartlinenumber=\"1\">The audio of a media file on disk: an audio file, or a video file's soundtrack.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Audio.TimelineAudioSource.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Audio.TimelineAudioSource.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Audio.TimelineAudioSource",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.Audio.TimelineAudioSource.yml\" sourcestartlinenumber=\"1\">Another timeline's mixed audio.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Audio.ToneAudioSource.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Audio.ToneAudioSource.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Audio.ToneAudioSource",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.Audio.ToneAudioSource.yml\" sourcestartlinenumber=\"1\">A synthesized tone.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Audio.Waveform.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Audio.Waveform.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Audio.Waveform",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.Audio.Waveform.yml\" sourcestartlinenumber=\"1\">The shape of a tone's wave.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Audio.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Audio.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Audio",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.IFileBackedSource.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.IFileBackedSource.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.IFileBackedSource",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.IFileBackedSource.yml\" sourcestartlinenumber=\"1\">A source whose content is one file on disk.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Source.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Source.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Source",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.Source.yml\" sourcestartlinenumber=\"1\">Where a clip's raw content comes from: a media file, a generator, another timeline.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.SourceKindAttribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.SourceKindAttribute.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.SourceKindAttribute",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.SourceKindAttribute.yml\" sourcestartlinenumber=\"1\">Registers a concrete <xref href=\"EditSharp.Components.Sources.Source\" data-throw-if-not-resolved=\"false\"></xref> for saving and loading under a stable id.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.SourceKindInfo.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.SourceKindInfo.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.SourceKindInfo",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.SourceKindInfo.yml\" sourcestartlinenumber=\"1\">A kind a source can be switched to.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.SourceKinds.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.SourceKinds.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.SourceKinds",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.SourceKinds.yml\" sourcestartlinenumber=\"1\">The source kinds pickers offer, and switching a source from one kind to another.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.SourceMode.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.SourceMode.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.SourceMode",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.SourceMode.yml\" sourcestartlinenumber=\"1\">Whether sources that have proxies read the proxy or the original.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.SourceSerializer.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.SourceSerializer.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.SourceSerializer",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.SourceSerializer.yml\" sourcestartlinenumber=\"1\">Saves and loads sources as JSON.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.SourceUnavailableException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.SourceUnavailableException.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.SourceUnavailableException",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.SourceUnavailableException.yml\" sourcestartlinenumber=\"1\">How a source reports that it can't provide content.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.SourceUnavailableReason.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.SourceUnavailableReason.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.SourceUnavailableReason",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.SourceUnavailableReason.yml\" sourcestartlinenumber=\"1\">Why a source can't provide content right now; compositing picks what to show from this.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Video.ColorVideoSource.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Video.ColorVideoSource.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Video.ColorVideoSource",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.Video.ColorVideoSource.yml\" sourcestartlinenumber=\"1\">A solid colour filling the canvas; the colour can be keyframed.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Video.HorizontalTextAlignment.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Video.HorizontalTextAlignment.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Video.HorizontalTextAlignment",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.Video.HorizontalTextAlignment.yml\" sourcestartlinenumber=\"1\">How lines of text line up across their box.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Video.MediaVideoSource.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Video.MediaVideoSource.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Video.MediaVideoSource",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.Video.MediaVideoSource.yml\" sourcestartlinenumber=\"1\">A video file or a still image on disk.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Video.NoiseVideoSource.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Video.NoiseVideoSource.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Video.NoiseVideoSource",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.Video.NoiseVideoSource.yml\" sourcestartlinenumber=\"1\">A field of gradient noise filling the canvas, changing over time.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Video.TextVideoSource.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Video.TextVideoSource.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Video.TextVideoSource",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.Video.TextVideoSource.yml\" sourcestartlinenumber=\"1\">A block of white text on a transparent, frame-sized image.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Video.TextWrap.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Video.TextWrap.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Video.TextWrap",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.Video.TextWrap.yml\" sourcestartlinenumber=\"1\">Where text breaks onto a new line when it reaches the width of its box.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Video.TimelineVideoSource.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Video.TimelineVideoSource.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Video.TimelineVideoSource",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.Video.TimelineVideoSource.yml\" sourcestartlinenumber=\"1\">Another timeline's picture, composited frame by frame.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Video.VerticalTextAlignment.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Video.VerticalTextAlignment.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Video.VerticalTextAlignment",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.Video.VerticalTextAlignment.yml\" sourcestartlinenumber=\"1\">Where a block of text sits in its box, top to bottom.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Video.VideoSource.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Video.VideoSource.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Video.VideoSource",
-      "Summary": "<p sourcefile=\"api/EditSharp.Components.Sources.Video.VideoSource.yml\" sourcestartlinenumber=\"1\">A source of frames.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.Video.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.Video.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources.Video",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/EditSharp.Components.Sources.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/EditSharp.Components.Sources.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "EditSharp.Components.Sources",
-      "Summary": null
     },
     {
       "type": "ManagedReference",

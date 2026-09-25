@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class ToneAudioSource | EditSharp </title>
+      <title>Class ToneNode | EditSharp </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class ToneAudioSource | EditSharp ">
+      <meta name="title" content="Class ToneNode | EditSharp ">
       
       <meta name="description" content="A synthesized tone.">
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Sources_Audio_ToneAudioSource.md&amp;value=---%0Auid%3A%20EditSharp.Components.Sources.Audio.ToneAudioSource%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Nodes_Input_ToneNode.md&amp;value=---%0Auid%3A%20EditSharp.Components.Nodes.Input.ToneNode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,16 +84,16 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource">
+        <article data-uid="EditSharp.Components.Nodes.Input.ToneNode">
 
 
 
-  <h1 id="EditSharp_Components_Sources_Audio_ToneAudioSource" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource" class="text-break">
-Class ToneAudioSource  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <h1 id="EditSharp_Components_Nodes_Input_ToneNode" data-uid="EditSharp.Components.Nodes.Input.ToneNode" class="text-break">
+Class ToneNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Input/ToneNode.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a>.<a class="xref" href="EditSharp.Components.Sources.html">Sources</a>.<a class="xref" href="EditSharp.Components.Sources.Audio.html">Audio</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a>.<a class="xref" href="EditSharp.Components.Nodes.html">Nodes</a>.<a class="xref" href="EditSharp.Components.Nodes.Input.html">Input</a></dd></dl>
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
@@ -102,8 +102,8 @@ Class ToneAudioSource  <a class="header-action link-secondary" title="View sourc
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[SourceKind(&quot;tone&quot;, DisplayName = &quot;Tone&quot;)]
-public class ToneAudioSource : AudioSource</code></pre>
+    <pre><code class="lang-csharp hljs">[NodeKind(&quot;tone&quot;, DisplayName = &quot;Tone&quot;)]
+public sealed class ToneNode : AudioInputNode</code></pre>
   </div>
 
 
@@ -113,9 +113,10 @@ public class ToneAudioSource : AudioSource</code></pre>
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><a class="xref" href="EditSharp.Components.Sources.Source.html">Source</a></div>
-      <div><a class="xref" href="EditSharp.Components.Sources.Audio.AudioSource.html">AudioSource</a></div>
-      <div><span class="xref">ToneAudioSource</span></div>
+      <div><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></div>
+      <div><a class="xref" href="EditSharp.Components.Nodes.InputNode.html">InputNode</a></div>
+      <div><a class="xref" href="EditSharp.Components.Nodes.Input.AudioInputNode.html">AudioInputNode</a></div>
+      <div><span class="xref">ToneNode</span></div>
     </dd>
   </dl>
 
@@ -125,28 +126,43 @@ public class ToneAudioSource : AudioSource</code></pre>
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Start">Source.Start</a>
+      <a class="xref" href="EditSharp.Components.Nodes.Input.AudioInputNode.html#EditSharp_Components_Nodes_Input_AudioInputNode_Ports">AudioInputNode.Ports</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Duration">Source.Duration</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_Start">InputNode.Start</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_Loop">Source.Loop</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_Duration">InputNode.Duration</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_GetUsableLengthAsync_System_Threading_CancellationToken_">Source.GetUsableLengthAsync(CancellationToken)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_Loop">InputNode.Loop</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_TryGetNaturalLength_System_Nullable_System_TimeSpan___">Source.TryGetNaturalLength(out TimeSpan?)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_GetUsableLengthAsync_System_Threading_CancellationToken_">InputNode.GetUsableLengthAsync(CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_TryGetUsableLength_System_Nullable_System_TimeSpan___">Source.TryGetUsableLength(out TimeSpan?)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_TryGetNaturalLength_System_Nullable_System_TimeSpan___">InputNode.TryGetNaturalLength(out TimeSpan?)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_ResolveWindow_System_Nullable_System_TimeSpan__">Source.ResolveWindow(TimeSpan?)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_TryGetUsableLength_System_Nullable_System_TimeSpan___">InputNode.TryGetUsableLength(out TimeSpan?)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Sources.Source.html#EditSharp_Components_Sources_Source_ToSourceTime_System_TimeSpan_System_Nullable_System_TimeSpan__">Source.ToSourceTime(TimeSpan, TimeSpan?)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_InPoint">InputNode.InPoint</a>
+    </div>
+    <div>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_MaxHeadroom">InputNode.MaxHeadroom</a>
+    </div>
+    <div>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_ContentLength">InputNode.ContentLength</a>
+    </div>
+    <div>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_Duplicate">InputNode.Duplicate()</a>
+    </div>
+    <div>
+      <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Node.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Enabled">Node.Enabled</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -161,9 +177,6 @@ public class ToneAudioSource : AudioSource</code></pre>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
     </div>
     <div>
@@ -174,7 +187,7 @@ public class ToneAudioSource : AudioSource</code></pre>
 
 
 
-  <h2 id="EditSharp_Components_Sources_Audio_ToneAudioSource_remarks">Remarks</h2>
+  <h2 id="EditSharp_Components_Nodes_Input_ToneNode_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>Frequency and amplitude are evaluated every sample, and the phase carries on across blocks, so a changing frequency never clicks.</p>
 </div>
 
@@ -183,11 +196,11 @@ public class ToneAudioSource : AudioSource</code></pre>
 </h2>
 
 
-  <a id="EditSharp_Components_Sources_Audio_ToneAudioSource_Amplitude_" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.Amplitude*"></a>
+  <a id="EditSharp_Components_Nodes_Input_ToneNode_Amplitude_" data-uid="EditSharp.Components.Nodes.Input.ToneNode.Amplitude*"></a>
 
-  <h3 id="EditSharp_Components_Sources_Audio_ToneAudioSource_Amplitude" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.Amplitude">
+  <h3 id="EditSharp_Components_Nodes_Input_ToneNode_Amplitude" data-uid="EditSharp.Components.Nodes.Input.ToneNode.Amplitude">
   Amplitude
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Input/ToneNode.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The volume, from 0 (silent) to 1 (full scale).</p>
@@ -216,14 +229,14 @@ public Animatable&lt;float&gt; Amplitude { get; set; }</code></pre>
 
 
 
-  <a id="EditSharp_Components_Sources_Audio_ToneAudioSource_Animatables_" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.Animatables*"></a>
+  <a id="EditSharp_Components_Nodes_Input_ToneNode_Animatables_" data-uid="EditSharp.Components.Nodes.Input.ToneNode.Animatables*"></a>
 
-  <h3 id="EditSharp_Components_Sources_Audio_ToneAudioSource_Animatables" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.Animatables">
+  <h3 id="EditSharp_Components_Nodes_Input_ToneNode_Animatables" data-uid="EditSharp.Components.Nodes.Input.ToneNode.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Input/ToneNode.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>This source's keyframeable values.</p>
+  <div class="markdown level1 summary"><p>Every keyframeable value the node owns.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -244,18 +257,18 @@ public Animatable&lt;float&gt; Amplitude { get; set; }</code></pre>
 
 
 
-  <h4 class="section" id="EditSharp_Components_Sources_Audio_ToneAudioSource_Animatables_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>The node holding the source reports them as its own, so keyframe editing, thumbnails and head trims reach them.</p>
+  <h4 class="section" id="EditSharp_Components_Nodes_Input_ToneNode_Animatables_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Trimming a clip's head shifts every keyframe these hold, so the animation stays with the content. A node with Animatable properties lists every one of them here.</p>
 </div>
 
 
 
 
-  <a id="EditSharp_Components_Sources_Audio_ToneAudioSource_Frequency_" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.Frequency*"></a>
+  <a id="EditSharp_Components_Nodes_Input_ToneNode_Frequency_" data-uid="EditSharp.Components.Nodes.Input.ToneNode.Frequency*"></a>
 
-  <h3 id="EditSharp_Components_Sources_Audio_ToneAudioSource_Frequency" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.Frequency">
+  <h3 id="EditSharp_Components_Nodes_Input_ToneNode_Frequency" data-uid="EditSharp.Components.Nodes.Input.ToneNode.Frequency">
   Frequency
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Input/ToneNode.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The pitch, in hertz; 440 by default.</p>
@@ -284,11 +297,11 @@ public Animatable&lt;float&gt; Frequency { get; set; }</code></pre>
 
 
 
-  <a id="EditSharp_Components_Sources_Audio_ToneAudioSource_Waveform_" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.Waveform*"></a>
+  <a id="EditSharp_Components_Nodes_Input_ToneNode_Waveform_" data-uid="EditSharp.Components.Nodes.Input.ToneNode.Waveform*"></a>
 
-  <h3 id="EditSharp_Components_Sources_Audio_ToneAudioSource_Waveform" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.Waveform">
+  <h3 id="EditSharp_Components_Nodes_Input_ToneNode_Waveform" data-uid="EditSharp.Components.Nodes.Input.ToneNode.Waveform">
   Waveform
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Input/ToneNode.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The shape of the wave.</p>
@@ -306,7 +319,7 @@ public Waveform Waveform { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="EditSharp.Components.Sources.Audio.Waveform.html">Waveform</a></dt>
+    <dt><a class="xref" href="EditSharp.Components.Nodes.Input.Waveform.html">Waveform</a></dt>
     <dd></dd>
   </dl>
 
@@ -321,47 +334,11 @@ public Waveform Waveform { get; set; }</code></pre>
 </h2>
 
 
-  <a id="EditSharp_Components_Sources_Audio_ToneAudioSource_Duplicate_" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.Duplicate*"></a>
+  <a id="EditSharp_Components_Nodes_Input_ToneNode_GetNaturalLengthAsync_" data-uid="EditSharp.Components.Nodes.Input.ToneNode.GetNaturalLengthAsync*"></a>
 
-  <h3 id="EditSharp_Components_Sources_Audio_ToneAudioSource_Duplicate" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.Duplicate">
-  Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L50"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>A deep copy, made by saving and loading this source.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override ToneAudioSource Duplicate()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="EditSharp.Components.Sources.Audio.ToneAudioSource.html">ToneAudioSource</a></dt>
-    <dd><p>The copy.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="EditSharp_Components_Sources_Audio_ToneAudioSource_Duplicate_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo. A nested timeline is shared, not copied.</p>
-</div>
-
-
-
-
-  <a id="EditSharp_Components_Sources_Audio_ToneAudioSource_GetNaturalLengthAsync_" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.GetNaturalLengthAsync*"></a>
-
-  <h3 id="EditSharp_Components_Sources_Audio_ToneAudioSource_GetNaturalLengthAsync_System_Threading_CancellationToken_" data-uid="EditSharp.Components.Sources.Audio.ToneAudioSource.GetNaturalLengthAsync(System.Threading.CancellationToken)">
+  <h3 id="EditSharp_Components_Nodes_Input_ToneNode_GetNaturalLengthAsync_System_Threading_CancellationToken_" data-uid="EditSharp.Components.Nodes.Input.ToneNode.GetNaturalLengthAsync(System.Threading.CancellationToken)">
   GetNaturalLengthAsync(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Input/ToneNode.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Always null: a tone has no end of its own.</p>
@@ -400,7 +377,7 @@ public Waveform Waveform { get; set; }</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Sources/Audio/GeneratedAudioSources.cs/#L28" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Input/ToneNode.cs/#L29" class="edit-link">Edit this page</a>
         </div>
 
 

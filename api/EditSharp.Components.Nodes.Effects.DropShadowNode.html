@@ -102,7 +102,8 @@ Class DropShadowNode  <a class="header-action link-secondary" title="View source
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class DropShadowNode : Node</code></pre>
+    <pre><code class="lang-csharp hljs">[NodeKind(&quot;drop-shadow&quot;, DisplayName = &quot;Drop shadow&quot;)]
+public sealed class DropShadowNode : Node</code></pre>
   </div>
 
 
@@ -164,7 +165,7 @@ Class DropShadowNode  <a class="header-action link-secondary" title="View source
 
   <h3 id="EditSharp_Components_Nodes_Effects_DropShadowNode_Animatables" data-uid="EditSharp.Components.Nodes.Effects.DropShadowNode.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/DropShadowNode.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/DropShadowNode.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Every keyframeable value the node owns.</p>
@@ -199,7 +200,7 @@ Class DropShadowNode  <a class="header-action link-secondary" title="View source
 
   <h3 id="EditSharp_Components_Nodes_Effects_DropShadowNode_Blur" data-uid="EditSharp.Components.Nodes.Effects.DropShadowNode.Blur">
   Blur
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/DropShadowNode.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/DropShadowNode.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>How soft the shadow is (the blur's standard deviation), as a fraction of the frame's width.</p>
@@ -232,7 +233,7 @@ public Animatable&lt;float&gt; Blur { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_DropShadowNode_Color" data-uid="EditSharp.Components.Nodes.Effects.DropShadowNode.Color">
   Color
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/DropShadowNode.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/DropShadowNode.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The shadow's colour; its alpha is the shadow's opacity.</p>
@@ -265,7 +266,7 @@ public Animatable&lt;SKColor&gt; Color { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_DropShadowNode_Offset" data-uid="EditSharp.Components.Nodes.Effects.DropShadowNode.Offset">
   Offset
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/DropShadowNode.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/DropShadowNode.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Where the shadow sits relative to the image, in half-frames: X of half the frame's width, Y of half its height, y up.</p>
@@ -298,7 +299,7 @@ public Animatable&lt;Vector2&gt; Offset { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_DropShadowNode_Ports" data-uid="EditSharp.Components.Nodes.Effects.DropShadowNode.Ports">
   Ports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/DropShadowNode.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/DropShadowNode.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The node's ports, fixed by its type.</p>
@@ -334,7 +335,7 @@ public Animatable&lt;Vector2&gt; Offset { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_DropShadowNode_Duplicate" data-uid="EditSharp.Components.Nodes.Effects.DropShadowNode.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/DropShadowNode.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/DropShadowNode.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Id</a>, so connections in the two graphs can't be confused.</p>

@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Namespace EditSharp.Components.Nodes.Sources | EditSharp </title>
+      <title>Namespace EditSharp.Components.Media | EditSharp </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Namespace EditSharp.Components.Nodes.Sources | EditSharp ">
+      <meta name="title" content="Namespace EditSharp.Components.Media | EditSharp ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -84,9 +84,9 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="EditSharp.Components.Nodes.Sources">
+        <article data-uid="EditSharp.Components.Media">
 
-  <h1 id="EditSharp_Components_Nodes_Sources" data-uid="EditSharp.Components.Nodes.Sources" class="text-break">Namespace EditSharp.Components.Nodes.Sources</h1>
+  <h1 id="EditSharp_Components_Media" data-uid="EditSharp.Components.Media" class="text-break">Namespace EditSharp.Components.Media</h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
@@ -95,13 +95,51 @@
 Classes
 </h3>
     <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Components.Nodes.Sources.AudioSourceNode.html">AudioSourceNode</a></dt>
-      <dd><p>Feeds a <a class="xref" href="EditSharp.Components.Sources.Audio.AudioSource.html">AudioSource</a>'s samples into the graph, whatever kind of source it is.</p>
+      <dt><a class="xref" href="EditSharp.Components.Media.AudioMedia.html">AudioMedia</a></dt>
+      <dd><p>The audio of a media file on disk: an audio file, or a video file's soundtrack.</p>
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Components.Nodes.Sources.VideoSourceNode.html">VideoSourceNode</a></dt>
-      <dd><p>Feeds a <a class="xref" href="EditSharp.Components.Sources.Video.VideoSource.html">VideoSource</a>'s frames into the graph, whatever kind of source it is.</p>
+      <dt><a class="xref" href="EditSharp.Components.Media.IMedia.html">IMedia</a></dt>
+      <dd><p>Material an input node reads: a file on disk, opened the way its kind knows how.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Media.MediaKindAttribute.html">MediaKindAttribute</a></dt>
+      <dd><p>Registers a concrete <a class="xref" href="EditSharp.Components.Media.IMedia.html">IMedia</a> for saving and loading under a stable id.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Media.MediaKindInfo.html">MediaKindInfo</a></dt>
+      <dd><p>A kind of media a picker can offer.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Media.MediaKinds.html">MediaKinds</a></dt>
+      <dd><p>The media kinds pickers offer.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Media.SourceUnavailableException.html">SourceUnavailableException</a></dt>
+      <dd><p>How a source reports that it can't provide content.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Media.VideoMedia.html">VideoMedia</a></dt>
+      <dd><p>A video file or a still image on disk.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Media.SourceMode.html">SourceMode</a></dt>
+      <dd><p>Whether sources that have proxies read the proxy or the original.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Components.Media.SourceUnavailableReason.html">SourceUnavailableReason</a></dt>
+      <dd><p>Why a source can't provide content right now; compositing picks what to show from this.</p>
 </dd>
     </dl>
 

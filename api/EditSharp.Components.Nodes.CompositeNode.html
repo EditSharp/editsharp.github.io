@@ -102,7 +102,8 @@ Class CompositeNode  <a class="header-action link-secondary" title="View source"
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class CompositeNode : Node, IInspectable</code></pre>
+    <pre><code class="lang-csharp hljs">[NodeKind(&quot;composite&quot;, DisplayName = &quot;Custom node&quot;, Listed = false)]
+public sealed class CompositeNode : Node, IInspectable</code></pre>
   </div>
 
 
@@ -174,7 +175,7 @@ exposes, each under its own name. Evaluation never sees a composite:
 
   <h3 id="EditSharp_Components_Nodes_CompositeNode__ctor_EditSharp_Components_Nodes_Graph_System_String_" data-uid="EditSharp.Components.Nodes.CompositeNode.#ctor(EditSharp.Components.Nodes.Graph,System.String)">
   CompositeNode(Graph, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L81"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Folds a graph into a node.</p>
@@ -220,7 +221,7 @@ exposes, each under its own name. Evaluation never sees a composite:
 
   <h3 id="EditSharp_Components_Nodes_CompositeNode_Animatables" data-uid="EditSharp.Components.Nodes.CompositeNode.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L264"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Every keyframeable value the node owns.</p>
@@ -255,7 +256,7 @@ exposes, each under its own name. Evaluation never sees a composite:
 
   <h3 id="EditSharp_Components_Nodes_CompositeNode_ExposedProperties" data-uid="EditSharp.Components.Nodes.CompositeNode.ExposedProperties">
   ExposedProperties
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L74"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The inner properties shown as this node's own, in order.</p>
@@ -287,7 +288,7 @@ exposes, each under its own name. Evaluation never sees a composite:
 
   <h3 id="EditSharp_Components_Nodes_CompositeNode_Inner" data-uid="EditSharp.Components.Nodes.CompositeNode.Inner">
   Inner
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The graph inside the node.</p>
@@ -319,7 +320,7 @@ exposes, each under its own name. Evaluation never sees a composite:
 
   <h3 id="EditSharp_Components_Nodes_CompositeNode_Inputs" data-uid="EditSharp.Components.Nodes.CompositeNode.Inputs">
   Inputs
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L72"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The inner input ports shown as this node's inputs, in order.</p>
@@ -351,7 +352,7 @@ exposes, each under its own name. Evaluation never sees a composite:
 
   <h3 id="EditSharp_Components_Nodes_CompositeNode_Name" data-uid="EditSharp.Components.Nodes.CompositeNode.Name">
   Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The node's name, as editors show it.</p>
@@ -384,7 +385,7 @@ public string Name { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_CompositeNode_Output" data-uid="EditSharp.Components.Nodes.CompositeNode.Output">
   Output
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L89"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The node's one output: Image or Audio, matching the inner graph.</p>
@@ -416,7 +417,7 @@ public string Name { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_CompositeNode_Ports" data-uid="EditSharp.Components.Nodes.CompositeNode.Ports">
   Ports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The node's ports, fixed by its type.</p>
@@ -448,7 +449,7 @@ public string Name { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_CompositeNode_Properties" data-uid="EditSharp.Components.Nodes.CompositeNode.Properties">
   Properties
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L242"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>This node's own properties, then the exposed ones, each editing the inner node that holds it.</p>
@@ -484,7 +485,7 @@ public string Name { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_CompositeNode_Duplicate" data-uid="EditSharp.Components.Nodes.CompositeNode.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L230"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L267"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Id</a>, so connections in the two graphs can't be confused.</p>
@@ -520,7 +521,7 @@ public string Name { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_CompositeNode_ExposeInput_EditSharp_Components_Nodes_Node_System_String_System_String_" data-uid="EditSharp.Components.Nodes.CompositeNode.ExposeInput(EditSharp.Components.Nodes.Node,System.String,System.String)">
   ExposeInput(Node, string, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L125"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Shows an inner node's unconnected input port as one of this node's inputs.</p>
@@ -574,7 +575,7 @@ public string Name { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_CompositeNode_ExposeProperty_EditSharp_Components_Nodes_Node_System_String_System_String_" data-uid="EditSharp.Components.Nodes.CompositeNode.ExposeProperty(EditSharp.Components.Nodes.Node,System.String,System.String)">
   ExposeProperty(Node, string, string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L166"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Shows an inner node's editable property as one of this node's own.</p>
@@ -628,7 +629,7 @@ public string Name { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_CompositeNode_HideInput_EditSharp_Components_Nodes_ExposedPort_" data-uid="EditSharp.Components.Nodes.CompositeNode.HideInput(EditSharp.Components.Nodes.ExposedPort)">
   HideInput(ExposedPort)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L148"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Stops showing an exposed input; one that isn't exposed is ignored.</p>
@@ -661,7 +662,7 @@ public string Name { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_CompositeNode_HideProperty_EditSharp_Components_Nodes_ExposedProperty_" data-uid="EditSharp.Components.Nodes.CompositeNode.HideProperty(EditSharp.Components.Nodes.ExposedProperty)">
   HideProperty(ExposedProperty)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L185"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/CompositeNode.cs/#L186"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Stops showing an exposed property; one that isn't exposed is ignored.</p>
