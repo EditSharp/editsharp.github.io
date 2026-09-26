@@ -13,6 +13,104 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Audio.Analysis.AudioAnalysis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Audio.Analysis.AudioAnalysis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Audio.Analysis.AudioAnalysis",
+      "Summary": "<p sourcefile=\"api/EditSharp.Audio.Analysis.AudioAnalysis.yml\" sourcestartlinenumber=\"1\">A media file's audio described frame by frame in the frequency domain: band energies and the sample peak of every hop.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Audio.Analysis.AudioAnalysisCache.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Audio.Analysis.AudioAnalysisCache.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Audio.Analysis.AudioAnalysisCache",
+      "Summary": "<p sourcefile=\"api/EditSharp.Audio.Analysis.AudioAnalysisCache.yml\" sourcestartlinenumber=\"1\">Keeps every media file's <xref href=\"EditSharp.Audio.Analysis.AudioAnalysis\" data-throw-if-not-resolved=\"false\"></xref>: on disk beside the proxies, and in memory once loaded.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Audio.Analysis.ClipSpectrum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Audio.Analysis.ClipSpectrum.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Audio.Analysis.ClipSpectrum",
+      "Summary": "<p sourcefile=\"api/EditSharp.Audio.Analysis.ClipSpectrum.yml\" sourcestartlinenumber=\"1\">Folds an audio clip's graph over its sources' analyses, frame by frame, in the frequency domain.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Audio.Analysis.SpectralContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Audio.Analysis.SpectralContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Audio.Analysis.SpectralContext",
+      "Summary": "<p sourcefile=\"api/EditSharp.Audio.Analysis.SpectralContext.yml\" sourcestartlinenumber=\"1\">What a node knows about the frame it's describing.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Audio.Analysis.SpectralEnvelope.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Audio.Analysis.SpectralEnvelope.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Audio.Analysis.SpectralEnvelope",
+      "Summary": "<p sourcefile=\"api/EditSharp.Audio.Analysis.SpectralEnvelope.yml\" sourcestartlinenumber=\"1\">A clip's processed audio, frame by frame in the frequency domain, after its graph's nodes have described their effect.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Audio.Analysis.SpectralFrame.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Audio.Analysis.SpectralFrame.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Audio.Analysis.SpectralFrame",
+      "Summary": "<p sourcefile=\"api/EditSharp.Audio.Analysis.SpectralFrame.yml\" sourcestartlinenumber=\"1\">One frame of audio in the frequency domain: the energy in each band and the sample peak.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Audio.Analysis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Audio.Analysis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Audio.Analysis",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/EditSharp.Audio.AudioTap.yml",
       "output": {
         ".html": {
@@ -556,6 +654,20 @@
       "IsMRef": true,
       "Title": "EditSharp.Components.Media.AudioMedia",
       "Summary": "<p sourcefile=\"api/EditSharp.Components.Media.AudioMedia.yml\" sourcestartlinenumber=\"1\">The audio of a media file on disk: an audio file, or a video file's soundtrack.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Components.Media.AudioPeaks.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Components.Media.AudioPeaks.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Components.Media.AudioPeaks",
+      "Summary": "<p sourcefile=\"api/EditSharp.Components.Media.AudioPeaks.yml\" sourcestartlinenumber=\"1\">The quietest and loudest sample in each of a row of equal time buckets, every channel mixed to one.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -2124,6 +2236,20 @@
       "IsMRef": true,
       "Title": "EditSharp.Video.HardwareAccelerator",
       "Summary": "<p sourcefile=\"api/EditSharp.Video.HardwareAccelerator.yml\" sourcestartlinenumber=\"1\">Whether decoding, compositing and encoding may use the GPU.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/EditSharp.Video.MediaInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/EditSharp.Video.MediaInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "EditSharp.Video.MediaInfo",
+      "Summary": "<p sourcefile=\"api/EditSharp.Video.MediaInfo.yml\" sourcestartlinenumber=\"1\">What one probe of a media file found.</p>\n"
     },
     {
       "type": "ManagedReference",

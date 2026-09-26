@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Namespace EditSharp.Video | EditSharp </title>
+      <title>Namespace EditSharp.Audio.Analysis | EditSharp </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Namespace EditSharp.Video | EditSharp ">
+      <meta name="title" content="Namespace EditSharp.Audio.Analysis | EditSharp ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -84,9 +84,9 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="EditSharp.Video">
+        <article data-uid="EditSharp.Audio.Analysis">
 
-  <h1 id="EditSharp_Video" data-uid="EditSharp.Video" class="text-break">Namespace EditSharp.Video</h1>
+  <h1 id="EditSharp_Audio_Analysis" data-uid="EditSharp.Audio.Analysis" class="text-break">Namespace EditSharp.Audio.Analysis</h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
@@ -95,34 +95,36 @@
 Classes
 </h3>
     <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Video.VideoUtils.html">VideoUtils</a></dt>
-      <dd><p>Everyday ffmpeg tasks outside the timeline renderer: joining streams and re-encoding.</p>
+      <dt><a class="xref" href="EditSharp.Audio.Analysis.AudioAnalysis.html">AudioAnalysis</a></dt>
+      <dd><p>A media file's audio described frame by frame in the frequency domain: band energies and the sample peak of every hop.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Audio.Analysis.AudioAnalysisCache.html">AudioAnalysisCache</a></dt>
+      <dd><p>Keeps every media file's <a class="xref" href="EditSharp.Audio.Analysis.AudioAnalysis.html">AudioAnalysis</a>: on disk beside the proxies, and in memory once loaded.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Audio.Analysis.ClipSpectrum.html">ClipSpectrum</a></dt>
+      <dd><p>Folds an audio clip's graph over its sources' analyses, frame by frame, in the frequency domain.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Audio.Analysis.SpectralEnvelope.html">SpectralEnvelope</a></dt>
+      <dd><p>A clip's processed audio, frame by frame in the frequency domain, after its graph's nodes have described their effect.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="EditSharp.Audio.Analysis.SpectralFrame.html">SpectralFrame</a></dt>
+      <dd><p>One frame of audio in the frequency domain: the energy in each band and the sample peak.</p>
 </dd>
     </dl>
     <h3 id="structs">
 Structs
 </h3>
     <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Video.MediaInfo.html">MediaInfo</a></dt>
-      <dd><p>What one probe of a media file found.</p>
-</dd>
-    </dl>
-    <h3 id="enums">
-Enums
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Video.AudioCodec.html">AudioCodec</a></dt>
-      <dd><p>The audio codec a render encodes with.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Video.HardwareAccelerator.html">HardwareAccelerator</a></dt>
-      <dd><p>Whether decoding, compositing and encoding may use the GPU.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="EditSharp.Video.VideoCodec.html">VideoCodec</a></dt>
-      <dd><p>The video codec a render encodes with.</p>
+      <dt><a class="xref" href="EditSharp.Audio.Analysis.SpectralContext.html">SpectralContext</a></dt>
+      <dd><p>What a node knows about the frame it's describing.</p>
 </dd>
     </dl>
 

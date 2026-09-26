@@ -13,6 +13,608 @@ references:
   commentId: N:EditSharp.Audio
   fullName: EditSharp.Audio
   nameWithType: EditSharp.Audio
+- uid: EditSharp.Audio.Analysis
+  name: EditSharp.Audio.Analysis
+  href: api/EditSharp.Audio.Analysis.html
+  commentId: N:EditSharp.Audio.Analysis
+  fullName: EditSharp.Audio.Analysis
+  nameWithType: EditSharp.Audio.Analysis
+- uid: EditSharp.Audio.Analysis.AudioAnalysis
+  name: AudioAnalysis
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html
+  commentId: T:EditSharp.Audio.Analysis.AudioAnalysis
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis
+  nameWithType: AudioAnalysis
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.BandCentresHz
+  name: BandCentresHz
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_BandCentresHz
+  commentId: F:EditSharp.Audio.Analysis.AudioAnalysis.BandCentresHz
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.BandCentresHz
+  nameWithType: AudioAnalysis.BandCentresHz
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.BandCount
+  name: BandCount
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_BandCount
+  commentId: F:EditSharp.Audio.Analysis.AudioAnalysis.BandCount
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.BandCount
+  nameWithType: AudioAnalysis.BandCount
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.BandEdgesHz
+  name: BandEdgesHz
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_BandEdgesHz
+  commentId: F:EditSharp.Audio.Analysis.AudioAnalysis.BandEdgesHz
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.BandEdgesHz
+  nameWithType: AudioAnalysis.BandEdgesHz
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.BandOf(System.Double)
+  name: BandOf(double)
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_BandOf_System_Double_
+  commentId: M:EditSharp.Audio.Analysis.AudioAnalysis.BandOf(System.Double)
+  name.vb: BandOf(Double)
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.BandOf(double)
+  fullName.vb: EditSharp.Audio.Analysis.AudioAnalysis.BandOf(Double)
+  nameWithType: AudioAnalysis.BandOf(double)
+  nameWithType.vb: AudioAnalysis.BandOf(Double)
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.BandOf*
+  name: BandOf
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_BandOf_
+  commentId: Overload:EditSharp.Audio.Analysis.AudioAnalysis.BandOf
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.BandOf
+  nameWithType: AudioAnalysis.BandOf
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.Bands
+  name: Bands
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_Bands
+  commentId: P:EditSharp.Audio.Analysis.AudioAnalysis.Bands
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.Bands
+  nameWithType: AudioAnalysis.Bands
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.Bands*
+  name: Bands
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_Bands_
+  commentId: Overload:EditSharp.Audio.Analysis.AudioAnalysis.Bands
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.Bands
+  nameWithType: AudioAnalysis.Bands
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.BandsOf(System.Int32)
+  name: BandsOf(int)
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_BandsOf_System_Int32_
+  commentId: M:EditSharp.Audio.Analysis.AudioAnalysis.BandsOf(System.Int32)
+  name.vb: BandsOf(Integer)
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.BandsOf(int)
+  fullName.vb: EditSharp.Audio.Analysis.AudioAnalysis.BandsOf(Integer)
+  nameWithType: AudioAnalysis.BandsOf(int)
+  nameWithType.vb: AudioAnalysis.BandsOf(Integer)
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.BandsOf*
+  name: BandsOf
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_BandsOf_
+  commentId: Overload:EditSharp.Audio.Analysis.AudioAnalysis.BandsOf
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.BandsOf
+  nameWithType: AudioAnalysis.BandsOf
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.Duration
+  name: Duration
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_Duration
+  commentId: P:EditSharp.Audio.Analysis.AudioAnalysis.Duration
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.Duration
+  nameWithType: AudioAnalysis.Duration
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.Duration*
+  name: Duration
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_Duration_
+  commentId: Overload:EditSharp.Audio.Analysis.AudioAnalysis.Duration
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.Duration
+  nameWithType: AudioAnalysis.Duration
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.FrameAt(System.TimeSpan)
+  name: FrameAt(TimeSpan)
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_FrameAt_System_TimeSpan_
+  commentId: M:EditSharp.Audio.Analysis.AudioAnalysis.FrameAt(System.TimeSpan)
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.FrameAt(System.TimeSpan)
+  nameWithType: AudioAnalysis.FrameAt(TimeSpan)
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.FrameAt*
+  name: FrameAt
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_FrameAt_
+  commentId: Overload:EditSharp.Audio.Analysis.AudioAnalysis.FrameAt
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.FrameAt
+  nameWithType: AudioAnalysis.FrameAt
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.FrameCount
+  name: FrameCount
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_FrameCount
+  commentId: P:EditSharp.Audio.Analysis.AudioAnalysis.FrameCount
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.FrameCount
+  nameWithType: AudioAnalysis.FrameCount
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.FrameCount*
+  name: FrameCount
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_FrameCount_
+  commentId: Overload:EditSharp.Audio.Analysis.AudioAnalysis.FrameCount
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.FrameCount
+  nameWithType: AudioAnalysis.FrameCount
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.FrameSeconds
+  name: FrameSeconds
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_FrameSeconds
+  commentId: F:EditSharp.Audio.Analysis.AudioAnalysis.FrameSeconds
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.FrameSeconds
+  nameWithType: AudioAnalysis.FrameSeconds
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.HighestHz
+  name: HighestHz
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_HighestHz
+  commentId: F:EditSharp.Audio.Analysis.AudioAnalysis.HighestHz
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.HighestHz
+  nameWithType: AudioAnalysis.HighestHz
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.Hop
+  name: Hop
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_Hop
+  commentId: F:EditSharp.Audio.Analysis.AudioAnalysis.Hop
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.Hop
+  nameWithType: AudioAnalysis.Hop
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.Load(System.IO.Stream)
+  name: Load(Stream)
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_Load_System_IO_Stream_
+  commentId: M:EditSharp.Audio.Analysis.AudioAnalysis.Load(System.IO.Stream)
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.Load(System.IO.Stream)
+  nameWithType: AudioAnalysis.Load(Stream)
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.Load*
+  name: Load
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_Load_
+  commentId: Overload:EditSharp.Audio.Analysis.AudioAnalysis.Load
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.Load
+  nameWithType: AudioAnalysis.Load
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.LowestHz
+  name: LowestHz
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_LowestHz
+  commentId: F:EditSharp.Audio.Analysis.AudioAnalysis.LowestHz
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.LowestHz
+  nameWithType: AudioAnalysis.LowestHz
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.Peak
+  name: Peak
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_Peak
+  commentId: P:EditSharp.Audio.Analysis.AudioAnalysis.Peak
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.Peak
+  nameWithType: AudioAnalysis.Peak
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.Peak*
+  name: Peak
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_Peak_
+  commentId: Overload:EditSharp.Audio.Analysis.AudioAnalysis.Peak
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.Peak
+  nameWithType: AudioAnalysis.Peak
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.PeakOf(System.Int32)
+  name: PeakOf(int)
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_PeakOf_System_Int32_
+  commentId: M:EditSharp.Audio.Analysis.AudioAnalysis.PeakOf(System.Int32)
+  name.vb: PeakOf(Integer)
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.PeakOf(int)
+  fullName.vb: EditSharp.Audio.Analysis.AudioAnalysis.PeakOf(Integer)
+  nameWithType: AudioAnalysis.PeakOf(int)
+  nameWithType.vb: AudioAnalysis.PeakOf(Integer)
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.PeakOf*
+  name: PeakOf
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_PeakOf_
+  commentId: Overload:EditSharp.Audio.Analysis.AudioAnalysis.PeakOf
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.PeakOf
+  nameWithType: AudioAnalysis.PeakOf
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.SampleRate
+  name: SampleRate
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_SampleRate
+  commentId: F:EditSharp.Audio.Analysis.AudioAnalysis.SampleRate
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.SampleRate
+  nameWithType: AudioAnalysis.SampleRate
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.Save(System.IO.Stream)
+  name: Save(Stream)
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_Save_System_IO_Stream_
+  commentId: M:EditSharp.Audio.Analysis.AudioAnalysis.Save(System.IO.Stream)
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.Save(System.IO.Stream)
+  nameWithType: AudioAnalysis.Save(Stream)
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.Save*
+  name: Save
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_Save_
+  commentId: Overload:EditSharp.Audio.Analysis.AudioAnalysis.Save
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.Save
+  nameWithType: AudioAnalysis.Save
+- uid: EditSharp.Audio.Analysis.AudioAnalysis.Window
+  name: Window
+  href: api/EditSharp.Audio.Analysis.AudioAnalysis.html#EditSharp_Audio_Analysis_AudioAnalysis_Window
+  commentId: F:EditSharp.Audio.Analysis.AudioAnalysis.Window
+  fullName: EditSharp.Audio.Analysis.AudioAnalysis.Window
+  nameWithType: AudioAnalysis.Window
+- uid: EditSharp.Audio.Analysis.AudioAnalysisCache
+  name: AudioAnalysisCache
+  href: api/EditSharp.Audio.Analysis.AudioAnalysisCache.html
+  commentId: T:EditSharp.Audio.Analysis.AudioAnalysisCache
+  fullName: EditSharp.Audio.Analysis.AudioAnalysisCache
+  nameWithType: AudioAnalysisCache
+- uid: EditSharp.Audio.Analysis.AudioAnalysisCache.Completed
+  name: Completed
+  href: api/EditSharp.Audio.Analysis.AudioAnalysisCache.html#EditSharp_Audio_Analysis_AudioAnalysisCache_Completed
+  commentId: E:EditSharp.Audio.Analysis.AudioAnalysisCache.Completed
+  fullName: EditSharp.Audio.Analysis.AudioAnalysisCache.Completed
+  nameWithType: AudioAnalysisCache.Completed
+- uid: EditSharp.Audio.Analysis.AudioAnalysisCache.Forget(System.String)
+  name: Forget(string)
+  href: api/EditSharp.Audio.Analysis.AudioAnalysisCache.html#EditSharp_Audio_Analysis_AudioAnalysisCache_Forget_System_String_
+  commentId: M:EditSharp.Audio.Analysis.AudioAnalysisCache.Forget(System.String)
+  name.vb: Forget(String)
+  fullName: EditSharp.Audio.Analysis.AudioAnalysisCache.Forget(string)
+  fullName.vb: EditSharp.Audio.Analysis.AudioAnalysisCache.Forget(String)
+  nameWithType: AudioAnalysisCache.Forget(string)
+  nameWithType.vb: AudioAnalysisCache.Forget(String)
+- uid: EditSharp.Audio.Analysis.AudioAnalysisCache.Forget*
+  name: Forget
+  href: api/EditSharp.Audio.Analysis.AudioAnalysisCache.html#EditSharp_Audio_Analysis_AudioAnalysisCache_Forget_
+  commentId: Overload:EditSharp.Audio.Analysis.AudioAnalysisCache.Forget
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.AudioAnalysisCache.Forget
+  nameWithType: AudioAnalysisCache.Forget
+- uid: EditSharp.Audio.Analysis.AudioAnalysisCache.GetAsync(System.String,System.Threading.CancellationToken)
+  name: GetAsync(string, CancellationToken)
+  href: api/EditSharp.Audio.Analysis.AudioAnalysisCache.html#EditSharp_Audio_Analysis_AudioAnalysisCache_GetAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:EditSharp.Audio.Analysis.AudioAnalysisCache.GetAsync(System.String,System.Threading.CancellationToken)
+  name.vb: GetAsync(String, CancellationToken)
+  fullName: EditSharp.Audio.Analysis.AudioAnalysisCache.GetAsync(string, System.Threading.CancellationToken)
+  fullName.vb: EditSharp.Audio.Analysis.AudioAnalysisCache.GetAsync(String, System.Threading.CancellationToken)
+  nameWithType: AudioAnalysisCache.GetAsync(string, CancellationToken)
+  nameWithType.vb: AudioAnalysisCache.GetAsync(String, CancellationToken)
+- uid: EditSharp.Audio.Analysis.AudioAnalysisCache.GetAsync*
+  name: GetAsync
+  href: api/EditSharp.Audio.Analysis.AudioAnalysisCache.html#EditSharp_Audio_Analysis_AudioAnalysisCache_GetAsync_
+  commentId: Overload:EditSharp.Audio.Analysis.AudioAnalysisCache.GetAsync
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.AudioAnalysisCache.GetAsync
+  nameWithType: AudioAnalysisCache.GetAsync
+- uid: EditSharp.Audio.Analysis.AudioAnalysisCache.IsPending(System.String)
+  name: IsPending(string)
+  href: api/EditSharp.Audio.Analysis.AudioAnalysisCache.html#EditSharp_Audio_Analysis_AudioAnalysisCache_IsPending_System_String_
+  commentId: M:EditSharp.Audio.Analysis.AudioAnalysisCache.IsPending(System.String)
+  name.vb: IsPending(String)
+  fullName: EditSharp.Audio.Analysis.AudioAnalysisCache.IsPending(string)
+  fullName.vb: EditSharp.Audio.Analysis.AudioAnalysisCache.IsPending(String)
+  nameWithType: AudioAnalysisCache.IsPending(string)
+  nameWithType.vb: AudioAnalysisCache.IsPending(String)
+- uid: EditSharp.Audio.Analysis.AudioAnalysisCache.IsPending*
+  name: IsPending
+  href: api/EditSharp.Audio.Analysis.AudioAnalysisCache.html#EditSharp_Audio_Analysis_AudioAnalysisCache_IsPending_
+  commentId: Overload:EditSharp.Audio.Analysis.AudioAnalysisCache.IsPending
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.AudioAnalysisCache.IsPending
+  nameWithType: AudioAnalysisCache.IsPending
+- uid: EditSharp.Audio.Analysis.AudioAnalysisCache.TryGet(System.String,EditSharp.Audio.Analysis.AudioAnalysis@)
+  name: TryGet(string, out AudioAnalysis)
+  href: api/EditSharp.Audio.Analysis.AudioAnalysisCache.html#EditSharp_Audio_Analysis_AudioAnalysisCache_TryGet_System_String_EditSharp_Audio_Analysis_AudioAnalysis__
+  commentId: M:EditSharp.Audio.Analysis.AudioAnalysisCache.TryGet(System.String,EditSharp.Audio.Analysis.AudioAnalysis@)
+  name.vb: TryGet(String, AudioAnalysis)
+  fullName: EditSharp.Audio.Analysis.AudioAnalysisCache.TryGet(string, out EditSharp.Audio.Analysis.AudioAnalysis)
+  fullName.vb: EditSharp.Audio.Analysis.AudioAnalysisCache.TryGet(String, EditSharp.Audio.Analysis.AudioAnalysis)
+  nameWithType: AudioAnalysisCache.TryGet(string, out AudioAnalysis)
+  nameWithType.vb: AudioAnalysisCache.TryGet(String, AudioAnalysis)
+- uid: EditSharp.Audio.Analysis.AudioAnalysisCache.TryGet*
+  name: TryGet
+  href: api/EditSharp.Audio.Analysis.AudioAnalysisCache.html#EditSharp_Audio_Analysis_AudioAnalysisCache_TryGet_
+  commentId: Overload:EditSharp.Audio.Analysis.AudioAnalysisCache.TryGet
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.AudioAnalysisCache.TryGet
+  nameWithType: AudioAnalysisCache.TryGet
+- uid: EditSharp.Audio.Analysis.ClipSpectrum
+  name: ClipSpectrum
+  href: api/EditSharp.Audio.Analysis.ClipSpectrum.html
+  commentId: T:EditSharp.Audio.Analysis.ClipSpectrum
+  fullName: EditSharp.Audio.Analysis.ClipSpectrum
+  nameWithType: ClipSpectrum
+- uid: EditSharp.Audio.Analysis.ClipSpectrum.Evaluate(EditSharp.Components.Clips.AudioClip,System.TimeSpan,System.Int32)
+  name: Evaluate(AudioClip, TimeSpan, int)
+  href: api/EditSharp.Audio.Analysis.ClipSpectrum.html#EditSharp_Audio_Analysis_ClipSpectrum_Evaluate_EditSharp_Components_Clips_AudioClip_System_TimeSpan_System_Int32_
+  commentId: M:EditSharp.Audio.Analysis.ClipSpectrum.Evaluate(EditSharp.Components.Clips.AudioClip,System.TimeSpan,System.Int32)
+  name.vb: Evaluate(AudioClip, TimeSpan, Integer)
+  fullName: EditSharp.Audio.Analysis.ClipSpectrum.Evaluate(EditSharp.Components.Clips.AudioClip, System.TimeSpan, int)
+  fullName.vb: EditSharp.Audio.Analysis.ClipSpectrum.Evaluate(EditSharp.Components.Clips.AudioClip, System.TimeSpan, Integer)
+  nameWithType: ClipSpectrum.Evaluate(AudioClip, TimeSpan, int)
+  nameWithType.vb: ClipSpectrum.Evaluate(AudioClip, TimeSpan, Integer)
+- uid: EditSharp.Audio.Analysis.ClipSpectrum.Evaluate*
+  name: Evaluate
+  href: api/EditSharp.Audio.Analysis.ClipSpectrum.html#EditSharp_Audio_Analysis_ClipSpectrum_Evaluate_
+  commentId: Overload:EditSharp.Audio.Analysis.ClipSpectrum.Evaluate
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.ClipSpectrum.Evaluate
+  nameWithType: ClipSpectrum.Evaluate
+- uid: EditSharp.Audio.Analysis.ClipSpectrum.IsReady(EditSharp.Components.Clips.AudioClip)
+  name: IsReady(AudioClip)
+  href: api/EditSharp.Audio.Analysis.ClipSpectrum.html#EditSharp_Audio_Analysis_ClipSpectrum_IsReady_EditSharp_Components_Clips_AudioClip_
+  commentId: M:EditSharp.Audio.Analysis.ClipSpectrum.IsReady(EditSharp.Components.Clips.AudioClip)
+  fullName: EditSharp.Audio.Analysis.ClipSpectrum.IsReady(EditSharp.Components.Clips.AudioClip)
+  nameWithType: ClipSpectrum.IsReady(AudioClip)
+- uid: EditSharp.Audio.Analysis.ClipSpectrum.IsReady*
+  name: IsReady
+  href: api/EditSharp.Audio.Analysis.ClipSpectrum.html#EditSharp_Audio_Analysis_ClipSpectrum_IsReady_
+  commentId: Overload:EditSharp.Audio.Analysis.ClipSpectrum.IsReady
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.ClipSpectrum.IsReady
+  nameWithType: ClipSpectrum.IsReady
+- uid: EditSharp.Audio.Analysis.ClipSpectrum.MissingMedia(EditSharp.Components.Clips.AudioClip)
+  name: MissingMedia(AudioClip)
+  href: api/EditSharp.Audio.Analysis.ClipSpectrum.html#EditSharp_Audio_Analysis_ClipSpectrum_MissingMedia_EditSharp_Components_Clips_AudioClip_
+  commentId: M:EditSharp.Audio.Analysis.ClipSpectrum.MissingMedia(EditSharp.Components.Clips.AudioClip)
+  fullName: EditSharp.Audio.Analysis.ClipSpectrum.MissingMedia(EditSharp.Components.Clips.AudioClip)
+  nameWithType: ClipSpectrum.MissingMedia(AudioClip)
+- uid: EditSharp.Audio.Analysis.ClipSpectrum.MissingMedia*
+  name: MissingMedia
+  href: api/EditSharp.Audio.Analysis.ClipSpectrum.html#EditSharp_Audio_Analysis_ClipSpectrum_MissingMedia_
+  commentId: Overload:EditSharp.Audio.Analysis.ClipSpectrum.MissingMedia
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.ClipSpectrum.MissingMedia
+  nameWithType: ClipSpectrum.MissingMedia
+- uid: EditSharp.Audio.Analysis.SpectralContext
+  name: SpectralContext
+  href: api/EditSharp.Audio.Analysis.SpectralContext.html
+  commentId: T:EditSharp.Audio.Analysis.SpectralContext
+  fullName: EditSharp.Audio.Analysis.SpectralContext
+  nameWithType: SpectralContext
+- uid: EditSharp.Audio.Analysis.SpectralContext.#ctor(System.TimeSpan,System.Double)
+  name: SpectralContext(TimeSpan, double)
+  href: api/EditSharp.Audio.Analysis.SpectralContext.html#EditSharp_Audio_Analysis_SpectralContext__ctor_System_TimeSpan_System_Double_
+  commentId: M:EditSharp.Audio.Analysis.SpectralContext.#ctor(System.TimeSpan,System.Double)
+  name.vb: New(TimeSpan, Double)
+  fullName: EditSharp.Audio.Analysis.SpectralContext.SpectralContext(System.TimeSpan, double)
+  fullName.vb: EditSharp.Audio.Analysis.SpectralContext.New(System.TimeSpan, Double)
+  nameWithType: SpectralContext.SpectralContext(TimeSpan, double)
+  nameWithType.vb: SpectralContext.New(TimeSpan, Double)
+- uid: EditSharp.Audio.Analysis.SpectralContext.#ctor*
+  name: SpectralContext
+  href: api/EditSharp.Audio.Analysis.SpectralContext.html#EditSharp_Audio_Analysis_SpectralContext__ctor_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralContext.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: EditSharp.Audio.Analysis.SpectralContext.SpectralContext
+  fullName.vb: EditSharp.Audio.Analysis.SpectralContext.New
+  nameWithType: SpectralContext.SpectralContext
+  nameWithType.vb: SpectralContext.New
+- uid: EditSharp.Audio.Analysis.SpectralContext.ContentTime
+  name: ContentTime
+  href: api/EditSharp.Audio.Analysis.SpectralContext.html#EditSharp_Audio_Analysis_SpectralContext_ContentTime
+  commentId: P:EditSharp.Audio.Analysis.SpectralContext.ContentTime
+  fullName: EditSharp.Audio.Analysis.SpectralContext.ContentTime
+  nameWithType: SpectralContext.ContentTime
+- uid: EditSharp.Audio.Analysis.SpectralContext.ContentTime*
+  name: ContentTime
+  href: api/EditSharp.Audio.Analysis.SpectralContext.html#EditSharp_Audio_Analysis_SpectralContext_ContentTime_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralContext.ContentTime
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralContext.ContentTime
+  nameWithType: SpectralContext.ContentTime
+- uid: EditSharp.Audio.Analysis.SpectralContext.FrameSeconds
+  name: FrameSeconds
+  href: api/EditSharp.Audio.Analysis.SpectralContext.html#EditSharp_Audio_Analysis_SpectralContext_FrameSeconds
+  commentId: P:EditSharp.Audio.Analysis.SpectralContext.FrameSeconds
+  fullName: EditSharp.Audio.Analysis.SpectralContext.FrameSeconds
+  nameWithType: SpectralContext.FrameSeconds
+- uid: EditSharp.Audio.Analysis.SpectralContext.FrameSeconds*
+  name: FrameSeconds
+  href: api/EditSharp.Audio.Analysis.SpectralContext.html#EditSharp_Audio_Analysis_SpectralContext_FrameSeconds_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralContext.FrameSeconds
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralContext.FrameSeconds
+  nameWithType: SpectralContext.FrameSeconds
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope
+  name: SpectralEnvelope
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html
+  commentId: T:EditSharp.Audio.Analysis.SpectralEnvelope
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope
+  nameWithType: SpectralEnvelope
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.#ctor(System.TimeSpan,System.Double,System.Single[],System.Single[])
+  name: SpectralEnvelope(TimeSpan, double, float[], float[])
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope__ctor_System_TimeSpan_System_Double_System_Single___System_Single___
+  commentId: M:EditSharp.Audio.Analysis.SpectralEnvelope.#ctor(System.TimeSpan,System.Double,System.Single[],System.Single[])
+  name.vb: New(TimeSpan, Double, Single(), Single())
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.SpectralEnvelope(System.TimeSpan, double, float[], float[])
+  fullName.vb: EditSharp.Audio.Analysis.SpectralEnvelope.New(System.TimeSpan, Double, Single(), Single())
+  nameWithType: SpectralEnvelope.SpectralEnvelope(TimeSpan, double, float[], float[])
+  nameWithType.vb: SpectralEnvelope.New(TimeSpan, Double, Single(), Single())
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.#ctor*
+  name: SpectralEnvelope
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope__ctor_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralEnvelope.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.SpectralEnvelope
+  fullName.vb: EditSharp.Audio.Analysis.SpectralEnvelope.New
+  nameWithType: SpectralEnvelope.SpectralEnvelope
+  nameWithType.vb: SpectralEnvelope.New
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.Bands
+  name: Bands
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope_Bands
+  commentId: P:EditSharp.Audio.Analysis.SpectralEnvelope.Bands
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.Bands
+  nameWithType: SpectralEnvelope.Bands
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.Bands*
+  name: Bands
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope_Bands_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralEnvelope.Bands
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.Bands
+  nameWithType: SpectralEnvelope.Bands
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.BandsOf(System.Int32)
+  name: BandsOf(int)
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope_BandsOf_System_Int32_
+  commentId: M:EditSharp.Audio.Analysis.SpectralEnvelope.BandsOf(System.Int32)
+  name.vb: BandsOf(Integer)
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.BandsOf(int)
+  fullName.vb: EditSharp.Audio.Analysis.SpectralEnvelope.BandsOf(Integer)
+  nameWithType: SpectralEnvelope.BandsOf(int)
+  nameWithType.vb: SpectralEnvelope.BandsOf(Integer)
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.BandsOf*
+  name: BandsOf
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope_BandsOf_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralEnvelope.BandsOf
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.BandsOf
+  nameWithType: SpectralEnvelope.BandsOf
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.ContentStart
+  name: ContentStart
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope_ContentStart
+  commentId: P:EditSharp.Audio.Analysis.SpectralEnvelope.ContentStart
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.ContentStart
+  nameWithType: SpectralEnvelope.ContentStart
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.ContentStart*
+  name: ContentStart
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope_ContentStart_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralEnvelope.ContentStart
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.ContentStart
+  nameWithType: SpectralEnvelope.ContentStart
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.Count
+  name: Count
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope_Count
+  commentId: P:EditSharp.Audio.Analysis.SpectralEnvelope.Count
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.Count
+  nameWithType: SpectralEnvelope.Count
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.Count*
+  name: Count
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope_Count_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralEnvelope.Count
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.Count
+  nameWithType: SpectralEnvelope.Count
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.FrameSeconds
+  name: FrameSeconds
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope_FrameSeconds
+  commentId: P:EditSharp.Audio.Analysis.SpectralEnvelope.FrameSeconds
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.FrameSeconds
+  nameWithType: SpectralEnvelope.FrameSeconds
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.FrameSeconds*
+  name: FrameSeconds
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope_FrameSeconds_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralEnvelope.FrameSeconds
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.FrameSeconds
+  nameWithType: SpectralEnvelope.FrameSeconds
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.Peak
+  name: Peak
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope_Peak
+  commentId: P:EditSharp.Audio.Analysis.SpectralEnvelope.Peak
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.Peak
+  nameWithType: SpectralEnvelope.Peak
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.Peak*
+  name: Peak
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope_Peak_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralEnvelope.Peak
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.Peak
+  nameWithType: SpectralEnvelope.Peak
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.RmsOf(System.Int32)
+  name: RmsOf(int)
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope_RmsOf_System_Int32_
+  commentId: M:EditSharp.Audio.Analysis.SpectralEnvelope.RmsOf(System.Int32)
+  name.vb: RmsOf(Integer)
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.RmsOf(int)
+  fullName.vb: EditSharp.Audio.Analysis.SpectralEnvelope.RmsOf(Integer)
+  nameWithType: SpectralEnvelope.RmsOf(int)
+  nameWithType.vb: SpectralEnvelope.RmsOf(Integer)
+- uid: EditSharp.Audio.Analysis.SpectralEnvelope.RmsOf*
+  name: RmsOf
+  href: api/EditSharp.Audio.Analysis.SpectralEnvelope.html#EditSharp_Audio_Analysis_SpectralEnvelope_RmsOf_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralEnvelope.RmsOf
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralEnvelope.RmsOf
+  nameWithType: SpectralEnvelope.RmsOf
+- uid: EditSharp.Audio.Analysis.SpectralFrame
+  name: SpectralFrame
+  href: api/EditSharp.Audio.Analysis.SpectralFrame.html
+  commentId: T:EditSharp.Audio.Analysis.SpectralFrame
+  fullName: EditSharp.Audio.Analysis.SpectralFrame
+  nameWithType: SpectralFrame
+- uid: EditSharp.Audio.Analysis.SpectralFrame.Bands
+  name: Bands
+  href: api/EditSharp.Audio.Analysis.SpectralFrame.html#EditSharp_Audio_Analysis_SpectralFrame_Bands
+  commentId: P:EditSharp.Audio.Analysis.SpectralFrame.Bands
+  fullName: EditSharp.Audio.Analysis.SpectralFrame.Bands
+  nameWithType: SpectralFrame.Bands
+- uid: EditSharp.Audio.Analysis.SpectralFrame.Bands*
+  name: Bands
+  href: api/EditSharp.Audio.Analysis.SpectralFrame.html#EditSharp_Audio_Analysis_SpectralFrame_Bands_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralFrame.Bands
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralFrame.Bands
+  nameWithType: SpectralFrame.Bands
+- uid: EditSharp.Audio.Analysis.SpectralFrame.Clear
+  name: Clear()
+  href: api/EditSharp.Audio.Analysis.SpectralFrame.html#EditSharp_Audio_Analysis_SpectralFrame_Clear
+  commentId: M:EditSharp.Audio.Analysis.SpectralFrame.Clear
+  fullName: EditSharp.Audio.Analysis.SpectralFrame.Clear()
+  nameWithType: SpectralFrame.Clear()
+- uid: EditSharp.Audio.Analysis.SpectralFrame.Clear*
+  name: Clear
+  href: api/EditSharp.Audio.Analysis.SpectralFrame.html#EditSharp_Audio_Analysis_SpectralFrame_Clear_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralFrame.Clear
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralFrame.Clear
+  nameWithType: SpectralFrame.Clear
+- uid: EditSharp.Audio.Analysis.SpectralFrame.CopyFrom(EditSharp.Audio.Analysis.SpectralFrame)
+  name: CopyFrom(SpectralFrame)
+  href: api/EditSharp.Audio.Analysis.SpectralFrame.html#EditSharp_Audio_Analysis_SpectralFrame_CopyFrom_EditSharp_Audio_Analysis_SpectralFrame_
+  commentId: M:EditSharp.Audio.Analysis.SpectralFrame.CopyFrom(EditSharp.Audio.Analysis.SpectralFrame)
+  fullName: EditSharp.Audio.Analysis.SpectralFrame.CopyFrom(EditSharp.Audio.Analysis.SpectralFrame)
+  nameWithType: SpectralFrame.CopyFrom(SpectralFrame)
+- uid: EditSharp.Audio.Analysis.SpectralFrame.CopyFrom*
+  name: CopyFrom
+  href: api/EditSharp.Audio.Analysis.SpectralFrame.html#EditSharp_Audio_Analysis_SpectralFrame_CopyFrom_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralFrame.CopyFrom
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralFrame.CopyFrom
+  nameWithType: SpectralFrame.CopyFrom
+- uid: EditSharp.Audio.Analysis.SpectralFrame.Energy
+  name: Energy
+  href: api/EditSharp.Audio.Analysis.SpectralFrame.html#EditSharp_Audio_Analysis_SpectralFrame_Energy
+  commentId: P:EditSharp.Audio.Analysis.SpectralFrame.Energy
+  fullName: EditSharp.Audio.Analysis.SpectralFrame.Energy
+  nameWithType: SpectralFrame.Energy
+- uid: EditSharp.Audio.Analysis.SpectralFrame.Energy*
+  name: Energy
+  href: api/EditSharp.Audio.Analysis.SpectralFrame.html#EditSharp_Audio_Analysis_SpectralFrame_Energy_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralFrame.Energy
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralFrame.Energy
+  nameWithType: SpectralFrame.Energy
+- uid: EditSharp.Audio.Analysis.SpectralFrame.Peak
+  name: Peak
+  href: api/EditSharp.Audio.Analysis.SpectralFrame.html#EditSharp_Audio_Analysis_SpectralFrame_Peak
+  commentId: P:EditSharp.Audio.Analysis.SpectralFrame.Peak
+  fullName: EditSharp.Audio.Analysis.SpectralFrame.Peak
+  nameWithType: SpectralFrame.Peak
+- uid: EditSharp.Audio.Analysis.SpectralFrame.Peak*
+  name: Peak
+  href: api/EditSharp.Audio.Analysis.SpectralFrame.html#EditSharp_Audio_Analysis_SpectralFrame_Peak_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralFrame.Peak
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralFrame.Peak
+  nameWithType: SpectralFrame.Peak
+- uid: EditSharp.Audio.Analysis.SpectralFrame.Rms
+  name: Rms
+  href: api/EditSharp.Audio.Analysis.SpectralFrame.html#EditSharp_Audio_Analysis_SpectralFrame_Rms
+  commentId: P:EditSharp.Audio.Analysis.SpectralFrame.Rms
+  fullName: EditSharp.Audio.Analysis.SpectralFrame.Rms
+  nameWithType: SpectralFrame.Rms
+- uid: EditSharp.Audio.Analysis.SpectralFrame.Rms*
+  name: Rms
+  href: api/EditSharp.Audio.Analysis.SpectralFrame.html#EditSharp_Audio_Analysis_SpectralFrame_Rms_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralFrame.Rms
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralFrame.Rms
+  nameWithType: SpectralFrame.Rms
+- uid: EditSharp.Audio.Analysis.SpectralFrame.Scale(System.Single)
+  name: Scale(float)
+  href: api/EditSharp.Audio.Analysis.SpectralFrame.html#EditSharp_Audio_Analysis_SpectralFrame_Scale_System_Single_
+  commentId: M:EditSharp.Audio.Analysis.SpectralFrame.Scale(System.Single)
+  name.vb: Scale(Single)
+  fullName: EditSharp.Audio.Analysis.SpectralFrame.Scale(float)
+  fullName.vb: EditSharp.Audio.Analysis.SpectralFrame.Scale(Single)
+  nameWithType: SpectralFrame.Scale(float)
+  nameWithType.vb: SpectralFrame.Scale(Single)
+- uid: EditSharp.Audio.Analysis.SpectralFrame.Scale*
+  name: Scale
+  href: api/EditSharp.Audio.Analysis.SpectralFrame.html#EditSharp_Audio_Analysis_SpectralFrame_Scale_
+  commentId: Overload:EditSharp.Audio.Analysis.SpectralFrame.Scale
+  isSpec: "True"
+  fullName: EditSharp.Audio.Analysis.SpectralFrame.Scale
+  nameWithType: SpectralFrame.Scale
 - uid: EditSharp.Audio.AudioTap
   name: AudioTap
   href: api/EditSharp.Audio.AudioTap.html
@@ -1532,6 +2134,19 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.Clips.Clip.Channel
   nameWithType: Clip.Channel
+- uid: EditSharp.Components.Clips.Clip.Color
+  name: Color
+  href: api/EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Color
+  commentId: P:EditSharp.Components.Clips.Clip.Color
+  fullName: EditSharp.Components.Clips.Clip.Color
+  nameWithType: Clip.Color
+- uid: EditSharp.Components.Clips.Clip.Color*
+  name: Color
+  href: api/EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Color_
+  commentId: Overload:EditSharp.Components.Clips.Clip.Color
+  isSpec: "True"
+  fullName: EditSharp.Components.Clips.Clip.Color
+  nameWithType: Clip.Color
 - uid: EditSharp.Components.Clips.Clip.ContentDuration
   name: ContentDuration
   href: api/EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_ContentDuration
@@ -3714,6 +4329,19 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.LinkGroup.MoveChannel
   nameWithType: LinkGroup.MoveChannel
+- uid: EditSharp.Components.LinkGroup.Remove(EditSharp.Components.Clips.Clip)
+  name: Remove(Clip)
+  href: api/EditSharp.Components.LinkGroup.html#EditSharp_Components_LinkGroup_Remove_EditSharp_Components_Clips_Clip_
+  commentId: M:EditSharp.Components.LinkGroup.Remove(EditSharp.Components.Clips.Clip)
+  fullName: EditSharp.Components.LinkGroup.Remove(EditSharp.Components.Clips.Clip)
+  nameWithType: LinkGroup.Remove(Clip)
+- uid: EditSharp.Components.LinkGroup.Remove*
+  name: Remove
+  href: api/EditSharp.Components.LinkGroup.html#EditSharp_Components_LinkGroup_Remove_
+  commentId: Overload:EditSharp.Components.LinkGroup.Remove
+  isSpec: "True"
+  fullName: EditSharp.Components.LinkGroup.Remove
+  nameWithType: LinkGroup.Remove
 - uid: EditSharp.Components.LinkGroup.RippleExtendEnd(System.TimeSpan)
   name: RippleExtendEnd(TimeSpan)
   href: api/EditSharp.Components.LinkGroup.html#EditSharp_Components_LinkGroup_RippleExtendEnd_System_TimeSpan_
@@ -3811,6 +4439,19 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.LinkGroup.TrimStart
   nameWithType: LinkGroup.TrimStart
+- uid: EditSharp.Components.LinkGroup.Unlink
+  name: Unlink()
+  href: api/EditSharp.Components.LinkGroup.html#EditSharp_Components_LinkGroup_Unlink
+  commentId: M:EditSharp.Components.LinkGroup.Unlink
+  fullName: EditSharp.Components.LinkGroup.Unlink()
+  nameWithType: LinkGroup.Unlink()
+- uid: EditSharp.Components.LinkGroup.Unlink*
+  name: Unlink
+  href: api/EditSharp.Components.LinkGroup.html#EditSharp_Components_LinkGroup_Unlink_
+  commentId: Overload:EditSharp.Components.LinkGroup.Unlink
+  isSpec: "True"
+  fullName: EditSharp.Components.LinkGroup.Unlink
+  nameWithType: LinkGroup.Unlink
 - uid: EditSharp.Components.Media
   name: EditSharp.Components.Media
   href: api/EditSharp.Components.Media.html
@@ -3849,6 +4490,28 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.Media.AudioMedia.GetNaturalLengthAsync
   nameWithType: AudioMedia.GetNaturalLengthAsync
+- uid: EditSharp.Components.Media.AudioMedia.GetPeaksAsync(System.TimeSpan,System.TimeSpan,System.Int32,System.Threading.CancellationToken)
+  name: GetPeaksAsync(TimeSpan, TimeSpan, int, CancellationToken)
+  href: api/EditSharp.Components.Media.AudioMedia.html#EditSharp_Components_Media_AudioMedia_GetPeaksAsync_System_TimeSpan_System_TimeSpan_System_Int32_System_Threading_CancellationToken_
+  commentId: M:EditSharp.Components.Media.AudioMedia.GetPeaksAsync(System.TimeSpan,System.TimeSpan,System.Int32,System.Threading.CancellationToken)
+  name.vb: GetPeaksAsync(TimeSpan, TimeSpan, Integer, CancellationToken)
+  fullName: EditSharp.Components.Media.AudioMedia.GetPeaksAsync(System.TimeSpan, System.TimeSpan, int, System.Threading.CancellationToken)
+  fullName.vb: EditSharp.Components.Media.AudioMedia.GetPeaksAsync(System.TimeSpan, System.TimeSpan, Integer, System.Threading.CancellationToken)
+  nameWithType: AudioMedia.GetPeaksAsync(TimeSpan, TimeSpan, int, CancellationToken)
+  nameWithType.vb: AudioMedia.GetPeaksAsync(TimeSpan, TimeSpan, Integer, CancellationToken)
+- uid: EditSharp.Components.Media.AudioMedia.GetPeaksAsync*
+  name: GetPeaksAsync
+  href: api/EditSharp.Components.Media.AudioMedia.html#EditSharp_Components_Media_AudioMedia_GetPeaksAsync_
+  commentId: Overload:EditSharp.Components.Media.AudioMedia.GetPeaksAsync
+  isSpec: "True"
+  fullName: EditSharp.Components.Media.AudioMedia.GetPeaksAsync
+  nameWithType: AudioMedia.GetPeaksAsync
+- uid: EditSharp.Components.Media.AudioMedia.PeakSampleRate
+  name: PeakSampleRate
+  href: api/EditSharp.Components.Media.AudioMedia.html#EditSharp_Components_Media_AudioMedia_PeakSampleRate
+  commentId: F:EditSharp.Components.Media.AudioMedia.PeakSampleRate
+  fullName: EditSharp.Components.Media.AudioMedia.PeakSampleRate
+  nameWithType: AudioMedia.PeakSampleRate
 - uid: EditSharp.Components.Media.AudioMedia.TryGetNaturalLength(System.Nullable{System.TimeSpan}@)
   name: TryGetNaturalLength(out TimeSpan?)
   href: api/EditSharp.Components.Media.AudioMedia.html#EditSharp_Components_Media_AudioMedia_TryGetNaturalLength_System_Nullable_System_TimeSpan___
@@ -3865,12 +4528,73 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.Media.AudioMedia.TryGetNaturalLength
   nameWithType: AudioMedia.TryGetNaturalLength
+- uid: EditSharp.Components.Media.AudioPeaks
+  name: AudioPeaks
+  href: api/EditSharp.Components.Media.AudioPeaks.html
+  commentId: T:EditSharp.Components.Media.AudioPeaks
+  fullName: EditSharp.Components.Media.AudioPeaks
+  nameWithType: AudioPeaks
+- uid: EditSharp.Components.Media.AudioPeaks.Count
+  name: Count
+  href: api/EditSharp.Components.Media.AudioPeaks.html#EditSharp_Components_Media_AudioPeaks_Count
+  commentId: P:EditSharp.Components.Media.AudioPeaks.Count
+  fullName: EditSharp.Components.Media.AudioPeaks.Count
+  nameWithType: AudioPeaks.Count
+- uid: EditSharp.Components.Media.AudioPeaks.Count*
+  name: Count
+  href: api/EditSharp.Components.Media.AudioPeaks.html#EditSharp_Components_Media_AudioPeaks_Count_
+  commentId: Overload:EditSharp.Components.Media.AudioPeaks.Count
+  isSpec: "True"
+  fullName: EditSharp.Components.Media.AudioPeaks.Count
+  nameWithType: AudioPeaks.Count
+- uid: EditSharp.Components.Media.AudioPeaks.Max
+  name: Max
+  href: api/EditSharp.Components.Media.AudioPeaks.html#EditSharp_Components_Media_AudioPeaks_Max
+  commentId: P:EditSharp.Components.Media.AudioPeaks.Max
+  fullName: EditSharp.Components.Media.AudioPeaks.Max
+  nameWithType: AudioPeaks.Max
+- uid: EditSharp.Components.Media.AudioPeaks.Max*
+  name: Max
+  href: api/EditSharp.Components.Media.AudioPeaks.html#EditSharp_Components_Media_AudioPeaks_Max_
+  commentId: Overload:EditSharp.Components.Media.AudioPeaks.Max
+  isSpec: "True"
+  fullName: EditSharp.Components.Media.AudioPeaks.Max
+  nameWithType: AudioPeaks.Max
+- uid: EditSharp.Components.Media.AudioPeaks.Min
+  name: Min
+  href: api/EditSharp.Components.Media.AudioPeaks.html#EditSharp_Components_Media_AudioPeaks_Min
+  commentId: P:EditSharp.Components.Media.AudioPeaks.Min
+  fullName: EditSharp.Components.Media.AudioPeaks.Min
+  nameWithType: AudioPeaks.Min
+- uid: EditSharp.Components.Media.AudioPeaks.Min*
+  name: Min
+  href: api/EditSharp.Components.Media.AudioPeaks.html#EditSharp_Components_Media_AudioPeaks_Min_
+  commentId: Overload:EditSharp.Components.Media.AudioPeaks.Min
+  isSpec: "True"
+  fullName: EditSharp.Components.Media.AudioPeaks.Min
+  nameWithType: AudioPeaks.Min
 - uid: EditSharp.Components.Media.IMedia
   name: IMedia
   href: api/EditSharp.Components.Media.IMedia.html
   commentId: T:EditSharp.Components.Media.IMedia
   fullName: EditSharp.Components.Media.IMedia
   nameWithType: IMedia
+- uid: EditSharp.Components.Media.IMedia.AddTag(System.String)
+  name: AddTag(string)
+  href: api/EditSharp.Components.Media.IMedia.html#EditSharp_Components_Media_IMedia_AddTag_System_String_
+  commentId: M:EditSharp.Components.Media.IMedia.AddTag(System.String)
+  name.vb: AddTag(String)
+  fullName: EditSharp.Components.Media.IMedia.AddTag(string)
+  fullName.vb: EditSharp.Components.Media.IMedia.AddTag(String)
+  nameWithType: IMedia.AddTag(string)
+  nameWithType.vb: IMedia.AddTag(String)
+- uid: EditSharp.Components.Media.IMedia.AddTag*
+  name: AddTag
+  href: api/EditSharp.Components.Media.IMedia.html#EditSharp_Components_Media_IMedia_AddTag_
+  commentId: Overload:EditSharp.Components.Media.IMedia.AddTag
+  isSpec: "True"
+  fullName: EditSharp.Components.Media.IMedia.AddTag
+  nameWithType: IMedia.AddTag
 - uid: EditSharp.Components.Media.IMedia.ContentChanged
   name: ContentChanged()
   href: api/EditSharp.Components.Media.IMedia.html#EditSharp_Components_Media_IMedia_ContentChanged
@@ -3936,6 +4660,12 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.Media.IMedia.Id
   nameWithType: IMedia.Id
+- uid: EditSharp.Components.Media.IMedia.InfoAvailable
+  name: InfoAvailable
+  href: api/EditSharp.Components.Media.IMedia.html#EditSharp_Components_Media_IMedia_InfoAvailable
+  commentId: E:EditSharp.Components.Media.IMedia.InfoAvailable
+  fullName: EditSharp.Components.Media.IMedia.InfoAvailable
+  nameWithType: IMedia.InfoAvailable
 - uid: EditSharp.Components.Media.IMedia.Name
   name: Name
   href: api/EditSharp.Components.Media.IMedia.html#EditSharp_Components_Media_IMedia_Name
@@ -3975,6 +4705,51 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.Media.IMedia.PathChanged
   nameWithType: IMedia.PathChanged
+- uid: EditSharp.Components.Media.IMedia.RemoveTag(System.String)
+  name: RemoveTag(string)
+  href: api/EditSharp.Components.Media.IMedia.html#EditSharp_Components_Media_IMedia_RemoveTag_System_String_
+  commentId: M:EditSharp.Components.Media.IMedia.RemoveTag(System.String)
+  name.vb: RemoveTag(String)
+  fullName: EditSharp.Components.Media.IMedia.RemoveTag(string)
+  fullName.vb: EditSharp.Components.Media.IMedia.RemoveTag(String)
+  nameWithType: IMedia.RemoveTag(string)
+  nameWithType.vb: IMedia.RemoveTag(String)
+- uid: EditSharp.Components.Media.IMedia.RemoveTag*
+  name: RemoveTag
+  href: api/EditSharp.Components.Media.IMedia.html#EditSharp_Components_Media_IMedia_RemoveTag_
+  commentId: Overload:EditSharp.Components.Media.IMedia.RemoveTag
+  isSpec: "True"
+  fullName: EditSharp.Components.Media.IMedia.RemoveTag
+  nameWithType: IMedia.RemoveTag
+- uid: EditSharp.Components.Media.IMedia.Tags
+  name: Tags
+  href: api/EditSharp.Components.Media.IMedia.html#EditSharp_Components_Media_IMedia_Tags
+  commentId: P:EditSharp.Components.Media.IMedia.Tags
+  fullName: EditSharp.Components.Media.IMedia.Tags
+  nameWithType: IMedia.Tags
+- uid: EditSharp.Components.Media.IMedia.Tags*
+  name: Tags
+  href: api/EditSharp.Components.Media.IMedia.html#EditSharp_Components_Media_IMedia_Tags_
+  commentId: Overload:EditSharp.Components.Media.IMedia.Tags
+  isSpec: "True"
+  fullName: EditSharp.Components.Media.IMedia.Tags
+  nameWithType: IMedia.Tags
+- uid: EditSharp.Components.Media.IMedia.TryGetInfo(EditSharp.Video.MediaInfo@)
+  name: TryGetInfo(out MediaInfo)
+  href: api/EditSharp.Components.Media.IMedia.html#EditSharp_Components_Media_IMedia_TryGetInfo_EditSharp_Video_MediaInfo__
+  commentId: M:EditSharp.Components.Media.IMedia.TryGetInfo(EditSharp.Video.MediaInfo@)
+  name.vb: TryGetInfo(MediaInfo)
+  fullName: EditSharp.Components.Media.IMedia.TryGetInfo(out EditSharp.Video.MediaInfo)
+  fullName.vb: EditSharp.Components.Media.IMedia.TryGetInfo(EditSharp.Video.MediaInfo)
+  nameWithType: IMedia.TryGetInfo(out MediaInfo)
+  nameWithType.vb: IMedia.TryGetInfo(MediaInfo)
+- uid: EditSharp.Components.Media.IMedia.TryGetInfo*
+  name: TryGetInfo
+  href: api/EditSharp.Components.Media.IMedia.html#EditSharp_Components_Media_IMedia_TryGetInfo_
+  commentId: Overload:EditSharp.Components.Media.IMedia.TryGetInfo
+  isSpec: "True"
+  fullName: EditSharp.Components.Media.IMedia.TryGetInfo
+  nameWithType: IMedia.TryGetInfo
 - uid: EditSharp.Components.Media.IMedia.TryGetNaturalLength(System.Nullable{System.TimeSpan}@)
   name: TryGetNaturalLength(out TimeSpan?)
   href: api/EditSharp.Components.Media.IMedia.html#EditSharp_Components_Media_IMedia_TryGetNaturalLength_System_Nullable_System_TimeSpan___
@@ -4710,6 +5485,22 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.Nodes.Effects.AudioMixNode.Animatables
   nameWithType: AudioMixNode.Animatables
+- uid: EditSharp.Components.Nodes.Effects.AudioMixNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext@,System.ReadOnlySpan{EditSharp.Audio.Analysis.SpectralFrame},EditSharp.Audio.Analysis.SpectralFrame,System.Object@)
+  name: DescribeSpectrum(in SpectralContext, ReadOnlySpan<SpectralFrame>, SpectralFrame, ref object?)
+  href: api/EditSharp.Components.Nodes.Effects.AudioMixNode.html#EditSharp_Components_Nodes_Effects_AudioMixNode_DescribeSpectrum_EditSharp_Audio_Analysis_SpectralContext__System_ReadOnlySpan_EditSharp_Audio_Analysis_SpectralFrame__EditSharp_Audio_Analysis_SpectralFrame_System_Object__
+  commentId: M:EditSharp.Components.Nodes.Effects.AudioMixNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext@,System.ReadOnlySpan{EditSharp.Audio.Analysis.SpectralFrame},EditSharp.Audio.Analysis.SpectralFrame,System.Object@)
+  name.vb: DescribeSpectrum(SpectralContext, ReadOnlySpan(Of SpectralFrame), SpectralFrame, Object)
+  fullName: EditSharp.Components.Nodes.Effects.AudioMixNode.DescribeSpectrum(in EditSharp.Audio.Analysis.SpectralContext, System.ReadOnlySpan<EditSharp.Audio.Analysis.SpectralFrame>, EditSharp.Audio.Analysis.SpectralFrame, ref object?)
+  fullName.vb: EditSharp.Components.Nodes.Effects.AudioMixNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext, System.ReadOnlySpan(Of EditSharp.Audio.Analysis.SpectralFrame), EditSharp.Audio.Analysis.SpectralFrame, Object)
+  nameWithType: AudioMixNode.DescribeSpectrum(in SpectralContext, ReadOnlySpan<SpectralFrame>, SpectralFrame, ref object?)
+  nameWithType.vb: AudioMixNode.DescribeSpectrum(SpectralContext, ReadOnlySpan(Of SpectralFrame), SpectralFrame, Object)
+- uid: EditSharp.Components.Nodes.Effects.AudioMixNode.DescribeSpectrum*
+  name: DescribeSpectrum
+  href: api/EditSharp.Components.Nodes.Effects.AudioMixNode.html#EditSharp_Components_Nodes_Effects_AudioMixNode_DescribeSpectrum_
+  commentId: Overload:EditSharp.Components.Nodes.Effects.AudioMixNode.DescribeSpectrum
+  isSpec: "True"
+  fullName: EditSharp.Components.Nodes.Effects.AudioMixNode.DescribeSpectrum
+  nameWithType: AudioMixNode.DescribeSpectrum
 - uid: EditSharp.Components.Nodes.Effects.AudioMixNode.Duplicate
   name: Duplicate()
   href: api/EditSharp.Components.Nodes.Effects.AudioMixNode.html#EditSharp_Components_Nodes_Effects_AudioMixNode_Duplicate
@@ -4852,6 +5643,22 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.Nodes.Effects.CompressorNode.AttackMs
   nameWithType: CompressorNode.AttackMs
+- uid: EditSharp.Components.Nodes.Effects.CompressorNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext@,System.ReadOnlySpan{EditSharp.Audio.Analysis.SpectralFrame},EditSharp.Audio.Analysis.SpectralFrame,System.Object@)
+  name: DescribeSpectrum(in SpectralContext, ReadOnlySpan<SpectralFrame>, SpectralFrame, ref object?)
+  href: api/EditSharp.Components.Nodes.Effects.CompressorNode.html#EditSharp_Components_Nodes_Effects_CompressorNode_DescribeSpectrum_EditSharp_Audio_Analysis_SpectralContext__System_ReadOnlySpan_EditSharp_Audio_Analysis_SpectralFrame__EditSharp_Audio_Analysis_SpectralFrame_System_Object__
+  commentId: M:EditSharp.Components.Nodes.Effects.CompressorNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext@,System.ReadOnlySpan{EditSharp.Audio.Analysis.SpectralFrame},EditSharp.Audio.Analysis.SpectralFrame,System.Object@)
+  name.vb: DescribeSpectrum(SpectralContext, ReadOnlySpan(Of SpectralFrame), SpectralFrame, Object)
+  fullName: EditSharp.Components.Nodes.Effects.CompressorNode.DescribeSpectrum(in EditSharp.Audio.Analysis.SpectralContext, System.ReadOnlySpan<EditSharp.Audio.Analysis.SpectralFrame>, EditSharp.Audio.Analysis.SpectralFrame, ref object?)
+  fullName.vb: EditSharp.Components.Nodes.Effects.CompressorNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext, System.ReadOnlySpan(Of EditSharp.Audio.Analysis.SpectralFrame), EditSharp.Audio.Analysis.SpectralFrame, Object)
+  nameWithType: CompressorNode.DescribeSpectrum(in SpectralContext, ReadOnlySpan<SpectralFrame>, SpectralFrame, ref object?)
+  nameWithType.vb: CompressorNode.DescribeSpectrum(SpectralContext, ReadOnlySpan(Of SpectralFrame), SpectralFrame, Object)
+- uid: EditSharp.Components.Nodes.Effects.CompressorNode.DescribeSpectrum*
+  name: DescribeSpectrum
+  href: api/EditSharp.Components.Nodes.Effects.CompressorNode.html#EditSharp_Components_Nodes_Effects_CompressorNode_DescribeSpectrum_
+  commentId: Overload:EditSharp.Components.Nodes.Effects.CompressorNode.DescribeSpectrum
+  isSpec: "True"
+  fullName: EditSharp.Components.Nodes.Effects.CompressorNode.DescribeSpectrum
+  nameWithType: CompressorNode.DescribeSpectrum
 - uid: EditSharp.Components.Nodes.Effects.CompressorNode.Duplicate
   name: Duplicate()
   href: api/EditSharp.Components.Nodes.Effects.CompressorNode.html#EditSharp_Components_Nodes_Effects_CompressorNode_Duplicate
@@ -5104,6 +5911,22 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.Nodes.Effects.EQNode.Bands
   nameWithType: EQNode.Bands
+- uid: EditSharp.Components.Nodes.Effects.EQNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext@,System.ReadOnlySpan{EditSharp.Audio.Analysis.SpectralFrame},EditSharp.Audio.Analysis.SpectralFrame,System.Object@)
+  name: DescribeSpectrum(in SpectralContext, ReadOnlySpan<SpectralFrame>, SpectralFrame, ref object?)
+  href: api/EditSharp.Components.Nodes.Effects.EQNode.html#EditSharp_Components_Nodes_Effects_EQNode_DescribeSpectrum_EditSharp_Audio_Analysis_SpectralContext__System_ReadOnlySpan_EditSharp_Audio_Analysis_SpectralFrame__EditSharp_Audio_Analysis_SpectralFrame_System_Object__
+  commentId: M:EditSharp.Components.Nodes.Effects.EQNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext@,System.ReadOnlySpan{EditSharp.Audio.Analysis.SpectralFrame},EditSharp.Audio.Analysis.SpectralFrame,System.Object@)
+  name.vb: DescribeSpectrum(SpectralContext, ReadOnlySpan(Of SpectralFrame), SpectralFrame, Object)
+  fullName: EditSharp.Components.Nodes.Effects.EQNode.DescribeSpectrum(in EditSharp.Audio.Analysis.SpectralContext, System.ReadOnlySpan<EditSharp.Audio.Analysis.SpectralFrame>, EditSharp.Audio.Analysis.SpectralFrame, ref object?)
+  fullName.vb: EditSharp.Components.Nodes.Effects.EQNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext, System.ReadOnlySpan(Of EditSharp.Audio.Analysis.SpectralFrame), EditSharp.Audio.Analysis.SpectralFrame, Object)
+  nameWithType: EQNode.DescribeSpectrum(in SpectralContext, ReadOnlySpan<SpectralFrame>, SpectralFrame, ref object?)
+  nameWithType.vb: EQNode.DescribeSpectrum(SpectralContext, ReadOnlySpan(Of SpectralFrame), SpectralFrame, Object)
+- uid: EditSharp.Components.Nodes.Effects.EQNode.DescribeSpectrum*
+  name: DescribeSpectrum
+  href: api/EditSharp.Components.Nodes.Effects.EQNode.html#EditSharp_Components_Nodes_Effects_EQNode_DescribeSpectrum_
+  commentId: Overload:EditSharp.Components.Nodes.Effects.EQNode.DescribeSpectrum
+  isSpec: "True"
+  fullName: EditSharp.Components.Nodes.Effects.EQNode.DescribeSpectrum
+  nameWithType: EQNode.DescribeSpectrum
 - uid: EditSharp.Components.Nodes.Effects.EQNode.Duplicate
   name: Duplicate()
   href: api/EditSharp.Components.Nodes.Effects.EQNode.html#EditSharp_Components_Nodes_Effects_EQNode_Duplicate
@@ -5149,6 +5972,22 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.Nodes.Effects.GainNode.Animatables
   nameWithType: GainNode.Animatables
+- uid: EditSharp.Components.Nodes.Effects.GainNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext@,System.ReadOnlySpan{EditSharp.Audio.Analysis.SpectralFrame},EditSharp.Audio.Analysis.SpectralFrame,System.Object@)
+  name: DescribeSpectrum(in SpectralContext, ReadOnlySpan<SpectralFrame>, SpectralFrame, ref object?)
+  href: api/EditSharp.Components.Nodes.Effects.GainNode.html#EditSharp_Components_Nodes_Effects_GainNode_DescribeSpectrum_EditSharp_Audio_Analysis_SpectralContext__System_ReadOnlySpan_EditSharp_Audio_Analysis_SpectralFrame__EditSharp_Audio_Analysis_SpectralFrame_System_Object__
+  commentId: M:EditSharp.Components.Nodes.Effects.GainNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext@,System.ReadOnlySpan{EditSharp.Audio.Analysis.SpectralFrame},EditSharp.Audio.Analysis.SpectralFrame,System.Object@)
+  name.vb: DescribeSpectrum(SpectralContext, ReadOnlySpan(Of SpectralFrame), SpectralFrame, Object)
+  fullName: EditSharp.Components.Nodes.Effects.GainNode.DescribeSpectrum(in EditSharp.Audio.Analysis.SpectralContext, System.ReadOnlySpan<EditSharp.Audio.Analysis.SpectralFrame>, EditSharp.Audio.Analysis.SpectralFrame, ref object?)
+  fullName.vb: EditSharp.Components.Nodes.Effects.GainNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext, System.ReadOnlySpan(Of EditSharp.Audio.Analysis.SpectralFrame), EditSharp.Audio.Analysis.SpectralFrame, Object)
+  nameWithType: GainNode.DescribeSpectrum(in SpectralContext, ReadOnlySpan<SpectralFrame>, SpectralFrame, ref object?)
+  nameWithType.vb: GainNode.DescribeSpectrum(SpectralContext, ReadOnlySpan(Of SpectralFrame), SpectralFrame, Object)
+- uid: EditSharp.Components.Nodes.Effects.GainNode.DescribeSpectrum*
+  name: DescribeSpectrum
+  href: api/EditSharp.Components.Nodes.Effects.GainNode.html#EditSharp_Components_Nodes_Effects_GainNode_DescribeSpectrum_
+  commentId: Overload:EditSharp.Components.Nodes.Effects.GainNode.DescribeSpectrum
+  isSpec: "True"
+  fullName: EditSharp.Components.Nodes.Effects.GainNode.DescribeSpectrum
+  nameWithType: GainNode.DescribeSpectrum
 - uid: EditSharp.Components.Nodes.Effects.GainNode.Duplicate
   name: Duplicate()
   href: api/EditSharp.Components.Nodes.Effects.GainNode.html#EditSharp_Components_Nodes_Effects_GainNode_Duplicate
@@ -6130,6 +6969,22 @@ references:
   commentId: T:EditSharp.Components.Nodes.Input.AudioMediaNode
   fullName: EditSharp.Components.Nodes.Input.AudioMediaNode
   nameWithType: AudioMediaNode
+- uid: EditSharp.Components.Nodes.Input.AudioMediaNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext@,System.ReadOnlySpan{EditSharp.Audio.Analysis.SpectralFrame},EditSharp.Audio.Analysis.SpectralFrame,System.Object@)
+  name: DescribeSpectrum(in SpectralContext, ReadOnlySpan<SpectralFrame>, SpectralFrame, ref object?)
+  href: api/EditSharp.Components.Nodes.Input.AudioMediaNode.html#EditSharp_Components_Nodes_Input_AudioMediaNode_DescribeSpectrum_EditSharp_Audio_Analysis_SpectralContext__System_ReadOnlySpan_EditSharp_Audio_Analysis_SpectralFrame__EditSharp_Audio_Analysis_SpectralFrame_System_Object__
+  commentId: M:EditSharp.Components.Nodes.Input.AudioMediaNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext@,System.ReadOnlySpan{EditSharp.Audio.Analysis.SpectralFrame},EditSharp.Audio.Analysis.SpectralFrame,System.Object@)
+  name.vb: DescribeSpectrum(SpectralContext, ReadOnlySpan(Of SpectralFrame), SpectralFrame, Object)
+  fullName: EditSharp.Components.Nodes.Input.AudioMediaNode.DescribeSpectrum(in EditSharp.Audio.Analysis.SpectralContext, System.ReadOnlySpan<EditSharp.Audio.Analysis.SpectralFrame>, EditSharp.Audio.Analysis.SpectralFrame, ref object?)
+  fullName.vb: EditSharp.Components.Nodes.Input.AudioMediaNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext, System.ReadOnlySpan(Of EditSharp.Audio.Analysis.SpectralFrame), EditSharp.Audio.Analysis.SpectralFrame, Object)
+  nameWithType: AudioMediaNode.DescribeSpectrum(in SpectralContext, ReadOnlySpan<SpectralFrame>, SpectralFrame, ref object?)
+  nameWithType.vb: AudioMediaNode.DescribeSpectrum(SpectralContext, ReadOnlySpan(Of SpectralFrame), SpectralFrame, Object)
+- uid: EditSharp.Components.Nodes.Input.AudioMediaNode.DescribeSpectrum*
+  name: DescribeSpectrum
+  href: api/EditSharp.Components.Nodes.Input.AudioMediaNode.html#EditSharp_Components_Nodes_Input_AudioMediaNode_DescribeSpectrum_
+  commentId: Overload:EditSharp.Components.Nodes.Input.AudioMediaNode.DescribeSpectrum
+  isSpec: "True"
+  fullName: EditSharp.Components.Nodes.Input.AudioMediaNode.DescribeSpectrum
+  nameWithType: AudioMediaNode.DescribeSpectrum
 - uid: EditSharp.Components.Nodes.Input.AudioMediaNode.GetNaturalLengthAsync(System.Threading.CancellationToken)
   name: GetNaturalLengthAsync(CancellationToken)
   href: api/EditSharp.Components.Nodes.Input.AudioMediaNode.html#EditSharp_Components_Nodes_Input_AudioMediaNode_GetNaturalLengthAsync_System_Threading_CancellationToken_
@@ -6632,6 +7487,22 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.Nodes.Input.ToneNode.Animatables
   nameWithType: ToneNode.Animatables
+- uid: EditSharp.Components.Nodes.Input.ToneNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext@,System.ReadOnlySpan{EditSharp.Audio.Analysis.SpectralFrame},EditSharp.Audio.Analysis.SpectralFrame,System.Object@)
+  name: DescribeSpectrum(in SpectralContext, ReadOnlySpan<SpectralFrame>, SpectralFrame, ref object?)
+  href: api/EditSharp.Components.Nodes.Input.ToneNode.html#EditSharp_Components_Nodes_Input_ToneNode_DescribeSpectrum_EditSharp_Audio_Analysis_SpectralContext__System_ReadOnlySpan_EditSharp_Audio_Analysis_SpectralFrame__EditSharp_Audio_Analysis_SpectralFrame_System_Object__
+  commentId: M:EditSharp.Components.Nodes.Input.ToneNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext@,System.ReadOnlySpan{EditSharp.Audio.Analysis.SpectralFrame},EditSharp.Audio.Analysis.SpectralFrame,System.Object@)
+  name.vb: DescribeSpectrum(SpectralContext, ReadOnlySpan(Of SpectralFrame), SpectralFrame, Object)
+  fullName: EditSharp.Components.Nodes.Input.ToneNode.DescribeSpectrum(in EditSharp.Audio.Analysis.SpectralContext, System.ReadOnlySpan<EditSharp.Audio.Analysis.SpectralFrame>, EditSharp.Audio.Analysis.SpectralFrame, ref object?)
+  fullName.vb: EditSharp.Components.Nodes.Input.ToneNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext, System.ReadOnlySpan(Of EditSharp.Audio.Analysis.SpectralFrame), EditSharp.Audio.Analysis.SpectralFrame, Object)
+  nameWithType: ToneNode.DescribeSpectrum(in SpectralContext, ReadOnlySpan<SpectralFrame>, SpectralFrame, ref object?)
+  nameWithType.vb: ToneNode.DescribeSpectrum(SpectralContext, ReadOnlySpan(Of SpectralFrame), SpectralFrame, Object)
+- uid: EditSharp.Components.Nodes.Input.ToneNode.DescribeSpectrum*
+  name: DescribeSpectrum
+  href: api/EditSharp.Components.Nodes.Input.ToneNode.html#EditSharp_Components_Nodes_Input_ToneNode_DescribeSpectrum_
+  commentId: Overload:EditSharp.Components.Nodes.Input.ToneNode.DescribeSpectrum
+  isSpec: "True"
+  fullName: EditSharp.Components.Nodes.Input.ToneNode.DescribeSpectrum
+  nameWithType: ToneNode.DescribeSpectrum
 - uid: EditSharp.Components.Nodes.Input.ToneNode.Frequency
   name: Frequency
   href: api/EditSharp.Components.Nodes.Input.ToneNode.html#EditSharp_Components_Nodes_Input_ToneNode_Frequency
@@ -7227,6 +8098,22 @@ references:
   isSpec: "True"
   fullName: EditSharp.Components.Nodes.Node.Animatables
   nameWithType: Node.Animatables
+- uid: EditSharp.Components.Nodes.Node.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext@,System.ReadOnlySpan{EditSharp.Audio.Analysis.SpectralFrame},EditSharp.Audio.Analysis.SpectralFrame,System.Object@)
+  name: DescribeSpectrum(in SpectralContext, ReadOnlySpan<SpectralFrame>, SpectralFrame, ref object?)
+  href: api/EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_DescribeSpectrum_EditSharp_Audio_Analysis_SpectralContext__System_ReadOnlySpan_EditSharp_Audio_Analysis_SpectralFrame__EditSharp_Audio_Analysis_SpectralFrame_System_Object__
+  commentId: M:EditSharp.Components.Nodes.Node.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext@,System.ReadOnlySpan{EditSharp.Audio.Analysis.SpectralFrame},EditSharp.Audio.Analysis.SpectralFrame,System.Object@)
+  name.vb: DescribeSpectrum(SpectralContext, ReadOnlySpan(Of SpectralFrame), SpectralFrame, Object)
+  fullName: EditSharp.Components.Nodes.Node.DescribeSpectrum(in EditSharp.Audio.Analysis.SpectralContext, System.ReadOnlySpan<EditSharp.Audio.Analysis.SpectralFrame>, EditSharp.Audio.Analysis.SpectralFrame, ref object?)
+  fullName.vb: EditSharp.Components.Nodes.Node.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext, System.ReadOnlySpan(Of EditSharp.Audio.Analysis.SpectralFrame), EditSharp.Audio.Analysis.SpectralFrame, Object)
+  nameWithType: Node.DescribeSpectrum(in SpectralContext, ReadOnlySpan<SpectralFrame>, SpectralFrame, ref object?)
+  nameWithType.vb: Node.DescribeSpectrum(SpectralContext, ReadOnlySpan(Of SpectralFrame), SpectralFrame, Object)
+- uid: EditSharp.Components.Nodes.Node.DescribeSpectrum*
+  name: DescribeSpectrum
+  href: api/EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_DescribeSpectrum_
+  commentId: Overload:EditSharp.Components.Nodes.Node.DescribeSpectrum
+  isSpec: "True"
+  fullName: EditSharp.Components.Nodes.Node.DescribeSpectrum
+  nameWithType: Node.DescribeSpectrum
 - uid: EditSharp.Components.Nodes.Node.Duplicate
   name: Duplicate()
   href: api/EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Duplicate
@@ -10304,6 +11191,22 @@ references:
   commentId: F:EditSharp.Playback.Playback.PreservePitch
   fullName: EditSharp.Playback.Playback.PreservePitch
   nameWithType: Playback.PreservePitch
+- uid: EditSharp.Playback.Playback.RenderClipAudioPeaksAsync(EditSharp.Components.Clips.AudioClip,System.TimeSpan,System.TimeSpan,System.Int32,System.Threading.CancellationToken)
+  name: RenderClipAudioPeaksAsync(AudioClip, TimeSpan, TimeSpan, int, CancellationToken)
+  href: api/EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_RenderClipAudioPeaksAsync_EditSharp_Components_Clips_AudioClip_System_TimeSpan_System_TimeSpan_System_Int32_System_Threading_CancellationToken_
+  commentId: M:EditSharp.Playback.Playback.RenderClipAudioPeaksAsync(EditSharp.Components.Clips.AudioClip,System.TimeSpan,System.TimeSpan,System.Int32,System.Threading.CancellationToken)
+  name.vb: RenderClipAudioPeaksAsync(AudioClip, TimeSpan, TimeSpan, Integer, CancellationToken)
+  fullName: EditSharp.Playback.Playback.RenderClipAudioPeaksAsync(EditSharp.Components.Clips.AudioClip, System.TimeSpan, System.TimeSpan, int, System.Threading.CancellationToken)
+  fullName.vb: EditSharp.Playback.Playback.RenderClipAudioPeaksAsync(EditSharp.Components.Clips.AudioClip, System.TimeSpan, System.TimeSpan, Integer, System.Threading.CancellationToken)
+  nameWithType: Playback.RenderClipAudioPeaksAsync(AudioClip, TimeSpan, TimeSpan, int, CancellationToken)
+  nameWithType.vb: Playback.RenderClipAudioPeaksAsync(AudioClip, TimeSpan, TimeSpan, Integer, CancellationToken)
+- uid: EditSharp.Playback.Playback.RenderClipAudioPeaksAsync*
+  name: RenderClipAudioPeaksAsync
+  href: api/EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_RenderClipAudioPeaksAsync_
+  commentId: Overload:EditSharp.Playback.Playback.RenderClipAudioPeaksAsync
+  isSpec: "True"
+  fullName: EditSharp.Playback.Playback.RenderClipAudioPeaksAsync
+  nameWithType: Playback.RenderClipAudioPeaksAsync
 - uid: EditSharp.Playback.Playback.RenderClipFrameAsync(EditSharp.Components.Clips.VideoClip,System.TimeSpan,System.Int32,System.Int32,System.Threading.CancellationToken)
   name: RenderClipFrameAsync(VideoClip, TimeSpan, int, int, CancellationToken)
   href: api/EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_RenderClipFrameAsync_EditSharp_Components_Clips_VideoClip_System_TimeSpan_System_Int32_System_Int32_System_Threading_CancellationToken_
@@ -10944,6 +11847,135 @@ references:
   commentId: F:EditSharp.Video.HardwareAccelerator.None
   fullName: EditSharp.Video.HardwareAccelerator.None
   nameWithType: HardwareAccelerator.None
+- uid: EditSharp.Video.MediaInfo
+  name: MediaInfo
+  href: api/EditSharp.Video.MediaInfo.html
+  commentId: T:EditSharp.Video.MediaInfo
+  fullName: EditSharp.Video.MediaInfo
+  nameWithType: MediaInfo
+- uid: EditSharp.Video.MediaInfo.#ctor(System.Boolean,System.Int32,System.Int32,System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Nullable{System.Double},System.Boolean)
+  name: MediaInfo(bool, int, int, bool, TimeSpan?, bool, double?, bool)
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo__ctor_System_Boolean_System_Int32_System_Int32_System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Nullable_System_Double__System_Boolean_
+  commentId: M:EditSharp.Video.MediaInfo.#ctor(System.Boolean,System.Int32,System.Int32,System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Nullable{System.Double},System.Boolean)
+  name.vb: New(Boolean, Integer, Integer, Boolean, TimeSpan?, Boolean, Double?, Boolean)
+  fullName: EditSharp.Video.MediaInfo.MediaInfo(bool, int, int, bool, System.TimeSpan?, bool, double?, bool)
+  fullName.vb: EditSharp.Video.MediaInfo.New(Boolean, Integer, Integer, Boolean, System.TimeSpan?, Boolean, Double?, Boolean)
+  nameWithType: MediaInfo.MediaInfo(bool, int, int, bool, TimeSpan?, bool, double?, bool)
+  nameWithType.vb: MediaInfo.New(Boolean, Integer, Integer, Boolean, TimeSpan?, Boolean, Double?, Boolean)
+- uid: EditSharp.Video.MediaInfo.#ctor*
+  name: MediaInfo
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo__ctor_
+  commentId: Overload:EditSharp.Video.MediaInfo.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: EditSharp.Video.MediaInfo.MediaInfo
+  fullName.vb: EditSharp.Video.MediaInfo.New
+  nameWithType: MediaInfo.MediaInfo
+  nameWithType.vb: MediaInfo.New
+- uid: EditSharp.Video.MediaInfo.Duration
+  name: Duration
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_Duration
+  commentId: P:EditSharp.Video.MediaInfo.Duration
+  fullName: EditSharp.Video.MediaInfo.Duration
+  nameWithType: MediaInfo.Duration
+- uid: EditSharp.Video.MediaInfo.Duration*
+  name: Duration
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_Duration_
+  commentId: Overload:EditSharp.Video.MediaInfo.Duration
+  isSpec: "True"
+  fullName: EditSharp.Video.MediaInfo.Duration
+  nameWithType: MediaInfo.Duration
+- uid: EditSharp.Video.MediaInfo.FrameRate
+  name: FrameRate
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_FrameRate
+  commentId: P:EditSharp.Video.MediaInfo.FrameRate
+  fullName: EditSharp.Video.MediaInfo.FrameRate
+  nameWithType: MediaInfo.FrameRate
+- uid: EditSharp.Video.MediaInfo.FrameRate*
+  name: FrameRate
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_FrameRate_
+  commentId: Overload:EditSharp.Video.MediaInfo.FrameRate
+  isSpec: "True"
+  fullName: EditSharp.Video.MediaInfo.FrameRate
+  nameWithType: MediaInfo.FrameRate
+- uid: EditSharp.Video.MediaInfo.HasAlpha
+  name: HasAlpha
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_HasAlpha
+  commentId: P:EditSharp.Video.MediaInfo.HasAlpha
+  fullName: EditSharp.Video.MediaInfo.HasAlpha
+  nameWithType: MediaInfo.HasAlpha
+- uid: EditSharp.Video.MediaInfo.HasAlpha*
+  name: HasAlpha
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_HasAlpha_
+  commentId: Overload:EditSharp.Video.MediaInfo.HasAlpha
+  isSpec: "True"
+  fullName: EditSharp.Video.MediaInfo.HasAlpha
+  nameWithType: MediaInfo.HasAlpha
+- uid: EditSharp.Video.MediaInfo.HasAudio
+  name: HasAudio
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_HasAudio
+  commentId: P:EditSharp.Video.MediaInfo.HasAudio
+  fullName: EditSharp.Video.MediaInfo.HasAudio
+  nameWithType: MediaInfo.HasAudio
+- uid: EditSharp.Video.MediaInfo.HasAudio*
+  name: HasAudio
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_HasAudio_
+  commentId: Overload:EditSharp.Video.MediaInfo.HasAudio
+  isSpec: "True"
+  fullName: EditSharp.Video.MediaInfo.HasAudio
+  nameWithType: MediaInfo.HasAudio
+- uid: EditSharp.Video.MediaInfo.HasVideo
+  name: HasVideo
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_HasVideo
+  commentId: P:EditSharp.Video.MediaInfo.HasVideo
+  fullName: EditSharp.Video.MediaInfo.HasVideo
+  nameWithType: MediaInfo.HasVideo
+- uid: EditSharp.Video.MediaInfo.HasVideo*
+  name: HasVideo
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_HasVideo_
+  commentId: Overload:EditSharp.Video.MediaInfo.HasVideo
+  isSpec: "True"
+  fullName: EditSharp.Video.MediaInfo.HasVideo
+  nameWithType: MediaInfo.HasVideo
+- uid: EditSharp.Video.MediaInfo.Height
+  name: Height
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_Height
+  commentId: P:EditSharp.Video.MediaInfo.Height
+  fullName: EditSharp.Video.MediaInfo.Height
+  nameWithType: MediaInfo.Height
+- uid: EditSharp.Video.MediaInfo.Height*
+  name: Height
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_Height_
+  commentId: Overload:EditSharp.Video.MediaInfo.Height
+  isSpec: "True"
+  fullName: EditSharp.Video.MediaInfo.Height
+  nameWithType: MediaInfo.Height
+- uid: EditSharp.Video.MediaInfo.IsStillImage
+  name: IsStillImage
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_IsStillImage
+  commentId: P:EditSharp.Video.MediaInfo.IsStillImage
+  fullName: EditSharp.Video.MediaInfo.IsStillImage
+  nameWithType: MediaInfo.IsStillImage
+- uid: EditSharp.Video.MediaInfo.IsStillImage*
+  name: IsStillImage
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_IsStillImage_
+  commentId: Overload:EditSharp.Video.MediaInfo.IsStillImage
+  isSpec: "True"
+  fullName: EditSharp.Video.MediaInfo.IsStillImage
+  nameWithType: MediaInfo.IsStillImage
+- uid: EditSharp.Video.MediaInfo.Width
+  name: Width
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_Width
+  commentId: P:EditSharp.Video.MediaInfo.Width
+  fullName: EditSharp.Video.MediaInfo.Width
+  nameWithType: MediaInfo.Width
+- uid: EditSharp.Video.MediaInfo.Width*
+  name: Width
+  href: api/EditSharp.Video.MediaInfo.html#EditSharp_Video_MediaInfo_Width_
+  commentId: Overload:EditSharp.Video.MediaInfo.Width
+  isSpec: "True"
+  fullName: EditSharp.Video.MediaInfo.Width
+  nameWithType: MediaInfo.Width
 - uid: EditSharp.Video.VideoCodec
   name: VideoCodec
   href: api/EditSharp.Video.VideoCodec.html

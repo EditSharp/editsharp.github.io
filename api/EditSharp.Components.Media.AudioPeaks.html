@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class AudioOutputNode | EditSharp </title>
+      <title>Class AudioPeaks | EditSharp </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class AudioOutputNode | EditSharp ">
+      <meta name="title" content="Class AudioPeaks | EditSharp ">
       
-      <meta name="description" content="The output of an audio clip&#39;s graph: the sound the clip plays.">
+      <meta name="description" content="The quietest and loudest sample in each of a row of equal time buckets, every channel mixed to one.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Nodes_AudioOutputNode.md&amp;value=---%0Auid%3A%20EditSharp.Components.Nodes.AudioOutputNode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Components_Media_AudioPeaks.md&amp;value=---%0Auid%3A%20EditSharp.Components.Media.AudioPeaks%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,26 +84,25 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="EditSharp.Components.Nodes.AudioOutputNode">
+        <article data-uid="EditSharp.Components.Media.AudioPeaks">
 
 
 
-  <h1 id="EditSharp_Components_Nodes_AudioOutputNode" data-uid="EditSharp.Components.Nodes.AudioOutputNode" class="text-break">
-Class AudioOutputNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/AudioOutputNode.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  <h1 id="EditSharp_Components_Media_AudioPeaks" data-uid="EditSharp.Components.Media.AudioPeaks" class="text-break">
+Class AudioPeaks  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/AudioPeaks.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a>.<a class="xref" href="EditSharp.Components.Nodes.html">Nodes</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a>.<a class="xref" href="EditSharp.Components.html">Components</a>.<a class="xref" href="EditSharp.Components.Media.html">Media</a></dd></dl>
   <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>The output of an audio clip's graph: the sound the clip plays.</p>
+  <div class="markdown summary"><p>The quietest and loudest sample in each of a row of equal time buckets, every channel mixed to one.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[NodeKind(&quot;audio-output&quot;, DisplayName = &quot;Audio output&quot;, Listed = false)]
-public sealed class AudioOutputNode : OutputNode</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class AudioPeaks</code></pre>
   </div>
 
 
@@ -113,9 +112,7 @@ public sealed class AudioOutputNode : OutputNode</code></pre>
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></div>
-      <div><a class="xref" href="EditSharp.Components.Nodes.OutputNode.html">OutputNode</a></div>
-      <div><span class="xref">AudioOutputNode</span></div>
+      <div><span class="xref">AudioPeaks</span></div>
     </dd>
   </dl>
 
@@ -124,18 +121,6 @@ public sealed class AudioOutputNode : OutputNode</code></pre>
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Node.Id</a>
-    </div>
-    <div>
-      <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Enabled">Node.Enabled</a>
-    </div>
-    <div>
-      <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Animatables">Node.Animatables</a>
-    </div>
-    <div>
-      <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_DescribeSpectrum_EditSharp_Audio_Analysis_SpectralContext__System_ReadOnlySpan_EditSharp_Audio_Analysis_SpectralFrame__EditSharp_Audio_Analysis_SpectralFrame_System_Object__">Node.DescribeSpectrum(in SpectralContext, ReadOnlySpan&lt;SpectralFrame&gt;, SpectralFrame, ref object)</a>
-    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
@@ -159,8 +144,8 @@ public sealed class AudioOutputNode : OutputNode</code></pre>
 
 
 
-  <h2 id="EditSharp_Components_Nodes_AudioOutputNode_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>Input: Audio.</p>
+  <h2 id="EditSharp_Components_Media_AudioPeaks_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A bucket the audio never reached (past the end of the material) holds 0 in both.</p>
 </div>
 
 
@@ -168,19 +153,19 @@ public sealed class AudioOutputNode : OutputNode</code></pre>
 </h2>
 
 
-  <a id="EditSharp_Components_Nodes_AudioOutputNode_Ports_" data-uid="EditSharp.Components.Nodes.AudioOutputNode.Ports*"></a>
+  <a id="EditSharp_Components_Media_AudioPeaks_Count_" data-uid="EditSharp.Components.Media.AudioPeaks.Count*"></a>
 
-  <h3 id="EditSharp_Components_Nodes_AudioOutputNode_Ports" data-uid="EditSharp.Components.Nodes.AudioOutputNode.Ports">
-  Ports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/AudioOutputNode.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Media_AudioPeaks_Count" data-uid="EditSharp.Components.Media.AudioPeaks.Count">
+  Count
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/AudioPeaks.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The node's ports, fixed by its type.</p>
+  <div class="markdown level1 summary"><p>How many buckets there are.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override IReadOnlyList&lt;NodePort&gt; Ports { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
   </div>
 
 
@@ -189,7 +174,7 @@ public sealed class AudioOutputNode : OutputNode</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="EditSharp.Components.Nodes.NodePort.html">NodePort</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -200,31 +185,29 @@ public sealed class AudioOutputNode : OutputNode</code></pre>
 
 
 
-  <h2 class="section" id="methods">Methods
-</h2>
+  <a id="EditSharp_Components_Media_AudioPeaks_Max_" data-uid="EditSharp.Components.Media.AudioPeaks.Max*"></a>
 
-
-  <a id="EditSharp_Components_Nodes_AudioOutputNode_Duplicate_" data-uid="EditSharp.Components.Nodes.AudioOutputNode.Duplicate*"></a>
-
-  <h3 id="EditSharp_Components_Nodes_AudioOutputNode_Duplicate" data-uid="EditSharp.Components.Nodes.AudioOutputNode.Duplicate">
-  Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/AudioOutputNode.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Media_AudioPeaks_Max" data-uid="EditSharp.Components.Media.AudioPeaks.Max">
+  Max
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/AudioPeaks.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Id</a>, so connections in the two graphs can't be confused.</p>
+  <div class="markdown level1 summary"><p>The highest sample in each bucket, -1 to 1.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Node Duplicate()</code></pre>
+    <pre><code class="lang-csharp hljs">public float[] Max { get; }</code></pre>
   </div>
 
 
-  <h4 class="section">Returns</h4>
+
+
+
+  <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="EditSharp.Components.Nodes.Node.html">Node</a></dt>
-    <dd><p>The copy.</p>
-</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
   </dl>
 
 
@@ -233,9 +216,35 @@ public sealed class AudioOutputNode : OutputNode</code></pre>
 
 
 
-  <h4 class="section" id="EditSharp_Components_Nodes_AudioOutputNode_Duplicate_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>History is suppressed: the copy has nothing to undo.</p>
+
+  <a id="EditSharp_Components_Media_AudioPeaks_Min_" data-uid="EditSharp.Components.Media.AudioPeaks.Min*"></a>
+
+  <h3 id="EditSharp_Components_Media_AudioPeaks_Min" data-uid="EditSharp.Components.Media.AudioPeaks.Min">
+  Min
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/AudioPeaks.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The lowest sample in each bucket, -1 to 1.</p>
 </div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float[] Min { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
 
 
 
@@ -244,7 +253,7 @@ public sealed class AudioOutputNode : OutputNode</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/AudioOutputNode.cs/#L7" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/AudioPeaks.cs/#L7" class="edit-link">Edit this page</a>
         </div>
 
 

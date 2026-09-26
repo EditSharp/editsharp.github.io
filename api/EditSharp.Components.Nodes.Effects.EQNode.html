@@ -89,7 +89,7 @@
 
 
   <h1 id="EditSharp_Components_Nodes_Effects_EQNode" data-uid="EditSharp.Components.Nodes.Effects.EQNode" class="text-break">
-Class EQNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L40"><i class="bi bi-code-slash"></i></a>
+Class EQNode  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -165,7 +165,7 @@ public sealed class EQNode : Node</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_EQNode_Animatables" data-uid="EditSharp.Components.Nodes.Effects.EQNode.Animatables">
   Animatables
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Every keyframeable value the node owns.</p>
@@ -200,7 +200,7 @@ public sealed class EQNode : Node</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_EQNode_Bands" data-uid="EditSharp.Components.Nodes.Effects.EQNode.Bands">
   Bands
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The bands, applied in order.</p>
@@ -233,7 +233,7 @@ public List&lt;EQBand&gt; Bands { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Nodes_Effects_EQNode_Ports" data-uid="EditSharp.Components.Nodes.Effects.EQNode.Ports">
   Ports
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L56"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The node's ports, fixed by its type.</p>
@@ -265,11 +265,58 @@ public List&lt;EQBand&gt; Bands { get; set; }</code></pre>
 </h2>
 
 
+  <a id="EditSharp_Components_Nodes_Effects_EQNode_DescribeSpectrum_" data-uid="EditSharp.Components.Nodes.Effects.EQNode.DescribeSpectrum*"></a>
+
+  <h3 id="EditSharp_Components_Nodes_Effects_EQNode_DescribeSpectrum_EditSharp_Audio_Analysis_SpectralContext__System_ReadOnlySpan_EditSharp_Audio_Analysis_SpectralFrame__EditSharp_Audio_Analysis_SpectralFrame_System_Object__" data-uid="EditSharp.Components.Nodes.Effects.EQNode.DescribeSpectrum(EditSharp.Audio.Analysis.SpectralContext@,System.ReadOnlySpan{EditSharp.Audio.Analysis.SpectralFrame},EditSharp.Audio.Analysis.SpectralFrame,System.Object@)">
+  DescribeSpectrum(in SpectralContext, ReadOnlySpan&lt;SpectralFrame&gt;, SpectralFrame, ref object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Describes what the node does to audio in the frequency domain, for one frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void DescribeSpectrum(in SpectralContext context, ReadOnlySpan&lt;SpectralFrame&gt; inputs, SpectralFrame output, ref object? state)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>context</code> <a class="xref" href="EditSharp.Audio.Analysis.SpectralContext.html">SpectralContext</a></dt>
+    <dd><p>The frame's content time and length.</p>
+</dd>
+    <dt><code>inputs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="EditSharp.Audio.Analysis.SpectralFrame.html">SpectralFrame</a>&gt;</dt>
+    <dd><p>One frame per audio input port, in port order; an unwired input is silence.</p>
+</dd>
+    <dt><code>output</code> <a class="xref" href="EditSharp.Audio.Analysis.SpectralFrame.html">SpectralFrame</a></dt>
+    <dd><p>The frame to write the node's output into.</p>
+</dd>
+    <dt><code>state</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>Whatever the node kept from the previous frame; null on the first.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="EditSharp_Components_Nodes_Effects_EQNode_DescribeSpectrum_EditSharp_Audio_Analysis_SpectralContext__System_ReadOnlySpan_EditSharp_Audio_Analysis_SpectralFrame__EditSharp_Audio_Analysis_SpectralFrame_System_Object___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The default passes the first input through, or writes silence for a node with no audio input. A node that
+changes audio overrides this so waveform displays show its effect without rendering samples. A node that
+carries state between frames (a compressor's envelope) keeps it in <code class="paramref">state</code>.</p>
+</div>
+
+
+
+
   <a id="EditSharp_Components_Nodes_Effects_EQNode_Duplicate_" data-uid="EditSharp.Components.Nodes.Effects.EQNode.Duplicate*"></a>
 
   <h3 id="EditSharp_Components_Nodes_Effects_EQNode_Duplicate" data-uid="EditSharp.Components.Nodes.Effects.EQNode.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L96"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Id</a>, so connections in the two graphs can't be confused.</p>
@@ -305,7 +352,7 @@ public List&lt;EQBand&gt; Bands { get; set; }</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L40" class="edit-link">Edit this page</a>
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Effects/EQNode.cs/#L41" class="edit-link">Edit this page</a>
         </div>
 
 

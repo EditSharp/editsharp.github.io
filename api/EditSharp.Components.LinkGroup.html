@@ -231,7 +231,7 @@ Class LinkGroup  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="EditSharp_Components_LinkGroup_CreateTimelineAudioVideoPair_EditSharp_Components_Timeline_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.LinkGroup.CreateTimelineAudioVideoPair(EditSharp.Components.Timeline,System.TimeSpan,System.TimeSpan)">
   CreateTimelineAudioVideoPair(Timeline, TimeSpan, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L200"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L217"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A linked video and audio clip that both play one timeline.</p>
@@ -476,6 +476,39 @@ Class LinkGroup  <a class="header-action link-secondary" title="View source" hre
     <dd><p>A member isn't placed.</p>
 </dd>
   </dl>
+
+
+
+  <a id="EditSharp_Components_LinkGroup_Remove_" data-uid="EditSharp.Components.LinkGroup.Remove*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_Remove_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.LinkGroup.Remove(EditSharp.Components.Clips.Clip)">
+  Remove(Clip)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L202"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Takes one clip out of the group; a group left with one member is dissolved.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Remove(Clip clip)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>clip</code> <a class="xref" href="EditSharp.Components.Clips.Clip.html">Clip</a></dt>
+    <dd><p>The clip to unlink.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -743,6 +776,33 @@ Class LinkGroup  <a class="header-action link-secondary" title="View source" hre
     <dd><p>How much to trim; it stops at <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_MinimumDuration">MinimumDuration</a>.</p>
 </dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_LinkGroup_Unlink_" data-uid="EditSharp.Components.LinkGroup.Unlink*"></a>
+
+  <h3 id="EditSharp_Components_LinkGroup_Unlink" data-uid="EditSharp.Components.LinkGroup.Unlink">
+  Unlink()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/LinkGroup.cs/#L195"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dissolves the group: every member is left unlinked, where it is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Unlink()</code></pre>
+  </div>
+
 
 
 
