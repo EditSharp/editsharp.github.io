@@ -329,7 +329,8 @@ public required string Path { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; Tags { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Editable(&quot;Tags&quot;, Order = -90)]
+public List&lt;string&gt; Tags { get; set; }</code></pre>
   </div>
 
 
@@ -338,7 +339,7 @@ public required string Path { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -353,7 +354,7 @@ public required string Path { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Media_IMedia_UsedBy" data-uid="EditSharp.Components.Media.IMedia.UsedBy">
   UsedBy
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L117"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Every node holding this media, whether or not its clip is placed.</p>
@@ -389,7 +390,7 @@ public required string Path { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Media_IMedia_AddTag_System_String_" data-uid="EditSharp.Components.Media.IMedia.AddTag(System.String)">
   AddTag(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L73"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a tag.</p>
@@ -425,7 +426,7 @@ public required string Path { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Media_IMedia_ContentChanged" data-uid="EditSharp.Components.Media.IMedia.ContentChanged">
   ContentChanged()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L130"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Trims every clip reading this media to its end, after an edit that may have changed the material or its length.</p>
@@ -455,7 +456,7 @@ public required string Path { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Media_IMedia_Duplicate" data-uid="EditSharp.Components.Media.IMedia.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L154"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A deep copy with a new <a class="xref" href="EditSharp.Components.Media.IMedia.html#EditSharp_Components_Media_IMedia_Id">Id</a>, made by saving and loading this media.</p>
@@ -491,7 +492,7 @@ public required string Path { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Media_IMedia_GetNaturalLengthAsync_System_Threading_CancellationToken_" data-uid="EditSharp.Components.Media.IMedia.GetNaturalLengthAsync(System.Threading.CancellationToken)">
   GetNaturalLengthAsync(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L139"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>How long the material is.</p>
@@ -563,7 +564,7 @@ public required string Path { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Media_IMedia_RemoveTag_System_String_" data-uid="EditSharp.Components.Media.IMedia.RemoveTag(System.String)">
   RemoveTag(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L82"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes a tag.</p>
@@ -599,7 +600,7 @@ public required string Path { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Media_IMedia_TryGetInfo_EditSharp_Video_MediaInfo__" data-uid="EditSharp.Components.Media.IMedia.TryGetInfo(EditSharp.Video.MediaInfo@)">
   TryGetInfo(out MediaInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L95"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>What probing the file found, if it has been probed.</p>
@@ -641,7 +642,7 @@ public required string Path { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Media_IMedia_TryGetNaturalLength_System_Nullable_System_TimeSpan___" data-uid="EditSharp.Components.Media.IMedia.TryGetNaturalLength(System.Nullable{System.TimeSpan}@)">
   TryGetNaturalLength(out TimeSpan?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L144"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p><a class="xref" href="EditSharp.Components.Media.IMedia.html#EditSharp_Components_Media_IMedia_GetNaturalLengthAsync_System_Threading_CancellationToken_">GetNaturalLengthAsync(CancellationToken)</a>'s answer, if it's known right away.</p>
@@ -683,7 +684,7 @@ public required string Path { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Media_IMedia_InfoAvailable" data-uid="EditSharp.Components.Media.IMedia.InfoAvailable">
   InfoAvailable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Media/IMedia.cs/#L113"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Fires when a probe started by <a class="xref" href="EditSharp.Components.Media.IMedia.html#EditSharp_Components_Media_IMedia_TryGetInfo_EditSharp_Video_MediaInfo__">TryGetInfo(out MediaInfo)</a> has finished, whether or not it succeeded, on a thread pool thread.</p>
