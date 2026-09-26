@@ -176,15 +176,15 @@ clip's <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Comp
 
   <h3 id="EditSharp_Components_Clips_Clip_MinimumDuration" data-uid="EditSharp.Components.Clips.Clip.MinimumDuration">
   MinimumDuration
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L96"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The shortest a trim or stretch leaves a clip: 1 ms.</p>
+  <div class="markdown level1 summary"><p>The shortest a trim or stretch leaves a clip: one tick.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly TimeSpan MinimumDuration</code></pre>
+    <pre><code class="lang-csharp hljs">public static readonly Time MinimumDuration</code></pre>
   </div>
 
 
@@ -192,7 +192,7 @@ clip's <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Comp
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd></dd>
   </dl>
 
@@ -212,7 +212,7 @@ clip's <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Comp
 
   <h3 id="EditSharp_Components_Clips_Clip_Channel" data-uid="EditSharp.Components.Clips.Clip.Channel">
   Channel
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L93"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The channel the clip is on; null when it isn't placed.</p>
@@ -244,7 +244,7 @@ clip's <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Comp
 
   <h3 id="EditSharp_Components_Clips_Clip_Color" data-uid="EditSharp.Components.Clips.Clip.Color">
   Color
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The colour an editor shows the clip in: a swatch name or a hex value, as the editor reads it; null for the editor's default.</p>
@@ -276,7 +276,7 @@ clip's <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Comp
 
   <h3 id="EditSharp_Components_Clips_Clip_ContentDuration" data-uid="EditSharp.Components.Clips.Clip.ContentDuration">
   ContentDuration
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>How much content the clip covers: <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Duration">Duration</a> × <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Speed">Speed</a>.</p>
@@ -284,7 +284,7 @@ clip's <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Comp
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TimeSpan ContentDuration { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Time ContentDuration { get; }</code></pre>
   </div>
 
 
@@ -293,7 +293,7 @@ clip's <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Comp
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd></dd>
   </dl>
 
@@ -317,7 +317,7 @@ clip's <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Comp
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Editable(&quot;Duration&quot;, Order = 2)]
-public TimeSpan Duration { get; set; }</code></pre>
+public Time Duration { get; set; }</code></pre>
   </div>
 
 
@@ -326,7 +326,7 @@ public TimeSpan Duration { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd></dd>
   </dl>
 
@@ -352,7 +352,7 @@ public TimeSpan Duration { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TimeSpan End { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Time End { get; }</code></pre>
   </div>
 
 
@@ -361,7 +361,7 @@ public TimeSpan Duration { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd></dd>
   </dl>
 
@@ -376,7 +376,7 @@ public TimeSpan Duration { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_Graph" data-uid="EditSharp.Components.Clips.Clip.Graph">
   Graph
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L99"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The clip's content and effects.</p>
@@ -408,15 +408,15 @@ public TimeSpan Duration { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_HeadExtendLimit" data-uid="EditSharp.Components.Clips.Clip.HeadExtendLimit">
   HeadExtendLimit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L145"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How much earlier <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Start">Start</a> can move before a source runs out, in timeline time; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan.maxvalue">MaxValue</a> when nothing limits it.</p>
+  <div class="markdown level1 summary"><p>How much earlier <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Start">Start</a> can move before a source runs out, in timeline time; <a class="xref" href="EditSharp.Time.html#EditSharp_Time_MaxValue">MaxValue</a> when nothing limits it.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TimeSpan HeadExtendLimit { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Time HeadExtendLimit { get; }</code></pre>
   </div>
 
 
@@ -425,7 +425,7 @@ public TimeSpan Duration { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd></dd>
   </dl>
 
@@ -433,7 +433,7 @@ public TimeSpan Duration { get; set; }</code></pre>
 
 
   <h4 class="section" id="EditSharp_Components_Clips_Clip_HeadExtendLimit_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p><a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_ExtendStart_System_TimeSpan_">ExtendStart(TimeSpan)</a> stops here; an editor can clamp a drag preview to it.</p>
+  <div class="markdown level1 remarks"><p><a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_ExtendStart_EditSharp_Time_">ExtendStart(Time)</a> stops here; an editor can clamp a drag preview to it.</p>
 </div>
 
 
@@ -443,7 +443,7 @@ public TimeSpan Duration { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_LinkGroupId" data-uid="EditSharp.Components.Clips.Clip.LinkGroupId">
   LinkGroupId
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L89"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The <a class="xref" href="EditSharp.Components.LinkGroup.html">LinkGroup</a> the clip belongs to; null when it isn't linked.</p>
@@ -508,16 +508,16 @@ public string Name { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_Speed" data-uid="EditSharp.Components.Clips.Clip.Speed">
   Speed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How fast the content plays against the timeline: 2 plays it twice as fast, 0.5 at half speed.</p>
+  <div class="markdown level1 summary"><p>How fast the content plays against the timeline: 2 plays it twice as fast, 1/2 at half speed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Editable(&quot;Speed&quot;, Order = 3, Min = 0.01, Max = 100, Step = 0.01, Editor = PropertyEditor.Percent, Default = 1)]
-public double Speed { get; set; }</code></pre>
+public Rational Speed { get; set; }</code></pre>
   </div>
 
 
@@ -526,7 +526,7 @@ public double Speed { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dt><a class="xref" href="EditSharp.Rational.html">Rational</a></dt>
     <dd></dd>
   </dl>
 
@@ -534,9 +534,15 @@ public double Speed { get; set; }</code></pre>
 
 
   <h4 class="section" id="EditSharp_Components_Clips_Clip_Speed_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>The graph and its keyframes stay at 1x; Speed scales the clip's time wherever it's evaluated, so setting it back to 1 undoes a retime. <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_StretchStart_System_TimeSpan_">StretchStart(TimeSpan)</a> and <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_StretchEnd_System_TimeSpan_">StretchEnd(TimeSpan)</a> set it. Raising it trims the clip if a source now ends inside it.</p>
+  <div class="markdown level1 remarks"><p>The graph and its keyframes stay at 1x; Speed scales the clip's time wherever it's evaluated, so setting it back to 1 undoes a retime. <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_StretchStart_EditSharp_Time_">StretchStart(Time)</a> and <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_StretchEnd_EditSharp_Time_">StretchEnd(Time)</a> set it to the exact ratio of content to timeline ticks. Raising it trims the clip if a source now ends inside it.</p>
 </div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>The value isn't positive.</p>
+</dd>
+  </dl>
 
 
 
@@ -553,7 +559,7 @@ public double Speed { get; set; }</code></pre>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Editable(&quot;Start&quot;, Order = 1)]
-public TimeSpan Start { get; set; }</code></pre>
+public Time Start { get; set; }</code></pre>
   </div>
 
 
@@ -562,7 +568,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd></dd>
   </dl>
 
@@ -570,7 +576,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
 
   <h4 class="section" id="EditSharp_Components_Clips_Clip_Start_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>To move a placed clip, use <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Move_System_TimeSpan_EditSharp_Components_Channels_Channel_">Move(TimeSpan, Channel?)</a>; setting Start directly doesn't update its channel.</p>
+  <div class="markdown level1 remarks"><p>To move a placed clip, use <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Move_EditSharp_Time_EditSharp_Components_Channels_Channel_">Move(Time, Channel?)</a>; setting Start directly doesn't update its channel.</p>
 </div>
 
 
@@ -580,7 +586,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_TailExtendLimit" data-uid="EditSharp.Components.Clips.Clip.TailExtendLimit">
   TailExtendLimit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L156"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>How much later <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_End">End</a> can move before a source runs out, in timeline time.</p>
@@ -588,7 +594,7 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TimeSpan TailExtendLimit { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Time TailExtendLimit { get; }</code></pre>
   </div>
 
 
@@ -597,7 +603,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd></dd>
   </dl>
 
@@ -605,7 +611,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
 
   <h4 class="section" id="EditSharp_Components_Clips_Clip_TailExtendLimit_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Zero when a source already ends inside the clip; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan.maxvalue">MaxValue</a> when no source has a known end (it has none, it loops, or it isn't probed yet).</p>
+  <div class="markdown level1 remarks"><p>Zero when a source already ends inside the clip; <a class="xref" href="EditSharp.Time.html#EditSharp_Time_MaxValue">MaxValue</a> when no source has a known end (it has none, it loops, or it isn't probed yet).</p>
 </div>
 
 
@@ -615,11 +621,50 @@ public TimeSpan Start { get; set; }</code></pre>
 </h2>
 
 
+  <a id="EditSharp_Components_Clips_Clip_ContentTimeAt_" data-uid="EditSharp.Components.Clips.Clip.ContentTimeAt*"></a>
+
+  <h3 id="EditSharp_Components_Clips_Clip_ContentTimeAt_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.ContentTimeAt(EditSharp.Time)">
+  ContentTimeAt(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The content time playing at a moment on the timeline; keyframes are placed and evaluated at this time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Time ContentTimeAt(Time timelineTime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>timelineTime</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The timeline time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The content time: (<code class="paramref">timelineTime</code> - <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Start">Start</a>) × <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Speed">Speed</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="EditSharp_Components_Clips_Clip_CreateClipsFromMedia_" data-uid="EditSharp.Components.Clips.Clip.CreateClipsFromMedia*"></a>
 
-  <h3 id="EditSharp_Components_Clips_Clip_CreateClipsFromMedia_EditSharp_Components_Media_VideoMedia_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.CreateClipsFromMedia(EditSharp.Components.Media.VideoMedia,System.TimeSpan,System.TimeSpan)">
-  CreateClipsFromMedia(VideoMedia, TimeSpan, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_Clip_CreateClipsFromMedia_EditSharp_Components_Media_VideoMedia_EditSharp_Time_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.CreateClipsFromMedia(EditSharp.Components.Media.VideoMedia,EditSharp.Time,EditSharp.Time)">
+  CreateClipsFromMedia(VideoMedia, Time, Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L107"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A video clip and an audio clip for one media: its picture, and its soundtrack when it has one.</p>
@@ -627,7 +672,7 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static (VideoClip Video, AudioClip? Audio) CreateClipsFromMedia(VideoMedia media, TimeSpan start, TimeSpan duration)</code></pre>
+    <pre><code class="lang-csharp hljs">public static (VideoClip Video, AudioClip? Audio) CreateClipsFromMedia(VideoMedia media, Time start, Time duration)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -635,10 +680,10 @@ public TimeSpan Start { get; set; }</code></pre>
     <dt><code>media</code> <a class="xref" href="EditSharp.Components.Media.VideoMedia.html">VideoMedia</a></dt>
     <dd><p>What the clips show and play.</p>
 </dd>
-    <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>start</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>Where the clips start on the timeline.</p>
 </dd>
-    <dt><code>duration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>duration</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>How long they last.</p>
 </dd>
   </dl>
@@ -656,7 +701,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
 
 
-  <h4 class="section" id="EditSharp_Components_Clips_Clip_CreateClipsFromMedia_EditSharp_Components_Media_VideoMedia_System_TimeSpan_System_TimeSpan__remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_CreateClipsFromMedia_EditSharp_Components_Media_VideoMedia_EditSharp_Time_EditSharp_Time__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Neither clip is placed; add each to a channel, and link them with <a class="xref" href="EditSharp.Components.Timeline.html#EditSharp_Components_Timeline_Link_System_Collections_Generic_IEnumerable_EditSharp_Components_Clips_Clip__">Link(IEnumerable&lt;Clip&gt;)</a> to move as one. Nothing is recorded in history.</p>
 </div>
 
@@ -667,7 +712,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_Delete" data-uid="EditSharp.Components.Clips.Clip.Delete">
   Delete()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L299"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L325"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Removes from the channel, leaving a gap.</p>
@@ -703,7 +748,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_DistanceFrom_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.DistanceFrom(EditSharp.Components.Clips.Clip)">
   DistanceFrom(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L358"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L384"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The gap between the clip and another.</p>
@@ -711,7 +756,7 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TimeSpan DistanceFrom(Clip other)</code></pre>
+    <pre><code class="lang-csharp hljs">public Time DistanceFrom(Clip other)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -723,7 +768,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>The time between the end of the earlier clip and the start of the later; zero when they overlap.</p>
 </dd>
   </dl>
@@ -742,7 +787,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_Duplicate" data-uid="EditSharp.Components.Clips.Clip.Duplicate">
   Duplicate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L114"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>A deep copy with the same name, times and speed, not placed and not linked.</p>
@@ -778,7 +823,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_EndIntersectsWith_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.EndIntersectsWith(EditSharp.Components.Clips.Clip)">
   EndIntersectsWith(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L333"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L359"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Whether the clip ends within another, counting its end.</p>
@@ -815,9 +860,9 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <a id="EditSharp_Components_Clips_Clip_EndsAt_" data-uid="EditSharp.Components.Clips.Clip.EndsAt*"></a>
 
-  <h3 id="EditSharp_Components_Clips_Clip_EndsAt_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.EndsAt(System.TimeSpan)">
-  EndsAt(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L315"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_Clip_EndsAt_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.EndsAt(EditSharp.Time)">
+  EndsAt(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L341"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Whether the clip ends at a time.</p>
@@ -825,12 +870,12 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool EndsAt(TimeSpan time)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool EndsAt(Time time)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>time</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>The timeline time.</p>
 </dd>
   </dl>
@@ -856,7 +901,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_EndsInside_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.EndsInside(EditSharp.Components.Clips.Clip)">
   EndsInside(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L324"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L350"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Whether the clip ends strictly inside another.</p>
@@ -893,9 +938,9 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <a id="EditSharp_Components_Clips_Clip_ExtendEnd_" data-uid="EditSharp.Components.Clips.Clip.ExtendEnd*"></a>
 
-  <h3 id="EditSharp_Components_Clips_Clip_ExtendEnd_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.ExtendEnd(System.TimeSpan)">
-  ExtendEnd(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L215"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_Clip_ExtendEnd_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.ExtendEnd(EditSharp.Time)">
+  ExtendEnd(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L241"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Lengthens from the end, overwriting whatever it grows into.</p>
@@ -903,12 +948,12 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ExtendEnd(TimeSpan amount)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ExtendEnd(Time amount)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>amount</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>How much to extend; it stops where a source runs out (<a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_TailExtendLimit">TailExtendLimit</a>).</p>
 </dd>
   </dl>
@@ -932,9 +977,9 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <a id="EditSharp_Components_Clips_Clip_ExtendStart_" data-uid="EditSharp.Components.Clips.Clip.ExtendStart*"></a>
 
-  <h3 id="EditSharp_Components_Clips_Clip_ExtendStart_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.ExtendStart(System.TimeSpan)">
-  ExtendStart(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L194"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_Clip_ExtendStart_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.ExtendStart(EditSharp.Time)">
+  ExtendStart(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L220"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Lengthens from the start, overwriting whatever it grows into.</p>
@@ -942,12 +987,12 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ExtendStart(TimeSpan amount)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ExtendStart(Time amount)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>amount</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>How much to extend; it stops where a source runs out (<a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_HeadExtendLimit">HeadExtendLimit</a>).</p>
 </dd>
   </dl>
@@ -973,7 +1018,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_FullyIntersects_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.FullyIntersects(EditSharp.Components.Clips.Clip)">
   FullyIntersects(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L338"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L364"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Whether the clip covers all of another.</p>
@@ -1012,7 +1057,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_IntersectionWith_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.IntersectionWith(EditSharp.Components.Clips.Clip)">
   IntersectionWith(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L348"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L374"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>How long the clip and another overlap.</p>
@@ -1020,7 +1065,7 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TimeSpan IntersectionWith(Clip other)</code></pre>
+    <pre><code class="lang-csharp hljs">public Time IntersectionWith(Clip other)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1032,7 +1077,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>The overlap; zero when they don't overlap.</p>
 </dd>
   </dl>
@@ -1051,7 +1096,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_IsLongerThan_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.IsLongerThan(EditSharp.Components.Clips.Clip)">
   IsLongerThan(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L343"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L369"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Whether the clip is longer than another.</p>
@@ -1090,7 +1135,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_MaxHeadExtend" data-uid="EditSharp.Components.Clips.Clip.MaxHeadExtend">
   MaxHeadExtend()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L131"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>How far the start can move earlier, in content time: the least headroom of any trimmable input.</p>
@@ -1098,14 +1143,14 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual TimeSpan MaxHeadExtend()</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual Time MaxHeadExtend()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd><p>The headroom; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan.maxvalue">MaxValue</a> when no input limits it.</p>
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The headroom; <a class="xref" href="EditSharp.Time.html#EditSharp_Time_MaxValue">MaxValue</a> when no input limits it.</p>
 </dd>
   </dl>
 
@@ -1121,9 +1166,9 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <a id="EditSharp_Components_Clips_Clip_Move_" data-uid="EditSharp.Components.Clips.Clip.Move*"></a>
 
-  <h3 id="EditSharp_Components_Clips_Clip_Move_System_TimeSpan_EditSharp_Components_Channels_Channel_" data-uid="EditSharp.Components.Clips.Clip.Move(System.TimeSpan,EditSharp.Components.Channels.Channel)">
-  Move(TimeSpan, Channel?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L288"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_Clip_Move_EditSharp_Time_EditSharp_Components_Channels_Channel_" data-uid="EditSharp.Components.Clips.Clip.Move(EditSharp.Time,EditSharp.Components.Channels.Channel)">
+  Move(Time, Channel?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L314"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Moves to a new start, overwriting whatever is there.</p>
@@ -1131,12 +1176,12 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Move(TimeSpan newStart, Channel? targetChannel = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Move(Time newStart, Channel? targetChannel = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>newStart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>newStart</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>The new start; for a group, where its earliest member goes, the rest keeping their offsets.</p>
 </dd>
     <dt><code>targetChannel</code> <a class="xref" href="EditSharp.Components.Channels.Channel.html">Channel</a></dt>
@@ -1166,9 +1211,9 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <a id="EditSharp_Components_Clips_Clip_OnHeadInPointShift_" data-uid="EditSharp.Components.Clips.Clip.OnHeadInPointShift*"></a>
 
-  <h3 id="EditSharp_Components_Clips_Clip_OnHeadInPointShift_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.OnHeadInPointShift(System.TimeSpan)">
-  OnHeadInPointShift(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_Clip_OnHeadInPointShift_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.OnHeadInPointShift(EditSharp.Time)">
+  OnHeadInPointShift(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L119"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Moves every trimmable input's in-point, and every keyframe in the graph, when the clip's start moves.</p>
@@ -1176,12 +1221,12 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void OnHeadInPointShift(TimeSpan amount)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void OnHeadInPointShift(Time amount)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>amount</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>How far the in-points move, in content time: positive for a trim, negative for an extend.</p>
 </dd>
   </dl>
@@ -1193,7 +1238,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
 
 
-  <h4 class="section" id="EditSharp_Components_Clips_Clip_OnHeadInPointShift_System_TimeSpan__remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_OnHeadInPointShift_EditSharp_Time__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Keyframes belong to the content, not to <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Start">Start</a>, so a head trim or extend moves them too.</p>
 </div>
 
@@ -1204,7 +1249,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_RippleDelete" data-uid="EditSharp.Components.Clips.Clip.RippleDelete">
   RippleDelete()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L303"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L329"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Deletes the clip and closes the gap: everything after it on its channel moves earlier by its length.</p>
@@ -1235,9 +1280,9 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <a id="EditSharp_Components_Clips_Clip_RippleExtendEnd_" data-uid="EditSharp.Components.Clips.Clip.RippleExtendEnd*"></a>
 
-  <h3 id="EditSharp_Components_Clips_Clip_RippleExtendEnd_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.RippleExtendEnd(System.TimeSpan)">
-  RippleExtendEnd(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_Clip_RippleExtendEnd_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.RippleExtendEnd(EditSharp.Time)">
+  RippleExtendEnd(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L243"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Lengthens from the end; clips after it move later by the same amount instead of being overwritten.</p>
@@ -1245,12 +1290,12 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void RippleExtendEnd(TimeSpan amount)</code></pre>
+    <pre><code class="lang-csharp hljs">public void RippleExtendEnd(Time amount)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>amount</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>How much to extend; it stops where a source runs out (<a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_TailExtendLimit">TailExtendLimit</a>).</p>
 </dd>
   </dl>
@@ -1274,9 +1319,9 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <a id="EditSharp_Components_Clips_Clip_RippleExtendStart_" data-uid="EditSharp.Components.Clips.Clip.RippleExtendStart*"></a>
 
-  <h3 id="EditSharp_Components_Clips_Clip_RippleExtendStart_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.RippleExtendStart(System.TimeSpan)">
-  RippleExtendStart(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_Clip_RippleExtendStart_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.RippleExtendStart(EditSharp.Time)">
+  RippleExtendStart(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L222"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Lengthens from the start; clips from the new start on move later by the same amount instead of being overwritten.</p>
@@ -1284,12 +1329,12 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void RippleExtendStart(TimeSpan amount)</code></pre>
+    <pre><code class="lang-csharp hljs">public void RippleExtendStart(Time amount)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>amount</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>How much to extend; it stops where a source runs out (<a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_HeadExtendLimit">HeadExtendLimit</a>).</p>
 </dd>
   </dl>
@@ -1313,9 +1358,9 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <a id="EditSharp_Components_Clips_Clip_RippleMove_" data-uid="EditSharp.Components.Clips.Clip.RippleMove*"></a>
 
-  <h3 id="EditSharp_Components_Clips_Clip_RippleMove_System_TimeSpan_EditSharp_Components_Channels_Channel_" data-uid="EditSharp.Components.Clips.Clip.RippleMove(System.TimeSpan,EditSharp.Components.Channels.Channel)">
-  RippleMove(TimeSpan, Channel?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L292"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_Clip_RippleMove_EditSharp_Time_EditSharp_Components_Channels_Channel_" data-uid="EditSharp.Components.Clips.Clip.RippleMove(EditSharp.Time,EditSharp.Components.Channels.Channel)">
+  RippleMove(Time, Channel?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L318"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Moves to a new start, moving clips from there on later instead of overwriting them.</p>
@@ -1323,12 +1368,12 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void RippleMove(TimeSpan newStart, Channel? targetChannel = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public void RippleMove(Time newStart, Channel? targetChannel = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>newStart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>newStart</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>The new start; for a group, where its earliest member goes, the rest keeping their offsets.</p>
 </dd>
     <dt><code>targetChannel</code> <a class="xref" href="EditSharp.Components.Channels.Channel.html">Channel</a></dt>
@@ -1358,9 +1403,9 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <a id="EditSharp_Components_Clips_Clip_Split_" data-uid="EditSharp.Components.Clips.Clip.Split*"></a>
 
-  <h3 id="EditSharp_Components_Clips_Clip_Split_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.Split(System.TimeSpan)">
-  Split(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L296"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_Clip_Split_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.Split(EditSharp.Time)">
+  Split(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L322"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Cuts in two at a timeline time.</p>
@@ -1368,12 +1413,12 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Split(TimeSpan at)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Split(Time at)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>at</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>at</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>Where to cut; for a single clip, strictly inside it.</p>
 </dd>
   </dl>
@@ -1385,7 +1430,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
 
 
-  <h4 class="section" id="EditSharp_Components_Clips_Clip_Split_System_TimeSpan__remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_Split_EditSharp_Time__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>A clip's halves keep its name and link group. A group splits every member that spans the time; members from the time on form a new group, and a side left with one clip is unlinked.</p>
 </div>
 
@@ -1405,7 +1450,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_StartIntersectsWith_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.StartIntersectsWith(EditSharp.Components.Clips.Clip)">
   StartIntersectsWith(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L329"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L355"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Whether the clip starts within another, counting its start.</p>
@@ -1442,9 +1487,9 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <a id="EditSharp_Components_Clips_Clip_StartsAt_" data-uid="EditSharp.Components.Clips.Clip.StartsAt*"></a>
 
-  <h3 id="EditSharp_Components_Clips_Clip_StartsAt_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.StartsAt(System.TimeSpan)">
-  StartsAt(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L311"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_Clip_StartsAt_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.StartsAt(EditSharp.Time)">
+  StartsAt(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L337"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Whether the clip starts at a time.</p>
@@ -1452,12 +1497,12 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool StartsAt(TimeSpan time)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool StartsAt(Time time)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>time</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>The timeline time.</p>
 </dd>
   </dl>
@@ -1483,7 +1528,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <h3 id="EditSharp_Components_Clips_Clip_StartsInside_EditSharp_Components_Clips_Clip_" data-uid="EditSharp.Components.Clips.Clip.StartsInside(EditSharp.Components.Clips.Clip)">
   StartsInside(Clip)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L320"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L346"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Whether the clip starts strictly inside another.</p>
@@ -1520,9 +1565,9 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <a id="EditSharp_Components_Clips_Clip_StretchEnd_" data-uid="EditSharp.Components.Clips.Clip.StretchEnd*"></a>
 
-  <h3 id="EditSharp_Components_Clips_Clip_StretchEnd_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.StretchEnd(System.TimeSpan)">
-  StretchEnd(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L259"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_Clip_StretchEnd_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.StretchEnd(EditSharp.Time)">
+  StretchEnd(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L285"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Moves the end while the start and the content stay put, so the clip plays slower or faster.</p>
@@ -1530,12 +1575,12 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void StretchEnd(TimeSpan amount)</code></pre>
+    <pre><code class="lang-csharp hljs">public void StretchEnd(Time amount)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>amount</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>Positive moves the end later (longer, slower); negative earlier (shorter, faster). It stops at <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_MinimumDuration">MinimumDuration</a>.</p>
 </dd>
   </dl>
@@ -1547,7 +1592,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
 
 
-  <h4 class="section" id="EditSharp_Components_Clips_Clip_StretchEnd_System_TimeSpan__remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_StretchEnd_EditSharp_Time__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Growing overwrites whatever the clip grows into; <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Speed">Speed</a> takes up the change.</p>
 </div>
 
@@ -1562,9 +1607,9 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <a id="EditSharp_Components_Clips_Clip_StretchStart_" data-uid="EditSharp.Components.Clips.Clip.StretchStart*"></a>
 
-  <h3 id="EditSharp_Components_Clips_Clip_StretchStart_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.StretchStart(System.TimeSpan)">
-  StretchStart(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L245"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_Clip_StretchStart_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.StretchStart(EditSharp.Time)">
+  StretchStart(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L271"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Moves the start while the end and the content stay put, so the clip plays slower or faster.</p>
@@ -1572,12 +1617,12 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void StretchStart(TimeSpan amount)</code></pre>
+    <pre><code class="lang-csharp hljs">public void StretchStart(Time amount)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>amount</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>Positive moves the start earlier (longer, slower); negative later (shorter, faster). It stops at the timeline's start and at <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_MinimumDuration">MinimumDuration</a>.</p>
 </dd>
   </dl>
@@ -1589,7 +1634,7 @@ public TimeSpan Start { get; set; }</code></pre>
 
 
 
-  <h4 class="section" id="EditSharp_Components_Clips_Clip_StretchStart_System_TimeSpan__remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Components_Clips_Clip_StretchStart_EditSharp_Time__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Growing overwrites whatever the clip grows into; <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Speed">Speed</a> takes up the change.</p>
 </div>
 
@@ -1602,11 +1647,128 @@ public TimeSpan Start { get; set; }</code></pre>
 
 
 
+  <a id="EditSharp_Components_Clips_Clip_TimelineTimeOf_" data-uid="EditSharp.Components.Clips.Clip.TimelineTimeOf*"></a>
+
+  <h3 id="EditSharp_Components_Clips_Clip_TimelineTimeOf_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.TimelineTimeOf(EditSharp.Time)">
+  TimelineTimeOf(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Where on the timeline a content time plays.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Time TimelineTimeOf(Time contentTime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentTime</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The content time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The timeline time: <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Start">Start</a> + <code class="paramref">contentTime</code> ÷ <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Speed">Speed</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Clips_Clip_ToContentTime_" data-uid="EditSharp.Components.Clips.Clip.ToContentTime*"></a>
+
+  <h3 id="EditSharp_Components_Clips_Clip_ToContentTime_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.ToContentTime(EditSharp.Time)">
+  ToContentTime(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A length of timeline time as content time: × <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Speed">Speed</a>, rounded to the nearest tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Time ToContentTime(Time timeline)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>timeline</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The timeline length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The content length.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Components_Clips_Clip_ToTimelineTime_" data-uid="EditSharp.Components.Clips.Clip.ToTimelineTime*"></a>
+
+  <h3 id="EditSharp_Components_Clips_Clip_ToTimelineTime_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.ToTimelineTime(EditSharp.Time)">
+  ToTimelineTime(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A length of content time as timeline time: ÷ <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_Speed">Speed</a>, rounded to the nearest tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Time ToTimelineTime(Time content)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>content</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The content length.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The timeline length; <a class="xref" href="EditSharp.Time.html#EditSharp_Time_MaxValue">MaxValue</a> when it doesn't fit.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="EditSharp_Components_Clips_Clip_TrimEnd_" data-uid="EditSharp.Components.Clips.Clip.TrimEnd*"></a>
 
-  <h3 id="EditSharp_Components_Clips_Clip_TrimEnd_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.TrimEnd(System.TimeSpan)">
-  TrimEnd(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_Clip_TrimEnd_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.TrimEnd(EditSharp.Time)">
+  TrimEnd(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L200"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Shortens from the end.</p>
@@ -1614,12 +1776,12 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void TrimEnd(TimeSpan amount)</code></pre>
+    <pre><code class="lang-csharp hljs">public void TrimEnd(Time amount)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>amount</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>How much to trim; it stops at <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_MinimumDuration">MinimumDuration</a>.</p>
 </dd>
   </dl>
@@ -1637,9 +1799,9 @@ public TimeSpan Start { get; set; }</code></pre>
 
   <a id="EditSharp_Components_Clips_Clip_TrimStart_" data-uid="EditSharp.Components.Clips.Clip.TrimStart*"></a>
 
-  <h3 id="EditSharp_Components_Clips_Clip_TrimStart_System_TimeSpan_" data-uid="EditSharp.Components.Clips.Clip.TrimStart(System.TimeSpan)">
-  TrimStart(TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_Clips_Clip_TrimStart_EditSharp_Time_" data-uid="EditSharp.Components.Clips.Clip.TrimStart(EditSharp.Time)">
+  TrimStart(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Clips/Clip.cs/#L186"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Shortens from the start; the content stays where it is on the timeline.</p>
@@ -1647,12 +1809,12 @@ public TimeSpan Start { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void TrimStart(TimeSpan amount)</code></pre>
+    <pre><code class="lang-csharp hljs">public void TrimStart(Time amount)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>amount</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>How much to trim; it stops at <a class="xref" href="EditSharp.Components.Clips.Clip.html#EditSharp_Components_Clips_Clip_MinimumDuration">MinimumDuration</a>.</p>
 </dd>
   </dl>

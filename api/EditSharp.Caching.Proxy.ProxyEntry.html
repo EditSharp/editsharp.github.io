@@ -158,8 +158,8 @@ Class ProxyEntry  <a class="header-action link-secondary" title="View source" hr
 
   <a id="EditSharp_Caching_Proxy_ProxyEntry__ctor_" data-uid="EditSharp.Caching.Proxy.ProxyEntry.#ctor*"></a>
 
-  <h3 id="EditSharp_Caching_Proxy_ProxyEntry__ctor_System_String_EditSharp_Caching_Proxy_ProxyFormat_System_String_System_Int32_System_Int32_System_Double_" data-uid="EditSharp.Caching.Proxy.ProxyEntry.#ctor(System.String,EditSharp.Caching.Proxy.ProxyFormat,System.String,System.Int32,System.Int32,System.Double)">
-  ProxyEntry(string, ProxyFormat, string, int, int, double)
+  <h3 id="EditSharp_Caching_Proxy_ProxyEntry__ctor_System_String_EditSharp_Caching_Proxy_ProxyFormat_System_String_System_Int32_System_Int32_EditSharp_Rational_" data-uid="EditSharp.Caching.Proxy.ProxyEntry.#ctor(System.String,EditSharp.Caching.Proxy.ProxyFormat,System.String,System.Int32,System.Int32,EditSharp.Rational)">
+  ProxyEntry(string, ProxyFormat, string, int, int, Rational)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Caching/Proxy/ProxyTypes.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -168,7 +168,7 @@ Class ProxyEntry  <a class="header-action link-secondary" title="View source" hr
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ProxyEntry(string SourceHash, ProxyFormat Format, string Path, int Width, int Height, double FrameRate)</code></pre>
+    <pre><code class="lang-csharp hljs">public ProxyEntry(string SourceHash, ProxyFormat Format, string Path, int Width, int Height, Rational FrameRate)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -188,7 +188,7 @@ Class ProxyEntry  <a class="header-action link-secondary" title="View source" hr
     <dt><code>Height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>The proxy's height in pixels.</p>
 </dd>
-    <dt><code>FrameRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dt><code>FrameRate</code> <a class="xref" href="EditSharp.Rational.html">Rational</a></dt>
     <dd><p>The proxy's frames per second.</p>
 </dd>
   </dl>
@@ -252,7 +252,7 @@ Class ProxyEntry  <a class="header-action link-secondary" title="View source" hr
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double FrameRate { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Rational FrameRate { get; init; }</code></pre>
   </div>
 
 
@@ -261,7 +261,7 @@ Class ProxyEntry  <a class="header-action link-secondary" title="View source" hr
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dt><a class="xref" href="EditSharp.Rational.html">Rational</a></dt>
     <dd></dd>
   </dl>
 

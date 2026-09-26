@@ -282,8 +282,8 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
 
   <a id="EditSharp_Components_KeyframeTrack_1_AddKeyframe_" data-uid="EditSharp.Components.KeyframeTrack`1.AddKeyframe*"></a>
 
-  <h3 id="EditSharp_Components_KeyframeTrack_1_AddKeyframe_System_TimeSpan__0_" data-uid="EditSharp.Components.KeyframeTrack`1.AddKeyframe(System.TimeSpan,`0)">
-  AddKeyframe(TimeSpan, T)
+  <h3 id="EditSharp_Components_KeyframeTrack_1_AddKeyframe_EditSharp_Time__0_" data-uid="EditSharp.Components.KeyframeTrack`1.AddKeyframe(EditSharp.Time,`0)">
+  AddKeyframe(Time, T)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L95"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -292,12 +292,12 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Keyframe&lt;T&gt; AddKeyframe(TimeSpan start, T value)</code></pre>
+    <pre><code class="lang-csharp hljs">public Keyframe&lt;T&gt; AddKeyframe(Time start, T value)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>start</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>When, in content time.</p>
 </dd>
     <dt><code>value</code> <span class="xref">T</span></dt>
@@ -393,8 +393,8 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
 
   <a id="EditSharp_Components_KeyframeTrack_1_CreateKeyframe_" data-uid="EditSharp.Components.KeyframeTrack`1.CreateKeyframe*"></a>
 
-  <h3 id="EditSharp_Components_KeyframeTrack_1_CreateKeyframe_System_TimeSpan__0_" data-uid="EditSharp.Components.KeyframeTrack`1.CreateKeyframe(System.TimeSpan,`0)">
-  CreateKeyframe(TimeSpan, T)
+  <h3 id="EditSharp_Components_KeyframeTrack_1_CreateKeyframe_EditSharp_Time__0_" data-uid="EditSharp.Components.KeyframeTrack`1.CreateKeyframe(EditSharp.Time,`0)">
+  CreateKeyframe(Time, T)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L127"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -403,12 +403,12 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual Keyframe&lt;T&gt; CreateKeyframe(TimeSpan start, T value)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual Keyframe&lt;T&gt; CreateKeyframe(Time start, T value)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>start</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>When, in content time.</p>
 </dd>
     <dt><code>value</code> <span class="xref">T</span></dt>
@@ -471,8 +471,8 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
 
   <a id="EditSharp_Components_KeyframeTrack_1_Evaluate_" data-uid="EditSharp.Components.KeyframeTrack`1.Evaluate*"></a>
 
-  <h3 id="EditSharp_Components_KeyframeTrack_1_Evaluate_System_TimeSpan_" data-uid="EditSharp.Components.KeyframeTrack`1.Evaluate(System.TimeSpan)">
-  Evaluate(TimeSpan)
+  <h3 id="EditSharp_Components_KeyframeTrack_1_Evaluate_EditSharp_Time_" data-uid="EditSharp.Components.KeyframeTrack`1.Evaluate(EditSharp.Time)">
+  Evaluate(Time)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L350"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -481,12 +481,12 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public T Evaluate(TimeSpan time)</code></pre>
+    <pre><code class="lang-csharp hljs">public T Evaluate(Time time)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>time</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>Content time.</p>
 </dd>
   </dl>
@@ -504,7 +504,7 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
 
 
 
-  <h4 class="section" id="EditSharp_Components_KeyframeTrack_1_Evaluate_System_TimeSpan__remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Components_KeyframeTrack_1_Evaluate_EditSharp_Time__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Before the first keyframe it's the first keyframe's value, after the last the last's. <a class="xref" href="EditSharp.Components.Animatable-1.html">Animatable&lt;T&gt;</a> uses its static value instead when there are fewer than two keyframes.</p>
 </div>
 
@@ -513,9 +513,9 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
 
   <a id="EditSharp_Components_KeyframeTrack_1_InterpolateSegment_" data-uid="EditSharp.Components.KeyframeTrack`1.InterpolateSegment*"></a>
 
-  <h3 id="EditSharp_Components_KeyframeTrack_1_InterpolateSegment_EditSharp_Components_Keyframe__0__EditSharp_Components_Keyframe__0__System_TimeSpan_" data-uid="EditSharp.Components.KeyframeTrack`1.InterpolateSegment(EditSharp.Components.Keyframe{`0},EditSharp.Components.Keyframe{`0},System.TimeSpan)">
-  InterpolateSegment(Keyframe&lt;T&gt;, Keyframe&lt;T&gt;, TimeSpan)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L377"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_KeyframeTrack_1_InterpolateSegment_EditSharp_Components_Keyframe__0__EditSharp_Components_Keyframe__0__EditSharp_Time_" data-uid="EditSharp.Components.KeyframeTrack`1.InterpolateSegment(EditSharp.Components.Keyframe{`0},EditSharp.Components.Keyframe{`0},EditSharp.Time)">
+  InterpolateSegment(Keyframe&lt;T&gt;, Keyframe&lt;T&gt;, Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L380"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The value between two neighbouring keyframes.</p>
@@ -523,7 +523,7 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual T InterpolateSegment(Keyframe&lt;T&gt; from, Keyframe&lt;T&gt; to, TimeSpan time)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual T InterpolateSegment(Keyframe&lt;T&gt; from, Keyframe&lt;T&gt; to, Time time)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -534,7 +534,7 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
     <dt><code>to</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;T&gt;</dt>
     <dd><p>The later keyframe.</p>
 </dd>
-    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>time</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>A content time between them.</p>
 </dd>
   </dl>
@@ -558,8 +558,8 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
 
   <a id="EditSharp_Components_KeyframeTrack_1_MoveKeyframe_" data-uid="EditSharp.Components.KeyframeTrack`1.MoveKeyframe*"></a>
 
-  <h3 id="EditSharp_Components_KeyframeTrack_1_MoveKeyframe_EditSharp_Components_Keyframe__0__System_TimeSpan__0_" data-uid="EditSharp.Components.KeyframeTrack`1.MoveKeyframe(EditSharp.Components.Keyframe{`0},System.TimeSpan,`0)">
-  MoveKeyframe(Keyframe&lt;T&gt;, TimeSpan, T)
+  <h3 id="EditSharp_Components_KeyframeTrack_1_MoveKeyframe_EditSharp_Components_Keyframe__0__EditSharp_Time__0_" data-uid="EditSharp.Components.KeyframeTrack`1.MoveKeyframe(EditSharp.Components.Keyframe{`0},EditSharp.Time,`0)">
+  MoveKeyframe(Keyframe&lt;T&gt;, Time, T)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L210"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -568,7 +568,7 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void MoveKeyframe(Keyframe&lt;T&gt; keyframe, TimeSpan newStart, T newValue)</code></pre>
+    <pre><code class="lang-csharp hljs">public void MoveKeyframe(Keyframe&lt;T&gt; keyframe, Time newStart, T newValue)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -576,7 +576,7 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
     <dt><code>keyframe</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;T&gt;</dt>
     <dd><p>The keyframe; one not on the track is ignored.</p>
 </dd>
-    <dt><code>newStart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>newStart</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>The new time, clamped to just inside its neighbours.</p>
 </dd>
     <dt><code>newValue</code> <span class="xref">T</span></dt>
@@ -630,8 +630,8 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
 
   <a id="EditSharp_Components_KeyframeTrack_1_SetHandle_" data-uid="EditSharp.Components.KeyframeTrack`1.SetHandle*"></a>
 
-  <h3 id="EditSharp_Components_KeyframeTrack_1_SetHandle_EditSharp_Components_Keyframe__0__System_Boolean_System_TimeSpan__0_" data-uid="EditSharp.Components.KeyframeTrack`1.SetHandle(EditSharp.Components.Keyframe{`0},System.Boolean,System.TimeSpan,`0)">
-  SetHandle(Keyframe&lt;T&gt;, bool, TimeSpan, T)
+  <h3 id="EditSharp_Components_KeyframeTrack_1_SetHandle_EditSharp_Components_Keyframe__0__System_Boolean_EditSharp_Time__0_" data-uid="EditSharp.Components.KeyframeTrack`1.SetHandle(EditSharp.Components.Keyframe{`0},System.Boolean,EditSharp.Time,`0)">
+  SetHandle(Keyframe&lt;T&gt;, bool, Time, T)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L249"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -640,7 +640,7 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetHandle(Keyframe&lt;T&gt; keyframe, bool isInHandle, TimeSpan timeOffset, T valueOffset)</code></pre>
+    <pre><code class="lang-csharp hljs">public void SetHandle(Keyframe&lt;T&gt; keyframe, bool isInHandle, Time timeOffset, T valueOffset)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -651,7 +651,7 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
     <dt><code>isInHandle</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>True for the arriving handle, false for the leaving one.</p>
 </dd>
-    <dt><code>timeOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>timeOffset</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>How far the handle reaches toward the neighbour on its side, clamped to that neighbour.</p>
 </dd>
     <dt><code>valueOffset</code> <span class="xref">T</span></dt>
@@ -666,7 +666,7 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
 
 
 
-  <h4 class="section" id="EditSharp_Components_KeyframeTrack_1_SetHandle_EditSharp_Components_Keyframe__0__System_Boolean_System_TimeSpan__0__remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Components_KeyframeTrack_1_SetHandle_EditSharp_Components_Keyframe__0__System_Boolean_EditSharp_Time__0__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>An Auto side becomes Free. A Smooth side mirrors the other handle through the keyframe, so the curve stays continuous.</p>
 </div>
 
@@ -717,8 +717,8 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
 
   <a id="EditSharp_Components_KeyframeTrack_1_Shift_" data-uid="EditSharp.Components.KeyframeTrack`1.Shift*"></a>
 
-  <h3 id="EditSharp_Components_KeyframeTrack_1_Shift_System_TimeSpan_" data-uid="EditSharp.Components.KeyframeTrack`1.Shift(System.TimeSpan)">
-  Shift(TimeSpan)
+  <h3 id="EditSharp_Components_KeyframeTrack_1_Shift_EditSharp_Time_" data-uid="EditSharp.Components.KeyframeTrack`1.Shift(EditSharp.Time)">
+  Shift(Time)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L132"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -727,12 +727,12 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Shift(TimeSpan amount)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Shift(Time amount)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>amount</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>How far to move them; negative moves them earlier.</p>
 </dd>
   </dl>
@@ -744,7 +744,7 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
 
 
 
-  <h4 class="section" id="EditSharp_Components_KeyframeTrack_1_Shift_System_TimeSpan__remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Components_KeyframeTrack_1_Shift_EditSharp_Time__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Keyframes can end up before zero: a head trim leaves the ones it cut past at negative times, so extending back restores them.</p>
 </div>
 
@@ -753,9 +753,9 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
 
   <a id="EditSharp_Components_KeyframeTrack_1_SolveU_" data-uid="EditSharp.Components.KeyframeTrack`1.SolveU*"></a>
 
-  <h3 id="EditSharp_Components_KeyframeTrack_1_SolveU_System_TimeSpan_EditSharp_Components_Keyframe__0__EditSharp_Components_Keyframe__0__" data-uid="EditSharp.Components.KeyframeTrack`1.SolveU(System.TimeSpan,EditSharp.Components.Keyframe{`0},EditSharp.Components.Keyframe{`0})">
-  SolveU(TimeSpan, Keyframe&lt;T&gt;, Keyframe&lt;T&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L441"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Components_KeyframeTrack_1_SolveU_EditSharp_Time_EditSharp_Components_Keyframe__0__EditSharp_Components_Keyframe__0__" data-uid="EditSharp.Components.KeyframeTrack`1.SolveU(EditSharp.Time,EditSharp.Components.Keyframe{`0},EditSharp.Components.Keyframe{`0})">
+  SolveU(Time, Keyframe&lt;T&gt;, Keyframe&lt;T&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/KeyframeTrack.cs/#L459"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>How far through a segment a time is, in the curve's own parameter, taking the time handles into account.</p>
@@ -763,12 +763,12 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected static float SolveU(TimeSpan time, Keyframe&lt;T&gt; from, Keyframe&lt;T&gt; to)</code></pre>
+    <pre><code class="lang-csharp hljs">protected static double SolveU(Time time, Keyframe&lt;T&gt; from, Keyframe&lt;T&gt; to)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>time</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>A content time between the keyframes.</p>
 </dd>
     <dt><code>from</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;T&gt;</dt>
@@ -781,7 +781,7 @@ Class KeyframeTrack&lt;T&gt;  <a class="header-action link-secondary" title="Vie
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
     <dd><p>The parameter, from 0 at <code class="paramref">from</code> to 1 at <code class="paramref">to</code>.</p>
 </dd>
   </dl>

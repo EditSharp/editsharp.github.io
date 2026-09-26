@@ -135,7 +135,7 @@ public sealed class TextNode : VideoInputNode, IChoiceProvider</code></pre>
       <a class="xref" href="EditSharp.Components.Nodes.Input.VideoInputNode.html#EditSharp_Components_Nodes_Input_VideoInputNode_Ports">VideoInputNode.Ports</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Nodes.Input.VideoInputNode.html#EditSharp_Components_Nodes_Input_VideoInputNode_GetFrameAtAsync_System_TimeSpan_EditSharp_Components_Media_SourceMode_System_Int32_System_Int32_System_Threading_CancellationToken_">VideoInputNode.GetFrameAtAsync(TimeSpan, SourceMode, int, int, CancellationToken)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.Input.VideoInputNode.html#EditSharp_Components_Nodes_Input_VideoInputNode_GetFrameAtAsync_EditSharp_Time_EditSharp_Components_Media_SourceMode_System_Int32_System_Int32_System_Threading_CancellationToken_">VideoInputNode.GetFrameAtAsync(Time, SourceMode, int, int, CancellationToken)</a>
     </div>
     <div>
       <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_Start">InputNode.Start</a>
@@ -150,10 +150,10 @@ public sealed class TextNode : VideoInputNode, IChoiceProvider</code></pre>
       <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_GetUsableLengthAsync_System_Threading_CancellationToken_">InputNode.GetUsableLengthAsync(CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_TryGetNaturalLength_System_Nullable_System_TimeSpan___">InputNode.TryGetNaturalLength(out TimeSpan?)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_TryGetNaturalLength_System_Nullable_EditSharp_Time___">InputNode.TryGetNaturalLength(out Time?)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_TryGetUsableLength_System_Nullable_System_TimeSpan___">InputNode.TryGetUsableLength(out TimeSpan?)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_TryGetUsableLength_System_Nullable_EditSharp_Time___">InputNode.TryGetUsableLength(out Time?)</a>
     </div>
     <div>
       <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_InPoint">InputNode.InPoint</a>
@@ -569,7 +569,7 @@ public TextWrap Wrap { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Task&lt;TimeSpan?&gt; GetNaturalLengthAsync(CancellationToken ct = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public override Task&lt;Time?&gt; GetNaturalLengthAsync(CancellationToken ct = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -581,7 +581,7 @@ public TextWrap Wrap { get; set; }</code></pre>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="EditSharp.Time.html">Time</a>?&gt;</dt>
     <dd><p>Null.</p>
 </dd>
   </dl>

@@ -154,14 +154,14 @@ Class Playback  <a class="header-action link-secondary" title="View source" href
 
 
   <h2 id="EditSharp_Playback_Playback_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p><a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_Play_System_Nullable_System_TimeSpan__">Play(TimeSpan?)</a> starts a session: a video loop composites frames on its
+  <div class="markdown level0 remarks"><p><a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_Play_System_Nullable_EditSharp_Time__">Play(Time?)</a> starts a session: a video loop composites frames on its
 own GPU context and raises <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_VideoFrame">VideoFrame</a>, and the audio engine
 raises <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_AudioSample">AudioSample</a>. <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_PlaybackMode">PlaybackMode</a> decides which
 of the two sets the pace. <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_Pause">Pause()</a> holds a session with
 everything it has open; <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_Stop">Stop()</a> ends it. A negative
 <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_Speed">Speed</a> plays in reverse, reading proxies behind the playhead.</p>
 <p>
-<a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_ScrubToAsync_System_TimeSpan_System_Threading_CancellationToken_">ScrubToAsync(TimeSpan, CancellationToken)</a> shows one frame at any position while not
+<a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_ScrubToAsync_EditSharp_Time_System_Threading_CancellationToken_">ScrubToAsync(Time, CancellationToken)</a> shows one frame at any position while not
 playing; rapid calls cancel the ones before, so only the latest is
 delivered. Scrubbing and thumbnails share a second GPU context kept for
 this object's life. Sources are read as <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_RenderSettings">RenderSettings</a>'s
@@ -208,7 +208,7 @@ SourceMode says; nothing here builds proxies.
 
   <h3 id="EditSharp_Playback_Playback_PreservePitch" data-uid="EditSharp.Playback.Playback.PreservePitch">
   PreservePitch
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>How audio keeps its pitch when <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_Speed">Speed</a> isn't 1, reverse included. Read when a session starts.</p>
@@ -268,37 +268,6 @@ SourceMode says; nothing here builds proxies.
 
 
 
-  <h3 id="EditSharp_Playback_Playback_Speed" data-uid="EditSharp.Playback.Playback.Speed">
-  Speed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L64"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Timeline seconds per second of real time: 1 is normal, 2 double speed, negative plays in reverse. Can't be 0. Read when a session starts.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float Speed</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
   <h3 id="EditSharp_Playback_Playback_Timeline" data-uid="EditSharp.Playback.Playback.Timeline">
   Timeline
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L55"><i class="bi bi-code-slash"></i></a>
@@ -337,7 +306,7 @@ SourceMode says; nothing here builds proxies.
 
   <h3 id="EditSharp_Playback_Playback_Position" data-uid="EditSharp.Playback.Playback.Position">
   Position
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L109"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Where playback is on the timeline: moving while playing, or the last position played or scrubbed to.</p>
@@ -345,7 +314,7 @@ SourceMode says; nothing here builds proxies.
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TimeSpan Position { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Time Position { get; }</code></pre>
   </div>
 
 
@@ -354,13 +323,53 @@ SourceMode says; nothing here builds proxies.
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd></dd>
   </dl>
 
 
 
 
+  <h4 class="section" id="EditSharp_Playback_Playback_Position_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Always within the timeline; the clock reading ahead of the last frame at a high speed stops at the end.</p>
+</div>
+
+
+
+
+  <a id="EditSharp_Playback_Playback_Speed_" data-uid="EditSharp.Playback.Playback.Speed*"></a>
+
+  <h3 id="EditSharp_Playback_Playback_Speed" data-uid="EditSharp.Playback.Playback.Speed">
+  Speed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Timeline seconds per second of real time: 1 is normal, 2 double speed, negative plays in reverse.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Speed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="EditSharp_Playback_Playback_Speed_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Takes effect at once. In the same direction a session carries on at the new speed (audio already rendered
+ahead, up to <a class="xref" href="EditSharp.EditSharpConfig.html#EditSharp_EditSharpConfig_AudioLatency">AudioLatency</a>, plays out first); a change of direction restarts a
+playing session where it is, and a paused one when it resumes. <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_Play_System_Nullable_EditSharp_Time__">Play(Time?)</a> refuses 0.</p>
+</div>
 
 
 
@@ -369,7 +378,7 @@ SourceMode says; nothing here builds proxies.
 
   <h3 id="EditSharp_Playback_Playback_State" data-uid="EditSharp.Playback.Playback.State">
   State
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L112"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>What playback is doing.</p>
@@ -405,7 +414,7 @@ SourceMode says; nothing here builds proxies.
 
   <h3 id="EditSharp_Playback_Playback_Dispose" data-uid="EditSharp.Playback.Playback.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L1087"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L1164"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Stops playback and releases everything, the scrub GPU context included.</p>
@@ -435,7 +444,7 @@ SourceMode says; nothing here builds proxies.
 
   <h3 id="EditSharp_Playback_Playback_EndScrubbing" data-uid="EditSharp.Playback.Playback.EndScrubbing">
   EndScrubbing()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L637"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L669"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Ends a scrub session, closing its readers; the next scrub starts a new one.</p>
@@ -455,7 +464,7 @@ SourceMode says; nothing here builds proxies.
 
 
   <h4 class="section" id="EditSharp_Playback_Playback_EndScrubbing_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p><a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_Play_System_Nullable_System_TimeSpan__">Play(TimeSpan?)</a> calls it. The scrub GPU context is kept.</p>
+  <div class="markdown level1 remarks"><p><a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_Play_System_Nullable_EditSharp_Time__">Play(Time?)</a> calls it. The scrub GPU context is kept.</p>
 </div>
 
 
@@ -465,7 +474,7 @@ SourceMode says; nothing here builds proxies.
 
   <h3 id="EditSharp_Playback_Playback_OnAudioSample_EditSharp_Playback_AudioSampleEventArgs_" data-uid="EditSharp.Playback.Playback.OnAudioSample(EditSharp.Playback.AudioSampleEventArgs)">
   OnAudioSample(AudioSampleEventArgs)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L119"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Raises <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_AudioSample">AudioSample</a>.</p>
@@ -498,7 +507,7 @@ SourceMode says; nothing here builds proxies.
 
   <h3 id="EditSharp_Playback_Playback_OnEndReached_System_EventArgs_" data-uid="EditSharp.Playback.Playback.OnEndReached(System.EventArgs)">
   OnEndReached(EventArgs)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L139"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Raises <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_EndReached">EndReached</a>.</p>
@@ -531,7 +540,7 @@ SourceMode says; nothing here builds proxies.
 
   <h3 id="EditSharp_Playback_Playback_OnPlaybackStarted_System_EventArgs_" data-uid="EditSharp.Playback.Playback.OnPlaybackStarted(System.EventArgs)">
   OnPlaybackStarted(EventArgs)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L149"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Raises <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_PlaybackStarted">PlaybackStarted</a>.</p>
@@ -564,7 +573,7 @@ SourceMode says; nothing here builds proxies.
 
   <h3 id="EditSharp_Playback_Playback_OnVideoFrame_EditSharp_Playback_VideoFrameEventArgs_" data-uid="EditSharp.Playback.Playback.OnVideoFrame(EditSharp.Playback.VideoFrameEventArgs)">
   OnVideoFrame(VideoFrameEventArgs)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L129"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Raises <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_VideoFrame">VideoFrame</a>.</p>
@@ -597,7 +606,7 @@ SourceMode says; nothing here builds proxies.
 
   <h3 id="EditSharp_Playback_Playback_Pause" data-uid="EditSharp.Playback.Playback.Pause">
   Pause()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L267"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L299"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Pauses a playing session, keeping everything it has open.</p>
@@ -622,9 +631,9 @@ SourceMode says; nothing here builds proxies.
 
   <a id="EditSharp_Playback_Playback_Play_" data-uid="EditSharp.Playback.Playback.Play*"></a>
 
-  <h3 id="EditSharp_Playback_Playback_Play_System_Nullable_System_TimeSpan__" data-uid="EditSharp.Playback.Playback.Play(System.Nullable{System.TimeSpan})">
-  Play(TimeSpan?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L168"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Playback_Playback_Play_System_Nullable_EditSharp_Time__" data-uid="EditSharp.Playback.Playback.Play(System.Nullable{EditSharp.Time})">
+  Play(Time?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L199"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Starts playing, or resumes a paused session.</p>
@@ -632,12 +641,12 @@ SourceMode says; nothing here builds proxies.
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Play(TimeSpan? startPosition = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Play(Time? startPosition = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>startPosition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dt><code>startPosition</code> <a class="xref" href="EditSharp.Time.html">Time</a>?</dt>
     <dd><p>Where to start; null for <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_Position">Position</a>. Ignored when resuming in place.</p>
 </dd>
   </dl>
@@ -649,7 +658,7 @@ SourceMode says; nothing here builds proxies.
 
 
 
-  <h4 class="section" id="EditSharp_Playback_Playback_Play_System_Nullable_System_TimeSpan___remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Playback_Playback_Play_System_Nullable_EditSharp_Time___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Resuming continues in place unless a scrub moved the position while paused; then the session restarts from there. Starting a new session stops any other and ends scrubbing.</p>
 </div>
 
@@ -670,9 +679,9 @@ SourceMode says; nothing here builds proxies.
 
   <a id="EditSharp_Playback_Playback_RenderClipAudioPeaksAsync_" data-uid="EditSharp.Playback.Playback.RenderClipAudioPeaksAsync*"></a>
 
-  <h3 id="EditSharp_Playback_Playback_RenderClipAudioPeaksAsync_EditSharp_Components_Clips_AudioClip_System_TimeSpan_System_TimeSpan_System_Int32_System_Threading_CancellationToken_" data-uid="EditSharp.Playback.Playback.RenderClipAudioPeaksAsync(EditSharp.Components.Clips.AudioClip,System.TimeSpan,System.TimeSpan,System.Int32,System.Threading.CancellationToken)">
-  RenderClipAudioPeaksAsync(AudioClip, TimeSpan, TimeSpan, int, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L570"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Playback_Playback_RenderClipAudioPeaksAsync_EditSharp_Components_Clips_AudioClip_EditSharp_Time_EditSharp_Time_System_Int32_System_Threading_CancellationToken_" data-uid="EditSharp.Playback.Playback.RenderClipAudioPeaksAsync(EditSharp.Components.Clips.AudioClip,EditSharp.Time,EditSharp.Time,System.Int32,System.Threading.CancellationToken)">
+  RenderClipAudioPeaksAsync(AudioClip, Time, Time, int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L602"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>One audio clip's output on its own, as peaks for a waveform.</p>
@@ -680,7 +689,7 @@ SourceMode says; nothing here builds proxies.
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;AudioPeaks&gt; RenderClipAudioPeaksAsync(AudioClip clip, TimeSpan contentStart, TimeSpan contentDuration, int buckets, CancellationToken ct = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;AudioPeaks&gt; RenderClipAudioPeaksAsync(AudioClip clip, Time contentStart, Time contentDuration, int buckets, CancellationToken ct = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -688,10 +697,10 @@ SourceMode says; nothing here builds proxies.
     <dt><code>clip</code> <a class="xref" href="EditSharp.Components.Clips.AudioClip.html">AudioClip</a></dt>
     <dd><p>The clip.</p>
 </dd>
-    <dt><code>contentStart</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>contentStart</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>Where the stretch starts, in the clip's content time.</p>
 </dd>
-    <dt><code>contentDuration</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>contentDuration</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>How long the stretch is, in content time.</p>
 </dd>
     <dt><code>buckets</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
@@ -715,7 +724,7 @@ SourceMode says; nothing here builds proxies.
 
 
 
-  <h4 class="section" id="EditSharp_Playback_Playback_RenderClipAudioPeaksAsync_EditSharp_Components_Clips_AudioClip_System_TimeSpan_System_TimeSpan_System_Int32_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Playback_Playback_RenderClipAudioPeaksAsync_EditSharp_Components_Clips_AudioClip_EditSharp_Time_EditSharp_Time_System_Int32_System_Threading_CancellationToken__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>The clip's graph runs at 1x over its content, so the peaks line up with the content whatever the clip's speed. Sources are read once; nothing stays open between calls.</p>
 </div>
 
@@ -736,9 +745,9 @@ SourceMode says; nothing here builds proxies.
 
   <a id="EditSharp_Playback_Playback_RenderClipFrameAsync_" data-uid="EditSharp.Playback.Playback.RenderClipFrameAsync*"></a>
 
-  <h3 id="EditSharp_Playback_Playback_RenderClipFrameAsync_EditSharp_Components_Clips_VideoClip_System_TimeSpan_System_Int32_System_Int32_System_Threading_CancellationToken_" data-uid="EditSharp.Playback.Playback.RenderClipFrameAsync(EditSharp.Components.Clips.VideoClip,System.TimeSpan,System.Int32,System.Int32,System.Threading.CancellationToken)">
-  RenderClipFrameAsync(VideoClip, TimeSpan, int, int, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L490"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Playback_Playback_RenderClipFrameAsync_EditSharp_Components_Clips_VideoClip_EditSharp_Time_System_Int32_System_Int32_System_Threading_CancellationToken_" data-uid="EditSharp.Playback.Playback.RenderClipFrameAsync(EditSharp.Components.Clips.VideoClip,EditSharp.Time,System.Int32,System.Int32,System.Threading.CancellationToken)">
+  RenderClipFrameAsync(VideoClip, Time, int, int, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L522"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>One clip composited on its own, for thumbnails.</p>
@@ -746,7 +755,7 @@ SourceMode says; nothing here builds proxies.
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ClipFrame&gt; RenderClipFrameAsync(VideoClip clip, TimeSpan contentTime, int width, int height, CancellationToken ct = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;ClipFrame&gt; RenderClipFrameAsync(VideoClip clip, Time contentTime, int width, int height, CancellationToken ct = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -754,7 +763,7 @@ SourceMode says; nothing here builds proxies.
     <dt><code>clip</code> <a class="xref" href="EditSharp.Components.Clips.VideoClip.html">VideoClip</a></dt>
     <dd><p>The clip.</p>
 </dd>
-    <dt><code>contentTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>contentTime</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>The clip's content time to show.</p>
 </dd>
     <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
@@ -781,7 +790,7 @@ SourceMode says; nothing here builds proxies.
 
 
 
-  <h4 class="section" id="EditSharp_Playback_Playback_RenderClipFrameAsync_EditSharp_Components_Clips_VideoClip_System_TimeSpan_System_Int32_System_Int32_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Playback_Playback_RenderClipFrameAsync_EditSharp_Components_Clips_VideoClip_EditSharp_Time_System_Int32_System_Int32_System_Threading_CancellationToken__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Media is read once, in RenderSettings.SourceMode, so nothing stays open between calls.</p>
 </div>
 
@@ -802,9 +811,9 @@ SourceMode says; nothing here builds proxies.
 
   <a id="EditSharp_Playback_Playback_ScrubToAsync_" data-uid="EditSharp.Playback.Playback.ScrubToAsync*"></a>
 
-  <h3 id="EditSharp_Playback_Playback_ScrubToAsync_System_TimeSpan_System_Threading_CancellationToken_" data-uid="EditSharp.Playback.Playback.ScrubToAsync(System.TimeSpan,System.Threading.CancellationToken)">
-  ScrubToAsync(TimeSpan, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L337"><i class="bi bi-code-slash"></i></a>
+  <h3 id="EditSharp_Playback_Playback_ScrubToAsync_EditSharp_Time_System_Threading_CancellationToken_" data-uid="EditSharp.Playback.Playback.ScrubToAsync(EditSharp.Time,System.Threading.CancellationToken)">
+  ScrubToAsync(Time, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L369"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Shows the frame at a position, delivered through <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_VideoFrame">VideoFrame</a>.</p>
@@ -812,12 +821,12 @@ SourceMode says; nothing here builds proxies.
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task ScrubToAsync(TimeSpan position, CancellationToken ct = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task ScrubToAsync(Time position, CancellationToken ct = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>position</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>position</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>The timeline time to show.</p>
 </dd>
     <dt><code>ct</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
@@ -837,7 +846,7 @@ SourceMode says; nothing here builds proxies.
 
 
 
-  <h4 class="section" id="EditSharp_Playback_Playback_ScrubToAsync_System_TimeSpan_System_Threading_CancellationToken__remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Playback_Playback_ScrubToAsync_EditSharp_Time_System_Threading_CancellationToken__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Safe to call on every pointer move: each call cancels any unfinished one,
 and a cancelled call completes without an exception. <a class="xref" href="EditSharp.Playback.Playback.html#EditSharp_Playback_Playback_Position">Position</a>
 moves at once, even if the frame never arrives. Failures are logged, not
@@ -864,7 +873,7 @@ Scrubbing while the frame is composed.</p>
 
   <h3 id="EditSharp_Playback_Playback_Stop" data-uid="EditSharp.Playback.Playback.Stop">
   Stop()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L284"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L316"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Ends the session. Position stays where it stopped.</p>
@@ -894,7 +903,7 @@ Scrubbing while the frame is composed.</p>
 
   <h3 id="EditSharp_Playback_Playback_TapAudio_System_Guid_System_Action_EditSharp_Audio_AudioTapBlock__" data-uid="EditSharp.Playback.Playback.TapAudio(System.Guid,System.Action{EditSharp.Audio.AudioTapBlock})">
   TapAudio(Guid, Action&lt;AudioTapBlock&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L103"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Calls <code class="paramref">onBlock</code> with every block of audio passing a point in the mix.</p>
@@ -942,7 +951,7 @@ Scrubbing while the frame is composed.</p>
 
   <h3 id="EditSharp_Playback_Playback_AudioSample" data-uid="EditSharp.Playback.Playback.AudioSample">
   AudioSample
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L115"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Raised with each block of mixed audio while playing, on a background thread.</p>
@@ -973,7 +982,7 @@ Scrubbing while the frame is composed.</p>
 
   <h3 id="EditSharp_Playback_Playback_EndReached" data-uid="EditSharp.Playback.Playback.EndReached">
   EndReached
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L135"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Raised when playback reaches the end of the timeline (its start, in reverse) and stops.</p>
@@ -1004,7 +1013,7 @@ Scrubbing while the frame is composed.</p>
 
   <h3 id="EditSharp_Playback_Playback_PlaybackStarted" data-uid="EditSharp.Playback.Playback.PlaybackStarted">
   PlaybackStarted
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L145"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Raised when a session has its sources ready and really starts moving.</p>
@@ -1035,7 +1044,7 @@ Scrubbing while the frame is composed.</p>
 
   <h3 id="EditSharp_Playback_Playback_VideoFrame" data-uid="EditSharp.Playback.Playback.VideoFrame">
   VideoFrame
-  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Playback/Playback.cs/#L125"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Raised with each frame shown, while playing or when a scrub finishes, on a background thread.</p>

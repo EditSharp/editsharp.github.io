@@ -158,8 +158,8 @@ Class SourceProblem  <a class="header-action link-secondary" title="View source"
 
   <a id="EditSharp_Rendering_SourceProblem__ctor_" data-uid="EditSharp.Rendering.SourceProblem.#ctor*"></a>
 
-  <h3 id="EditSharp_Rendering_SourceProblem__ctor_System_Guid_System_String_EditSharp_Components_Media_SourceUnavailableReason_System_String_System_TimeSpan_System_TimeSpan_System_Int32_" data-uid="EditSharp.Rendering.SourceProblem.#ctor(System.Guid,System.String,EditSharp.Components.Media.SourceUnavailableReason,System.String,System.TimeSpan,System.TimeSpan,System.Int32)">
-  SourceProblem(Guid, string, SourceUnavailableReason, string, TimeSpan, TimeSpan, int)
+  <h3 id="EditSharp_Rendering_SourceProblem__ctor_System_Guid_System_String_EditSharp_Components_Media_SourceUnavailableReason_System_String_EditSharp_Time_EditSharp_Time_System_Int32_" data-uid="EditSharp.Rendering.SourceProblem.#ctor(System.Guid,System.String,EditSharp.Components.Media.SourceUnavailableReason,System.String,EditSharp.Time,EditSharp.Time,System.Int32)">
+  SourceProblem(Guid, string, SourceUnavailableReason, string, Time, Time, int)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Rendering/RenderReport.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -168,7 +168,7 @@ Class SourceProblem  <a class="header-action link-secondary" title="View source"
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SourceProblem(Guid NodeId, string Source, SourceUnavailableReason Reason, string Message, TimeSpan FirstAt, TimeSpan LastAt, int Frames)</code></pre>
+    <pre><code class="lang-csharp hljs">public SourceProblem(Guid NodeId, string Source, SourceUnavailableReason Reason, string Message, Time FirstAt, Time LastAt, int Frames)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -185,10 +185,10 @@ Class SourceProblem  <a class="header-action link-secondary" title="View source"
     <dt><code>Message</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>The first failure's message.</p>
 </dd>
-    <dt><code>FirstAt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>FirstAt</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>The timeline time of the first failure.</p>
 </dd>
-    <dt><code>LastAt</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>LastAt</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>The timeline time of the last failure.</p>
 </dd>
     <dt><code>Frames</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
@@ -223,7 +223,7 @@ Class SourceProblem  <a class="header-action link-secondary" title="View source"
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TimeSpan FirstAt { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Time FirstAt { get; init; }</code></pre>
   </div>
 
 
@@ -232,7 +232,7 @@ Class SourceProblem  <a class="header-action link-secondary" title="View source"
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd></dd>
   </dl>
 
@@ -287,7 +287,7 @@ Class SourceProblem  <a class="header-action link-secondary" title="View source"
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TimeSpan LastAt { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Time LastAt { get; init; }</code></pre>
   </div>
 
 
@@ -296,7 +296,7 @@ Class SourceProblem  <a class="header-action link-secondary" title="View source"
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd></dd>
   </dl>
 

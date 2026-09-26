@@ -207,7 +207,7 @@ Class Channel  <a class="header-action link-secondary" title="View source" href=
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TimeSpan End { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Time End { get; }</code></pre>
   </div>
 
 
@@ -216,7 +216,7 @@ Class Channel  <a class="header-action link-secondary" title="View source" href=
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd></dd>
   </dl>
 
@@ -592,8 +592,8 @@ public string Name { get; set; }</code></pre>
 
   <a id="EditSharp_Components_Channels_Channel_RemoveRange_" data-uid="EditSharp.Components.Channels.Channel.RemoveRange*"></a>
 
-  <h3 id="EditSharp_Components_Channels_Channel_RemoveRange_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.Channels.Channel.RemoveRange(System.TimeSpan,System.TimeSpan)">
-  RemoveRange(TimeSpan, TimeSpan)
+  <h3 id="EditSharp_Components_Channels_Channel_RemoveRange_EditSharp_Time_EditSharp_Time_" data-uid="EditSharp.Components.Channels.Channel.RemoveRange(EditSharp.Time,EditSharp.Time)">
+  RemoveRange(Time, Time)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L242"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -602,15 +602,15 @@ public string Name { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void RemoveRange(TimeSpan start, TimeSpan end)</code></pre>
+    <pre><code class="lang-csharp hljs">public void RemoveRange(Time start, Time end)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>start</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>Where the range starts.</p>
 </dd>
-    <dt><code>end</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>end</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>Where it ends; an empty or reversed range does nothing.</p>
 </dd>
   </dl>
@@ -622,7 +622,7 @@ public string Name { get; set; }</code></pre>
 
 
 
-  <h4 class="section" id="EditSharp_Components_Channels_Channel_RemoveRange_System_TimeSpan_System_TimeSpan__remarks">Remarks</h4>
+  <h4 class="section" id="EditSharp_Components_Channels_Channel_RemoveRange_EditSharp_Time_EditSharp_Time__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>A clip wholly inside goes, one across an edge is trimmed to it, and one across both is split around the range.</p>
 </div>
 
@@ -712,8 +712,8 @@ public string Name { get; set; }</code></pre>
 
   <a id="EditSharp_Components_Channels_Channel_RippleRemoveRange_" data-uid="EditSharp.Components.Channels.Channel.RippleRemoveRange*"></a>
 
-  <h3 id="EditSharp_Components_Channels_Channel_RippleRemoveRange_System_TimeSpan_System_TimeSpan_" data-uid="EditSharp.Components.Channels.Channel.RippleRemoveRange(System.TimeSpan,System.TimeSpan)">
-  RippleRemoveRange(TimeSpan, TimeSpan)
+  <h3 id="EditSharp_Components_Channels_Channel_RippleRemoveRange_EditSharp_Time_EditSharp_Time_" data-uid="EditSharp.Components.Channels.Channel.RippleRemoveRange(EditSharp.Time,EditSharp.Time)">
+  RippleRemoveRange(Time, Time)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Channels/Channel.cs/#L257"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -722,15 +722,15 @@ public string Name { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void RippleRemoveRange(TimeSpan start, TimeSpan end)</code></pre>
+    <pre><code class="lang-csharp hljs">public void RippleRemoveRange(Time start, Time end)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>start</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>Where the range starts.</p>
 </dd>
-    <dt><code>end</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>end</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>Where it ends; an empty or reversed range does nothing.</p>
 </dd>
   </dl>

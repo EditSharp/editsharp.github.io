@@ -152,10 +152,10 @@ Class VideoInputNode  <a class="header-action link-secondary" title="View source
       <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_GetUsableLengthAsync_System_Threading_CancellationToken_">InputNode.GetUsableLengthAsync(CancellationToken)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_TryGetNaturalLength_System_Nullable_System_TimeSpan___">InputNode.TryGetNaturalLength(out TimeSpan?)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_TryGetNaturalLength_System_Nullable_EditSharp_Time___">InputNode.TryGetNaturalLength(out Time?)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_TryGetUsableLength_System_Nullable_System_TimeSpan___">InputNode.TryGetUsableLength(out TimeSpan?)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_TryGetUsableLength_System_Nullable_EditSharp_Time___">InputNode.TryGetUsableLength(out Time?)</a>
     </div>
     <div>
       <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_InPoint">InputNode.InPoint</a>
@@ -176,10 +176,10 @@ Class VideoInputNode  <a class="header-action link-secondary" title="View source
       <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_ReferencedMedia_System_Guid_">InputNode.ReferencedMedia(Guid)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_ResolveWindow_System_Nullable_System_TimeSpan__">InputNode.ResolveWindow(TimeSpan?)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_ResolveWindow_System_Nullable_EditSharp_Time__">InputNode.ResolveWindow(Time?)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_ToMaterialTime_System_TimeSpan_System_Nullable_System_TimeSpan__">InputNode.ToMaterialTime(TimeSpan, TimeSpan?)</a>
+      <a class="xref" href="EditSharp.Components.Nodes.InputNode.html#EditSharp_Components_Nodes_InputNode_ToMaterialTime_EditSharp_Time_System_Nullable_EditSharp_Time__">InputNode.ToMaterialTime(Time, Time?)</a>
     </div>
     <div>
       <a class="xref" href="EditSharp.Components.Nodes.Node.html#EditSharp_Components_Nodes_Node_Id">Node.Id</a>
@@ -270,8 +270,8 @@ so the node stays plain data.</p>
 
   <a id="EditSharp_Components_Nodes_Input_VideoInputNode_GetFrameAtAsync_" data-uid="EditSharp.Components.Nodes.Input.VideoInputNode.GetFrameAtAsync*"></a>
 
-  <h3 id="EditSharp_Components_Nodes_Input_VideoInputNode_GetFrameAtAsync_System_TimeSpan_EditSharp_Components_Media_SourceMode_System_Int32_System_Int32_System_Threading_CancellationToken_" data-uid="EditSharp.Components.Nodes.Input.VideoInputNode.GetFrameAtAsync(System.TimeSpan,EditSharp.Components.Media.SourceMode,System.Int32,System.Int32,System.Threading.CancellationToken)">
-  GetFrameAtAsync(TimeSpan, SourceMode, int, int, CancellationToken)
+  <h3 id="EditSharp_Components_Nodes_Input_VideoInputNode_GetFrameAtAsync_EditSharp_Time_EditSharp_Components_Media_SourceMode_System_Int32_System_Int32_System_Threading_CancellationToken_" data-uid="EditSharp.Components.Nodes.Input.VideoInputNode.GetFrameAtAsync(EditSharp.Time,EditSharp.Components.Media.SourceMode,System.Int32,System.Int32,System.Threading.CancellationToken)">
+  GetFrameAtAsync(Time, SourceMode, int, int, CancellationToken)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Nodes/Input/VideoInputNode.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -280,12 +280,12 @@ so the node stays plain data.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual Task&lt;SKImage&gt; GetFrameAtAsync(TimeSpan contentTime, SourceMode mode = SourceMode.SourceOnly, int maxWidth = 0, int maxHeight = 0, CancellationToken ct = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;SKImage&gt; GetFrameAtAsync(Time contentTime, SourceMode mode = SourceMode.SourceOnly, int maxWidth = 0, int maxHeight = 0, CancellationToken ct = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>contentTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>contentTime</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>Time since the in-point, at 1x.</p>
 </dd>
     <dt><code>mode</code> <a class="xref" href="EditSharp.Components.Media.SourceMode.html">SourceMode</a></dt>

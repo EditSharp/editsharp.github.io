@@ -250,8 +250,8 @@ Interface IAnimatable  <a class="header-action link-secondary" title="View sourc
 
   <a id="EditSharp_Components_IAnimatable_Evaluate_" data-uid="EditSharp.Components.IAnimatable.Evaluate*"></a>
 
-  <h3 id="EditSharp_Components_IAnimatable_Evaluate_System_TimeSpan_" data-uid="EditSharp.Components.IAnimatable.Evaluate(System.TimeSpan)">
-  Evaluate(TimeSpan)
+  <h3 id="EditSharp_Components_IAnimatable_Evaluate_EditSharp_Time_" data-uid="EditSharp.Components.IAnimatable.Evaluate(EditSharp.Time)">
+  Evaluate(Time)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L45"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -260,12 +260,12 @@ Interface IAnimatable  <a class="header-action link-secondary" title="View sourc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">object? Evaluate(TimeSpan clipRelativeTime)</code></pre>
+    <pre><code class="lang-csharp hljs">object? Evaluate(Time clipRelativeTime)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>clipRelativeTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>clipRelativeTime</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>Content time: since the clip's in-point, at 1x.</p>
 </dd>
   </dl>
@@ -322,8 +322,8 @@ Interface IAnimatable  <a class="header-action link-secondary" title="View sourc
 
   <a id="EditSharp_Components_IAnimatable_RemoveKeyframeAt_" data-uid="EditSharp.Components.IAnimatable.RemoveKeyframeAt*"></a>
 
-  <h3 id="EditSharp_Components_IAnimatable_RemoveKeyframeAt_System_TimeSpan_" data-uid="EditSharp.Components.IAnimatable.RemoveKeyframeAt(System.TimeSpan)">
-  RemoveKeyframeAt(TimeSpan)
+  <h3 id="EditSharp_Components_IAnimatable_RemoveKeyframeAt_EditSharp_Time_" data-uid="EditSharp.Components.IAnimatable.RemoveKeyframeAt(EditSharp.Time)">
+  RemoveKeyframeAt(Time)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -332,12 +332,12 @@ Interface IAnimatable  <a class="header-action link-secondary" title="View sourc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool RemoveKeyframeAt(TimeSpan time)</code></pre>
+    <pre><code class="lang-csharp hljs">bool RemoveKeyframeAt(Time time)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>time</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>When, in content time.</p>
 </dd>
   </dl>
@@ -361,8 +361,8 @@ Interface IAnimatable  <a class="header-action link-secondary" title="View sourc
 
   <a id="EditSharp_Components_IAnimatable_SetKeyframe_" data-uid="EditSharp.Components.IAnimatable.SetKeyframe*"></a>
 
-  <h3 id="EditSharp_Components_IAnimatable_SetKeyframe_System_TimeSpan_System_Object_" data-uid="EditSharp.Components.IAnimatable.SetKeyframe(System.TimeSpan,System.Object)">
-  SetKeyframe(TimeSpan, object?)
+  <h3 id="EditSharp_Components_IAnimatable_SetKeyframe_EditSharp_Time_System_Object_" data-uid="EditSharp.Components.IAnimatable.SetKeyframe(EditSharp.Time,System.Object)">
+  SetKeyframe(Time, object?)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -371,12 +371,12 @@ Interface IAnimatable  <a class="header-action link-secondary" title="View sourc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void SetKeyframe(TimeSpan time, object? value)</code></pre>
+    <pre><code class="lang-csharp hljs">void SetKeyframe(Time time, object? value)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>time</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>When, in content time.</p>
 </dd>
     <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
@@ -430,8 +430,8 @@ Interface IAnimatable  <a class="header-action link-secondary" title="View sourc
 
   <a id="EditSharp_Components_IAnimatable_ShiftKeyframes_" data-uid="EditSharp.Components.IAnimatable.ShiftKeyframes*"></a>
 
-  <h3 id="EditSharp_Components_IAnimatable_ShiftKeyframes_System_TimeSpan_" data-uid="EditSharp.Components.IAnimatable.ShiftKeyframes(System.TimeSpan)">
-  ShiftKeyframes(TimeSpan)
+  <h3 id="EditSharp_Components_IAnimatable_ShiftKeyframes_EditSharp_Time_" data-uid="EditSharp.Components.IAnimatable.ShiftKeyframes(EditSharp.Time)">
+  ShiftKeyframes(Time)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/Animatable.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -440,12 +440,12 @@ Interface IAnimatable  <a class="header-action link-secondary" title="View sourc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void ShiftKeyframes(TimeSpan amount)</code></pre>
+    <pre><code class="lang-csharp hljs">void ShiftKeyframes(Time amount)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>amount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>amount</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>How far to move them; negative moves them earlier.</p>
 </dd>
   </dl>

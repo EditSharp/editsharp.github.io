@@ -126,10 +126,10 @@ Class PositionTrack  <a class="header-action link-secondary" title="View source"
       <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_Keyframes">KeyframeTrack&lt;Vector2&gt;.Keyframes</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_AddKeyframe_System_TimeSpan__0_">KeyframeTrack&lt;Vector2&gt;.AddKeyframe(TimeSpan, Vector2)</a>
+      <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_AddKeyframe_EditSharp_Time__0_">KeyframeTrack&lt;Vector2&gt;.AddKeyframe(Time, Vector2)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_Shift_System_TimeSpan_">KeyframeTrack&lt;Vector2&gt;.Shift(TimeSpan)</a>
+      <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_Shift_EditSharp_Time_">KeyframeTrack&lt;Vector2&gt;.Shift(Time)</a>
     </div>
     <div>
       <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_Duplicate">KeyframeTrack&lt;Vector2&gt;.Duplicate()</a>
@@ -138,16 +138,16 @@ Class PositionTrack  <a class="header-action link-secondary" title="View source"
       <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_RemoveKeyframe_EditSharp_Components_Keyframe__0__">KeyframeTrack&lt;Vector2&gt;.RemoveKeyframe(Keyframe&lt;Vector2&gt;)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_MoveKeyframe_EditSharp_Components_Keyframe__0__System_TimeSpan__0_">KeyframeTrack&lt;Vector2&gt;.MoveKeyframe(Keyframe&lt;Vector2&gt;, TimeSpan, Vector2)</a>
+      <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_MoveKeyframe_EditSharp_Components_Keyframe__0__EditSharp_Time__0_">KeyframeTrack&lt;Vector2&gt;.MoveKeyframe(Keyframe&lt;Vector2&gt;, Time, Vector2)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_SetHandle_EditSharp_Components_Keyframe__0__System_Boolean_System_TimeSpan__0_">KeyframeTrack&lt;Vector2&gt;.SetHandle(Keyframe&lt;Vector2&gt;, bool, TimeSpan, Vector2)</a>
+      <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_SetHandle_EditSharp_Components_Keyframe__0__System_Boolean_EditSharp_Time__0_">KeyframeTrack&lt;Vector2&gt;.SetHandle(Keyframe&lt;Vector2&gt;, bool, Time, Vector2)</a>
     </div>
     <div>
       <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_SetTangentMode_EditSharp_Components_Keyframe__0__System_Boolean_EditSharp_Components_TangentMode_">KeyframeTrack&lt;Vector2&gt;.SetTangentMode(Keyframe&lt;Vector2&gt;, bool, TangentMode)</a>
     </div>
     <div>
-      <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_Evaluate_System_TimeSpan_">KeyframeTrack&lt;Vector2&gt;.Evaluate(TimeSpan)</a>
+      <a class="xref" href="EditSharp.Components.KeyframeTrack-1.html#EditSharp_Components_KeyframeTrack_1_Evaluate_EditSharp_Time_">KeyframeTrack&lt;Vector2&gt;.Evaluate(Time)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -186,8 +186,8 @@ bend a straight path.</p>
 
   <a id="EditSharp_Components_PositionTrack_AddSpatialKeyframe_" data-uid="EditSharp.Components.PositionTrack.AddSpatialKeyframe*"></a>
 
-  <h3 id="EditSharp_Components_PositionTrack_AddSpatialKeyframe_System_TimeSpan_System_Numerics_Vector2_" data-uid="EditSharp.Components.PositionTrack.AddSpatialKeyframe(System.TimeSpan,System.Numerics.Vector2)">
-  AddSpatialKeyframe(TimeSpan, Vector2)
+  <h3 id="EditSharp_Components_PositionTrack_AddSpatialKeyframe_EditSharp_Time_System_Numerics_Vector2_" data-uid="EditSharp.Components.PositionTrack.AddSpatialKeyframe(EditSharp.Time,System.Numerics.Vector2)">
+  AddSpatialKeyframe(Time, Vector2)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -196,12 +196,12 @@ bend a straight path.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SpatialKeyframe AddSpatialKeyframe(TimeSpan start, Vector2 value)</code></pre>
+    <pre><code class="lang-csharp hljs">public SpatialKeyframe AddSpatialKeyframe(Time start, Vector2 value)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>start</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>When, in content time.</p>
 </dd>
     <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
@@ -297,8 +297,8 @@ bend a straight path.</p>
 
   <a id="EditSharp_Components_PositionTrack_CreateKeyframe_" data-uid="EditSharp.Components.PositionTrack.CreateKeyframe*"></a>
 
-  <h3 id="EditSharp_Components_PositionTrack_CreateKeyframe_System_TimeSpan_System_Numerics_Vector2_" data-uid="EditSharp.Components.PositionTrack.CreateKeyframe(System.TimeSpan,System.Numerics.Vector2)">
-  CreateKeyframe(TimeSpan, Vector2)
+  <h3 id="EditSharp_Components_PositionTrack_CreateKeyframe_EditSharp_Time_System_Numerics_Vector2_" data-uid="EditSharp.Components.PositionTrack.CreateKeyframe(EditSharp.Time,System.Numerics.Vector2)">
+  CreateKeyframe(Time, Vector2)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -307,12 +307,12 @@ bend a straight path.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override Keyframe&lt;Vector2&gt; CreateKeyframe(TimeSpan start, Vector2 value)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override Keyframe&lt;Vector2&gt; CreateKeyframe(Time start, Vector2 value)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>start</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>start</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>When, in content time.</p>
 </dd>
     <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a></dt>
@@ -339,8 +339,8 @@ bend a straight path.</p>
 
   <a id="EditSharp_Components_PositionTrack_InterpolateSegment_" data-uid="EditSharp.Components.PositionTrack.InterpolateSegment*"></a>
 
-  <h3 id="EditSharp_Components_PositionTrack_InterpolateSegment_EditSharp_Components_Keyframe_System_Numerics_Vector2__EditSharp_Components_Keyframe_System_Numerics_Vector2__System_TimeSpan_" data-uid="EditSharp.Components.PositionTrack.InterpolateSegment(EditSharp.Components.Keyframe{System.Numerics.Vector2},EditSharp.Components.Keyframe{System.Numerics.Vector2},System.TimeSpan)">
-  InterpolateSegment(Keyframe&lt;Vector2&gt;, Keyframe&lt;Vector2&gt;, TimeSpan)
+  <h3 id="EditSharp_Components_PositionTrack_InterpolateSegment_EditSharp_Components_Keyframe_System_Numerics_Vector2__EditSharp_Components_Keyframe_System_Numerics_Vector2__EditSharp_Time_" data-uid="EditSharp.Components.PositionTrack.InterpolateSegment(EditSharp.Components.Keyframe{System.Numerics.Vector2},EditSharp.Components.Keyframe{System.Numerics.Vector2},EditSharp.Time)">
+  InterpolateSegment(Keyframe&lt;Vector2&gt;, Keyframe&lt;Vector2&gt;, Time)
   <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Components/PositionTrack.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -349,7 +349,7 @@ bend a straight path.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override Vector2 InterpolateSegment(Keyframe&lt;Vector2&gt; from, Keyframe&lt;Vector2&gt; to, TimeSpan time)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override Vector2 InterpolateSegment(Keyframe&lt;Vector2&gt; from, Keyframe&lt;Vector2&gt; to, Time time)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -360,7 +360,7 @@ bend a straight path.</p>
     <dt><code>to</code> <a class="xref" href="EditSharp.Components.Keyframe-1.html">Keyframe</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.numerics.vector2">Vector2</a>&gt;</dt>
     <dd><p>The later keyframe.</p>
 </dd>
-    <dt><code>time</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dt><code>time</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
     <dd><p>A content time between them.</p>
 </dd>
   </dl>

@@ -1,0 +1,2104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct Time | EditSharp </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct Time | EditSharp ">
+      
+      <meta name="description" content="A moment or a length of time, as a whole number of ticks.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/EditSharp/EditSharp/new/main/apiSpec/new?filename=EditSharp_Time.md&amp;value=---%0Auid%3A%20EditSharp.Time%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="EditSharp">
+            EditSharp
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="EditSharp.Time">
+
+
+
+  <h1 id="EditSharp_Time" data-uid="EditSharp.Time" class="text-break">
+Struct Time  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="EditSharp.html">EditSharp</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>EditSharp.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A moment or a length of time, as a whole number of ticks.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonConverter(typeof(TimeJsonConverter))]
+public readonly record struct Time : IComparable&lt;Time&gt;, IComparable, IEquatable&lt;Time&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable-1">IComparable</a>&lt;<a class="xref" href="EditSharp.Time.html">Time</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.icomparable">IComparable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="EditSharp.Time.html">Time</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="EditSharp_Time_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A tick is 1/254,016,000,000 of a second, so every common frame rate (including
+30000/1001) and every common sample rate is a whole number of ticks per frame or
+sample. A long holds about 420 days of ticks. Arithmetic is checked and throws
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a>, as <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> does.</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="EditSharp_Time__ctor_" data-uid="EditSharp.Time.#ctor*"></a>
+
+  <h3 id="EditSharp_Time__ctor_System_Int64_" data-uid="EditSharp.Time.#ctor(System.Int64)">
+  Time(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A moment or a length of time, as a whole number of ticks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Time(long Ticks)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Ticks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The number of ticks.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="EditSharp_Time__ctor_System_Int64__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A tick is 1/254,016,000,000 of a second, so every common frame rate (including
+30000/1001) and every common sample rate is a whole number of ticks per frame or
+sample. A long holds about 420 days of ticks. Arithmetic is checked and throws
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a>, as <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a> does.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="EditSharp_Time_TicksPerMillisecond" data-uid="EditSharp.Time.TicksPerMillisecond">
+  TicksPerMillisecond
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ticks in one millisecond.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const long TicksPerMillisecond = 254016000</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="EditSharp_Time_TicksPerSecond" data-uid="EditSharp.Time.TicksPerSecond">
+  TicksPerSecond
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ticks in one second.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const long TicksPerSecond = 254016000000</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="EditSharp_Time_MaxValue_" data-uid="EditSharp.Time.MaxValue*"></a>
+
+  <h3 id="EditSharp_Time_MaxValue" data-uid="EditSharp.Time.MaxValue">
+  MaxValue
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The latest time; also used for &quot;no limit&quot;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time MaxValue { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_Milliseconds_" data-uid="EditSharp.Time.Milliseconds*"></a>
+
+  <h3 id="EditSharp_Time_Milliseconds" data-uid="EditSharp.Time.Milliseconds">
+  Milliseconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The time in milliseconds, as the nearest double; for display.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Milliseconds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_MinValue_" data-uid="EditSharp.Time.MinValue*"></a>
+
+  <h3 id="EditSharp_Time_MinValue" data-uid="EditSharp.Time.MinValue">
+  MinValue
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The earliest time; also used for &quot;no limit&quot;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time MinValue { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_Seconds_" data-uid="EditSharp.Time.Seconds*"></a>
+
+  <h3 id="EditSharp_Time_Seconds" data-uid="EditSharp.Time.Seconds">
+  Seconds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The time in seconds, as the nearest double; for display and signal processing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Seconds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_Tick_" data-uid="EditSharp.Time.Tick*"></a>
+
+  <h3 id="EditSharp_Time_Tick" data-uid="EditSharp.Time.Tick">
+  Tick
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The shortest positive time: one tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time Tick { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_Ticks_" data-uid="EditSharp.Time.Ticks*"></a>
+
+  <h3 id="EditSharp_Time_Ticks" data-uid="EditSharp.Time.Ticks">
+  Ticks
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The number of ticks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long Ticks { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_Zero_" data-uid="EditSharp.Time.Zero*"></a>
+
+  <h3 id="EditSharp_Time_Zero" data-uid="EditSharp.Time.Zero">
+  Zero
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>No time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time Zero { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="EditSharp_Time_Abs_" data-uid="EditSharp.Time.Abs*"></a>
+
+  <h3 id="EditSharp_Time_Abs" data-uid="EditSharp.Time.Abs">
+  Abs()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The length of this time with its sign dropped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Time Abs()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The absolute time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_Clamp_" data-uid="EditSharp.Time.Clamp*"></a>
+
+  <h3 id="EditSharp_Time_Clamp_EditSharp_Time_EditSharp_Time_EditSharp_Time_" data-uid="EditSharp.Time.Clamp(EditSharp.Time,EditSharp.Time,EditSharp.Time)">
+  Clamp(Time, Time, Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A time held inside a range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time Clamp(Time value, Time min, Time max)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>value</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>min</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The earliest allowed.</p>
+</dd>
+    <dt><code>max</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The latest allowed.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The clamped time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_CompareTo_" data-uid="EditSharp.Time.CompareTo*"></a>
+
+  <h3 id="EditSharp_Time_CompareTo_EditSharp_Time_" data-uid="EditSharp.Time.CompareTo(EditSharp.Time)">
+  CompareTo(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes, follows, or occurs in the same position in the sort order as the other object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(Time other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>An object to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A value that indicates the relative order of the objects being compared. The return value has these meanings:</p>
+ <table><thead><tr><th class="term"> Value</th><th class="description"> Meaning</th></tr></thead><tbody><tr><td class="term"> Less than zero</td><td class="description"> This instance precedes <code class="paramref">other</code> in the sort order.</td></tr><tr><td class="term"> Zero</td><td class="description"> This instance occurs in the same position in the sort order as <code class="paramref">other</code>.</td></tr><tr><td class="term"> Greater than zero</td><td class="description"> This instance follows <code class="paramref">other</code> in the sort order.</td></tr></tbody></table>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_CompareTo_" data-uid="EditSharp.Time.CompareTo*"></a>
+
+  <h3 id="EditSharp_Time_CompareTo_System_Object_" data-uid="EditSharp.Time.CompareTo(System.Object)">
+  CompareTo(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L265"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares the current instance with another object of the same type and returns an integer that indicates whether the current instance precedes, follows, or occurs in the same position in the sort order as the other object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>An object to compare with this instance.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>A value that indicates the relative order of the objects being compared. The return value has these meanings:</p>
+ <table><thead><tr><th class="term"> Value</th><th class="description"> Meaning</th></tr></thead><tbody><tr><td class="term"> Less than zero</td><td class="description"> This instance precedes <code class="paramref">obj</code> in the sort order.</td></tr><tr><td class="term"> Zero</td><td class="description"> This instance occurs in the same position in the sort order as <code class="paramref">obj</code>.</td></tr><tr><td class="term"> Greater than zero</td><td class="description"> This instance follows <code class="paramref">obj</code> in the sort order.</td></tr></tbody></table>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd><p><code class="paramref">obj</code> is not the same type as this instance.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="EditSharp_Time_FrameLength_" data-uid="EditSharp.Time.FrameLength*"></a>
+
+  <h3 id="EditSharp_Time_FrameLength_EditSharp_Rational_" data-uid="EditSharp.Time.FrameLength(EditSharp.Rational)">
+  FrameLength(Rational)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The length of one frame at a frame rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time FrameLength(Rational fps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fps</code> <a class="xref" href="EditSharp.Rational.html">Rational</a></dt>
+    <dd><p>Frames per second; positive.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The length, rounded to the nearest tick; exact for every common rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_FromFrame_" data-uid="EditSharp.Time.FromFrame*"></a>
+
+  <h3 id="EditSharp_Time_FromFrame_System_Int64_EditSharp_Rational_" data-uid="EditSharp.Time.FromFrame(System.Int64,EditSharp.Rational)">
+  FromFrame(long, Rational)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>When a frame starts at a frame rate, rounded to the nearest tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time FromFrame(long frame, Rational fps)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>frame</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The frame index.</p>
+</dd>
+    <dt><code>fps</code> <a class="xref" href="EditSharp.Rational.html">Rational</a></dt>
+    <dd><p>Frames per second; positive.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_FromMilliseconds_" data-uid="EditSharp.Time.FromMilliseconds*"></a>
+
+  <h3 id="EditSharp_Time_FromMilliseconds_System_Double_" data-uid="EditSharp.Time.FromMilliseconds(System.Double)">
+  FromMilliseconds(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Milliseconds, rounded to the nearest tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time FromMilliseconds(double milliseconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>milliseconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The milliseconds.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a></dt>
+    <dd><p>The time doesn't fit, or isn't finite.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="EditSharp_Time_FromMilliseconds_" data-uid="EditSharp.Time.FromMilliseconds*"></a>
+
+  <h3 id="EditSharp_Time_FromMilliseconds_System_Int64_" data-uid="EditSharp.Time.FromMilliseconds(System.Int64)">
+  FromMilliseconds(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A whole number of milliseconds, exactly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time FromMilliseconds(long milliseconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>milliseconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The milliseconds.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_FromSamples_" data-uid="EditSharp.Time.FromSamples*"></a>
+
+  <h3 id="EditSharp_Time_FromSamples_System_Int64_System_Int64_" data-uid="EditSharp.Time.FromSamples(System.Int64,System.Int64)">
+  FromSamples(long, long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>When a sample starts at a sample rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time FromSamples(long sample, long sampleRate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sample</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The sample index.</p>
+</dd>
+    <dt><code>sampleRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>Samples per second; positive.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The time, rounded to the nearest tick; exact for every common rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_FromSeconds_" data-uid="EditSharp.Time.FromSeconds*"></a>
+
+  <h3 id="EditSharp_Time_FromSeconds_EditSharp_Rational_" data-uid="EditSharp.Time.FromSeconds(EditSharp.Rational)">
+  FromSeconds(Rational)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A fraction of seconds, rounded to the nearest tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time FromSeconds(Rational seconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seconds</code> <a class="xref" href="EditSharp.Rational.html">Rational</a></dt>
+    <dd><p>The seconds.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_FromSeconds_" data-uid="EditSharp.Time.FromSeconds*"></a>
+
+  <h3 id="EditSharp_Time_FromSeconds_System_Double_" data-uid="EditSharp.Time.FromSeconds(System.Double)">
+  FromSeconds(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Seconds, rounded to the nearest tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time FromSeconds(double seconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The seconds.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a></dt>
+    <dd><p>The time doesn't fit, or isn't finite.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="EditSharp_Time_FromSeconds_" data-uid="EditSharp.Time.FromSeconds*"></a>
+
+  <h3 id="EditSharp_Time_FromSeconds_System_Int64_" data-uid="EditSharp.Time.FromSeconds(System.Int64)">
+  FromSeconds(long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A whole number of seconds, exactly.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time FromSeconds(long seconds)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>seconds</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The seconds.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_FromTimeSpan_" data-uid="EditSharp.Time.FromTimeSpan*"></a>
+
+  <h3 id="EditSharp_Time_FromTimeSpan_System_TimeSpan_" data-uid="EditSharp.Time.FromTimeSpan(System.TimeSpan)">
+  FromTimeSpan(TimeSpan)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>, for times from .NET such as a stopwatch's.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time FromTimeSpan(TimeSpan span)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>span</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd><p>The span.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The time, rounded to the nearest tick.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_Max_" data-uid="EditSharp.Time.Max*"></a>
+
+  <h3 id="EditSharp_Time_Max_EditSharp_Time_EditSharp_Time_" data-uid="EditSharp.Time.Max(EditSharp.Time,EditSharp.Time)">
+  Max(Time, Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The later of two times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time Max(Time a, Time b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The first.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The second.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The larger.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_Min_" data-uid="EditSharp.Time.Min*"></a>
+
+  <h3 id="EditSharp_Time_Min_EditSharp_Time_EditSharp_Time_" data-uid="EditSharp.Time.Min(EditSharp.Time,EditSharp.Time)">
+  Min(Time, Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The earlier of two times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time Min(Time a, Time b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The first.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The second.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The smaller.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_MulDiv_" data-uid="EditSharp.Time.MulDiv*"></a>
+
+  <h3 id="EditSharp_Time_MulDiv_System_Int64_System_Int64_System_Int64_EditSharp_Rounding_" data-uid="EditSharp.Time.MulDiv(System.Int64,System.Int64,System.Int64,EditSharp.Rounding)">
+  MulDiv(long, long, long, Rounding)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L289"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>a × b ÷ c without overflowing in between, rounded as asked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static long MulDiv(long a, long b, long c, Rounding rounding)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The value.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The multiplier.</p>
+</dd>
+    <dt><code>c</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The divisor; not zero.</p>
+</dd>
+    <dt><code>rounding</code> <a class="xref" href="EditSharp.Rounding.html">Rounding</a></dt>
+    <dd><p>Which way to round.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The result.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a></dt>
+    <dd><p>The result doesn't fit a long.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="EditSharp_Time_Scale_" data-uid="EditSharp.Time.Scale*"></a>
+
+  <h3 id="EditSharp_Time_Scale_EditSharp_Rational_EditSharp_Rounding_" data-uid="EditSharp.Time.Scale(EditSharp.Rational,EditSharp.Rounding)">
+  Scale(Rational, Rounding)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This time multiplied by a fraction, rounded to the nearest tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Time Scale(Rational factor, Rounding rounding = Rounding.Nearest)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>factor</code> <a class="xref" href="EditSharp.Rational.html">Rational</a></dt>
+    <dd><p>The fraction.</p>
+</dd>
+    <dt><code>rounding</code> <a class="xref" href="EditSharp.Rounding.html">Rounding</a></dt>
+    <dd><p>Which way to round.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The scaled time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_Scale_" data-uid="EditSharp.Time.Scale*"></a>
+
+  <h3 id="EditSharp_Time_Scale_System_Double_" data-uid="EditSharp.Time.Scale(System.Double)">
+  Scale(double)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>This time multiplied by a double, rounded to the nearest tick; for rates that aren't exact, such as a playback shuttle speed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Time Scale(double factor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>factor</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The factor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The scaled time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a></dt>
+    <dd><p>The result doesn't fit, or isn't finite.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="EditSharp_Time_SnapToFrame_" data-uid="EditSharp.Time.SnapToFrame*"></a>
+
+  <h3 id="EditSharp_Time_SnapToFrame_EditSharp_Rational_EditSharp_Rounding_" data-uid="EditSharp.Time.SnapToFrame(EditSharp.Rational,EditSharp.Rounding)">
+  SnapToFrame(Rational, Rounding)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Snaps to the frame grid of a frame rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Time SnapToFrame(Rational fps, Rounding rounding = Rounding.Nearest)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fps</code> <a class="xref" href="EditSharp.Rational.html">Rational</a></dt>
+    <dd><p>Frames per second; positive.</p>
+</dd>
+    <dt><code>rounding</code> <a class="xref" href="EditSharp.Rounding.html">Rounding</a></dt>
+    <dd><p>Which way to snap.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The start of that frame.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_ToFrame_" data-uid="EditSharp.Time.ToFrame*"></a>
+
+  <h3 id="EditSharp_Time_ToFrame_EditSharp_Rational_EditSharp_Rounding_" data-uid="EditSharp.Time.ToFrame(EditSharp.Rational,EditSharp.Rounding)">
+  ToFrame(Rational, Rounding)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The frame at this time at a frame rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long ToFrame(Rational fps, Rounding rounding = Rounding.Floor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>fps</code> <a class="xref" href="EditSharp.Rational.html">Rational</a></dt>
+    <dd><p>Frames per second; positive.</p>
+</dd>
+    <dt><code>rounding</code> <a class="xref" href="EditSharp.Rounding.html">Rounding</a></dt>
+    <dd><p>Floor gives the frame showing at this time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The frame index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_ToSamples_" data-uid="EditSharp.Time.ToSamples*"></a>
+
+  <h3 id="EditSharp_Time_ToSamples_System_Int64_EditSharp_Rounding_" data-uid="EditSharp.Time.ToSamples(System.Int64,EditSharp.Rounding)">
+  ToSamples(long, Rounding)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sample at this time at a sample rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long ToSamples(long sampleRate, Rounding rounding = Rounding.Floor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sampleRate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>Samples per second; positive.</p>
+</dd>
+    <dt><code>rounding</code> <a class="xref" href="EditSharp.Rounding.html">Rounding</a></dt>
+    <dd><p>Floor gives the sample in progress at this time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The sample index.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_ToString_" data-uid="EditSharp.Time.ToString*"></a>
+
+  <h3 id="EditSharp_Time_ToString" data-uid="EditSharp.Time.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L270"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>&quot;[-]h:mm:ss.ffffff&quot;, in seconds to the microsecond.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The text.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_ToTimeSpan_" data-uid="EditSharp.Time.ToTimeSpan*"></a>
+
+  <h3 id="EditSharp_Time_ToTimeSpan" data-uid="EditSharp.Time.ToTimeSpan">
+  ToTimeSpan()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>As a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>, for .NET calls such as <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task.delay#system-threading-tasks-task-delay(system-timespan)">Delay(TimeSpan)</a>; rounded to its 100 ns ticks.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan ToTimeSpan()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd><p>The span; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan.maxvalue">MaxValue</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan.minvalue">MinValue</a> for this type's limits.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_ToTimeout_" data-uid="EditSharp.Time.ToTimeout*"></a>
+
+  <h3 id="EditSharp_Time_ToTimeout" data-uid="EditSharp.Time.ToTimeout">
+  ToTimeout()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>As a timeout for .NET waits such as <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task.wait#system-threading-tasks-task-wait(system-timespan)">Wait(TimeSpan)</a>: <a class="xref" href="EditSharp.Time.html#EditSharp_Time_MaxValue">MaxValue</a> waits forever, and a negative time doesn't wait.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan ToTimeout()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
+    <dd><p>The timeout.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="EditSharp_Time_op_Addition_" data-uid="EditSharp.Time.op_Addition*"></a>
+
+  <h3 id="EditSharp_Time_op_Addition_EditSharp_Time_EditSharp_Time_" data-uid="EditSharp.Time.op_Addition(EditSharp.Time,EditSharp.Time)">
+  operator +(Time, Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L181"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The sum of two times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time operator +(Time a, Time b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The first.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The second.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>a + b.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a></dt>
+    <dd><p>The sum doesn't fit.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="EditSharp_Time_op_Division_" data-uid="EditSharp.Time.op_Division*"></a>
+
+  <h3 id="EditSharp_Time_op_Division_EditSharp_Time_EditSharp_Rational_" data-uid="EditSharp.Time.op_Division(EditSharp.Time,EditSharp.Rational)">
+  operator /(Time, Rational)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A time divided by a fraction, rounded to the nearest tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time operator /(Time a, Rational divisor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>divisor</code> <a class="xref" href="EditSharp.Rational.html">Rational</a></dt>
+    <dd><p>The fraction; not zero.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>a ÷ divisor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_op_Division_" data-uid="EditSharp.Time.op_Division*"></a>
+
+  <h3 id="EditSharp_Time_op_Division_EditSharp_Time_EditSharp_Time_" data-uid="EditSharp.Time.op_Division(EditSharp.Time,EditSharp.Time)">
+  operator /(Time, Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L229"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How many times one time fits in another, as a double; for display and progress.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double operator /(Time a, Time b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The dividend.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The divisor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>a ÷ b.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_op_Division_" data-uid="EditSharp.Time.op_Division*"></a>
+
+  <h3 id="EditSharp_Time_op_Division_EditSharp_Time_System_Int64_" data-uid="EditSharp.Time.op_Division(EditSharp.Time,System.Int64)">
+  operator /(Time, long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L223"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A time divided into a whole number of parts, rounded toward zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time operator /(Time a, long n)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The number of parts.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>a ÷ n.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_op_GreaterThan_" data-uid="EditSharp.Time.op_GreaterThan*"></a>
+
+  <h3 id="EditSharp_Time_op_GreaterThan_EditSharp_Time_EditSharp_Time_" data-uid="EditSharp.Time.op_GreaterThan(EditSharp.Time,EditSharp.Time)">
+  operator &gt;(Time, Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L247"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether a is later than b.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;(Time a, Time b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The first.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The second.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when a is later.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_op_GreaterThanOrEqual_" data-uid="EditSharp.Time.op_GreaterThanOrEqual*"></a>
+
+  <h3 id="EditSharp_Time_op_GreaterThanOrEqual_EditSharp_Time_EditSharp_Time_" data-uid="EditSharp.Time.op_GreaterThanOrEqual(EditSharp.Time,EditSharp.Time)">
+  operator &gt;=(Time, Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L259"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether a is at or after b.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;=(Time a, Time b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The first.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The second.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when a is later or equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_op_LessThan_" data-uid="EditSharp.Time.op_LessThan*"></a>
+
+  <h3 id="EditSharp_Time_op_LessThan_EditSharp_Time_EditSharp_Time_" data-uid="EditSharp.Time.op_LessThan(EditSharp.Time,EditSharp.Time)">
+  operator &lt;(Time, Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether a is earlier than b.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(Time a, Time b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The first.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The second.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when a is earlier.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_op_LessThanOrEqual_" data-uid="EditSharp.Time.op_LessThanOrEqual*"></a>
+
+  <h3 id="EditSharp_Time_op_LessThanOrEqual_EditSharp_Time_EditSharp_Time_" data-uid="EditSharp.Time.op_LessThanOrEqual(EditSharp.Time,EditSharp.Time)">
+  operator &lt;=(Time, Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L253"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Whether a is at or before b.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;=(Time a, Time b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The first.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The second.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>True when a is earlier or equal.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_op_Modulus_" data-uid="EditSharp.Time.op_Modulus*"></a>
+
+  <h3 id="EditSharp_Time_op_Modulus_EditSharp_Time_EditSharp_Time_" data-uid="EditSharp.Time.op_Modulus(EditSharp.Time,EditSharp.Time)">
+  operator %(Time, Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>What's left over after dividing one time by another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time operator %(Time a, Time b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The dividend.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The divisor.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>a mod b, with the sign of a.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_op_Multiply_" data-uid="EditSharp.Time.op_Multiply*"></a>
+
+  <h3 id="EditSharp_Time_op_Multiply_EditSharp_Time_EditSharp_Rational_" data-uid="EditSharp.Time.op_Multiply(EditSharp.Time,EditSharp.Rational)">
+  operator *(Time, Rational)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A time multiplied by a fraction, rounded to the nearest tick.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time operator *(Time a, Rational factor)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>factor</code> <a class="xref" href="EditSharp.Rational.html">Rational</a></dt>
+    <dd><p>The fraction.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>a × factor.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_op_Multiply_" data-uid="EditSharp.Time.op_Multiply*"></a>
+
+  <h3 id="EditSharp_Time_op_Multiply_EditSharp_Time_System_Int64_" data-uid="EditSharp.Time.op_Multiply(EditSharp.Time,System.Int64)">
+  operator *(Time, long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L199"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A time repeated a whole number of times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time operator *(Time a, long n)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The time.</p>
+</dd>
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The count.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>a × n.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_op_Multiply_" data-uid="EditSharp.Time.op_Multiply*"></a>
+
+  <h3 id="EditSharp_Time_op_Multiply_System_Int64_EditSharp_Time_" data-uid="EditSharp.Time.op_Multiply(System.Int64,EditSharp.Time)">
+  operator *(long, Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>A time repeated a whole number of times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time operator *(long n, Time a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>n</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>The count.</p>
+</dd>
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>n × a.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="EditSharp_Time_op_Subtraction_" data-uid="EditSharp.Time.op_Subtraction*"></a>
+
+  <h3 id="EditSharp_Time_op_Subtraction_EditSharp_Time_EditSharp_Time_" data-uid="EditSharp.Time.op_Subtraction(EditSharp.Time,EditSharp.Time)">
+  operator -(Time, Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L188"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The difference of two times.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time operator -(Time a, Time b)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The first.</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The second.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>a - b.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.overflowexception">OverflowException</a></dt>
+    <dd><p>The difference doesn't fit.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="EditSharp_Time_op_UnaryNegation_" data-uid="EditSharp.Time.op_UnaryNegation*"></a>
+
+  <h3 id="EditSharp_Time_op_UnaryNegation_EditSharp_Time_" data-uid="EditSharp.Time.op_UnaryNegation(EditSharp.Time)">
+  operator -(Time)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L193"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The negated time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Time operator -(Time a)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>a</code> <a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>The time.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="EditSharp.Time.html">Time</a></dt>
+    <dd><p>-a.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/EditSharp/EditSharp/blob/main/Time.cs/#L29" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
